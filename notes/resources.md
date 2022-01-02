@@ -16,6 +16,8 @@
 <h1>single ui elements</h1>
 
 * https://collectui.com/
+* https://purecss.io/start/
+* https://freefrontend.com/
 
 <h1>logo</h1>
 
