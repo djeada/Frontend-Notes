@@ -10,6 +10,10 @@
   - Keep program internals inside the program.
 4. Don't complicate users tasks.
 5. Try it out on users, then fix it!
+6. Presenting inforamtion poorly
+  - Too many details.
+  - Easily missed information.
+  - Unexpected behaviour.
 
 <h1>What to avoid</h1>
 
@@ -24,3 +28,22 @@
   - Usiang a checkbox for non-ON/OFF setting
   - Using tabs as radiobuttons
   - Too many tabs
+4. Providing faulty feedback.
+  - Buttons that trigger on mouse down.
+  - Ambigous selection
+  - Not showing busy cursor
+5. Abusing text fields.
+  - Using text fields for read-only data.
+  - Overusing text fields.
+6. Abusing dialog boxes.
+  - Too many levels of dialog boxes.
+  - Cancel button doesn't cancel.
+  - It is unclear how to quit the dialog box.
+
+<h1>Text</h1>
+
+1. Unprofessional writing
+  - Inconsistent terminology
+  - Unclear messages
+  - Unfriendly messages and labels
+2. Misleading titles and labels
