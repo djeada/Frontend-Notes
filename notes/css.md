@@ -4,6 +4,33 @@
 * The "adjectives" of the web
 * Takes the boring, ugly HTML and makes it looks like we want.
 
+Stylesheets allow us to include predefined styles and reuse them across HTML documents
+they may be included from predefined libraries (e.g. _Bootstrap_) or created manually
+
+## Inclusion
+
+example:
+
+```html
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/picnic"
+/>
+```
+
+usually in the _head_ of a document
+
+## CSS Libraries
+
+CSS Libraries:
+
+- _Picnic CSS_: simple CSS library, doesn't use JavaScript - [website](https://picnicss.com/), [CDN](https://cdn.jsdelivr.net/npm/picnic)
+- _Bootstrap_: widely used CSS library with many themes - [website](https://getbootstrap.com/), [CDN for CSS](https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.css), [CDN for JS](https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.js)
+- _Semantic UI_ - [website](https://semantic-ui.com), [CDN for CSS](https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.css), [CDN for JS](https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.js)
+- _Foundation_ - [website](https://get.foundation/sites/docs/), [CDN for CSS](https://cdn.jsdelivr.net/npm/foundation-sites/dist/css/foundation.css), [CDN for JS](https://cdn.jsdelivr.net/npm/foundation-sites/dist/js/foundation.js)
+- _Tailwind_ - [website](https://tailwindcss.com/), [CDN](https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css)
+
+
 <h1>The basic rule</h1>
 
 selector {
@@ -774,3 +801,129 @@ h1 {
 id's > classes, attributes, pseudo-classe > elements, pseudo-elements
 
 https://specificity.keegan.st/
+	
+
+## Media queries
+
+possibility to query the screen size and orientation (amongst others)
+
+## Media queries
+
+```css
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 800px) {
+  .menu {
+    flex-direction: row;
+  }
+}
+```
+
+## Media queries
+
+```css
+@media (orientation: landscape) {
+  .layout {
+    flex-direction: row;
+  }
+}
+```
+
+# Transformations
+
+## Transformations
+
+```css
+#element1 {
+  transform: translsate(100px, 0);
+}
+```
+
+## Transformations
+
+```css
+#element2 {
+  transform: translate(100px, 0) rotate(45deg);
+  transform-origin: 0 0;
+}
+```
+
+element will be rotated by 45 degrees first, then translated to the right by 100 pixels
+
+center of rotation: top left corner of the element
+	
+# Transitions
+
+## Transitions
+
+the change of some CSS properties can be animated:
+
+```css
+#animated {
+  transition: background-color: 3s, margin-top: 1s;
+}
+```
+
+## Example: transition on hover
+
+```css
+div.box {
+  width: 40px;
+  height: 40px;
+  background-color: blue;
+  transform: rotate(0);
+  transition: transform 9s, background-color 9s;
+}
+div.box:hover {
+  background-color: red;
+  transform: rotate(360deg) scale(2);
+  transition: transform 0.5s, background-color 0.5s;
+}
+```
+
+## Example: game
+
+```css
+div {
+  width: 40px;
+  height: 40px;
+  background-color: blue;
+  transform: translate(0, 0) rotate(0);
+  transition: transform 9s, background-color 9s;
+}
+div:hover {
+  background-color: red;
+  transform: translate(200px, 0) rotate(360deg);
+  transition: transform 3s, background-color 3s;
+}
+```
+
+## Task: dropdown
+
+Dropdown that becomes active on button click
+
+HTML template:
+
+```html
+<div id="dropdown">dropdown</div>
+<button
+  id="dropdown-button"
+  onclick="dropdown.className = 'active'"
+>
+  menu
+</button>
+```
+
+## Task: overlay on hover
+
+## Task: Animating spoon and fork
+
+<figure style="width: 50%; margin: 0 auto">
+  <img src="assets/spoon-fork-animated.svg" />
+</figure>
+
+Note: we are using CSS transformations, not SVG transformations; we must set `transform-origin` separately
+
