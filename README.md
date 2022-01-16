@@ -1,8 +1,6 @@
 # Front-end-notes
 Notes on front end development.
 
-Coppies of fameous websties.
-
 1. Introduction to HTML
 2. Introduction to CSS
 3. Special effects using CSS3
