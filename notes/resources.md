@@ -13,7 +13,7 @@
 * https://freehtml5.co/
 * https://onepagelove.com/
 
-<h1>single ui elements</h1>
+<h1>ui components</h1>
 
 * https://collectui.com/
 * https://purecss.io/start/
