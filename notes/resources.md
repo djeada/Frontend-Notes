@@ -41,6 +41,7 @@
 * https://meshgradient.com/
 * https://www.grabient.com/
 * https://gradienthunt.com/
+* https://meshy.uxie.io/
 
 <h1>css generators</h1>
 
@@ -48,6 +49,10 @@
 * https://wweb.dev/resources/css-separator-generator/
 * https://grid.layoutit.com/
 
+<h1>flow charts</h1>
+
+* https://www.flowmapp.com/
+* 
 
 <h1>utility</h1>
 
