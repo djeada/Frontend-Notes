@@ -19,6 +19,7 @@ Biblography
 * https://www.minimamente.com/project/magic/
 * https://www.html5rocks.com/en/mobile/responsivedesign/
 * https://www.nngroup.com/articles/usability-101-introduction-to-usability/
+* https://principles.design/
 * https://lawsofux.com/
 * https://sass-lang.com/guide
 * https://youtu.be/erA1Q0jmO4A
