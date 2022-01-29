@@ -927,3 +927,56 @@ HTML template:
 
 Note: we are using CSS transformations, not SVG transformations; we must set `transform-origin` separately
 
+## Best practices
+
+
+Short list of HTML best practices. Sources are afer the CSS list. 
+
+* use HTML5
+* use the doctype
+* Don't use XML Declaration
+* validate but not validate!
+* define character encoding `<meta charset="utf-8">`
+* Semantics
+* Use `P` tags for paragraphs over multiple `BR`
+* use `BLOCKQUOTE` when  appropriate
+* use `LABEL` elements with the `FOR` attribute set
+* use CSS where possible; includes `INPUT` size attribute
+* **Do not use TABLES for layout**
+* user [microformats](http://microformats.org/) where possible and helps
+* use `THEAD` `TBODY`
+* use `TH` tags for table header elements
+* use CSS to transform text; headlines use title case. 
+* quote attributes ; double quote is preference
+* Don't mix quotation marks
+* use UTF-8
+* omit type tag for CSS link tag
+* define `TITLE`
+* define the `BODY` tag ; follows explicit defintion concept
+* `FIGCAPTION` first or last child of `FIGURE`
+* use `rel` attribute where possible
+* omit `type` attribute for `SCRIPT` tag when loading javascript
+* use the `download` attribute for `A` tags when possible (IE/Safari does not support )
+* Close tags
+* **Avoid inline styles**
+* Place   External CSS Files Within the Head Tag
+* Place Javascript files at bottom
+* Do not inline Javascript (production, ok in development)
+* Lowercase tag names
+* Use h1-h6 to outline the page content
+* include page navigation `A` anchors for sections
+* Do not hijack the TABORDER
+* 
+
+##### HTML Best Practice Sources 
+
+http://isobar-idev.github.io/code-standards/
+
+https://github.com/hail2u/html-best-practices
+
+http://code.tutsplus.com/tutorials/30-html-best-practices-for-beginners--net-4957 -- old 2009 
+
+http://learn.shayhowe.com/html-css/writing-your-best-code/
+
+https://www.webaccessibility.com/best_practices.php
+
