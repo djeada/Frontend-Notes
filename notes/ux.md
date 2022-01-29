@@ -47,3 +47,24 @@
   - Unclear messages
   - Unfriendly messages and labels
 2. Misleading titles and labels
+
+
+## TODO
+
+Is all text legible for the target age group ?
+
+What is the primary call to action?
+
+What is the primary purpose of the site?
+
+Which elements of the page are vital?
+
+Which sections of the site are the most often updated?
+
+How are those updates conveyed to site visitors?
+
+Why isn't there a secondary call to action ?
+
+Is the site responsive ?
+
+Do telephone #s use a tel link (which will let people on call capable devices, call ) ?
