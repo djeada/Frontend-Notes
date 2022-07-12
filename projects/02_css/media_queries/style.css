@@ -1,0 +1,12 @@
+#button {
+    background-color: #3D9970;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+  }
+  
+@media screen and (max-width: 600px) {
+    #button {
+        background-color: #FF4136;
+    }
+}
