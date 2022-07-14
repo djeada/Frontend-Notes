@@ -78,6 +78,7 @@ A collection of additional resources that you may find useful.
 ## Utility
 
 * Remove background: https://www.remove.bg/de
-* Remove background: picwish.com
+* Remove background: https://picwish.com
 * Improve screenshots: https://www.screenstab.com/editor/
 * Improve quality of images: https://letsenhance.io/
+* Improve hand drawing: https://www.autodraw.com/
