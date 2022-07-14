@@ -21,7 +21,11 @@ Answer missing...</details>
 Answer missing...</details>
 
 <details>
-<summary> How do I build forms?</summary><br>
+<summary>How do I build forms?</summary><br>
+Answer missing...</details>
+
+<details>
+<summary>What is the purpose of a head tag if only the developers can see the information contained within it?</summary><br>
 Answer missing...</details>
 
 ## CSS
