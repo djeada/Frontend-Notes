@@ -68,6 +68,7 @@ A collection of additional resources that you may find useful.
 
 ### Flow Charts
 
+* https://excalidraw.com/
 * https://www.flowmapp.com/
 * https://www.lucidchart.com/
 
