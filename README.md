@@ -119,7 +119,7 @@ Ui/Ux:
 * https://lawsofux.com/
 * Don't make boring UI's: https://youtu.be/erA1Q0jmO4A
 * Complete UX course: https://youtu.be/uL2ZB7XXIgg
-* Ui desing in Figma: https://youtu.be/5IanQIwhA4E
+* Ui design in Figma: https://youtu.be/5IanQIwhA4E
 
 Other:
 
