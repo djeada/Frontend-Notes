@@ -1,3 +1,14 @@
+## Table of Contents
+<!--ts-->
+
+  - [HTML](#HTML)
+  - [CSS](#CSS)
+  - [JavaScript](#JavaScript)
+  - [Protocols](#Protocols)
+  - [Hosting](#Hosting)
+
+<!--te-->
+
 ## HTML
 
 <details>
@@ -27,6 +38,16 @@ Answer missing...</details>
 <details>
 <summary>What is the purpose of a head tag if only the developers can see the information contained within it?</summary><br>
 Answer missing...</details>
+
+<details>
+<summary>What are the best tags for SEO?</summary><br>
+* title tag
+* description
+* keywords
+* author
+* robots
+</details>
+
 
 ## CSS
 
