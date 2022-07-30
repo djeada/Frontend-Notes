@@ -45,8 +45,8 @@ The protocol responsible for requesting and sending resources over the internet 
 
 It works with pairs of requests and responses.
 
-* Request: comes from the browser
-* Response: is sent from the server
+* Request: comes from the browser (request method, http headers, body)
+* Response: is sent from the server (status code, http headers, body)
 
 HTTP is built on top of other protocols. In the transport layer it is mostly TCP.
 
