@@ -15,7 +15,7 @@
     - [Bootstrap](#Bootstrap)
       - [Including-Bootstrap-in-the-project](#Including-Bootstrap-in-the-project)
       - [Container](#Container)
-    - [Column-layout](#Column-layout)
+      - [Column-layout](#Column-layout)
       - [Forms](#Forms)
 
 <!--te-->
@@ -235,7 +235,7 @@ Container is the basic building block for bootstrap. It is top-level division of
 </div>
 ```
 
-### Column layout 
+#### Column layout 
 
 Columns are the most common way to layout content in Bootstrap.
 
