@@ -1,4 +1,15 @@
-# Project strucutre
+## Table of Contents
+<!--ts-->
+
+- [Project-strucutre](#Project-strucutre)
+- [Choosing-the-right-technologies](#Choosing-the-right-technologies)
+- [Example-structure](#Example-structure)
+- [Boilerplates](#Boilerplates)
+- [Links](#Links)
+
+<!--te-->
+
+## Project strucutre
 
 When starting a new project, we must identify which files we will require and organize them logically between folders. This is critical because, depending on the scope of the project, a real-world project might have anything from a few hundred to several thousand files. Although many frameworks provide a predefined structure, these are mainly simply suggestions rather than hard and fast rules. Furthermore, because many projects use many frameworks at the same time or even none at all, the question of project structure is almost always relevant.
 
@@ -47,7 +58,7 @@ You don't want to say it again. Each project is unique, however some code will b
 
 CSS code can even be entirely copied across projects as long as HTML components are given suitable class names and ids. You may save a lot of time by doing this and simply modifying the portions that are particular to the project.
 
-### Links
+## Links
 
 * https://github.com/MWins/rapid-site-development
 * http://www.sitepoint.com/a-minimal-html-document-html5-edition/
