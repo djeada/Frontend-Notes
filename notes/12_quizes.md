@@ -41,11 +41,13 @@ Answer missing...</details>
 
 <details>
 <summary>What are the best tags for SEO?</summary><br>
+  
 * title tag
 * description
 * keywords
 * author
 * robots
+  
 </details>
 
 
