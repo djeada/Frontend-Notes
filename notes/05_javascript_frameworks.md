@@ -3,7 +3,7 @@
 
 - [JavaScript-frameworks](#JavaScript-frameworks)
 - [What-are-frameworks?](#What-are-frameworks?)
-  - [Problems-addressed-by-the-frameworks:](#Problems-addressed-by-the-frameworks:)
+  - [Problems-addressed-by-the-frameworks](#Problems-addressed-by-the-frameworks)
   - [Disadvantages](#Disadvantages)
   - [What-kinds-of-frameworks-are-there?](#What-kinds-of-frameworks-are-there?)
   - [How-to-learn-a-framework?](#How-to-learn-a-framework?)
@@ -67,7 +67,7 @@ A software framework is a pre-written app skeleton on which you may further deve
 * We want consistency in the way our UI elements are styled. A framework provides a consistent style guide.
 * When writing functions, we need rules to follow. A framework offers us with numerous examples that we may strive to emulate. 
 
-### Problems addressed by the frameworks:
+### Problems addressed by the frameworks
 
 We already learned how to create a simple website using just three files: index.html, style.css and script.js. This setup works well for a simple website, but quickly becomes cumbersome when you want to add more functionality.
 
