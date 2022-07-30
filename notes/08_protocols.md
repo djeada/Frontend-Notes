@@ -1,4 +1,27 @@
-# Protocols
+## Table of Contents
+<!--ts-->
+
+  - [Protocols](#Protocols)
+  - [Basics](#Basics)
+    - [Internet](#Internet)
+    - [Browsers](#Browsers)
+    - [DNS](#DNS)
+    - [Domain-Name](#Domain-Name)
+  - [Web-Security](#Web-Security)
+    - [HTTPS](#HTTPS)
+    - [CORS](#CORS)
+    - [Content-Security-Policy](#Content-Security-Policy)
+    - [OWASP-Security-Risks](#OWASP-Security-Risks)
+  - [HTTP](#HTTP)
+  - [GET](#GET)
+  - [POST](#POST)
+  - [HTTP-APIs](#HTTP-APIs)
+  - [REST-standard](#REST-standard)
+  - [HTTP-response-codes](#HTTP-response-codes)
+
+<!--te-->
+
+## Protocols
 
 Frontend engineers may not place as much emphasis on this area as others, but understanding of the subject is still necessary. You don't need to know every detail about how the backend works, but you do need to understand how to get data from it and how it is sent.
 
