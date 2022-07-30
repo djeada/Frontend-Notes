@@ -1,4 +1,57 @@
-# JavaScript frameworks
+## Table of Contents
+<!--ts-->
+
+- [JavaScript-frameworks](#JavaScript-frameworks)
+- [What-are-frameworks?](#What-are-frameworks?)
+  - [Problems-addressed-by-the-frameworks:](#Problems-addressed-by-the-frameworks:)
+  - [Disadvantages](#Disadvantages)
+  - [What-kinds-of-frameworks-are-there?](#What-kinds-of-frameworks-are-there?)
+  - [How-to-learn-a-framework?](#How-to-learn-a-framework?)
+- [React](#React)
+  - [Core-elements](#Core-elements)
+    - [Component](#Component)
+    - [Props](#Props)
+    - [Mounting](#Mounting)
+    - [State](#State)
+    - [DOM-events](#DOM-events)
+    - [Conditional-rendering](#Conditional-rendering)
+    - [Hooks](#Hooks)
+      - [useState](#useState)
+      - [useEffect](#useEffect)
+      - [useRef](#useRef)
+      - [useReducer](#useReducer)
+      - [useContext](#useContext)
+      - [useMemo](#useMemo)
+  - [Minimal-app](#Minimal-app)
+    - [Prerequisites](#Prerequisites)
+    - [Project-sructure](#Project-sructure)
+    - [Transcompiler](#Transcompiler)
+    - [Module-bundler](#Module-bundler)
+    - [Installing-React](#Installing-React)
+    - [The-actual-React-code](#The-actual-React-code)
+    - [Usage](#Usage)
+- [Vue](#Vue)
+  - [Core-elements](#Core-elements)
+  - [Minimal-app](#Minimal-app)
+    - [Prerequisites](#Prerequisites)
+    - [Project-sructure](#Project-sructure)
+    - [Installing-Vue](#Installing-Vue)
+  - [Generating-Vue-app-structure](#Generating-Vue-app-structure)
+    - [Usage](#Usage)
+- [Angular](#Angular)
+  - [Core-elements](#Core-elements)
+  - [Minimal-app](#Minimal-app)
+    - [Prerequisites](#Prerequisites)
+    - [Project-sructure](#Project-sructure)
+    - [Installing-Angular](#Installing-Angular)
+    - [The-actual-Angular-code](#The-actual-Angular-code)
+    - [Usage](#Usage)
+- [Sate-managment-tools](#Sate-managment-tools)
+- [Links](#Links)
+
+<!--te-->
+
+## JavaScript frameworks
 
 * Most Web Apps today are built using a JavaScript framework rather than written in Vanilla JavaScript.
 * Almost everyone agrees that every frontend developer should be familiar with at least one JavaScript framework.
