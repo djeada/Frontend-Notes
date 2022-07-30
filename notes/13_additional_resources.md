@@ -83,3 +83,12 @@ A collection of additional resources that you may find useful.
 * Improve screenshots: https://www.screenstab.com/editor/
 * Improve quality of images: https://letsenhance.io/
 * Improve hand drawing: https://www.autodraw.com/
+
+### Color palettes
+
+* Lake: #284445 #216A7E #216A7E #216A7E #216A7E
+* Rio: #298CK #DEBSA2 #597678 #24322E #BESA2E
+* Tokyo: #DG0B3F #ODA6B5 #DOA4A4 #18CCCE #175F78
+* Montreal: #1A9FAC #755822 #282422 #9F8668 #DDDEDD
+* Berlin: #7B1B1E #AE7F31 #241B18 #F2EFE9 #807F6E
+* New york: #E0372E #6B3620 #5D5765 #D7BFB4 # 8696CF
