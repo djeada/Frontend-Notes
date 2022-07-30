@@ -115,3 +115,13 @@ A collection of additional resources that you may find useful.
 * Montreal: #1A9FAC #755822 #282422 #9F8668 #DDDEDD
 * Berlin: #7B1B1E #AE7F31 #241B18 #F2EFE9 #807F6E
 * New york: #E0372E #6B3620 #5D5765 #D7BFB4 # 8696CF
+
+### Fonts
+
+* Ambit
+* Helvetica Now
+* Avenir Next Pro
+* Plantin
+* Futura PT
+* TT Norms
+* Brandon Grotesque
