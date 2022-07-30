@@ -16,10 +16,6 @@
 Answer missing...</details>
 
 <details>
-<summary>How do I add a description to a website?</summary><br>
-Answer missing...</details>
-
-<details>
 <summary>What is a doctype?</summary><br>
 Answer missing...</details>
 
