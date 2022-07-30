@@ -1,3 +1,70 @@
+## Table of Contents
+<!--ts-->
+
+- [What-is-JavaScript?](#What-is-JavaScript?)
+  - [What-should-a-JavaScript-developer-know?](#What-should-a-JavaScript-developer-know?)
+  - [Fundamentals](#Fundamentals)
+    - [Adding-JavaScript-to-the-HTML](#Adding-JavaScript-to-the-HTML)
+    - [Null-and-Undefined](#Null-and-Undefined)
+    - [Useful-Built-In-Methods](#Useful-Built-In-Methods)
+    - [Numbers](#Numbers)
+    - [Common-Math-Operations](#Common-Math-Operations)
+    - [Comparison-Operators](#Comparison-Operators)
+    - [Logical-Operators](#Logical-Operators)
+    - [Conditionals](#Conditionals)
+    - [While-Loops](#While-Loops)
+    - [For-Loops](#For-Loops)
+  - [Functions](#Functions)
+    - [Function-Arguments](#Function-Arguments)
+    - [The-"return"-Keyword](#The-"return"-Keyword)
+    - [ES6-Arrow-Functions](#ES6-Arrow-Functions)
+    - [Scope](#Scope)
+    - [Higher-Order-Functions](#Higher-Order-Functions)
+  - [Arrays](#Arrays)
+    - [Intro](#Intro)
+    - [Copying-Arrays](#Copying-Arrays)
+    - [Array-Methods:-Mutators](#Array-Methods:-Mutators)
+    - [Array-Methods:-Accessors](#Array-Methods:-Accessors)
+    - [Array-Methods:-Iterators](#Array-Methods:-Iterators)
+  - [Strings](#Strings)
+    - [Common-String-Methods](#Common-String-Methods)
+  - [Classes](#Classes)
+    - [Intro](#Intro)
+    - [Arrays-vs-Objects](#Arrays-vs-Objects)
+  - [Exceptions](#Exceptions)
+    - [Throwing-Exceptions](#Throwing-Exceptions)
+    - [Try/Catch-Blocks](#Try/Catch-Blocks)
+    - [Types-of-Errors](#Types-of-Errors)
+  - [Dom](#Dom)
+    - [Intro](#Intro)
+    - [DOM-Element-Selector-Methods](#DOM-Element-Selector-Methods)
+    - [Edit-DOM-Elements](#Edit-DOM-Elements)
+    - [DOM-Events](#DOM-Events)
+  - [ES6+-Features](#ES6+-Features)
+    - [Spread-operator](#Spread-operator)
+    - [Destructuring](#Destructuring)
+    - [Promises-and-Async/Await](#Promises-and-Async/Await)
+    - [Template-strings](#Template-strings)
+    - [Object-Literals](#Object-Literals)
+    - [for...of](#for...of)
+    - [Modules](#Modules)
+    - [New-Data-Structures](#New-Data-Structures)
+    - [Subclassable-Built-ins](#Subclassable-Built-ins)
+  - [TypeScript](#TypeScript)
+    - [Compilation](#Compilation)
+    - [Converting-JavaScript-projects-to-TypeScript-projects](#Converting-JavaScript-projects-to-TypeScript-projects)
+  - [Package-managers](#Package-managers)
+    - [NPM](#NPM)
+      - [Initializing-a-project](#Initializing-a-project)
+      - [Installing-a-package](#Installing-a-package)
+      - [Using-an-existing-project](#Using-an-existing-project)
+      - [Listing-installed-packages](#Listing-installed-packages)
+      - [Updating-a-package](#Updating-a-package)
+  - [Best-practices](#Best-practices)
+  - [Links](#Links)
+
+<!--te-->
+
 # What is JavaScript?
 
 JavaScript is a programming language that is primarily used for client-side scripting (making web pages interactive). Since NodeJS we can also use JavaScript in server-side scripting (e.g. for APIs). 
@@ -996,4 +1063,3 @@ In order to list all installed packages, you can use the `npm list` command:
 * https://www.typescriptlang.org/
 * https://javascript.info/
 * https://overapi.com/javascript
-
