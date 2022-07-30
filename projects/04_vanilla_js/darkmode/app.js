@@ -1,8 +1,6 @@
-const navbarToggle = document.getElementById('navbarToggle');
-const navbarLinks = document.getElementById("navbar-links");
+const body = document.body;
+const darkModeToggle = document.getElementById("darkModeToggle");
 
-navbarToggle.addEventListener('click', function() {
-    /*When the user presses the button, toggle between 
-    showing and hiding the navigation menu links. */
-    navbarLinks.style.display =  navbarLinks.style.display === 'block' ? 'none' : 'block';
+darkModeToggle.addEventListener('click', function() {
+    body.classList.toggle("dark-mode");
 });
