@@ -1,0 +1,13 @@
+#box {
+  background-color: #3D9970;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  transition: width 5s, height 5s, background-color 10s;
+}
+
+#box:hover {
+  width: 200px;
+  height: 200px;
+  background-color: #FF4136;
+}

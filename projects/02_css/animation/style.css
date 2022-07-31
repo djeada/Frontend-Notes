@@ -1,0 +1,19 @@
+@keyframes change_background {
+  0% {
+	background-color: #3D9970;
+  }
+  50% {
+	background-color: #85144b;
+  }
+  100% {
+	background-color: #3D9970;
+  }
+}
+
+#box {
+  background-color: #3D9970;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  animation: change_background 3s infinite;
+}

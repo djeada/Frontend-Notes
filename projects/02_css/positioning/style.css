@@ -1,0 +1,35 @@
+.parent {
+  width: 50%;
+  margin: 10%;
+  border: 1px solid black;
+}
+
+.child {
+  width: 20%;
+  height: 0;
+  margin: 5%;
+  padding-bottom: 20%;
+  border-radius: 20%;
+  text-align: center;
+}
+
+#first {
+  position: absolute;
+  top: 10%;
+  right: 0;
+  background-color: #3D9970;
+}
+
+#second {
+  position: relative;
+  left: 10%;
+  background-color: #001f3f;
+}
+
+#third {
+  background-color: #85144b;
+}
+
+#fourth {
+  background-color: #DDDDDD;
+}
