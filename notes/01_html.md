@@ -251,7 +251,10 @@ Basic elements that are used to display text in a document are headers and parag
 <h1>This is a header</h1>
 <p>This is a paragraph</p>
 ```
-![header_and_paragraph](https://user-images.githubusercontent.com/37275728/182040915-c8e8130a-0c6d-49fc-a995-a632ef1404f9.PNG)
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37275728/182040915-c8e8130a-0c6d-49fc-a995-a632ef1404f9.PNG" width=400 />
+</p>
 
 ### Links
 
@@ -291,8 +294,11 @@ An example of unordered list:
     <li>Item 2</li>
     <li>Item 3</li>
 </ul>
-```![unordered_list](https://user-images.githubusercontent.com/37275728/182040923-f4a11b95-db36-424d-9211-ec4a5210cafa.PNG)
+```
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37275728/182040923-f4a11b95-db36-424d-9211-ec4a5210cafa.PNG" width=400 />
+</p>
 
 #### Short summary
 
@@ -326,7 +332,10 @@ Tables are used to display data using rows and columns of cells.
     </tr>
 </table>
 ```
-![table](https://user-images.githubusercontent.com/37275728/182040934-309078e7-21c4-4df2-9507-1df7727e448d.PNG)
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37275728/182040934-309078e7-21c4-4df2-9507-1df7727e448d.PNG" width=400 />
+</p>
 
 #### Short summary
 
@@ -381,7 +390,10 @@ A more complex example with a label and validation:
 <label for="name">Name</label>
 <input type="text" id="name" name="name" minlength="3" maxlength="10" required />
 ```
-![input](https://user-images.githubusercontent.com/37275728/182040948-47409f3a-8c7f-4ea9-af09-f0e5c879c115.gif)
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37275728/182040948-47409f3a-8c7f-4ea9-af09-f0e5c879c115.gif" width=400 />
+</p>
 
 #### Short summary
 
@@ -426,7 +438,9 @@ Let's create a simple form:
 </form>
 ```
 
-![form](https://user-images.githubusercontent.com/37275728/182040111-83eb46cb-e751-43b2-b2a6-30c33968e4f7.gif)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37275728/182040111-83eb46cb-e751-43b2-b2a6-30c33968e4f7.gif" width=400 />
+</p>
 
 In this example, there is a single input field with a label. The label is used to describe the input. The input is used to collect data from the user. The button is used to submit the form.
 
@@ -451,7 +465,9 @@ Let's take a look at the following example:
 </textarea>
 ```
 
-![text_area](https://user-images.githubusercontent.com/37275728/182040961-353c0cbd-bb50-4aef-ae24-1187055478c2.gif)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37275728/182040961-353c0cbd-bb50-4aef-ae24-1187055478c2.gif" width=400 />
+</p>
 
 In the example above, we have a text area with a name `description` which consists of 5 rows and 50 columns.
 
@@ -524,7 +540,10 @@ Let's take a look at the following example:
 ```html
 <img src="https://placekitten.com/g/200/300" srcset="https://placekitten.com/g/400/600 400w, https://placekitten.com/g/600/900 600w, https://placekitten.com/g/800/1200 800w" alt="A cute cat">
 ```
-![image](https://user-images.githubusercontent.com/37275728/182040980-77075cbc-5d7a-4841-95d0-d0dddd68a700.PNG)
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37275728/182040980-77075cbc-5d7a-4841-95d0-d0dddd68a700.PNG" width=400 />
+</p>
 
 We use the `srcset` attribute to specify multiple image paths for different resolutions. The first image path is the one that is displayed by default.
 
@@ -594,7 +613,7 @@ Let us take a look at the following example:
 ```
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/37275728/182039844-a5a417ef-71e7-4329-9483-5e176c20448b.gif" />
+  <img src="https://user-images.githubusercontent.com/37275728/182039844-a5a417ef-71e7-4329-9483-5e176c20448b.gif" width=400 />
 </p>
 
 The first source is the one that is played by default. The second source is used if the first source is not supported. Finally, the text `Your browser does not support the audio element.` is displayed if the browser does not support any of the formats.
