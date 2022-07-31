@@ -1195,8 +1195,17 @@ CSS units are used to define the size of an element.
 	
 ## Best practices
 
-* Place   External CSS Files Within the Head Tag
-
+* Place external CSS files within the `head` tag.
+* Don't leave out the last semicolon of a CSS block.
+* The box model should ideally be consistent throughout the document.
+* Don't break from the flow by using absolute positioning.
+* Only layouts you need are Flexbox and Grid.
+* Prefer classes to selectors that are tightly coupled to the DOM. 
+* Reduce the usage of IDs. 
+* Style declarations that can be inherited should not be duplicated. 
+* Minimize the use of vendor prefixes (like `-moz-transition` and so on).
+* When possible, use unitless values. If you're working with relative units, go with `rem`.
+* Use the hexadecimal format for colors.
 
 ## Links
 
