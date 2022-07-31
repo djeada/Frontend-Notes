@@ -9,7 +9,7 @@
   - [Short-summary](#Short-summary)
 - [Tags-and-attributes](#Tags-and-attributes)
   - [Example](#Example)
- - [Void-elements](#Void-elements)
+- [Void-elements](#Void-elements)
   - [Example](#Example)
 - [Div-and-span](#Div-and-span)
   - [Example](#Example)
