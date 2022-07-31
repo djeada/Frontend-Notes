@@ -21,7 +21,6 @@
   - [Text-area](#Text-area)
 - [Style](#Style)
   - [Text-formatting](#Text-formatting)
-  - [Text-formatting](#Text-formatting)
   - [Whitespace](#Whitespace)
 - [Media](#Media)
   - [Image](#Image)
@@ -458,10 +457,6 @@ The following example shows how to make text bold:
 * <code>i</code> or <code>em</code> - italic text
 * <code>u</code> - underline
 * <code>s</code> - strikethrough
-
-### Text formatting
-
-actual meaning according to the HTML 5 standard:
 
 ### Special characters
 
