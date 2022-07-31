@@ -584,6 +584,9 @@ Let us take a look at the following example:
 </audio>
 ```
 
+![audio](https://user-images.githubusercontent.com/37275728/182039844-a5a417ef-71e7-4329-9483-5e176c20448b.gif)
+
+
 The first source is the one that is played by default. The second source is used if the first source is not supported. Finally, the text `Your browser does not support the audio element.` is displayed if the browser does not support any of the formats.
 
 #### Short summary
