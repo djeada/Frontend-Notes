@@ -127,6 +127,5 @@ Other:
 
 TODO:
 
-* https://github.com/bendc/frontend-guidelines
 * http://udacity.github.io/frontend-nanodegree-styleguide/
 * https://github.com/OsamaElzero/Frontend-Tools
