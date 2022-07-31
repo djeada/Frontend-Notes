@@ -334,7 +334,7 @@ Box model is one of a couple layout models used in CSS. It is a way to describe 
 		.......................
 		.  Margin             . 
 		.  -----------------  .
-		.  | Padding        | .
+		.  | Padding       |  .
 		.  |  ###########  |  .
 		.  |  # Element #  |  .
 		.  |  ###########  |  .
