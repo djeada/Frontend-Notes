@@ -596,9 +596,13 @@ The following are some of the commonly used audio formats:
 ## Best practices
 
 * Use HTML5.
+* Use tags and attributes according to their purpose.
 * Don't use XML declarations.
 * Use UTF-8.
+* Use comments to explain code.
 * Use semantic tags like: article, time and header.
+* For each block, list, or table element, create a new line and indent each such child element.
+* When quoting attribute values, use double quotation marks.
 * Use `P` tags for paragraphs over multiple `<br>`.
 * Do not use tables for layout.
 * Omit type tag for CSS/JS link tag.
@@ -612,6 +616,8 @@ The following are some of the commonly used audio formats:
 * Lowercase tag names.
 * Explicitly label controls (no `<div class="button">`).
 * Stop putting refrences to JavaScript files at the bottom of your document. Use defer attribute (`<script src="app.js" defer \>`).
+* Remove trailing white spaces.
+* Keep the indentation consistent.
 
 ## Links
 
