@@ -595,19 +595,23 @@ The following are some of the commonly used audio formats:
 
 ## Best practices
 
-* use HTML5
-* Don't use XML Declaration
-* use UTF-8
-* Use `P` tags for paragraphs over multiple `BR`
-* Do not use TABLES for layout
-* omit type tag for CSS link tag
-* define `TITLE`
-* define the `BODY` tag ; follows explicit defintion concept
-* Use h1-h6 to outline the page content
-* Close tags
-* Avoid inline styles
-* Do not inline Javascript (production, ok in development)
-* Lowercase tag names
+* Use HTML5.
+* Don't use XML declarations.
+* Use UTF-8.
+* Use semantic tags like: article, time and header.
+* Use `P` tags for paragraphs over multiple `<br>`.
+* Do not use tables for layout.
+* Omit type tag for CSS/JS link tag.
+* Define `title`.
+* Define the `body` tag.
+* Use h1-h6 to outline the page content.
+* Adding `alt` text to your images can improve user experience.
+* Close every tag that you open.
+* Avoid inline styles.
+* Do not inline any JavaScript code.
+* Lowercase tag names.
+* Explicitly label controls (no `<div class="button">`).
+* Stop putting refrences to JavaScript files at the bottom of your document. Use defer attribute (`<script src="app.js" defer \>`).
 
 ## Links
 
