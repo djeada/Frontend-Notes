@@ -2,7 +2,7 @@
 <!--ts-->
 
 - [Intro](#Intro)
-- [What-should-an-HTML-developer-know?](#What-should-an-HTML-developer-know?)
+- [What-should-an-HTML-developer-know?](#What-should-an-HTML-developer-know)
 - [Building-blocks-of-HTML](#Building-blocks-of-HTML)
 - [Document-structure](#Document-structure)
 - [Example](#Example)
