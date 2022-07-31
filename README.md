@@ -124,8 +124,3 @@ Ui/Ux:
 Other:
 
 * How does the Internet work: https://youtu.be/oj7A2YDgIWE
-
-TODO:
-
-* http://udacity.github.io/frontend-nanodegree-styleguide/
-* https://github.com/OsamaElzero/Frontend-Tools
