@@ -1,12 +1,12 @@
 #gallery {
-	color: red;
+    color: red;
 }
 
 #gallery p {
 
-	color: blue;
+    color: blue;
 }
 
 #gallery a:hover {
-	color: green;
+    color: green;
 }

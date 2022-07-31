@@ -15,5 +15,4 @@ tabLinks.forEach(link => {
         const tabContent = document.querySelector(`#${tabText}`);
         tabContent.style.display = 'block';
     });
-}
-);
+});

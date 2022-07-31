@@ -3,8 +3,8 @@
     width: 100px;
     height: 100px;
     text-align: center;
-  }
-  
+}
+
 @media screen and (max-width: 600px) {
     #button {
         background-color: #FF4136;

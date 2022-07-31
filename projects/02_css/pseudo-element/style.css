@@ -1,11 +1,11 @@
 #gallery {
-	color: black;
+    color: black;
 }
 
 #gallery p::first-letter {
-	color: red;
+    color: red;
 }
 
 #gallery a:hover::before {
-	content: "Example of a pseudo-element";
+    content: "Example of a pseudo-element";
 }

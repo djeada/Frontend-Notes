@@ -1,31 +1,30 @@
-
 body {
-  margin: 0 auto;
-  padding: 0 .5rem;
-  background: #eef6fc;
-  color: #333;
+    margin: 0 auto;
+    padding: 0 .5rem;
+    background: #eef6fc;
+    color: #333;
 }
 
 #main {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 0 .5rem;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 .5rem;
 }
 
 .dark-mode {
-  background: #333;
-  color: #eef6fc;
+    background: #333;
+    color: #eef6fc;
 }
 
 #darkModeToggle {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: .5rem;
-  background: rgb(44, 43, 43);
-  box-shadow: 0 0 5px #ccc;
-  border: none;
-  color: #eef6fc;
-  cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: .5rem;
+    background: rgb(44, 43, 43);
+    box-shadow: 0 0 5px #ccc;
+    border: none;
+    color: #eef6fc;
+    cursor: pointer;
 }
