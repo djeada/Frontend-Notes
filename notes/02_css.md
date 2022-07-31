@@ -918,6 +918,7 @@ Let's take a look at the following example:
       <div id="third" class="child"><p>C</p></div>
       <div id="fourth" class="child"><p>D</p></div>
     </div>
+</div>
 ```
 
 ```css
