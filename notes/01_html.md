@@ -422,6 +422,8 @@ Let's create a simple form:
 </form>
 ```
 
+![form](https://user-images.githubusercontent.com/37275728/182040111-83eb46cb-e751-43b2-b2a6-30c33968e4f7.gif)
+
 In this example, there is a single input field with a label. The label is used to describe the input. The input is used to collect data from the user. The button is used to submit the form.
 
 #### Short summary
@@ -584,8 +586,9 @@ Let us take a look at the following example:
 </audio>
 ```
 
-![audio](https://user-images.githubusercontent.com/37275728/182039844-a5a417ef-71e7-4329-9483-5e176c20448b.gif)
-
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37275728/182039844-a5a417ef-71e7-4329-9483-5e176c20448b.gif" />
+</p>
 
 The first source is the one that is played by default. The second source is used if the first source is not supported. Finally, the text `Your browser does not support the audio element.` is displayed if the browser does not support any of the formats.
 
