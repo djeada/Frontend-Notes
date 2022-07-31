@@ -827,14 +827,15 @@ The color of a specific element can be specified or set to inherit from the pare
   <p>This is another paragraph.</p>
 </div>
 ```
+
 ```css
 #container {
-  background-color: #f00;
+  background-color: rgb(0, 25, 21);
   opacity: 0.5;
 }
 
 #container p {
-  color: #fff;
+  color: rgb(233, 218, 218);
 }
 ```
 
