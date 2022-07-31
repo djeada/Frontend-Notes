@@ -174,19 +174,19 @@ console.log(pi.toFixed(2));
 
 Some of the most common math functions:
 
-  * `Math.round(n)` - rounds a number n to the nearest integer
-  * `Math.pow(x,y)` - returns x to the power of y
-  * `Math.sqrt(n)` - returns the square root of n
-  * `Math.abs(n)` - returns the absolute value of n
-  * `Math.ceil(n)` - returns the smallest integer greater than or equal to n
-  * `Math.floor(n)` - returns the largest integer less than or equal to n
-  * `Math.sin(n)` - returns the sine of n
-  * `Math.cos(n)` - returns the cosine of n
-  * `Math.min(n1, n2, ...)` - returns the smallest of the given numbers
-  * `Math.max(n1, n2, ...)` - returns the largest of the given numbers
-  * `Math.log(n)` - returns the natural logarithm of n
-  * `Math.exp(n)` - returns the value of E to the power of n
-  * `Math.random()` - returns a random number between 0 and 1
+* `Math.round(n)` - rounds a number n to the nearest integer
+* `Math.pow(x,y)` - returns x to the power of y
+* `Math.sqrt(n)` - returns the square root of n
+* `Math.abs(n)` - returns the absolute value of n
+* `Math.ceil(n)` - returns the smallest integer greater than or equal to n
+* `Math.floor(n)` - returns the largest integer less than or equal to n
+* `Math.sin(n)` - returns the sine of n
+* `Math.cos(n)` - returns the cosine of n
+* `Math.min(n1, n2, ...)` - returns the smallest of the given numbers
+* `Math.max(n1, n2, ...)` - returns the largest of the given numbers
+* `Math.log(n)` - returns the natural logarithm of n
+* `Math.exp(n)` - returns the value of E to the power of n
+* `Math.random()` - returns a random number between 0 and 1
 
 In the example below we use the `Math.random()` function to generate a random number between 0 and 1 and then display the value of sine function at that point:
 
@@ -375,7 +375,7 @@ The scope of a variable is the part of a program where that variable can be acce
   | <code>let</code> | Block |
   | <code>const</code> | Block |
 
-  In the example below we create a variable that is accessible from anywhere in the program:
+In the example below we create a variable that is accessible from anywhere in the program:
 
   ```javascript
   var x = 10;
@@ -387,7 +387,7 @@ The scope of a variable is the part of a program where that variable can be acce
   console.log(add(20)); // 30
   ```
 
-  In the example below we create a variable that is accessible only from within the block:
+In the example below we create a variable that is accessible only from within the block:
 
   ```javascript
   var x = 10;
@@ -462,9 +462,9 @@ The array can be copied using the `.slice()` method:
 var numbers = [1, 2, 3, 4, 5];
 var numbersCopy = numbers.slice();
 
-  console.log(numbers); // [1, 2, 3, 4, 5]
-  console.log(numbersCopy); // [1, 2, 3, 4, 5]
-  ```
+console.log(numbers); // [1, 2, 3, 4, 5]
+console.log(numbersCopy); // [1, 2, 3, 4, 5]
+```
 
 To copy only a part of the array, use the `.slice()` method with two arguments:
 
@@ -538,16 +538,15 @@ console.log(name); // John
 
 Some of common string methods include:
 
-  1. `.indexOf()` - Searches a string for a specified value and returns the position of the match.
-  2. `.lastIndexOf()` - Searches a string for a specified value and returns the position of the match.
-  3. `.slice()` - Extracts a part of a string and returns the extracted part in a new string.
-  4. `.replace()` - Finds a match between a regular expression and a specified string, and returns a new string with the matches replaced.
-  5. `.toUpperCase()` - Converts a string to upper case.
-  6. `.toLowerCase()` - Converts a string to lower case.
-  7. `.concat()` - Combines two or more strings.
-  8. `.charAt()` - Returns the character at the specified index (position) of a string.
-  9. `.charCodeAt()` - Returns the Unicode of the character at the specified index (position) of a string.
-
+1. `.indexOf()` - Searches a string for a specified value and returns the position of the match.
+2. `.lastIndexOf()` - Searches a string for a specified value and returns the position of the match.
+3. `.slice()` - Extracts a part of a string and returns the extracted part in a new string.
+4. `.replace()` - Finds a match between a regular expression and a specified string, and returns a new string with the matches replaced.
+5. `.toUpperCase()` - Converts a string to upper case.
+6. `.toLowerCase()` - Converts a string to lower case.
+7. `.concat()` - Combines two or more strings.
+8. `.charAt()` - Returns the character at the specified index (position) of a string.
+9. `.charCodeAt()` - Returns the Unicode of the character at the specified index (position) of a string.
 
 Let's slice the string "John loves JavaScript" from index 5 to index 10:
 
@@ -685,11 +684,11 @@ h1.style.textAlign = "center";
 
 The following methods can be used to select elements from the DOM:
 
-  * `.querySelector()` - Returns the first element that matches a specified CSS selector(s) in the document.
-  * `.querySelectorAll()` - Returns a static NodeList containing all elements that match the specified CSS selector(s) in the document.
-  * `.getElementById()` - Returns the element that has the ID attribute with the specified value.
-  * `.getElementsByTagName()` - Returns a list of elements with the given tag name.
-  * `.getElementsByClassName()` - Returns a list of elements with the given class name.
+* `.querySelector()` - Returns the first element that matches a specified CSS selector(s) in the document.
+* `.querySelectorAll()` - Returns a static NodeList containing all elements that match the specified CSS selector(s) in the document.
+* `.getElementById()` - Returns the element that has the ID attribute with the specified value.
+* `.getElementsByTagName()` - Returns a list of elements with the given tag name.
+* `.getElementsByClassName()` - Returns a list of elements with the given class name.
 
 Here is an example of how to use the `.getElementById()` method to change the background color to a gradient from light blue to dark blue.
 
@@ -702,10 +701,10 @@ div.style.background = "linear-gradient(to right, #00ffff, #0000ff)";
 
 Once selected, you can edit the content of the element using the following methods:
 
-  * `.innerHTML` - Sets or returns the HTML content (inner HTML) of an element.
-  * `.innerText` - Sets or returns the text content of an element.
-  * `.outerHTML` - Sets or returns the HTML content of an element, including the element itself.
-  * `.outerText` - Sets or returns the text content of an element, including the element itself.
+* `.innerHTML` - Sets or returns the HTML content (inner HTML) of an element.
+* `.innerText` - Sets or returns the text content of an element.
+* `.outerHTML` - Sets or returns the HTML content of an element, including the element itself.
+* `.outerText` - Sets or returns the text content of an element, including the element itself.
 
 Let's append some text to a paragraph with id `paragraph`:
 
@@ -718,16 +717,16 @@ paragraph.innerHTML += "This text was appended using JavaScript.";
 
 There are two types of events:
 
-  * `click` - Triggered when a user clicks on an element.
-  * `change` - Triggered when a user changes the value of an element.
-  * `mouseenter` - Triggered when the mouse pointer enters an element.
-  * `mouseleave` - Triggered when the mouse pointer leaves an element.
-  * `mousedown` - Triggered when the user presses a mouse button over an element.
-  * `mouseup` - Triggered when the user releases a mouse button over an element.
-  * `keydown` - Triggered when a user presses a keyboard key.
-  * `keyup` - Triggered when a user releases a keyboard key.
+* `click` - Triggered when a user clicks on an element.
+* `change` - Triggered when a user changes the value of an element.
+* `mouseenter` - Triggered when the mouse pointer enters an element.
+* `mouseleave` - Triggered when the mouse pointer leaves an element.
+* `mousedown` - Triggered when the user presses a mouse button over an element.
+* `mouseup` - Triggered when the user releases a mouse button over an element.
+* `keydown` - Triggered when a user presses a keyboard key.
+* `keyup` - Triggered when a user releases a keyboard key.
   
-  Let's add an event listener to the button with id `button`:
+Let's add an event listener to the button with id `button`:
 
   ```javascript
   var button = document.getElementById("button");
@@ -743,7 +742,7 @@ ES6+ features are JavaScript features that were added to the language in 2015. T
 
 ### Spread operator
 
-  * `...` - The spread operator is used to expand the elements of an array into a list of arguments.
+* `...` - The spread operator is used to expand the elements of an array into a list of arguments.
 
 Let's take a look at a simple example:
 
@@ -775,11 +774,11 @@ console.log(third); // 3
 
 ### Promises and Async/Await
 
-  * `Promise` - A promise is an object that represents the eventual result of an asynchronous operation.
-  * `async` - The async keyword is used to declare functions that will execute asynchronously.
-  * `await` - The await keyword is used to pause the execution of a function until a promise is resolved.
+* `Promise` - A promise is an object that represents the eventual result of an asynchronous operation.
+* `async` - The async keyword is used to declare functions that will execute asynchronously.
+* `await` - The await keyword is used to pause the execution of a function until a promise is resolved.
 
-  Let's take a look at aexample:  
+Let's take a look at aexample:  
 
   ```javascript
   async function getData() { // async function declaration
@@ -791,22 +790,21 @@ console.log(third); // 3
 
 ### Template strings
 
-  Template strings are a new type of string literal that allows embedded expressions.
+Template strings are a new type of string literal that allows embedded expressions.
 
-  In the example below we will use two variables in a template string:
+In the example below we will use two variables in a template string:
 
-  ```javascript
-  var name = "John";
-  var age = 30;
-  var sentence = `My name is ${name} and I am ${age} years old.`;
-  ```
-
+```javascript
+var name = "John";
+var age = 30;
+var sentence = `My name is ${name} and I am ${age} years old.`;
+```
 
 ### Object Literals
 
-  Object literals are another way (as opposed to the class syntax) to create objects. For a simple examples there is no difference between the two. When we start adding methods however, then each copy of an object created trough literal carries a copy of all the methods which leads to a memory waste.
+Object literals are another way (as opposed to the class syntax) to create objects. For a simple examples there is no difference between the two. When we start adding methods however, then each copy of an object created trough literal carries a copy of all the methods which leads to a memory waste.
 
-  In the example bleow we create a simple object called `person` and add a method to it:
+In the example bleow we create a simple object called `person` and add a method to it:
 
   ```javascript
   var person = {
@@ -862,10 +860,10 @@ console.log(fullName); // "John Doe"
 
 The ES6+ standard included new data structures such as Map, WeakMap, Set, and WeakSet.
 
-  * `Map` - A Map is a data structure that associates keys with values that will block the garbage collector from removing data it is referencing.
-  * `WeakMap` - A WeakMap is a data structure that associates keys with values that will allow the garbage collector to remove data it is referencing.
-  * `Set` - A Set is a data structure that associates unique values with keys that will block the garbage collector from removing data it is referencing.
-  * `WeakSet` - A WeakSet is a data structure that associates unique values with keys that will allow the garbage collector to remove data it is referencing.
+* `Map` - A Map is a data structure that associates keys with values that will block the garbage collector from removing data it is referencing.
+* `WeakMap` - A WeakMap is a data structure that associates keys with values that will allow the garbage collector to remove data it is referencing.
+* `Set` - A Set is a data structure that associates unique values with keys that will block the garbage collector from removing data it is referencing.
+* `WeakSet` - A WeakSet is a data structure that associates unique values with keys that will allow the garbage collector to remove data it is referencing.
 
 Let's first demonstrate the difference between Map and WeakMap:
 
@@ -911,9 +909,9 @@ TypeScript is a superset of JavaScript that compiles to plain JavaScript. It int
 
 Some of the advantages of using TypeScript are:
 
-  * Type-checking - TypeScript will help you catch errors earlier in the development cycle.
-  * Stronger typing - TypeScript will help you avoid bugs caused by type errors.
-  * TypeScript always exposes compilation errors during development (pre-compilation). 
+* Type-checking - TypeScript will help you catch errors earlier in the development cycle.
+* Stronger typing - TypeScript will help you avoid bugs caused by type errors.
+* TypeScript always exposes compilation errors during development (pre-compilation). 
 
 ### Compilation
 
@@ -991,15 +989,15 @@ npm init
 
 It will create a `package.json` file in the root directory of your project. This file contains all important information about the project and its dependencies. Immediately after the command is executed, you will be prompted to enter the following information:
 
-  * `name` - The name of your project.
-  * `version` - The version of your project.
-  * `description` - A short description of your project.
-  * `author` - The author of your project.
-  * `license` - The license of your project.
-  * `main` - The main file of your project.
-  * `scripts` - A list of scripts that will be executed when you run `npm run <script>`.
-  * `dependencies` - A list of dependencies that will be installed when you run `npm install`.
-  * `devDependencies` - A list of devDependencies that will be installed when you run `npm install`.
+* `name` - The name of your project.
+* `version` - The version of your project.
+* `description` - A short description of your project.
+* `author` - The author of your project.
+* `license` - The license of your project.
+* `main` - The main file of your project.
+* `scripts` - A list of scripts that will be executed when you run `npm run <script>`.
+* `dependencies` - A list of dependencies that will be installed when you run `npm install`.
+* `devDependencies` - A list of devDependencies that will be installed when you run `npm install`.
 
 You can also use the `--yes` flag to skip the prompts.
 
@@ -1045,16 +1043,21 @@ In order to list all installed packages, you can use the `npm list` command:
 
 #### Updating a package
 
-  * `npm update <package>` - This will update the package.
-  * `npm update <package>@<version>` - This will update the package to the specified version.
+* `npm update <package>` - This will update the package.
+* `npm update <package>@<version>` - This will update the package to the specified version.
   
 ## Best practices
 
 * Always use TypeScript.
 * Take advantage of ES6 features.
-
-
-
+* Use external dependencies as little as possible. 
+* Prefer `const` to `let` and `let` to `var`. 
+* Prefer pure functions over functions producing side effects.
+* Prioritize readability over performance.
+* Instead of using loops to modify objects, use array prototype methods.
+* Avoid nesting function.
+* Prefer `forEach` over `for...in`.
+  
 ## Links
 
 * https://github.com/airbnb/javascript
