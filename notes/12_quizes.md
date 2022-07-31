@@ -46,6 +46,13 @@ Answer missing...</details>
   
 </details>
 
+<details>
+<summary>What is the difference between a `<header>` and `<h1>` tag?</summary><br>
+  
+* The `<header>` tag is used to hold introductory information about the material that will be shown. 
+* The `<h1>` tag is a typography heading.
+  
+</details>
 
 ## CSS
 
