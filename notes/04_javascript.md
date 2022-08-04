@@ -882,8 +882,25 @@ var weakMap = new WeakMap();
 console.log(map); // Map { { extra: 5 } => 10 }
 console.log(weakMap); // WeakMap { <items unknown> }
 ```
+  
+Be careful when iterating over a Map. If you use normal <code>for</code> loop you will get pairs of keys and values, but if you use <code>forEach</code> you will first get values then keys!
+  
+```javascript
+const map = new Map([
+  ['A', 1],
+  ['B', 2],
+]);
 
-### Subclassable Built-ins
+for (const [k, v] of map) {
+  console.log(k, v)
+}
+  
+map.forEach((v, k) => {
+  console.log(v, k) 
+});
+```
+
+### Subclassing Built-ins
 
 We can now subclass the built-in types such as Array, Date, and RegExp.
 
