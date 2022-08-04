@@ -883,7 +883,7 @@ console.log(map); // Map { { extra: 5 } => 10 }
 console.log(weakMap); // WeakMap { <items unknown> }
 ```
   
-Be careful when iterating over a Map. If you use normal <code>for</code> loop you will get pairs of keys and values, but if you use <code>forEach</code> you will first get values then keys!
+When iterating over a Map, be cautious. If you use a standard <code>for</code> loop, you will get pairs of keys and values, but if you use <code>forEach</code>, you will get values first, then keys! 
   
 ```javascript
 const map = new Map([
