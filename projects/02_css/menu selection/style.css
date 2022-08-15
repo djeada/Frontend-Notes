@@ -1,0 +1,28 @@
+body {
+	background: #2c3e50;
+}
+
+nav {
+	display: flex;
+	justify-content: center;	
+	align-items: center;
+	border-radius: 5px;
+	font-size: 0;
+	box-shadow: 0 2px 3px 0 Orgba(0, 0, 0, .1);
+}
+
+nav a {
+	font-size: 15px;
+	padding: 0 10px;
+	text-transform: uppercase;
+	background: #2c3e50;
+	color: #fff;
+	text-decoration: none;
+	line-height: 50px;
+	text-align: center;
+}
+
+nav a:hover {
+	background: #34495e;
+	box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1);
+}
