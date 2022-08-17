@@ -251,7 +251,9 @@ Let's take a look at a general example:
 }
 ```
 
-![selector](https://user-images.githubusercontent.com/37275728/185158939-c73c000c-a6b9-4514-b9bd-65bbdad56218.gif)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37275728/185158939-c73c000c-a6b9-4514-b9bd-65bbdad56218.gif" width=400 />
+</p>
 
 In the above example, the <code>#gallery</code> element is matched by the universal selector, and the <code>p</code> element is matched by the <code>child</code> selector. The pseudo-selector <code>:hover</code> changes the color of the <code>a</code> element when it is hovered over.
 
@@ -315,7 +317,9 @@ Let's take a look at a general example:
 }
 ```
 
-![pseudo_element](https://user-images.githubusercontent.com/37275728/185158984-96a39866-0d08-4730-8bf4-a6ddd40e9b58.gif)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37275728/185158984-96a39866-0d08-4730-8bf4-a6ddd40e9b58.gif" width=400 />
+</p>
 
 In the above example, the <code>#gallery</code> element is matched by the universal selector, and the <code>p</code> element is matched by the <code>child</code> selector. The pseudo-element <code>:first-letter</code> changes the color of the first letter of the <code>p</code> element. The following text is displayed when the <code>a</code> element is hovered over: <code>Example of a pseudo-element</code>.
 
@@ -367,7 +371,9 @@ Let's take a look at a complete example:
 }
 ```
 
-![box_model](https://user-images.githubusercontent.com/37275728/185159594-c037c582-8262-4723-80bd-b32a2776a622.PNG)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37275728/185159594-c037c582-8262-4723-80bd-b32a2776a622.PNG" width=400 />
+</p>
 
 The above example defines a box with a content area of 100x100px, a padding of 10px, a margin of 10px, and a black border with a width of 1px.
 
@@ -529,8 +535,9 @@ Let's take a look at a complete example:
    box-shadow: 0px 0px 5px #ccc;
 }
 ```
-
-![flex_box](https://user-images.githubusercontent.com/37275728/185159826-14526321-a3c0-4726-bd15-711cd7221cf6.PNG)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37275728/185159826-14526321-a3c0-4726-bd15-711cd7221cf6.PNG" width=400 />
+</p>
 
 In the above example, we have a container with a row of three boxes. The boxes are all the same size, but the container is set to flex-direction: column. This means that the boxes will be stacked vertically. The boxes are also centered in the container.
 
@@ -632,8 +639,9 @@ li {
    box-shadow: 0px 0px 5px #ccc;
 }
 ```
-
-![list_and_markers](https://user-images.githubusercontent.com/37275728/185166139-e4cd392e-dbaa-4d9e-b5ab-f24971dbf2e5.PNG)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37275728/185166139-e4cd392e-dbaa-4d9e-b5ab-f24971dbf2e5.PNG" width=400 />
+</p>
 
 In the above example, we have a list with three items. The list is set to display: inline-block. This means that the items will be displayed horizontally as opposed to the default vertical. The items are distinguished by a border and a box-shadow.
 
@@ -694,7 +702,9 @@ th, td {
    box-shadow: 0px 0px 5px #ccc;
 }
 ```
-
+<p align="center">
+  <img src="" width=400 />
+</p>
 ![table](https://user-images.githubusercontent.com/37275728/185166325-58e220dc-4d57-4292-bb30-141baa3abb7f.PNG)
 
 #### Short summary
@@ -736,8 +746,9 @@ p {
    text-shadow: 0px 0px 5px #ccc;
 }
 ```
-
-![text_style](https://user-images.githubusercontent.com/37275728/185166408-c90261cb-ee50-4c94-ad5c-6f5c0c59336a.PNG)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37275728/185166408-c90261cb-ee50-4c94-ad5c-6f5c0c59336a.PNG" width=400 />
+</p>
 
 In the above example, we have a paragraph. The text in the paragraph is set to be bold, centered and surrounded by a shadow. The font-family is selected to be sans-serif and the font-size is set to 1.5em.
 
@@ -853,8 +864,9 @@ The color of a specific element can be specified or set to inherit from the pare
 }
 ```
 
-![colors](https://user-images.githubusercontent.com/37275728/185167161-7838ed90-f2fb-4f0b-8d89-91cf81ee417a.PNG)
-
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37275728/185167161-7838ed90-f2fb-4f0b-8d89-91cf81ee417a.PNG" width=400 />
+</p>
 
 The background color of the container is set to strong red in the example above, but it will be shown as pink since the opacity is set to 50%. The font color is set to white so that it stands out against the backgroun.
 
@@ -900,7 +912,9 @@ p {
 }
 ```
 
-![background](https://user-images.githubusercontent.com/37275728/185167742-73bbbf0f-cfb9-4685-846a-ffc9e6e96dbc.PNG)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37275728/185167742-73bbbf0f-cfb9-4685-846a-ffc9e6e96dbc.PNG" width=400 />
+</p>
 
 In the example above, the background color of the div is set to dark green, and the background color of the p is set to light gray.
 
@@ -978,7 +992,9 @@ Let's take a look at the following example:
 }
 ```
 
-![positioning](https://user-images.githubusercontent.com/37275728/185168266-2bc43ea1-4112-43bc-806f-edfd1e6bf2c2.PNG)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37275728/185168266-2bc43ea1-4112-43bc-806f-edfd1e6bf2c2.PNG" width=400 />
+</p>
 
 The parent element in the example above stands out due to its narrow rectangular border. The first child element is positioned absolutely, whereas the second is positioned relatively. The other elements have default positioning.
 
@@ -1045,7 +1061,9 @@ Let's take a look at the following example:
 }
 ```
 
-![animation](https://user-images.githubusercontent.com/37275728/185173016-a44f199e-1595-40f5-9f27-3a12c9302bec.gif)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37275728/185173016-a44f199e-1595-40f5-9f27-3a12c9302bec.gif" width=400 />
+</p>
 
 The animation changes the background color of the box from <code>#3D9970</code> to <code>#85144b</code> and back again. It repeats every 3 seconds and runs forever.
 
@@ -1094,7 +1112,9 @@ Transformations are used to change the position, size, and orientation of an ele
 }
 ```
 
-![transform](https://user-images.githubusercontent.com/37275728/185172969-8d99490a-e757-416d-8f3e-254594462cdd.PNG)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37275728/185172969-8d99490a-e757-416d-8f3e-254594462cdd.PNG" width=400 />
+</p>
 
 The box element is rotated by 45 degrees first, then translated to the right by 100 pixels. 
 
@@ -1141,7 +1161,9 @@ Transitions are used to change the style of an element over a period of time.
 }
 ```
 
-![transition](https://user-images.githubusercontent.com/37275728/185173067-7bbce7ec-c113-4649-bd22-cd6d5d5e37b2.gif)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37275728/185173067-7bbce7ec-c113-4649-bd22-cd6d5d5e37b2.gif" width=400 />
+</p>
 
 #### Short summary
 
@@ -1187,7 +1209,9 @@ Let's say we want to create a button that changes its color depending on the scr
 }
 ```
 
-![media_queries](https://user-images.githubusercontent.com/37275728/185173675-ced1fce4-8ab2-4b11-8672-e75ec79f0663.gif)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37275728/185173675-ced1fce4-8ab2-4b11-8672-e75ec79f0663.gif" width=400 />
+</p>
 
 #### Short summary
 
