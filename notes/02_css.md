@@ -1045,6 +1045,8 @@ Let's take a look at the following example:
 }
 ```
 
+![animation](https://user-images.githubusercontent.com/37275728/185173016-a44f199e-1595-40f5-9f27-3a12c9302bec.gif)
+
 The animation changes the background color of the box from <code>#3D9970</code> to <code>#85144b</code> and back again. It repeats every 3 seconds and runs forever.
 
 #### Short summary
@@ -1092,6 +1094,8 @@ Transformations are used to change the position, size, and orientation of an ele
 }
 ```
 
+![transform](https://user-images.githubusercontent.com/37275728/185172969-8d99490a-e757-416d-8f3e-254594462cdd.PNG)
+
 The box element is rotated by 45 degrees first, then translated to the right by 100 pixels. 
 
 #### Short summary
@@ -1136,6 +1140,8 @@ Transitions are used to change the style of an element over a period of time.
   background-color: #FF4136;
 }
 ```
+
+![transition](https://user-images.githubusercontent.com/37275728/185173067-7bbce7ec-c113-4649-bd22-cd6d5d5e37b2.gif)
 
 #### Short summary
 
