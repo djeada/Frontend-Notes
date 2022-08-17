@@ -251,6 +251,8 @@ Let's take a look at a general example:
 }
 ```
 
+![selector](https://user-images.githubusercontent.com/37275728/185158939-c73c000c-a6b9-4514-b9bd-65bbdad56218.gif)
+
 In the above example, the <code>#gallery</code> element is matched by the universal selector, and the <code>p</code> element is matched by the <code>child</code> selector. The pseudo-selector <code>:hover</code> changes the color of the <code>a</code> element when it is hovered over.
 
 #### Short summary
@@ -313,6 +315,8 @@ Let's take a look at a general example:
 }
 ```
 
+![pseudo_element](https://user-images.githubusercontent.com/37275728/185158984-96a39866-0d08-4730-8bf4-a6ddd40e9b58.gif)
+
 In the above example, the <code>#gallery</code> element is matched by the universal selector, and the <code>p</code> element is matched by the <code>child</code> selector. The pseudo-element <code>:first-letter</code> changes the color of the first letter of the <code>p</code> element. The following text is displayed when the <code>a</code> element is hovered over: <code>Example of a pseudo-element</code>.
 
 #### Short summary
@@ -362,6 +366,8 @@ Let's take a look at a complete example:
 	border: 1px solid black;
 }
 ```
+
+![box_model](https://user-images.githubusercontent.com/37275728/185159594-c037c582-8262-4723-80bd-b32a2776a622.PNG)
 
 The above example defines a box with a content area of 100x100px, a padding of 10px, a margin of 10px, and a black border with a width of 1px.
 
@@ -524,6 +530,8 @@ Let's take a look at a complete example:
 }
 ```
 
+![flex_box](https://user-images.githubusercontent.com/37275728/185159826-14526321-a3c0-4726-bd15-711cd7221cf6.PNG)
+
 In the above example, we have a container with a row of three boxes. The boxes are all the same size, but the container is set to flex-direction: column. This means that the boxes will be stacked vertically. The boxes are also centered in the container.
 
 Links:
@@ -624,6 +632,8 @@ li {
    box-shadow: 0px 0px 5px #ccc;
 }
 ```
+
+
 
 In the above example, we have a list with three items. The list is set to display: inline-block. This means that the items will be displayed horizontally as opposed to the default vertical. The items are distinguished by a border and a box-shadow.
 
