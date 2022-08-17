@@ -703,9 +703,8 @@ th, td {
 }
 ```
 <p align="center">
-  <img src="" width=400 />
+  <img src="https://user-images.githubusercontent.com/37275728/185166325-58e220dc-4d57-4292-bb30-141baa3abb7f.PNG" width=400 />
 </p>
-![table](https://user-images.githubusercontent.com/37275728/185166325-58e220dc-4d57-4292-bb30-141baa3abb7f.PNG)
 
 #### Short summary
 
@@ -993,7 +992,7 @@ Let's take a look at the following example:
 ```
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/37275728/185168266-2bc43ea1-4112-43bc-806f-edfd1e6bf2c2.PNG" width=400 />
+  <img src="https://user-images.githubusercontent.com/37275728/185168266-2bc43ea1-4112-43bc-806f-edfd1e6bf2c2.PNG" width=600 />
 </p>
 
 The parent element in the example above stands out due to its narrow rectangular border. The first child element is positioned absolutely, whereas the second is positioned relatively. The other elements have default positioning.
