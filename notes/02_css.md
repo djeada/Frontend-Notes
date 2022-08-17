@@ -633,7 +633,7 @@ li {
 }
 ```
 
-
+![list_and_markers](https://user-images.githubusercontent.com/37275728/185166139-e4cd392e-dbaa-4d9e-b5ab-f24971dbf2e5.PNG)
 
 In the above example, we have a list with three items. The list is set to display: inline-block. This means that the items will be displayed horizontally as opposed to the default vertical. The items are distinguished by a border and a box-shadow.
 
@@ -695,6 +695,8 @@ th, td {
 }
 ```
 
+![table](https://user-images.githubusercontent.com/37275728/185166325-58e220dc-4d57-4292-bb30-141baa3abb7f.PNG)
+
 #### Short summary
 
 1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout">table-layout</a></code>: layout of the table
@@ -734,6 +736,8 @@ p {
    text-shadow: 0px 0px 5px #ccc;
 }
 ```
+
+![text_style](https://user-images.githubusercontent.com/37275728/185166408-c90261cb-ee50-4c94-ad5c-6f5c0c59336a.PNG)
 
 In the above example, we have a paragraph. The text in the paragraph is set to be bold, centered and surrounded by a shadow. The font-family is selected to be sans-serif and the font-size is set to 1.5em.
 
@@ -849,6 +853,9 @@ The color of a specific element can be specified or set to inherit from the pare
 }
 ```
 
+![colors](https://user-images.githubusercontent.com/37275728/185167161-7838ed90-f2fb-4f0b-8d89-91cf81ee417a.PNG)
+
+
 The background color of the container is set to strong red in the example above, but it will be shown as pink since the opacity is set to 50%. The font color is set to white so that it stands out against the backgroun.
 
 #### Short summary
@@ -892,6 +899,8 @@ p {
   background-color: #f0f0f0;
 }
 ```
+
+![background](https://user-images.githubusercontent.com/37275728/185167742-73bbbf0f-cfb9-4685-846a-ffc9e6e96dbc.PNG)
 
 In the example above, the background color of the div is set to dark green, and the background color of the p is set to light gray.
 
@@ -968,6 +977,8 @@ Let's take a look at the following example:
   background-color: #DDDDDD;
 }
 ```
+
+![positioning](https://user-images.githubusercontent.com/37275728/185168266-2bc43ea1-4112-43bc-806f-edfd1e6bf2c2.PNG)
 
 The parent element in the example above stands out due to its narrow rectangular border. The first child element is positioned absolutely, whereas the second is positioned relatively. The other elements have default positioning.
 
