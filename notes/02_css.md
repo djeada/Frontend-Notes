@@ -919,18 +919,18 @@ In the example above, the background color of the div is set to dark green, and 
 
 #### Short summary
 
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-color">background-color</a></code>: background color of the element
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-color">background-color</a>: background color of the element
 	- color
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-image">background-image</a></code>: background image of the element
-	- none | [ <code>url</code> ] 
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-position">background-position</a></code>: background position of the element
-	- [ <code>length</code>, <code>length</code> ] | [ <code>length</code>, <code>length</code>, <code>length</code> ] | [ <code>length</code>, <code>length</code>, <code>length</code>, <code>length</code> ]
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat">background-repeat</a></code>: background repeat of the element
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-image">background-image</a>: background image of the element
+	- none | url 
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-position">background-position</a>: background position of the element
+	- length, length | length, length, length, length 
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat">background-repeat</a>: background repeat of the element
 	- repeat | repeat-x | repeat-y | no-repeat
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-attachment">background-attachment</a></code>: background attachment of the element
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-attachment">background-attachment</a>: background attachment of the element
 	- scroll | fixed | local
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-size">background-size</a></code>: background size of the element
-	- [ <code>length</code>, <code>length</code> ] | auto
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-size">background-size</a>: background size of the element
+	- length, length | auto
 
 #### Aditional explanations
 
