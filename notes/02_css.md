@@ -1068,23 +1068,23 @@ The animation changes the background color of the box from <code>#3D9970</code> 
 
 #### Short summary
 
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation">animation</a></code>: animation of the element
-	- none | <code>animation-name</code> [ <code>animation-duration</code> ] [ <code>animation-timing-function</code> ] [ <code>animation-delay</code> ] [ <code>animation-iteration-count</code> ] [ <code>animation-direction</code> ] [ <code>animation-fill-mode</code> ]
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-name">animation-name</a></code>: animation name of the element
-	- [ <code>string</code> ]
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration">animation-duration</a></code>: animation duration of the element
-	- [ <code>time</code> ]
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function">animation-timing-function</a></code>: animation timing function of the element
-	- [ <code>timing-function</code> ]
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-delay">animation-delay</a></code>: animation delay of the element
-	- [ <code>time</code> ]
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count">animation-iteration-count</a></code>: animation iteration count of the element
-	- [ <code>number</code> ]
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-direction">animation-direction</a></code>: animation direction of the element
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation">animation</a>: animation of the element
+	- none | animation-name | animation-duration | animation-timing-function | animation-delay | animation-iteration-count | animation-direction | animation-fill-mode 
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-name">animation-name</a>: animation name of the element
+	- string
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration">animation-duration</a>: animation duration of the element
+	- time
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function">animation-timing-function</a>: animation timing function of the element
+	- timing-function
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-delay">animation-delay</a>: animation delay of the element
+	-  time 
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count">animation-iteration-count</a>: animation iteration count of the element
+	-  number 
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-direction">animation-direction</a>: animation direction of the element
 	- normal | alternate
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-fill-mode">animation-fill-mode</a></code>: animation fill mode of the element
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-fill-mode">animation-fill-mode</a>: animation fill mode of the element
 	- none | forwards | backwards | both
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-play-state">animation-play-state</a></code>: animation play state of the element
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-play-state">animation-play-state</a>: animation play state of the element
 	- running | paused
 
 #### Aditional explanations
@@ -1119,17 +1119,17 @@ The box element is rotated by 45 degrees first, then translated to the right by 
 
 #### Short summary
 
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform">transform</a></code>: transform of the element
-	- none | <code>matrix</code> | <code>translate</code> | <code>translateX</code> | <code>translateY</code> | <code>translateZ</code> | <code>scale</code> | <code>scaleX</code> | <code>scaleY</code> | <code>scaleZ</code> | <code>rotate</code> | <code>rotateX</code> | <code>rotateY</code> | <code>rotateZ</code> | <code>skew</code> | <code>skewX</code> | <code>skewY</code> | <code>matrix3d</code> | <code>translate3d</code> | <code>translateX3d</code> | <code>translateY3d</code> | <code>translateZ3d</code> | <code>scale3d</code> | <code>scaleX3d</code> | <code>scaleY3d</code> | <code>scaleZ3d</code> | <code>rotate3d</code> | <code>rotateX3d</code> | <code>rotateY3d</code> | <code>rotateZ3d</code> | <code>perspective</code>
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin">transform-origin</a></code>: transform origin of the element
-	- none | <code>origin-x</code> <code>origin-y</code> <code>origin-z</code>
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style">transform-style</a></code>: transform style of the element
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform">transform</a>: transform of the element
+	- none | matrix | translate | translateX | translateY | translateZ | scale | scaleX | scaleY | scaleZ | rotate | rotateX | rotateY | rotateZ | skew | skewX | skewY | matrix3d | translate3d | translateX3d | translateY3d | translateZ3d | scale3d | scaleX3d | scaleY3d | scaleZ3d | rotate3d | rotateX3d | rotateY3d | rotateZ3d | perspective
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin">transform-origin</a>: transform origin of the element
+	- none | origin-x origin-y origin-z
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style">transform-style</a>: transform style of the element
 	- flat | preserve-3d
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/perspective">perspective</a></code>: perspective of the element
-	- [ <code>length</code> ]
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/perspective-origin">perspective-origin</a></code>: perspective origin of the element
-	- [ <code>length</code> ] <code>length</code>
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility">backface-visibility</a></code>: backface visibility of the element
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/perspective">perspective</a>: perspective of the element
+	- length
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/perspective-origin">perspective-origin</a>: perspective origin of the element
+	- length
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility">backface-visibility</a>: backface visibility of the element
 	- visible | hidden
 
 ### Transition
@@ -1166,16 +1166,16 @@ Transitions are used to change the style of an element over a period of time.
 
 #### Short summary
 
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition">transition</a></code>: transition of the element
-	- none | <code>transition-property</code> [ <code>transition-duration</code> ] [ <code>transition-timing-function</code> ] [ <code>transition-delay</code> ]
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property">transition-property</a></code>: transition property of the element
-	- [ <code>string</code> ]
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-duration">transition-duration</a></code>: transition duration of the element
-	- [ <code>time</code> ]
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function">transition-timing-function</a></code>: transition timing function of the element
-	- [ <code>timing-function</code> ]
-1. <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-delay">transition-delay</a></code>: transition delay of the element
-	- [ <code>time</code> ]
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition">transition</a>: transition of the element
+	- none | transition-property | transition-duration |  transition-timing-function | transition-delay 
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property">transition-property</a>: transition property of the element
+	-  string 
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-duration">transition-duration</a>: transition duration of the element
+	-  time 
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function">transition-timing-function</a>: transition timing function of the element
+	-  timing-function 
+1. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-delay">transition-delay</a>: transition delay of the element
+	-  time 
 
 ## Responsive design
 
