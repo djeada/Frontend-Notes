@@ -1215,7 +1215,8 @@ Let's say we want to create a button that changes its color depending on the scr
 #### Short summary
 
 * <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">@media</a></code>: media query
-	- <code>screen</code> | <code>print</code> | <code>all</code> | <code>not</code> <code>screen</code> | <code>orientation</code> <code>portrait</code> | <code>orientation</code> <code>landscape</code> | <code>min-width</code> <code>length</code> | <code>max-width</code> <code>length</code> | <code>min-height</code> <code>length</code> | <code>max-height</code> <code>length</code> | <code>min-device-pixel-ratio</code> <code>number</code> | <code>max-device-pixel-ratio</code> <code>number</code> | <code>min-resolution</code> <code>resolution</code> | <code>max-resolution</code> <code>resolution</code> | <code>scan</code> <code>progressive</code> | <code>scan</code> <code>interlace</code>
+	- screen | print | all | not screen | orientation portrait | orientation landscape | min-width length | max-width length | min-height length | max-height length | min-device-pixel-ratio number | max-device-pixel-ratio number | min-resolution resolution | max-resolution resolution | scan progressive | scan interlace
+
 
 #### Aditional explanations
 
