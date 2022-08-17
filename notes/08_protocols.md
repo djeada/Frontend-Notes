@@ -61,6 +61,27 @@ Content Security Policy is a computer security standard introduced to prevent cr
 
 OWASP or Open Web Application Security Project is an online community that produces freely-available articles, methodologies, documentation, tools, and technologies in the field of web application security.
 
+### Generate a CSR on Your Server
+You must create a CSR (Certificate Signing Request) on your server.
+This is accomplished using the Open SSL command, which should be accessible by default if you are using Apache or Nginx:
+
+    openssl req -new -newkey rsa:2048 -nodes -keyout your_domain.com.key -out your_domain.com.csr
+
+### Obtain an TLS/SSL Certificate
+
+To put it simply, SSL (Secure Sockets Layer) is the old and TLS (Transport Layer Security) is the new, though some people refer to TLS as SSL.
+
+You can buy a certificate from this website: https://www.namecheap.com/security/ssl-certificates/domain-validation/
+
+This webpage checks if the given URL uses TLS or SSL:  https://www.ssllabs.com/ssltest/
+
+### Install Certificate on Your Server
+
+1. Change your Virtual Host to listen on port 443 (HTTPS) rather than port 80 (HTTP).
+2. Specify your SSL key and certificate files. 
+3. Activate SSL.
+4. Restart the server. 
+
 ## HTTP
 
 The protocol responsible for requesting and sending resources over the internet is HTTP.
