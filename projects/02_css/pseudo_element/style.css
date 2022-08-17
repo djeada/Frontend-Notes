@@ -5,7 +5,9 @@
 #gallery p::first-letter {
     color: red;
 }
-
+#gallery a {
+text-decoration: none;
+}
 #gallery a:hover::before {
     content: "Example of a pseudo-element";
 }

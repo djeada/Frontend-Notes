@@ -1,42 +1,71 @@
-.navbar {
-    justify-content: space-between;
-    overflow: hidden;
-    background-color: #333;
-    position: relative;
+
+.slideshow-container {
+  position: relative;
+  margin: auto;
+  max-width: 1000px;
 }
 
-#navbar-top-panel {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    background-color: #333;
+.mySlides {
+  display: none;
 }
 
-.navbar #navbar-links {
-    display: none;
+img {
+  vertical-align: middle;
+  width: 100%;
+  height: auto;
 }
 
-.navbar a {
-    color: white;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    display: block;
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
 }
 
-.navbar a:hover {
-    background-color: #ddd;
-    color: black;
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
 }
 
-.logo {
-    background-color: #04aa8c;
-    color: white;
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
 }
 
-#navbarToggle {
-    background-color: #333;
-    min-height: 50px;
-    min-width: 50px;
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  text-align: center;
+  background-color: rgba(0,0,0,0.5);
 }
+
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 14px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+  text-shadow: rgb(1, 1, 1) 1px 0 10px;
+
+}
+
