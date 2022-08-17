@@ -1187,6 +1187,8 @@ Let's say we want to create a button that changes its color depending on the scr
 }
 ```
 
+![media_queries](https://user-images.githubusercontent.com/37275728/185173675-ced1fce4-8ab2-4b11-8672-e75ec79f0663.gif)
+
 #### Short summary
 
 * <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">@media</a></code>: media query
