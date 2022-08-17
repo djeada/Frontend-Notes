@@ -60,7 +60,6 @@ Content Security Policy is a computer security standard introduced to prevent cr
 ### OWASP Security Risks
 
 OWASP or Open Web Application Security Project is an online community that produces freely-available articles, methodologies, documentation, tools, and technologies in the field of web application security.
-Free Content
 
 ## HTTP
 
