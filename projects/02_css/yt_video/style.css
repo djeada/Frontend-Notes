@@ -1,0 +1,12 @@
+.video-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    max-width: 1000px;
+}
