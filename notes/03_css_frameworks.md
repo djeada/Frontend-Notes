@@ -12,11 +12,16 @@
     - [What-are-frameworks?](#What-are-frameworks?)
     - [Why-are-so-many-frameworks-developed?](#Why-are-so-many-frameworks-developed?)
     - [Examples](#Examples)
-    - [Bootstrap](#Bootstrap)
-      - [Including-Bootstrap-in-the-project](#Including-Bootstrap-in-the-project)
-      - [Container](#Container)
-      - [Column-layout](#Column-layout)
-      - [Forms](#Forms)
+   - [Common-elements-of-all-frameworks](#Common-elements-of-all-frameworks)
+     - [Viewport-and-resets](#Viewport-and-resets)
+     - [Layout](#Layout)
+     - [Breakpoints](#Breakpoints)
+     - [Navigation](#Navigation)
+   - [Bootstrap](#Bootstrap)
+     - [Including-Bootstrap-in-the-project](#Including-Bootstrap-in-the-project)
+     - [Container](#Container)
+     - [Column-layout](#Column-layout)
+     - [Forms](#Forms)
   - [Links](#Links)
 
 <!--te-->
@@ -209,11 +214,116 @@ Among commonly used CSS frameworks are:
 - [Semantic UI](https://semantic-ui.com)
 - [Foundation](https://get.foundation/sites/docs/)
 
-### Bootstrap
+## Common elements of all frameworks
+
+Most popular frameworks adress some common issues. If you decide to not use any framework in your project you may want to think about how you want to approach those issues. 
+
+### Viewport and resets
+
+Viewport ensures that your site has no horizontal scroll - the full site will be visible, and users will not have to zoom on mobile to see the content. Put the following line in the head section of your HTML documment:
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+```
+
+Every browser renders content a little differently (this also changes between different versions of the same browser). To unify the rendering there are two common strategies:
+
+* <a href="https://meyerweb.com/eric/tools/css/reset/">Reset</a> which removes all built-in browser styling.
+* <a href="https://necolas.github.io/normalize.css/">Normalize</a> which tries to unify the built-in browser styling.
+
+To use Reset in your project, add the following line to the head section of your HTML document: 
+```html
+<link rel="stylesheet" href="http://meyerweb.com/eric/tools/css/reset/reset.css">
+```
+
+To use Normalize in your project, add the following line to the head section of your HTML document: 
+
+```html
+<link rel="stylesheet" href="https://necolas.github.io/normalize.css/7.0.0/normalize.css">
+```
+
+Additionally you may want to reset the border box:
+
+```css
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+```
+
+### Layout
+
+The most common method to layout a website is to split the content into columns (usually two or three).
+Then we have a lot of options.
+Depending on the screen size, all or some columns may shrink.
+Columns can be transformed into rows if they reach a certain minimum width.
+
+```css
+.column {
+	float: left;
+	width: 33.33%;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+@media screen and (max-width: 600px) {
+	.column {
+		width: 100%;
+	}
+}
+```
+
+Background colors and styles, should extend the width of the full viewport.
+To improve readability, content should normally be limited to a specific width. 
+
+```css
+.container {
+	margin: 0 auto;
+	padding: 0 8px;
+	max-width: 800px;
+}
+```
+
+### Breakpoints
+
+Breakpoints are defined using media queries.
+A breakpoint specifies the pixel width at which the content will collapse, for as when a navigation bar transitions from horizontal to vertical display or a grid breaks into specified parts.
+
+
+The mobile first technique is one of the most common ways to define breakpoints.
+In that approach, we first specify how our website will look on small mobile screens, then we specify breakpoints and their behavior on larger screens.
+The general CSS template looks like this: 
+
+```css
+/* Styles for mobile devices */
+
+@media screen and (min-width: 800px) {
+	/* Styles for laptops and PCs */
+}
+```
+
+### Navigation
+
+One of the most crucial aspects of the website is navigation. Users will not explore your site if it is not intuitive to them. Consider the following:
+
+* Is it better to show navigation horizontally or vertically?
+* Should you go with the hamburger menu?
+* How do I show submenu items? 
+
+## Bootstrap
 
 CSS framework for creating websites - we don't have to write (much) CSS
 
-#### Including Bootstrap in the project
+### Including Bootstrap in the project
 
 In the <code>head</code> section of the HTML file, add the following code:
 
@@ -226,7 +336,7 @@ Now Boostrap is already working in your project.
 * Some elements will have Boostrap style applied on them without any additional work. Those include <code>body</code>, <code>h1</code> and <code>button</code>.
 * To apply other styles, you will ne to set the appropriate <code>class</code> attribute in the HTML code.
 
-#### Container
+### Container
 
 Container is the basic building block for bootstrap. It is top-level division of a document, you will usually set container classes in <code>div</code> tags.
   
@@ -236,7 +346,7 @@ Container is the basic building block for bootstrap. It is top-level division of
 </div>
 ```
 
-#### Column layout 
+### Column layout 
 
 Columns are the most common way to layout content in Bootstrap.
 
@@ -256,7 +366,7 @@ Columns are the most common way to layout content in Bootstrap.
 </div>
 ```
 
-#### Forms
+### Forms
 
 Forms are the most common way to interact with a user.
 
@@ -284,3 +394,4 @@ Forms are the most common way to interact with a user.
 ## Links
 
 * https://bootstrap-cheatsheet.themeselection.com/
+* https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css
