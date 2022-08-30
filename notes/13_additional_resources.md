@@ -71,6 +71,12 @@ A collection of additional resources that you may find useful.
 * https://www.lifeofpix.com/
 * https://stocksnap.io/
 
+### Images without background
+
+* https://pngtree.com/
+* https://purepng.com/
+* https://www.stickpng.com/
+
 ### Logos
 
 * https://www.logoinspirations.co/
