@@ -49,6 +49,12 @@ A collection of additional resources that you may find useful.
 
 ## Graphical elements
 
+### UI Designs
+
+* https://uidesigndaily.com/
+* https://land-book.com/
+* https://cssnectar.com/
+
 ### Icons
 
 * https://www.swifticons.com
