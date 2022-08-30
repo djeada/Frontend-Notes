@@ -103,6 +103,10 @@ A collection of additional resources that you may find useful.
 * https://www.flowmapp.com/
 * https://www.lucidchart.com/
 
+## Mockups
+
+* https://mockupbro.com/
+
 ## Fonts
 
 * http://velvetyne.fr/
@@ -117,6 +121,11 @@ A collection of additional resources that you may find useful.
 * Colors and fonts: https://www.colorsandfonts.com/
 
 ### Color palettes
+
+* AI takeover: *#FD76CB #FFAC30 #000000 #FFFEFD*
+* Spaceship: *#6B9FED #24F9F9 #A1A7C8 #FFFFFF*
+* Humanoid: *#5AC994 #C0F7B7 #123143 #141B29*
+* Singularity: *#EF84F% #15265C #2EE09A #FFFFFF*
 
 * Lake: *#284445 #216A7E #216A7E #216A7E #216A7E*
 * Rio: *#298CK #DEBSA2 #597678 #24322E #BESA2E*
