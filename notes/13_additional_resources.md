@@ -87,10 +87,10 @@ A collection of additional resources that you may find useful.
 
 ### 3D Elements
 
-* https://www.shapefest.com/
-* https://www.uistore.design/items/indian-doodle-illustration-pack/
-* https://shape.so/
 * https://spline.design/
+* https://www.shapefest.com/
+* https://www.vectary.com/
+* https://shape.so/
 
 ### Gradients
 
