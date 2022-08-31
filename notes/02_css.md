@@ -1179,7 +1179,17 @@ Transitions are used to change the style of an element over a period of time.
 
 ## Responsive design
 
-Responsive design is a technique that allows web pages to be designed to behave differently depending on the size of the display. It is a way to make web pages more usable on different devices such as mobile phones, tablets, and desktop computers. 
+Responsive design is a technique that allows websites to be designed to behave differently depending on the size of the display. It is a way to make websites more usable on different devices such as mobile phones, tablets, and desktop computers. The goal is to provide a solid user experience no matter the device.
+
+### Responsive grid vs fluid grid
+
+* A conventional 12-column grid system with pixels for scaling is used in responsive grid.
+* Fluig grid leverages percentages, allowing components to resize to fit the available space. 
+
+### Mobile first
+
+Mobile first is a design method that begins with the smallest screen (mobile devices) and then scales up to tablets, laptops, and desktop computers.
+It is based on the premise that converting a design from a smaller screen to a larger screen is easier. 
 
 ### Media queries
 
