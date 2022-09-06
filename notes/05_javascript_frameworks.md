@@ -519,8 +519,8 @@ A man can't live by JavaScript alone.An HTML file is also required to render the
 ## Vue
 
 Pros:
-- Easy to integrate to existing projects.
-- Close to Vanilla JavaScript.
+- Easy to integrate to existing projects (can mix with plain JavaScript).
+- Close to vanilla JavaScript.
 - Easy to learn.
 
 Cons:
