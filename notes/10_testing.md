@@ -41,6 +41,8 @@ We might list the following JavaScript testing frameworks:
 6. NightwatchJS
 7. Cypress
 
+TODO: example with testing roman numbers
+
 ## E2E
 
 End-to-end tests (also known as system tests) are used to ensure that the entire application functions properly. On our website, we may simulate situations of normal user behavior. For example, we may begin by creating an account, then login, then perform whatever activities are enabled for logged-in users, and lastly delete the account.
