@@ -584,7 +584,7 @@ john.speak(); // Hello, my name is John and I am 30 years old.
 jane.speak(); // Hello, my name is Jane and I am 25 years old.
 ```
 
-### Arrays vs Objects
+### Arrays vs Objectsnpm install npm@latest -g
 
 * Arrays are used to hold several values under a single name and to organize them using indexes represented by consecutive integers.
 * Objects are used to hold several values under a single name and to organize them using named properties.
@@ -996,6 +996,12 @@ Package managers are used to install and manage dependencies. The chances are yo
 NPM stands for "Node Package Manager," but don't be fooled by the term.
 React, SASS, Angular, Vue, and pretty much everything else can very certainly be installed and maintained using NPM. 
 
+To install the npm, download the <a href="https://nodejs.org/en/#home-downloadhead">installer</a> from the official website.
+  
+To update NPM to the newest version, use:
+  
+  npm install npm@latest -g
+  
 #### Initializing a project
 
 In order to set up a project with NPM, you should use the following command:
