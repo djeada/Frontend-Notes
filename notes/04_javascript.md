@@ -999,8 +999,10 @@ React, SASS, Angular, Vue, and pretty much everything else can very certainly be
 To install the npm, download the <a href="https://nodejs.org/en/#home-downloadhead">installer</a> from the official website.
   
 To update NPM to the newest version, use:
-  
-  npm install npm@latest -g
+
+```BASH
+npm install npm@latest -g
+```
   
 #### Initializing a project
 
