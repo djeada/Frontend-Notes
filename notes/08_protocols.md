@@ -285,35 +285,35 @@ Response:
 
 1. You enter `https://example-website.com` in the browser.
 
-* Hidden behind a user-friendly name like `https://example-website.com` is an IP address of a server that keeps the website's data.
-* In order to communicate with the server, we require that IP address.
-* We obtain the address from a service known as DNS. 
+    * Hidden behind a user-friendly name like `https://example-website.com` is an IP address of a server that keeps the website's data.
+    * In order to communicate with the server, we require that IP address.
+    * We obtain the address from a service known as DNS. 
 
 2. Browser uses DNS.
 
-* The browser requests that the DNS service translate a given URL to an IP address.
-* If the local DNS servers do not know the IP address, they will query the global DNS servers for it.
-* When an address is identified, it is returned to the browser.
+    * The browser requests that the DNS service translate a given URL to an IP address.
+    * If the local DNS servers do not know the IP address, they will query the global DNS servers for it.
+    * When an address is identified, it is returned to the browser.
 
 3. TCP connection between the browser and the server.
 
-* TCP connection is established between the browser and the server.
-* The packets from a client browser request are routed through the router, the isp and the whole networks of devices.
-* This is an extremely circuitous and inefficient route.
-* Additionaly many websites, employ a content delivery network, or cdn, to cache static and dynamic material closer to the browser.
+    * TCP connection is established between the browser and the server.
+    * The packets from a client browser request are routed through the router, the isp and the whole networks of devices.
+    * This is an extremely circuitous and inefficient route.
+    * Additionaly many websites, employ a content delivery network, or cdn, to cache static and dynamic material closer to the browser.
 
 4. HTTP requests over the TCP connection.
 
-* The browser sends an http request to the server in order to obtain the page's contents.
-* The http request includes a request line, headers (or request metadata), and a content.
-* The request must include all the information that the server needs to determine what kind of data it needs to send to the client.
+    * The browser sends an http request to the server in order to obtain the page's contents.
+    * The http request includes a request line, headers (or request metadata), and a content.
+    * The request must include all the information that the server needs to determine what kind of data it needs to send to the client.
 
 5. HTTP responses over the TCP connection.
 
-* The server sends an HTTP response to the client.
-* The response includes everything the clinet needs in order to render the website (HTML, CSS, JS and resources such as images).
+    * The server sends an HTTP response to the client.
+    * The response includes everything the clinet needs in order to render the website (HTML, CSS, JS and resources such as images).
 
 6. Content rendering.
 
-* The browser parses the server's HTTP response.
-* The content is rendered in line with the browser's rules (not every browser supports the same set of features).
+    * The browser parses the server's HTTP response.
+    * The content is rendered in line with the browser's rules (not every browser supports the same set of features).
