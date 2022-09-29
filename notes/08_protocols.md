@@ -68,6 +68,12 @@ This is accomplished using the Open SSL command, which should be accessible by d
 
     openssl req -new -newkey rsa:2048 -nodes -keyout your_domain.com.key -out your_domain.com.csr
 
+### What is SSL?
+
+* SSL improves the security of internet connections by encrypting them.
+* When servers use plain HTTP without SSL, they deliver unencrypted data to browsers. Anyone who sniffs the data may see all the transferred data, even user credentials. 
+* When using SSL, all data is sent after establishing a secure session. The server first sends its credentials. The client can then ask the central authority if the credentials are legitimate. Data is transferred only after confirmation from a central authority.
+
 ### Obtain an TLS/SSL Certificate
 
 To put it simply, SSL (Secure Sockets Layer) is the old and TLS (Transport Layer Security) is the new, though some people refer to TLS as SSL.
