@@ -229,6 +229,20 @@ class App extends React.Component {
 }
 ```
 
+#### Virtual DOM
+
+The following happen when you try to update DOM in React:
+
+1. The entire virtual DOM gets updated.
+2. The virtual DOM gets compared to what it looked like before you updated it. React figures out which objects have changed.
+3. The changed objects, and the changed objects only, get updated on the real DOM.
+4. Changes on the real DOM cause the screen to change.
+
+The authors of React say that virtual DOM helps to accelerate webpage rendering. This is just partially correct. It may be faster in certain cases. Users on Facebook, for example, scroll a lot. Scrolling triggers a paint event, which is quite expensive. Reducing the amount of paint events speeds up Virtual DOM apps.
+
+Here is a benchmark, which is a collection of performance test results for all known frameworks: https://rawgit.com/krausest/js-framework-benchmark/master/webdriver-ts-results/table.html
+
+
 #### Conditional rendering
 
 In React, conditional rendering is done using the <code>if</code> statement. In the example below we change the text display on the button depending on whether the button is clicked or not.
