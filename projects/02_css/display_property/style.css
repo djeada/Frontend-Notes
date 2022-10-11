@@ -1,0 +1,31 @@
+
+body {
+    display: flex;
+    flex-direction: row;
+
+
+}
+
+.container {
+    color: #000;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+
+.block * {
+    display: block;
+}
+
+.inline-block *  {
+    display: inline-block;
+}
+
+.inline *  {
+    display: inline;
+}
