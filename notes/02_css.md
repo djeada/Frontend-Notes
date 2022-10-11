@@ -1020,6 +1020,26 @@ Let's discuss different values of <code>position</code> property:
 * Relative position operates similarly to static position, except that you may now change the position of an element. Modifiable properties include top, bottom, right, and left. All the changes are relative to the position of the parent element. What matters is that the parent element's other children be unaffected and act as if the moved element were still in its original place.
 * Absolute-positioned elements are fully removed from the web page's normal flow. They are positioned depending on the location of their ancestor rather than their regular position in the document flow. Other children of the parent element fill the gap left by the moved element.
 
+
+Now let's take a look at <code>display</code> property:
+
+Inline elements:
+* respects left and right margins and padding but not top and bottom margins and padding
+* there is no way to specify width and height.
+* elements can be placed on the sides (left and right). 
+
+Block elements:
+* respects all the margins and paddings.
+* puts a line break after the block element.
+* by default take the full available width.
+
+Inline-block elements:
+* respects top and bottom margins and padding.
+* height and width can be specified.
+* Elements can be placed on the sides (left and right). 
+
+![Screenshot from 2022-10-11 20-46-35](https://user-images.githubusercontent.com/37275728/195174303-2330e847-fcb9-4c86-9b38-13130dd010e6.png)
+
 ## Animations and other dynamic effects
 
 Besides static colors CSS3 provides a number of ways to animate colors, backgrounds, and other properties. 
