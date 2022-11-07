@@ -1206,6 +1206,12 @@ Responsive design is a technique that allows websites to be designed to behave d
 * A conventional 12-column grid system with pixels for scaling is used in responsive grid.
 * Fluig grid leverages percentages, allowing components to resize to fit the available space. 
 
+Rules of thumb for number of columns:
+
+* 12 for desktop
+* 8 for tablet
+* 4 for mobile
+
 ### Mobile first
 
 Mobile first is a design method that begins with the smallest screen (mobile devices) and then scales up to tablets, laptops, and desktop computers.
