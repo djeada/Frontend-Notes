@@ -19,6 +19,10 @@ Please note that some projects may have additional requirements or dependencies.
 
 ## Getting Started
 
+The `projects` directory in the root of this repository contains multiple independent subprojects that cover various frontend development topics. Each project is designed to illustrate the implementation of a specific topic, and may have its own specific instructions and dependencies.
+
+To get started with a project:
+
 1. Clone the repository: `git clone https://github.com/djeada/Frontend-Notes.git`
 1. Navigate to the projects directory: `cd Frontend-Notes/projects`
 1. Choose a project to work on and navigate to its directory: `cd 01_html/image`
