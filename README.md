@@ -2,7 +2,7 @@
 
 Welcome to our repository of frontend development resources! Whether you're just starting out or looking to refresh your skills, this collection of notes and resources will help you learn about and master the foundations of frontend development. From HTML and CSS to JavaScript and beyond, we've got you covered. So let's dive in and start building awesome web applications together!
 
-![Caputre](https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80)
+![frontend](https://user-images.githubusercontent.com/37275728/213442923-fed75d6c-d23b-478b-ba61-e630f83da2dd.png)
 
 ## What is frontend development?
 
