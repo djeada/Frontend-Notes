@@ -46,6 +46,7 @@ A collection of additional resources that you may find useful.
 * https://9elements.github.io/fancy-border-radius/
 * https://wweb.dev/resources/css-separator-generator/
 * https://grid.layoutit.com/
+* https://animista.net/
 
 ## Graphical elements
 
