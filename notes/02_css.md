@@ -1,4 +1,4 @@
-## Introduction
+## CSS
 
 * Cascading Style Sheets (CSS)
 * The "adjectives" of the web
