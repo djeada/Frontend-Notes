@@ -1,31 +1,3 @@
-## Table of Contents
-<!--ts-->
-
-  - [CSS-Preprocessors](#CSS-Preprocessors)
-    - [An-outline-of-common-features](#An-outline-of-common-features)
-      - [Variables](#Variables)
-      - [Inheritance](#Inheritance)
-      - [Nesting](#Nesting)
-      - [Mathematical-operations](#Mathematical-operations)
-      - [Functions](#Functions)
-  - [CSS-Frameworks](#CSS-Frameworks)
-    - [What-are-frameworks?](#What-are-frameworks?)
-    - [Why-are-so-many-frameworks-developed?](#Why-are-so-many-frameworks-developed?)
-    - [Examples](#Examples)
-   - [Common-elements-of-all-frameworks](#Common-elements-of-all-frameworks)
-     - [Viewport-and-resets](#Viewport-and-resets)
-     - [Layout](#Layout)
-     - [Breakpoints](#Breakpoints)
-     - [Navigation](#Navigation)
-   - [Bootstrap](#Bootstrap)
-     - [Including-Bootstrap-in-the-project](#Including-Bootstrap-in-the-project)
-     - [Container](#Container)
-     - [Column-layout](#Column-layout)
-     - [Forms](#Forms)
-  - [Links](#Links)
-
-<!--te-->
-
 ## CSS Preprocessors
 
 CSS preprocessors are scripting languages that are used to expand standard CSS features with new functionality that is typically borrowed from another programming language. Variables, nesting, inheritance, mixins, functions, and mathematical operations are common examples. Important: they don't give anything you can't accomplish with plain old CSS, only a different way of doing things that someone thought was more efficient.
