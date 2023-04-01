@@ -1,14 +1,3 @@
-## Table of Contents
-<!--ts-->
-
-- [Project-strucutre](#Project-strucutre)
-- [Choosing-the-right-technologies](#Choosing-the-right-technologies)
-- [Example-structure](#Example-structure)
-- [Boilerplates](#Boilerplates)
-- [Links](#Links)
-
-<!--te-->
-
 ## Project strucutre
 
 When starting a new project, we must identify which files we will require and organize them logically between folders. This is critical because, depending on the scope of the project, a real-world project might have anything from a few hundred to several thousand files. Although many frameworks provide a predefined structure, these are mainly simply suggestions rather than hard and fast rules. Furthermore, because many projects use many frameworks at the same time or even none at all, the question of project structure is almost always relevant.
