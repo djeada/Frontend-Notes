@@ -1,24 +1,27 @@
 ## Quizes on Frontend
 
 ## HTML
-
+<details>
 <summary>What is a doctype?</summary><br>
-A doctype declaration tells the web browser what version of HTML (or XML) the document is written in. It goes at the top of the HTML document, before the `<html>` tag. For HTML5, the doctype is simply: `<!DOCTYPE html>`. </details>
+A doctype declaration tells the web browser what version of HTML (or XML) the document is written in. It goes at the top of the HTML document, before the <code><html></code> tag. For HTML5, the doctype is simply: <code><!DOCTYPE html></code>. </details>
 <details>
 <summary>Should I use HTML or XHTML?</summary><br>
 HTML is generally preferred over XHTML for most web development purposes due to its greater flexibility and compatibility with modern web development techniques. XHTML, while stricter in its syntax, requires more effort to maintain and can cause compatibility issues with some web technologies. </details>
 <details>
 <summary>How do I build menus?</summary><br>
-Menus can be built using HTML unordered lists (`<ul>`) and list items (`<li>`). The menu items can be styled using CSS to create a desired visual appearance. </details>
+Menus can be built using HTML unordered lists (<code><ul></code>) and list items (<code><li></code>). The menu items can be styled using CSS to create a desired visual appearance. </details>
+    
 <details>
 <summary>How do I build forms?</summary><br>
-Forms can be built using HTML form elements (`<form>`, `<input>`, `<select>`, `<textarea>`, etc.). Each form element has attributes that define its behavior and appearance, and can be styled with CSS. </details>
+Forms can be built using HTML form elements (<code><form></code>, <code><input></code>, <code><select></code>, <code><textarea></code>, etc.). Each form element has attributes that define its behavior and appearance, and can be styled with CSS. 
+</details>
+    
 <details>
 <summary>What is the purpose of a head tag if only the developers can see the information contained within it?</summary><br>
-The `<head>` tag contains metadata about the document, including the document title, character encoding, CSS stylesheets, JavaScript code, and other information that is used by the web browser to interpret and display the content of the document. </details>
+The <code><head></code> tag contains metadata about the document, including the document title, character encoding, CSS stylesheets, JavaScript code, and other information that is used by the web browser to interpret and display the content of the document. </details>
 <details>
 <summary>What is the difference between a &ltheader&gt and &lth1&gt tag?</summary><br>
-The `<header>` tag is used to hold introductory information about the material that will be shown, such as a logo, navigation links, or other site-wide content. The `<h1>` tag is a typography heading that represents the top-level heading of the page or section. </details>
+The <code><header></code> tag is used to hold introductory information about the material that will be shown, such as a logo, navigation links, or other site-wide content. The <code><h1></code> tag is a typography heading that represents the top-level heading of the page or section. </details>
 
 ## CSS
 
@@ -32,16 +35,16 @@ CSS can be added to a website in several ways, including:
 
 <details>
 <summary>How can I have several pages use the same CSS style?</summary><br>
-You can create a separate CSS file and link to it from each HTML document using the `<link>` tag in the `<head>` section of the HTML document. </details>
+You can create a separate CSS file and link to it from each HTML document using the <code><link></code> tag in the <code><head></code> section of the HTML document. </details>
 <details>
 <summary>How do I change the background color?</summary><br>
-You can change the background color of an HTML element using the `background-color` property in CSS. For example: `body { background-color: #f0f0f0; }` </details>
+You can change the background color of an HTML element using the <code>background-color</code> property in CSS. For example: <code>body { background-color: #f0f0f0; }</code> </details>
 <details>
 <summary>How do I remove blue outline on linked images?</summary><br>
-You can remove the blue outline on linked images by setting the `outline` property to `none` in CSS. For example: `a img { outline: none; }` </details>
+You can remove the blue outline on linked images by setting the <code>outline</code> property to <code>none</code> in CSS. For example: <code>a img { outline: none; }</code> </details>
 <details>
 <summary>Should I use px, pt or em?</summary><br>
-The choice of measurement units (`px`, `pt`, `em`, etc.) in CSS depends on the specific use case and design requirements. Generally, `px` is a good choice for fixed sizes, such as border widths, while em or rem is better for scalable sizes, such as font sizes. pt is less commonly used in web development and is typically used for print design. </details>
+The choice of measurement units (<code>px</code>, <code>pt</code>, <code>em</code>, etc.) in CSS depends on the specific use case and design requirements. Generally, <code>px</code> is a good choice for fixed sizes, such as border widths, while em or rem is better for scalable sizes, such as font sizes. pt is less commonly used in web development and is typically used for print design. </details>
   
 ## JavaScript
 
@@ -55,7 +58,7 @@ No, clients do not need to install Angular on their PCs or phones in order to br
 JavaScript is a high-level, dynamic, and interpreted programming language that is primarily used for client-side web development. It allows developers to create interactive web pages and user interfaces, manipulate the contents of a web page, and communicate with web servers using asynchronous technology. It can also be used for server-side programming, desktop application development, and game development. </details>
 <details>
 <summary>What is the difference between var, let, and const in JavaScript?</summary><br>
-`var` is a keyword that declares a variable with function scope, meaning it can be accessed within the function it was declared in. `let` and `const` are newer keywords that declare variables with block scope, meaning they can only be accessed within the block they were declared in. The difference between `let` and `const` is that `let` declares a variable that can be reassigned a new value, while `const` declares a variable that cannot be reassigned after it has been assigned a value. </details>
+<code>var</code> is a keyword that declares a variable with function scope, meaning it can be accessed within the function it was declared in. <code>let</code> and <code>const</code> are newer keywords that declare variables with block scope, meaning they can only be accessed within the block they were declared in. The difference between <code>let</code> and <code>const</code> is that <code>let</code> declares a variable that can be reassigned a new value, while <code>const</code> declares a variable that cannot be reassigned after it has been assigned a value. </details>
 <details>
 <summary>What is an object in JavaScript?</summary><br>
 In JavaScript, an object is a collection of key-value pairs, where the keys are strings and the values can be any JavaScript data type, including other objects. Objects can be used to represent complex data structures, such as arrays, lists, or maps, and can be manipulated using various methods and functions. </details>
@@ -67,7 +70,7 @@ A closure is a function in JavaScript that has access to its own lexical scope, 
 Synchronous code is executed in sequence, with each line of code waiting for the previous line to finish before executing. Asynchronous code, on the other hand, allows multiple lines of code to be executed simultaneously, without waiting for each other to finish. This is accomplished using callbacks, promises, or async/await syntax, which allow the code to continue executing while waiting for long-running tasks to complete. </details>
 <details>
 <summary>What is the difference between == and === in JavaScript?</summary><br>
-`==` is a loose equality operator that compares two values for equality after performing type coercion, meaning it will attempt to convert the values to a common type before comparing them. `===` is a strict equality operator that compares two values for equality without performing type coercion, meaning it will only return true if the values are of the same type and have the same value. </details>
+<code>==</code> is a loose equality operator that compares two values for equality after performing type coercion, meaning it will attempt to convert the values to a common type before comparing them. <code>===</code> is a strict equality operator that compares two values for equality without performing type coercion, meaning it will only return true if the values are of the same type and have the same value. </details>
 <details>
 <summary>What is a callback function in JavaScript?</summary><br>
 A callback function is a function that is passed as an argument to another function, and is executed when the parent function has completed its task. Callback functions are commonly used in JavaScript for event handling, asynchronous programming, and functional programming. They allow developers to create reusable and modular code that can be easily composed and extended. </details>
@@ -76,7 +79,7 @@ A callback function is a function that is passed as an argument to another funct
 A function declaration is a statement that creates a named function that can be called anywhere in the code, even before it is declared. A function expression, on the other hand, is an expression that creates an anonymous function that can only be called after it is assigned to a variable or passed as an argument to another function. Function expressions are often used to create callbacks or to create closures. </details>
 <details>
 <summary>What is an arrow function in JavaScript?</summary><br>
-An arrow function is a shorthand syntax for creating a function in JavaScript. It uses the `=>` operator to separate the function parameters from the function body, and automatically returns the value of the function body without the need for a `return` statement. Arrow functions are often used to create concise and readable code, especially when used as callbacks or in functional programming. </details>
+An arrow function is a shorthand syntax for creating a function in JavaScript. It uses the <code>=></code> operator to separate the function parameters from the function body, and automatically returns the value of the function body without the need for a <code>return</code> statement. Arrow functions are often used to create concise and readable code, especially when used as callbacks or in functional programming. </details>
   
 ## Protocols
 
