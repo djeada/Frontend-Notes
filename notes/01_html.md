@@ -1,4 +1,4 @@
-## Intro
+## HTML
 
 * HyperText Markup Language
 * NOT a programming language
