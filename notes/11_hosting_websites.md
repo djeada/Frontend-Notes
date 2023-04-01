@@ -1,14 +1,3 @@
-## Table of Contents
-<!--ts-->
-
-- [Hosting](#Hosting)
-- [Get-your-own-domain-name](#Get-your-own-domain-name)
-- [Get-a-server](#Get-a-server)
-- [Connect-your-domain-to-the-server.](#Connect-your-domain-to-the-server.)
-- [Your-own-server](#Your-own-server)
-
-<!--te-->
-
 ## Hosting
  
 So your website is ready, but it still sits locally on your PC? Web hosting is an online service that allows you to publish your website files onto the internet. So, anyone who has access to the internet can access your website.
