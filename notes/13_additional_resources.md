@@ -1,32 +1,6 @@
-## Purpose
+## Additional Resources
 
 A collection of additional resources that you may find useful.
-
-## Table of Contents
-<!--ts-->
-
-- [Purpose](#Purpose)
-- [Code-Examples](#Code-Examples)
-  - [Templates](#Templates)
-  - [Ready-Components](#Ready-Components)
-  - [CSS-Generators](#CSS-Generators)
-- [Graphical-elements](#Graphical-elements)
-  - [Icons](#Icons)
-  - [Stock-Photos](#Stock-Photos)
-  - [Logos](#Logos)
-  - [Vectors](#Vectors)
-  - [3D-Elements](#3D-Elements)
-  - [Gradients](#Gradients)
-  - [Animated-Backgrounds](#Animated-Backgrounds)
-  - [Flow-Charts](#Flow-Charts)
-- [Fonts](#Fonts)
-- [Utility](#Utility)
-  - [Color-palettes](#Color-palettes)
-  - [Fonts](#Fonts)
-
-<!--te-->
-
-## Code Examples
 
 ### Templates
 
