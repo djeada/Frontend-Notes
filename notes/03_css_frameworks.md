@@ -1,3 +1,7 @@
+## CSS Frameworks and Preprocessors
+
+CSS preprocessors and frameworks are two important tools in a web developer's toolbox that can help streamline the process of building websites. CSS preprocessors allow developers to use new functionality that is typically borrowed from another programming language, while frameworks provide pre-written app skeletons and collections of built-in functionality that allow developers to avoid having to write all of the code from scratch.
+
 ## CSS Preprocessors
 
 CSS preprocessors are scripting languages that are used to expand standard CSS features with new functionality that is typically borrowed from another programming language. Variables, nesting, inheritance, mixins, functions, and mathematical operations are common examples. Important: they don't give anything you can't accomplish with plain old CSS, only a different way of doing things that someone thought was more efficient.
