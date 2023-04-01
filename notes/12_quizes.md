@@ -30,8 +30,8 @@ The &ltheader&gt tag is used to hold introductory information about the material
 CSS can be added to a website in several ways, including: 
 
     Inline styles - using the style attribute on an HTML element.
-    Internal styles - using a <style> tag in the <head> section of the HTML document.
-    External styles - using a separate CSS file and linking to it from the HTML document using the <link> tag in the <head> section of the HTML document. </details>
+    Internal styles - using a &lstyle&gt tag in the &lhead&gt section of the HTML document.
+    External styles - using a separate CSS file and linking to it from the HTML document using the &llink&gt tag in the &lhead&gt section of the HTML document. </details>
 
 <details>
 <summary>How can I have several pages use the same CSS style?</summary><br>
