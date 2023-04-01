@@ -1,4 +1,4 @@
-## JavaScript frameworks
+## JavaScript Frameworks
 
 * Most Web Apps today are built using a JavaScript framework rather than written in Vanilla JavaScript.
 * Almost everyone agrees that every frontend developer should be familiar with at least one JavaScript framework.
