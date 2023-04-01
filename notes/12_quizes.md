@@ -2,133 +2,123 @@
 
 ## HTML
 
-<details>
-<summary>How do I add a description to a website?</summary><br>
-Answer missing...</details>
-
-<details>
 <summary>What is a doctype?</summary><br>
-Answer missing...</details>
-
+A doctype declaration tells the web browser what version of HTML (or XML) the document is written in. It goes at the top of the HTML document, before the `<html>` tag. For HTML5, the doctype is simply: `<!DOCTYPE html>`. </details>
 <details>
 <summary>Should I use HTML or XHTML?</summary><br>
-Answer missing...</details>
-
+HTML is generally preferred over XHTML for most web development purposes due to its greater flexibility and compatibility with modern web development techniques. XHTML, while stricter in its syntax, requires more effort to maintain and can cause compatibility issues with some web technologies. </details>
 <details>
 <summary>How do I build menus?</summary><br>
-Answer missing...</details>
-
+Menus can be built using HTML unordered lists (`<ul>`) and list items (`<li>`). The menu items can be styled using CSS to create a desired visual appearance. </details>
 <details>
 <summary>How do I build forms?</summary><br>
-Answer missing...</details>
-
+Forms can be built using HTML form elements (`<form>`, `<input>`, `<select>`, `<textarea>`, etc.). Each form element has attributes that define its behavior and appearance, and can be styled with CSS. </details>
 <details>
 <summary>What is the purpose of a head tag if only the developers can see the information contained within it?</summary><br>
-Answer missing...</details>
-
-<details>
-<summary>What are the best tags for SEO?</summary><br>
-  
-* title tag
-* description
-* keywords
-* author
-* robots
-  
-</details>
-
+The `<head>` tag contains metadata about the document, including the document title, character encoding, CSS stylesheets, JavaScript code, and other information that is used by the web browser to interpret and display the content of the document. </details>
 <details>
 <summary>What is the difference between a &ltheader&gt and &lth1&gt tag?</summary><br>
-  
-* The `<header>` tag is used to hold introductory information about the material that will be shown. 
-* The `<h1>` tag is a typography heading.
-  
-</details>
+The `<header>` tag is used to hold introductory information about the material that will be shown, such as a logo, navigation links, or other site-wide content. The `<h1>` tag is a typography heading that represents the top-level heading of the page or section. </details>
 
 ## CSS
 
 <details>
 <summary>How do I add CSS to a website?</summary><br>
-Answer missing...</details>
+CSS can be added to a website in several ways, including: 
+
+    Inline styles - using the style attribute on an HTML element.
+    Internal styles - using a <style> tag in the <head> section of the HTML document.
+    External styles - using a separate CSS file and linking to it from the HTML document using the <link> tag in the <head> section of the HTML document. </details>
 
 <details>
 <summary>How can I have several pages use the same CSS style?</summary><br>
-Answer missing...</details>
-
+You can create a separate CSS file and link to it from each HTML document using the `<link>` tag in the `<head>` section of the HTML document. </details>
 <details>
 <summary>How do I change the background color?</summary><br>
-Answer missing...</details>
-
+You can change the background color of an HTML element using the `background-color` property in CSS. For example: `body { background-color: #f0f0f0; }` </details>
 <details>
 <summary>How do I remove blue outline on linked images?</summary><br>
-Answer missing...</details>
-
+You can remove the blue outline on linked images by setting the `outline` property to `none` in CSS. For example: `a img { outline: none; }` </details>
 <details>
 <summary>Should I use px, pt or em?</summary><br>
-Answer missing...</details>
-
+The choice of measurement units (`px`, `pt`, `em`, etc.) in CSS depends on the specific use case and design requirements. Generally, `px` is a good choice for fixed sizes, such as border widths, while em or rem is better for scalable sizes, such as font sizes. pt is less commonly used in web development and is typically used for print design. </details>
+  
 ## JavaScript
 
 <details>
 <summary>Will my React-powered website only work in browsers that support React?</summary><br>
-Answer missing...</details>
-
+No, React-powered websites will work in any modern web browser, regardless of whether or not it supports React. React code is typically transpiled to standard JavaScript code that can be executed by any JavaScript engine. </details>
 <details>
 <summary>Do my clients need to install Angular on their PCs and phones in order to browse an Angular-powered website?</summary><br>
-Answer missing...</details>
-
+No, clients do not need to install Angular on their PCs or phones in order to browse an Angular-powered website. The Angular code is typically compiled into standard HTML, CSS, and JavaScript that can be executed by any modern web browser. </details>
+<summary>What is JavaScript and what can it be used for?</summary><br>
+JavaScript is a high-level, dynamic, and interpreted programming language that is primarily used for client-side web development. It allows developers to create interactive web pages and user interfaces, manipulate the contents of a web page, and communicate with web servers using asynchronous technology. It can also be used for server-side programming, desktop application development, and game development. </details>
+<details>
+<summary>What is the difference between var, let, and const in JavaScript?</summary><br>
+`var` is a keyword that declares a variable with function scope, meaning it can be accessed within the function it was declared in. `let` and `const` are newer keywords that declare variables with block scope, meaning they can only be accessed within the block they were declared in. The difference between `let` and `const` is that `let` declares a variable that can be reassigned a new value, while `const` declares a variable that cannot be reassigned after it has been assigned a value. </details>
+<details>
+<summary>What is an object in JavaScript?</summary><br>
+In JavaScript, an object is a collection of key-value pairs, where the keys are strings and the values can be any JavaScript data type, including other objects. Objects can be used to represent complex data structures, such as arrays, lists, or maps, and can be manipulated using various methods and functions. </details>
+<details>
+<summary>What is a closure in JavaScript?</summary><br>
+A closure is a function in JavaScript that has access to its own lexical scope, as well as the lexical scope of its outer functions, even after the outer functions have returned. This allows the function to "remember" the values of its variables and parameters, and to maintain state across multiple function calls. Closures are often used in event handlers, callbacks, and asynchronous programming. </details>
+<details>
+<summary>What is the difference between synchronous and asynchronous code in JavaScript?</summary><br>
+Synchronous code is executed in sequence, with each line of code waiting for the previous line to finish before executing. Asynchronous code, on the other hand, allows multiple lines of code to be executed simultaneously, without waiting for each other to finish. This is accomplished using callbacks, promises, or async/await syntax, which allow the code to continue executing while waiting for long-running tasks to complete. </details>
+<details>
+<summary>What is the difference between == and === in JavaScript?</summary><br>
+`==` is a loose equality operator that compares two values for equality after performing type coercion, meaning it will attempt to convert the values to a common type before comparing them. `===` is a strict equality operator that compares two values for equality without performing type coercion, meaning it will only return true if the values are of the same type and have the same value. </details>
+<details>
+<summary>What is a callback function in JavaScript?</summary><br>
+A callback function is a function that is passed as an argument to another function, and is executed when the parent function has completed its task. Callback functions are commonly used in JavaScript for event handling, asynchronous programming, and functional programming. They allow developers to create reusable and modular code that can be easily composed and extended. </details>
+<details>
+<summary>What is the difference between a function declaration and a function expression in JavaScript?</summary><br>
+A function declaration is a statement that creates a named function that can be called anywhere in the code, even before it is declared. A function expression, on the other hand, is an expression that creates an anonymous function that can only be called after it is assigned to a variable or passed as an argument to another function. Function expressions are often used to create callbacks or to create closures. </details>
+<details>
+<summary>What is an arrow function in JavaScript?</summary><br>
+An arrow function is a shorthand syntax for creating a function in JavaScript. It uses the `=>` operator to separate the function parameters from the function body, and automatically returns the value of the function body without the need for a `return` statement. Arrow functions are often used to create concise and readable code, especially when used as callbacks or in functional programming. </details>
+  
 ## Protocols
 
 <details>
 <summary>What is SSL?</summary><br>
-Answer missing...</details>
-
+SSL (Secure Sockets Layer) is a security protocol used to establish a secure encrypted connection between a web server and a web browser. It ensures that data transmitted between the two is private and cannot be intercepted or modified by third parties. </details>
 <details>
 <summary>What is HTTP?</summary><br>
-Answer missing...</details>
-
+HTTP (Hypertext Transfer Protocol) is a protocol used to transfer data over the World Wide Web. It defines how messages are formatted and transmitted, and how web servers and browsers should respond to various commands and requests. </details>
 <details>
 <summary>Why there are so many HTTP codes?</summary><br>
-Answer missing...</details>
-
+There are many HTTP status codes because they provide a standardized way for web servers and browsers to communicate the outcome of various requests and responses. The codes are grouped into several categories based on their general meaning, such as informational, success, redirection, client error, and server error. </details>
 <details>
 <summary>What is an API?</summary><br>
-Answer missing...</details>
-
+API (Application Programming Interface) is a set of rules, protocols, and tools used for building software applications. APIs define how software components should interact with each other and provide a standardized way for applications to exchange data and services. </details>
 <details>
 <summary>Do all APIs work the same way?</summary><br>
-Answer missing...</details>
+No, APIs can vary widely in their design and implementation depending on the specific use case and technology stack being used. However, most APIs follow certain common principles and standards, such as RESTful architecture, JSON or XML data formats, and HTTP or HTTPS protocols. </details>
 
 ## Hosting
 
 <details>
 <summary>What is DNS?</summary><br>
-Answer missing...</details>
-
+DNS (Domain Name System) is a system used to translate human-readable domain names (such as example.com) into IP addresses that can be used by computers to locate and communicate with web servers. </details>
 <details>
 <summary>What is a DNS server?</summary><br>
-Answer missing...</details>
-
+A DNS server is a computer or network device that provides DNS services by translating domain names into IP addresses and vice versa. </details>
 <details>
 <summary>How do I setup email for my domain name?</summary><br>
-Answer missing...</details>
-
+Email can be setup for a domain name by configuring the domain's DNS records to include MX (Mail Exchange) records that specify the mail server(s) responsible for handling incoming mail for that domain. </details>
 <details>
 <summary>How do I setup DNS?</summary><br>
-Answer missing...</details>
-
+DNS can be setup by configuring the domain's DNS records to include various types of records, such as A records (for mapping domain names to IP addresses), MX records (for specifying mail servers), CNAME records (for creating aliases for domain names), and TXT records (for storing arbitrary text data). This can typically be done through a web-based control panel provided by the domain registrar or hosting provider. </details>
 <details>
 <summary>What is hosting and how does it differ from webserver?</summary><br>
-Answer missing...</details>
-
+Hosting is a service provided by a company that allows individuals or organizations to make their website accessible on the internet. Hosting providers typically offer a variety of plans and options that provide varying amounts of storage space, bandwidth, and other features. A web server is a computer program that is responsible for serving web pages to users when they request them. Web servers can be installed on a hosting provider's infrastructure or on a dedicated physical or virtual server. </details>
 <details>
 <summary>When do I need secure http webpages?</summary><br>
-Answer missing...</details>
-
+Secure HTTP webpages (HTTPS) are needed when sensitive information, such as passwords, credit card numbers, or other personal data, is being transmitted between the web server and the user's browser. HTTPS encrypts this data so that it cannot be intercepted or modified by third parties. Additionally, some web browsers and search engines may prioritize secure websites in search results or display warning messages for non-secure websites. </details>
 <details>
 <summary>How much does it cost to setup a website?</summary><br>
-Answer missing...</details>
-
+The cost of setting up a website can vary widely depending on the specific requirements and technologies being used. A simple website built using a content management system (CMS) such as WordPress can be set up for less than $100, while a complex e-commerce website with custom features and integrations can cost tens of thousands of dollars or more. </details>
 <details>
 <summary>What are the annual costs for operating a website?</summary><br>
-Answer missing...</details>
+The annual costs of operating a website can include expenses such as domain registration, hosting fees, website maintenance and updates, security and backup services, and marketing and advertising costs. These costs can vary widely depending on the size and complexity of the website, as well as the specific services and vendors being used. </details>
