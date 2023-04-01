@@ -1,36 +1,3 @@
-## Table of Contents
-<!--ts-->
-
-- [Intro](#Intro)
-- [What-should-an-HTML-developer-know?](#What-should-an-HTML-developer-know)
-- [Building-blocks-of-HTML](#Building-blocks-of-HTML)
-  - [Document-structure](#Document-structure)
-  - [Tags-and-attributes](#Tags-and-attributes)
-  - [Void-elements](#Void-elements)
-  - [Div-and-span](#Div-and-span)
-  - [Head](#Head)
-- [Readonly-elements](#Readonly-elements)
-  - [Headers-and-paragraphs](#Headers-and-paragraphs)
-  - [Links](#Links)
-  - [Lists](#Lists)
-  - [Tables](#Tables)
-- [Interactive-elements](#Interactive-elements)
-  - [Buttons](#Buttons)
-  - [Input](#Input)
-  - [Forms](#Forms)
-  - [Text-area](#Text-area)
-- [Style](#Style)
-  - [Text-formatting](#Text-formatting)
-  - [Whitespace](#Whitespace)
-- [Media](#Media)
-  - [Image](#Image)
-  - [Video](#Video)
-  - [Audio](#Audio)
-- [Best-practices](#Best-practices)
-- [Links](#Links)
-
-<!--te-->
-
 ## Intro
 
 * HyperText Markup Language
