@@ -29,9 +29,9 @@ The &ltheader&gt tag is used to hold introductory information about the material
 <summary>How do I add CSS to a website?</summary><br>
 CSS can be added to a website in several ways, including: 
 
-    Inline styles - using the style attribute on an HTML element.
-    Internal styles - using a &lstyle&gt tag in the &lhead&gt section of the HTML document.
-    External styles - using a separate CSS file and linking to it from the HTML document using the &llink&gt tag in the &lhead&gt section of the HTML document. </details>
+* Inline styles - using the style attribute on an HTML element.
+* Internal styles - using a &lstyle&gt tag in the &lhead&gt section of the HTML document.
+* External styles - using a separate CSS file and linking to it from the HTML document using the &llink&gt tag in the &lhead&gt section of the HTML document. </details>
 
 <details>
 <summary>How can I have several pages use the same CSS style?</summary><br>
@@ -54,6 +54,7 @@ No, React-powered websites will work in any modern web browser, regardless of wh
 <details>
 <summary>Do my clients need to install Angular on their PCs and phones in order to browse an Angular-powered website?</summary><br>
 No, clients do not need to install Angular on their PCs or phones in order to browse an Angular-powered website. The Angular code is typically compiled into standard HTML, CSS, and JavaScript that can be executed by any modern web browser. </details>
+<details>
 <summary>What is JavaScript and what can it be used for?</summary><br>
 JavaScript is a high-level, dynamic, and interpreted programming language that is primarily used for client-side web development. It allows developers to create interactive web pages and user interfaces, manipulate the contents of a web page, and communicate with web servers using asynchronous technology. It can also be used for server-side programming, desktop application development, and game development. </details>
 <details>
