@@ -1,14 +1,3 @@
-## Table of Contents
-<!--ts-->
-
-  - [HTML](#HTML)
-  - [CSS](#CSS)
-  - [JavaScript](#JavaScript)
-  - [Protocols](#Protocols)
-  - [Hosting](#Hosting)
-
-<!--te-->
-
 ## HTML
 
 <details>
