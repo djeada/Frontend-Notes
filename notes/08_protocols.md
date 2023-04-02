@@ -1,69 +1,73 @@
 ## Protocols
 
-Frontend engineers may not place as much emphasis on this area as others, but understanding of the subject is still necessary. You don't need to know every detail about how the backend works, but you do need to understand how to get data from it and how it is sent.
+Understanding network protocols is essential for frontend engineers as they need to know how to request data from the backend and how it is sent.
 
 ## Basics
 
 ### Internet
 
-The Internet is a global network of computers connected to each other which communicate through a standardized set of protocols.
+The Internet is a global network of computers connected to each other, which communicate through a standardized set of protocols.
 
 ### Browsers
 
-A web browser is a software application that enables a user to access and display web pages or other online content through its graphical user interface. 
+A web browser is a software application that enables a user to access and display web pages or other online content through its graphical user interface.
 
 ### DNS
 
-The Domain Name System (DNS) is the phonebook of the Internet. Humans access information online through domain names, like nytimes.com or espn.com. Web browsers interact through Internet Protocol (IP) addresses. DNS translates domain names to IP addresses so browsers can load Internet resources.
+The Domain Name System (DNS) translates human-readable domain names, like nytimes.com or espn.com, into Internet Protocol (IP) addresses that web browsers use to load Internet resources.
 
 ### Domain Name
 
-A domain name is a unique, easy-to-remember address used to access websites, such as ‘google.com’, and ‘facebook.com’. Users can connect to websites using domain names thanks to the DNS system.
+A domain name is a unique, easy-to-remember address used to access websites. The DNS system allows users to connect to websites using domain names instead of IP addresses.
 
 ## Web Security
 
 ### HTTPS
 
-HTTPS is a secure way to send data between a web server and a browser.
+HTTPS (Hypertext Transfer Protocol Secure) is a secure version of the HTTP protocol that encrypts data sent between a web server and a browser, protecting sensitive information from interception and tampering.
 
 ### CORS
 
-Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources.
+Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to specify which origins (domain, scheme, or port) are permitted to load resources from it, preventing unauthorized cross-origin access to data.
 
 ### Content Security Policy
 
-Content Security Policy is a computer security standard introduced to prevent cross-site scripting, clickjacking and other code injection attacks resulting from execution of malicious content in the trusted web page context.
+Content Security Policy (CSP) is a security standard that helps prevent cross-site scripting, clickjacking, and other code injection attacks by specifying which sources of content are allowed to be loaded by a web page.
 
 ### OWASP Security Risks
 
-OWASP or Open Web Application Security Project is an online community that produces freely-available articles, methodologies, documentation, tools, and technologies in the field of web application security.
+OWASP (Open Web Application Security Project) is an online community that produces freely-available articles, methodologies, documentation, tools, and technologies related to web application security. Their Top Ten Project highlights the most critical security risks to web applications.
 
 ### Generate a CSR on Your Server
-You must create a CSR (Certificate Signing Request) on your server.
-This is accomplished using the Open SSL command, which should be accessible by default if you are using Apache or Nginx:
 
-    openssl req -new -newkey rsa:2048 -nodes -keyout your_domain.com.key -out your_domain.com.csr
+You can use the OpenSSL command for Apache or Nginx:
 
-### What is SSL?
+```Bash
+openssl req -new -newkey rsa:2048 -nodes -keyout your_domain.com.key -out your_domain.com.csr
+```
 
-* SSL improves the security of internet connections by encrypting them.
-* When servers use plain HTTP without SSL, they deliver unencrypted data to browsers. Anyone who sniffs the data may see all the transferred data, even user credentials. 
-* When using SSL, all data is sent after establishing a secure session. The server first sends its credentials. The client can then ask the central authority if the credentials are legitimate. Data is transferred only after confirmation from a central authority.
+### What is SSL/TLS?
 
-### Obtain an TLS/SSL Certificate
+* SSL (Secure Sockets Layer) and its successor, TLS (Transport Layer Security), are cryptographic protocols that improve the security of internet connections by encrypting them.
+* When servers use plain HTTP without SSL/TLS, they deliver unencrypted data to browsers. This makes it vulnerable to eavesdropping and data interception. 
+* With SSL/TLS, a secure session is established before data is transferred. The server sends its credentials to the client, which can verify the server's authenticity through a central Certificate Authority (CA). Data is transferred only after the CA confirms the server's credentials.
 
-To put it simply, SSL (Secure Sockets Layer) is the old and TLS (Transport Layer Security) is the new, though some people refer to TLS as SSL.
+### Obtain an SSL/TLS Certificate
 
-You can buy a certificate from this website: https://www.namecheap.com/security/ssl-certificates/domain-validation/
+You can purchase an SSL/TLS certificate from various providers, such as:
 
-This webpage checks if the given URL uses TLS or SSL:  https://www.ssllabs.com/ssltest/
+- [Namecheap](https://www.namecheap.com/security/ssl-certificates/domain-validation/)
+- [DigiCert](https://www.digicert.com/)
+- [Let's Encrypt](https://letsencrypt.org/) (Free)
+
+To check if a given URL uses SSL/TLS, use a tool like [SSL Labs SSL Test](https://www.ssllabs.com/ssltest/).
 
 ### Install Certificate on Your Server
 
-1. Change your Virtual Host to listen on port 443 (HTTPS) rather than port 80 (HTTP).
-2. Specify your SSL key and certificate files. 
-3. Activate SSL.
-4. Restart the server. 
+1. Modify your Virtual Host configuration to listen on port 443 (HTTPS) instead of port 80 (HTTP).
+2. Specify the locations of your SSL/TLS key and certificate files in the configuration.
+3. Enable SSL/TLS in your server configuration.
+4. Restart the server to apply the changes and enable HTTPS on your website.
 
 ## HTTP
 
