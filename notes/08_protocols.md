@@ -199,11 +199,10 @@ Response:
 | --- | --- |
 | 100 | | Continue |
 | 101 | Switching Protocols |
-| --- | --- |
 | 102 | Processing (WebDAV) (RFC 2518) |
 | 103 | Checkpoint |
 | 122 | Request-URI too long (Microsoft/IE7) |
-| --- | --- |
+| ... | ... |
 | 200 | OK |
 | 201 | Created (+ etag) |
 | 202 | Accepted |
@@ -211,10 +210,10 @@ Response:
 | 204 | No Content (no body) |
 | 205 | Reset Content (reset view) |
 | 206 | Partial Content (+ range header) |
-| --- | --- |
+| ... | ... |
 | 207 | Multi-Status (WebDAV) (RFC 4918) |
 | 226 | IM Used (RFC 3229) |
-| --- | --- |
+| ... | ... |
 | 300 | Multiple Choices |
 | 301 | Moved Permanently |
 | 302 | Found |
@@ -224,7 +223,7 @@ Response:
 | 306 | Switch Proxy (no longer used) |
 | 307 | Temporary Redirect (since HTTP/1.1) |
 | 308 | Resume Incomplete |
-| --- | --- |
+| ... | ... |
 | 400 | Bad Request |
 | 401 | Unauthorized |
 | 402 | Payment Required (future) |
@@ -243,8 +242,8 @@ Response:
 | 415 | Unsupported Media Type |
 | 416 | Requested Range Not Satisfiable |
 | 417 | Expectation Failed |
-| --- | --- |
 | 418 | I'm a teapot (RFC 2324) |
+| ... | ... |
 | 422 | Unprocessable Entity (WebDAV) (RFC 4918) |
 | 423 | Locked (WebDAV) (RFC 4918) |
 | 424 | Failed Dependency (WebDAV) (RFC 4918) |
@@ -253,8 +252,8 @@ Response:
 | 444 | No Response (Nginx) |
 | 449 | Retry With (Microsoft) |
 | 450 | Blocked by Windows Parental Controls (Microsoft) |
+| ... | ... |
 | 499 | | Client Closed Request (Nginx) |
-| --- | --- |
 | 500 | Internal Server Error |
 | 501 | Not Implemented |
 | 502 | Bad Gateway |
