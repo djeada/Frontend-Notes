@@ -201,7 +201,7 @@ Response:
 
 | Code | Description |
 | --- | --- |
-| 100 | | Continue |
+| 100 | Continue |
 | 101 | Switching Protocols |
 | 102 | Processing (WebDAV) (RFC 2518) |
 | 103 | Checkpoint |
