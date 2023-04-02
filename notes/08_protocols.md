@@ -88,15 +88,15 @@ HTTP methods:
 
 ## GET
 
-GET method requests data from server (ex. typing in google search engine).
+The GET method requests data from the server (e.g., typing a query in a search engine).
 
-Example in Linux:
+Example using curl in the terminal:
 
 ```Bash
-curl -i -H "Accept: application/json" -H "Content-Type: application/json" https://en.wikipedia.org/wiki/SOLID
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" "https://api.github.com/users/octocat"
 ```
 
-Response should look something like this:
+The response should look something like this:
 
 ```
 HTTP/2 200 
@@ -104,27 +104,33 @@ date: Sun, 10 Jul 2022 15:26:12 GMT
 vary: Accept-Encoding,Cookie,Authorization
 server: ATS/8.0.8
 ...
-<!DOCTYPE html>
-<html ...
+{
+  "login": "octocat",
+  "id": 583231,
+  ...
+}
 ```
 
 ## POST
 
-POST method submits data to be processed by the server (ex. clicking submit button on bank page).
+The POST method submits data to be processed by the server (e.g., submitting a form on a web page).
 
-Example in Linux:
+Example using curl in the terminal:
 
 ```Bash
-curl -X POST -F "q=cat" https://duckduckgo.com/
+curl -X POST -H "Content-Type: application/json" -d '{"username":"testuser", "password":"testpassword"}' "https://reqbin.com/echo/post/json"
 ```
 
-Response should look something like this:
+The response should look something like this:
 
-```
-<!DOCTYPE html>
-<html lang="en-US" ...>
-<head>
-<meta name="description" content="DuckDuckGo...
+```html
+{
+  "success": "true",
+  "data": {
+    "username": "testuser",
+    "password": "testpassword"
+  }
+}
 ```
 
 ## HTTP APIs
