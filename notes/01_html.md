@@ -560,31 +560,51 @@ The following are some of the commonly used audio formats:
 * <code>mp3</code> - MP3 audio
 * <code>wav</code> - WAV audio
 
-## Best practices
+## Best Practices
 
-* Use HTML5.
-* Use tags and attributes according to their purpose.
-* Don't use XML declarations.
-* Use UTF-8.
-* Use comments to explain code.
-* Use semantic tags like: article, time and header.
-* For each block, list, or table element, create a new line and indent each such child element.
-* When quoting attribute values, use double quotation marks.
-* Use `P` tags for paragraphs over multiple `<br>`.
-* Do not use tables for layout.
-* Omit type tag for CSS/JS link tag.
-* Define `title`.
-* Define the `body` tag.
-* Use h1-h6 to outline the page content.
-* Adding `alt` text to your images can improve user experience.
+### General
+
+* Use HTML5 and follow its semantic structure.
+* Choose appropriate tags and attributes according to their intended purpose.
+* Use UTF-8 character encoding for compatibility.
+* Add comments to explain complex or important parts of your code.
+
+### Formatting
+
+* For each block, list, or table element, create a new line and indent child elements consistently.
+* Use double quotation marks when quoting attribute values.
+* Maintain consistent casing for tag names, preferably lowercase.
+* Remove trailing white spaces and keep indentation consistent.
+
+### Semantic and Accessibility
+
+* Use semantic tags like `article`, `time`, `header`, `nav`, and `aside` for improved readability and accessibility.
+* Use `<p>` tags for paragraphs instead of multiple `<br>` elements.
+* Do not use tables for layout purposes.
+* Use heading tags (h1-h6) to outline the page content and structure.
+* Add `alt` text to images to improve accessibility and user experience.
+* Explicitly label controls (no `<div class="button">`); use proper tags like `<button>`.
+
+### HTML Structure
+
+* Avoid using XML declarations.
+* Define the `<title>` tag to describe the content of the page.
+* Define the `<body>` tag to wrap the main content of the page.
 * Close every tag that you open.
-* Avoid inline styles.
-* Do not inline any JavaScript code.
-* Lowercase tag names.
-* Explicitly label controls (no `<div class="button">`).
-* Stop putting refrences to JavaScript files at the bottom of your document. Use defer attribute (`<script src="app.js" defer \>`).
-* Remove trailing white spaces.
-* Keep the indentation consistent.
+
+### CSS and JavaScript
+
+* Avoid inline styles; use external CSS files instead.
+* Do not inline JavaScript code; use external JS files.
+* Omit the `type` attribute for CSS and JS link tags in HTML5.
+* Place references to JavaScript files in the `<head>` and use the `defer` attribute (`<script src="app.js" defer></script>`).
+
+### Performance and Optimization
+
+* Minify CSS and JavaScript files to reduce file sizes and improve load times.
+* Use responsive design to accommodate various screen sizes and devices.
+* Optimize images for the web to reduce file sizes without sacrificing quality.
+* Utilize browser caching to improve page load times for returning visitors.
 
 ## Links
 
