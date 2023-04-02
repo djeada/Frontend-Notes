@@ -523,7 +523,7 @@ jane.speak(); // Hello, my name is Jane and I am 25 years old.
 * Objects are used to hold several values under a single name and to organize them using named properties.
 * You can store the same data in both arrays and objects. The power of objects comes from the fact that you can access the data using named properties.
 
-Let's create an array and object containing the same data:
+Lets create an array and object containing the same data:
 
 ```javascript
 class Point {
