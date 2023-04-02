@@ -134,7 +134,7 @@ console.log(y);
 The comparison operators are used to compare two values. 
 
 | Operator | Description |
-| :------- | :----- |
+| -------- | ------ |
 | <code>==</code> | Equal to |
 | <code>===</code> | Strictly equal to |
 | <code>!=</code> | Not equal to |
@@ -159,7 +159,7 @@ console.log(x < y); // true
 The logical operators are used to combine two or more conditions.
 
 | Operator | Description |
-| :------- | :----- |
+| -------- | ------ |
 | <code>&&</code> | Logical AND |
 | <code>&#124;&#124;</code> | Logical OR |
 | <code>!</code> | Logical NOT |
@@ -179,7 +179,7 @@ console.log(y > 10 && y < 20); // false
 The conditionals are used to execute different code depending on the value of a variable.
 
 | Operator | Description |
-| :------- | :----- |
+| -------- | ------ |
 | <code>if</code> | Execute code if a condition is true |
 | <code>else</code> | Execute code if a condition is false |
 | <code>else if</code> | Execute code if a condition is false and another condition is true |
@@ -201,7 +201,7 @@ if (x > 10 && x < 20) {
 The while loops are used to execute a block of code as long as a condition is true.
 
 | Operator | Description |
-| :------- | :----- |
+| -------- | ------ |
 | <code>while</code> | Execute code as long as a condition is true |
 
 In the example below we use a while loop to count from 1 to 10:
@@ -220,7 +220,7 @@ while (i <= 10) {
 The for loops are used to execute a block of code a number of times.
 
 | Operator | Description |
-| :------- | :----- |
+| -------- | ------ |
 | <code>for</code> | Execute code a number of times |
 
 In the example below we use a for loop to count from 1 to 10:
@@ -303,7 +303,7 @@ const add = (x, y) => {
 The scope of a variable is the part of a program where that variable can be accessed.
 
   | Variable | Scope |
-  | :------- | :----- |
+  | -------- | ------ |
   | <code>var</code> | Global |
   | <code>let</code> | Block |
   | <code>const</code> | Block |
@@ -481,7 +481,7 @@ Some of common string methods include:
 8. `.charAt()` - Returns the character at the specified index (position) of a string.
 9. `.charCodeAt()` - Returns the Unicode of the character at the specified index (position) of a string.
 
-Let's slice the string "John loves JavaScript" from index 5 to index 10:
+Lets slice the string "John loves JavaScript" from index 5 to index 10:
 
 ```javascript
 var text = "John loves JavaScript";
