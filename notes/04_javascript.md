@@ -23,19 +23,19 @@ The following are the fundamental concepts of JavaScript:
 
 You can either inline JavaScript or include refrence to an external JavaScript file:
 
-1. Inline JavaScript is put between <code><script></code> tags:
+1. Inline JavaScript is put between `<script>` tags:
 
-  ```html
-  <script>
-    // JavaScript code goes here
-  </script>
-  ```
+```html
+<script>
+  // JavaScript code goes here
+</script>
+```
 
-2. External JavaScript file is set in the src attribute of the <code><script></code> tag:
+2. External JavaScript file is set in the src attribute of the `<script>` tag:
 
-  ```html
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  ```
+```html
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+```
 
 ### Null and Undefined
 
@@ -135,14 +135,14 @@ The comparison operators are used to compare two values.
 
 | Operator | Description |
 | -------- | ------ |
-| <code>==</code> | Equal to |
-| <code>===</code> | Strictly equal to |
-| <code>!=</code> | Not equal to |
-| <code>!==</code> | Strictly not equal to |
-| <code><</code> | Less than |
-| <code>></code> | Greater than |
-| <code><=</code> | Less than or equal to |
-| <code>>=</code> | Greater than or equal to |
+| `==` | Equal to |
+| `===` | Strictly equal to |
+| `!=` | Not equal to |
+| `!==` | Strictly not equal to |
+| `<` | Less than |
+| `>` | Greater than |
+| `<=` | Less than or equal to |
+| `>=` | Greater than or equal to |
 
 In the example below we compare two numbers:
 
@@ -160,9 +160,9 @@ The logical operators are used to combine two or more conditions.
 
 | Operator | Description |
 | -------- | ------ |
-| <code>&&</code> | Logical AND |
-| <code>&#124;&#124;</code> | Logical OR |
-| <code>!</code> | Logical NOT |
+| `&&` | Logical AND |
+| `&#124;&#124;` | Logical OR |
+| `!` | Logical NOT |
 
 In the example below we use logical operators to check if a number is greater than 10 and at the same time less than 20:
 
@@ -180,9 +180,9 @@ The conditionals are used to execute different code depending on the value of a 
 
 | Operator | Description |
 | -------- | ------ |
-| <code>if</code> | Execute code if a condition is true |
-| <code>else</code> | Execute code if a condition is false |
-| <code>else if</code> | Execute code if a condition is false and another condition is true |
+| `if` | Execute code if a condition is true |
+| `else` | Execute code if a condition is false |
+| `else if` | Execute code if a condition is false and another condition is true |
 
 In the example below we use conditionals to check if a number is greater than 10 and at the same time less than 20:
 
@@ -202,7 +202,7 @@ The while loops are used to execute a block of code as long as a condition is tr
 
 | Operator | Description |
 | -------- | ------ |
-| <code>while</code> | Execute code as long as a condition is true |
+| `while` | Execute code as long as a condition is true |
 
 In the example below we use a while loop to count from 1 to 10:
 
@@ -221,7 +221,7 @@ The for loops are used to execute a block of code a number of times.
 
 | Operator | Description |
 | -------- | ------ |
-| <code>for</code> | Execute code a number of times |
+| `for` | Execute code a number of times |
 
 In the example below we use a for loop to count from 1 to 10:
 
@@ -302,65 +302,65 @@ const add = (x, y) => {
 
 The scope of a variable is the part of a program where that variable can be accessed.
 
-  | Variable | Scope |
-  | -------- | ------ |
-  | <code>var</code> | Global |
-  | <code>let</code> | Block |
-  | <code>const</code> | Block |
+| Variable | Scope |
+| -------- | ------ |
+| `var` | Global |
+| `let` | Block |
+| `const` | Block |
 
 In the example below we create a variable that is accessible from anywhere in the program:
 
-  ```javascript
-  var x = 10;
+```javascript
+var x = 10;
 
-  function add(y) {
-    return x + y;
-  }
+function add(y) {
+  return x + y;
+}
 
-  console.log(add(20)); // 30
-  ```
+console.log(add(20)); // 30
+```
 
 In the example below we create a variable that is accessible only from within the block:
 
-  ```javascript
-  var x = 10;
+```javascript
+var x = 10;
 
-  {
-    var a = 20;
-    let b = 15;
-    console.log(a + b); // 35
-  }
+{
+  var a = 20;
+  let b = 15;
+  console.log(a + b); // 35
+}
 
-  function add(y) {
-    return x + y;
-  }
+function add(y) {
+  return x + y;
+}
 
-  console.log(add(a)); // 30
-  console.log(add(b)); // Uncaught ReferenceError: y is not defined
-  ```
+console.log(add(a)); // 30
+console.log(add(b)); // Uncaught ReferenceError: y is not defined
+```
 
 ### Higher-Order Functions
 
-  Higher-order functions are functions that take other functions as arguments or return functions.
+Higher-order functions are functions that take other functions as arguments or return functions.
 
-  In the example below we create a function that takes another function as an argument:
+In the example below we create a function that takes another function as an argument:
 
-  ```javascript
-  function add(x, y) {
-    return x + y;
-  }
+```javascript
+function add(x, y) {
+  return x + y;
+}
 
-  function multiply(x, y) {
-    return x * y;
-  }
+function multiply(x, y) {
+  return x * y;
+}
 
-  function doMath(x, y, callback) {
-    return callback(x, y);
-  }
+function doMath(x, y, callback) {
+  return callback(x, y);
+}
 
-  console.log(doMath(2, 3, add)); // 5
-  console.log(doMath(2, 3, multiply)); // 6
-  ```
+console.log(doMath(2, 3, add)); // 5
+console.log(doMath(2, 3, multiply)); // 6
+```
 
 ## Arrays
 
@@ -494,7 +494,7 @@ console.log(text.slice(5, 10)); // loves
 
 Classes are a way to capture under a single name a set of related properties (data) and methods (functions). The class is a blueprint for creating objects.
 
-Let's create a class that represents a person:
+Lets create a class that represents a person:
 
 ```javascript
 
@@ -816,7 +816,7 @@ console.log(map); // Map { { extra: 5 } => 10 }
 console.log(weakMap); // WeakMap { <items unknown> }
 ```
   
-When iterating over a Map, be cautious. If you use a standard <code>for</code> loop, you will get pairs of keys and values, but if you use <code>forEach</code>, you will get values first, then keys! 
+When iterating over a Map, be cautious. If you use a standard `for` loop, you will get pairs of keys and values, but if you use `forEach`, you will get values first, then keys! 
   
 ```javascript
 const map = new Map([
