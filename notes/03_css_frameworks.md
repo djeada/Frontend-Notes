@@ -4,20 +4,20 @@ CSS preprocessors and frameworks are two important tools in a web developer's to
 
 ## CSS Preprocessors
 
-CSS preprocessors are scripting languages that are used to expand standard CSS features with new functionality that is typically borrowed from another programming language. Variables, nesting, inheritance, mixins, functions, and mathematical operations are common examples. Important: they don't give anything you can't accomplish with plain old CSS, only a different way of doing things that someone thought was more efficient.
+CSS preprocessors are scripting languages that extend standard CSS features with new functionality borrowed from other programming languages. Variables, nesting, inheritance, mixins, functions, and mathematical operations are common examples. While preprocessors don't introduce anything that can't be accomplished with plain CSS, they offer a more efficient way of doing things.
 
-The two most common ones are:
+The two most common preprocessors are:
 
 * [SASS / SCSS](https://sass-lang.com/)
 * [LESS](https://lesscss.org/)
 
 ### An outline of common features
 
-Let's look at some of the most common CSS preprocessor features and how they compare to CSS4.
+Let's look at some of the most common CSS preprocessor features and how they compare to CSS4, the latest version of CSS.
 
 #### Variables
 
-Variables are used to provide values names that will be used in various parts of the code. For example, if you used red as value in several properties and then decided to change it to blue, you may update the value in one place if you used a variable or try to track down all those places separately otherwise.
+Variables provide named values used in various parts of the code. For example, if you used red as a value in several properties and then decided to change it to blue, you can update the value in one place if you used a variable, or you would need to track down all instances separately otherwise.
 
 CSS:
 
@@ -53,21 +53,19 @@ body {
 
 #### Inheritance
 
-Copies all definitions from one selector to another.
+Inheritance copies all definitions from one selector to another.
 
-CSS:
+CSS (Using @apply):
 
-you have to use @apply
-  
-  ```css
-  .parent {
-    color: red;
-  }
+```css
+.parent {
+  color: red;
+}
 
-  .child {
-    @apply parent;
-  }
-  ```
+.child {
+  @apply .parent;
+}
+```
 
 SCSS:
 
@@ -95,7 +93,7 @@ child {
 
 #### Nesting
 
-This feature is not yet available in CSS. 
+Nesting allows you to write styles for nested elements in a more organized and readable manner. CSS does not have a direct equivalent feature, but the same result can be achieved using multiple nested selectors.
 
 SASS / LESS:
 
@@ -109,7 +107,7 @@ SASS / LESS:
 
 #### Mathematical operations
 
-Instead of providing a single constant value, you may condition it on another value and compute it in real time.
+Mathematical operations allow you to provide a dynamic value based on another value and compute it in real-time.
 
 CSS:
 
@@ -129,11 +127,11 @@ body {
 
 #### Functions
 
-Functions are collections of instructions that are labeled with a name. You provide it some arguments and it will return a value that is the result of its computations.
+Functions are named sets of instructions that take arguments and return a computed value. They provide a way to perform complex calculations or transformations on CSS properties.
 
 CSS:
 
-Among available functions are:
+Available functions include:
 
 * `rgb()`
 * `min()`
@@ -149,7 +147,7 @@ body {
 
 SCSS / LESS: 
 
-Among available functions are:
+Available functions include:
 
 * `lighten()`
 * `darken()`
@@ -297,24 +295,26 @@ One of the most crucial aspects of the website is navigation. Users will not exp
 
 ## Bootstrap
 
-CSS framework for creating websites - we don't have to write (much) CSS
+* A popular, open-source front-end framework for designing websites and web applications
+* Developed by Twitter in 2011 by Mark Otto and Jacob Thornton
+* Utilizes HTML, CSS, and JavaScript to create responsive and mobile-first designs
 
 ### Including Bootstrap in the project
 
-In the <code>head</code> section of the HTML file, add the following code:
+* Add the following code in the `<head>` section of the HTML file:
 
 ```html
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 ```
 
-Now Boostrap is already working in your project.
+* Now Boostrap is already working in your project.
+* Bootstrap will apply styles to some elements automatically, such as `<body>`, `<h1>`, and `<button>`
+* To apply other styles, set the appropriate `class` attribute in the HTML code
+	
+### Containers
 
-* Some elements will have Boostrap style applied on them without any additional work. Those include <code>body</code>, <code>h1</code> and <code>button</code>.
-* To apply other styles, you will ne to set the appropriate <code>class</code> attribute in the HTML code.
-
-### Container
-
-Container is the basic building block for bootstrap. It is top-level division of a document, you will usually set container classes in <code>div</code> tags.
+* Containers are the basic building blocks for Bootstrap.
+* Use the `container` class in `<div>` tags:
   
 ```html
 <div class="container">
@@ -324,7 +324,7 @@ Container is the basic building block for bootstrap. It is top-level division of
 
 ### Column layout 
 
-Columns are the most common way to layout content in Bootstrap.
+* Use the 12-column layout system for designing responsive layouts:
 
 ```html
 <div class="container">
@@ -332,19 +332,24 @@ Columns are the most common way to layout content in Bootstrap.
         <div class="col-md-4">
             <h1>Hello World</h1>
         </div>
-        <div class="col-md-4">
-            <h1>Hello World</h1>
-        </div>
-        <div class="col-md-4">
-            <h1>Hello World</h1>
-        </div>
+        <!-- Add more columns as needed -->
     </div>
 </div>
 ```
 
+### Typography
+
+* Use Bootstrap's typography classes for headings, paragraphs, lists, and more:
+
+```html
+<h1 class="display-1">Display Heading 1</h1>
+<p class="lead">This is a leading paragraph.</p>
+<small class="text-muted">This is a small, muted text.</small>
+```
+
 ### Forms
 
-Forms are the most common way to interact with a user.
+* Create responsive and styled forms using Bootstrap's form classes:
 
 ```html
 <div class="container">
@@ -354,17 +359,36 @@ Forms are the most common way to interact with a user.
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
+        <!-- Add more form elements as needed -->
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
+```
+
+### Typography
+
+* Bootstrap offers various components, such as navigation bars, cards, modals, and alerts:
+
+```html
+<!-- Example: Navigation bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <!-- Add more navigation elements as needed -->
+</nav>
+```
+
+### Customization
+
+*  Customize Bootstrap's built-in styles using SASS/SCSS, modify color schemes, fonts, and component styles
+*  Use build tools like Webpack, Grunt, or Gulp to streamline the customization process
+
+```html
+// Example: Customizing the primary color
+$theme-colors: (
+  "primary": #ff6347
+);
+
+@import "bootstrap";
 ```
 
 ## Links
