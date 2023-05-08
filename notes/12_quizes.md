@@ -23,6 +23,26 @@ The &lthead&gt tag contains metadata about the document, including the document 
 <summary>What is the difference between a &ltheader&gt and &lth1&gt tag?</summary><br>
 The &ltheader&gt tag is used to hold introductory information about the material that will be shown, such as a logo, navigation links, or other site-wide content. The &lth1&gt tag is a typography heading that represents the top-level heading of the page or section. </details>
 
+<details>
+<summary>What is the purpose of the &ltalt&gt attribute in &ltimg&gt tags?</summary><br>
+The &ltalt&gt attribute provides an alternative text description for an image. It is used by screen readers and other assistive technologies for accessibility purposes, and it also serves as a fallback text in case the image fails to load. </details>
+
+<details>
+<summary>What are semantic HTML elements?</summary><br>
+Semantic HTML elements are tags that convey meaning about the structure and content of the document, making it easier for both developers and web browsers to understand the purpose of each element. Examples of semantic elements include &ltarticle&gt, &ltaside&gt, &ltfigcaption&gt, &ltfooter&gt, &ltheader&gt, &ltmain&gt, &ltmark&gt, &ltnav&gt, and &ltsection&gt. </details>
+
+<details>
+<summary>How do I create a table in HTML?</summary><br>
+A table can be created using the &lttable&gt element, along with &lttr&gt (table row), &ltth&gt (table header), and &lttd&gt (table data) elements. The structure of the table is defined by nesting &lttr&gt, &ltth&gt, and &lttd&gt elements within the &lttable&gt element. </details>
+
+<details>
+<summary>What are the main differences between HTML and CSS?</summary><br>
+HTML (Hypertext Markup Language) is a markup language used to structure content on the web, while CSS (Cascading Style Sheets) is a stylesheet language used for describing the look and formatting of a document written in HTML. In other words, HTML is responsible for the content structure, and CSS is responsible for the visual presentation. </details>
+
+<details>
+<summary>What is an &ltiframe&gt and when should I use it?</summary><br>
+An &ltiframe&gt is an inline frame element that allows you to embed another HTML document within the current HTML document. It can be used for embedding content from external sources, such as maps, videos, or other web pages, without requiring the user to navigate away from the current page. However, &ltiframe&gt usage should be limited as it can cause accessibility and performance issues. </details>
+
 ## CSS
 
 <details>
@@ -45,7 +65,27 @@ You can remove the blue outline on linked images by setting the `outline` proper
 <details>
 <summary>Should I use px, pt or em?</summary><br>
 The choice of measurement units (`px`, `pt`, `em`, etc.) in CSS depends on the specific use case and design requirements. Generally, `px` is a good choice for fixed sizes, such as border widths, while em or rem is better for scalable sizes, such as font sizes. pt is less commonly used in web development and is typically used for print design. </details>
-  
+
+<details>
+<summary>What is the difference between classes and IDs in CSS?</summary><br>
+Classes and IDs are both selectors used to target HTML elements and apply styles to them. The main difference is that classes can be applied to multiple elements on a page, while IDs are unique and should only be applied to a single element. Additionally, classes use a period (.) prefix in the CSS, while IDs use a hash (#) prefix. </details>
+
+<details>
+<summary>How do I center a block element horizontally?</summary><br>
+To center a block element horizontally, you can set its `margin-left` and `margin-right` properties to `auto`, and specify a `width`. For example: `.centered { margin-left: auto; margin-right: auto; width: 50%; }` </details>
+
+<details>
+<summary>What is the CSS box model?</summary><br>
+The CSS box model is a rectangular layout paradigm used for all HTML elements. It consists of four areas: content, padding, border, and margin. The content area contains the actual content of the element, while the padding, border, and margin areas surround it, defining the space between the content and other elements on the page. </details>
+
+<details>
+<summary>What is a CSS pseudo-class?</summary><br>
+A CSS pseudo-class is a keyword added to a selector that specifies a special state of the selected element(s). Pseudo-classes allow you to style elements based on user interaction or the element's state. For example, the `:hover` pseudo-class targets an element when the user hovers over it, and the `:checked` pseudo-class targets a checkbox or radio button when it is selected. </details>
+
+<details>
+<summary>What is the difference between `display: none` and `visibility: hidden` in CSS?</summary><br>
+`display: none` completely removes the element from the page layout, causing other elements to fill the space it would have occupied. `visibility: hidden` hides the element visually, but the space it occupies in the layout remains. In other words, `display: none` affects the document flow, while `visibility: hidden` does not. </details>
+
 ## JavaScript
 
 <details>
@@ -99,6 +139,31 @@ API (Application Programming Interface) is a set of rules, protocols, and tools 
 <details>
 <summary>Do all APIs work the same way?</summary><br>
 No, APIs can vary widely in their design and implementation depending on the specific use case and technology stack being used. However, most APIs follow certain common principles and standards, such as RESTful architecture, JSON or XML data formats, and HTTP or HTTPS protocols. </details>
+
+<details>
+<summary>What is the difference between GET and POST requests in HTTP?</summary><br>
+GET and POST are two HTTP methods used to request data from a server. GET requests are used to retrieve data from a specified resource, while POST requests are used to submit data to be processed to a specified resource. GET requests include data in the URL as query parameters, while POST requests send data in the request body. </details>
+
+<details>
+<summary>What is a RESTful API?</summary><br>
+A RESTful API (Representational State Transfer) is an API that adheres to the principles of the REST architectural style. It uses HTTP requests to perform CRUD (Create, Read, Update, Delete) operations on resources, which are identified by URLs. RESTful APIs are stateless, meaning each request is treated independently and does not rely on any stored state information from previous requests. </details>
+
+<details>
+<summary>What are the main differences between SOAP and REST?</summary><br>
+SOAP (Simple Object Access Protocol) and REST (Representational State Transfer) are both web service communication protocols. The main differences between them are:
+
+1. SOAP is a protocol, while REST is an architectural style.
+2. SOAP uses XML for message exchange, while REST can use multiple data formats, such as JSON, XML, or plain text.
+3. SOAP typically requires more complex processing and has a larger overhead compared to REST, making REST generally faster and more lightweight.
+4. SOAP is more rigid in its structure, while REST is more flexible and can be easily scaled. </details>
+
+<details>
+<summary>What is CORS?</summary><br>
+CORS (Cross-Origin Resource Sharing) is a mechanism that allows many resources (e.g., fonts, JavaScript, etc.) on a web page to be requested from another domain outside the domain from which the resource originated. This is useful for allowing web pages to access resources from different origins for security and privacy reasons. CORS works by adding HTTP headers to request and response messages, indicating which origins are allowed to access the resources. </details>
+
+<details>
+<summary>What is the purpose of a CDN?</summary><br>
+A CDN (Content Delivery Network) is a system of distributed servers that deliver web content to users based on their geographic location, the origin of the content, and the content delivery server. The main purpose of a CDN is to reduce latency, improve load times, and provide a better user experience by serving content from a server that is geographically closer to the user. CDNs can also help to distribute traffic and protect against DDoS attacks. </details>
 
 ## Hosting
 
