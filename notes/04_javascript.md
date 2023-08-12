@@ -517,7 +517,7 @@ john.speak(); // Hello, my name is John and I am 30 years old.
 jane.speak(); // Hello, my name is Jane and I am 25 years old.
 ```
 
-### Arrays vs Objectsnpm install npm@latest -g
+### Arrays vs Objects
 
 * Arrays are used to hold several values under a single name and to organize them using indexes represented by consecutive integers.
 * Objects are used to hold several values under a single name and to organize them using named properties.
