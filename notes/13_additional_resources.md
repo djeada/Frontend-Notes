@@ -1,126 +1,125 @@
 ## Additional Resources
 
-A collection of additional resources that you may find useful.
+Dive into these handpicked resources to enhance your projects and designs. From templates and components to fonts and colors, you'll find it here.
 
-### Templates
+### 📄 Templates
 
-* https://cruip.com/
-* https://bootswatch.com/
-* https://freehtml5.co/
-* https://onepagelove.com/
+- [Cruip](https://cruip.com/)
+- [Bootswatch](https://bootswatch.com/)
+- [Free HTML5](https://freehtml5.co/)
+- [One Page Love](https://onepagelove.com/)
 
-### Ready Components
+### 🧩 Ready Components
 
-* https://collectui.com/
-* https://purecss.io/start/
-* https://freefrontend.com/
+- [Collect UI](https://collectui.com/)
+- [Pure CSS](https://purecss.io/start/)
+- [Free Frontend](https://freefrontend.com/)
 
-### CSS Generators
+### 🎨 CSS Generators
 
-* https://9elements.github.io/fancy-border-radius/
-* https://wweb.dev/resources/css-separator-generator/
-* https://grid.layoutit.com/
-* https://animista.net/
+- [Fancy Border Radius](https://9elements.github.io/fancy-border-radius/)
+- [CSS Separator Generator](https://wweb.dev/resources/css-separator-generator/)
+- [Grid Layout It](https://grid.layoutit.com/)
+- [Animista](https://animista.net/)
 
-## Graphical elements
+### 🎨 Graphical Elements
 
-### UI Designs
+#### UI Designs
 
-* https://uidesigndaily.com/
-* https://land-book.com/
-* https://cssnectar.com/
+- [UI Design Daily](https://uidesigndaily.com/)
+- [Land Book](https://land-book.com/)
+- [CSS Nectar](https://cssnectar.com/)
 
-### Icons
+#### 🖼️ Icons
 
-* https://www.swifticons.com
-* https://fontastic.me/
-* https://www.flaticon.com/
-* https://icon-icons.com/
-* https://icon54.com/
+- [Swift Icons](https://www.swifticons.com)
+- [Fontastic](https://fontastic.me/)
+- [Flaticon](https://www.flaticon.com/)
+- [Icon-Icons](https://icon-icons.com/)
+- [Icon54](https://icon54.com/)
 
-### Stock Photos
+#### 📷 Stock Photos
 
-* https://unsplash.com/
-* https://burst.shopify.com/
-* https://magdeleine.co/browse/
-* https://www.lifeofpix.com/
-* https://stocksnap.io/
+- [Unsplash](https://unsplash.com/)
+- [Burst Shopify](https://burst.shopify.com/)
+- [Magdeleine](https://magdeleine.co/browse/)
+- [Life of Pix](https://www.lifeofpix.com/)
+- [Stocksnap](https://stocksnap.io/)
 
-### Images without background
+#### Transparent Images
 
-* https://pngtree.com/
-* https://purepng.com/
-* https://www.stickpng.com/
+- [PNG Tree](https://pngtree.com/)
+- [Pure PNG](https://purepng.com/)
+- [Stick PNG](https://www.stickpng.com/)
 
-### Logos
+#### 🛡️ Logos
 
-* https://www.logoinspirations.co/
+- [Logo Inspirations](https://www.logoinspirations.co/)
 
-### Vectors
+#### 🎡 Vectors
 
-* https://www.scribbbles.design/
+- [Scribbbles Design](https://www.scribbbles.design/)
 
-### 3D Elements
+#### 3D Elements
 
-* https://spline.design/
-* https://www.shapefest.com/
-* https://www.vectary.com/
-* https://shape.so/
+- [Spline](https://spline.design/)
+- [Shapefest](https://www.shapefest.com/)
+- [Vectary](https://www.vectary.com/)
+- [Shape](https://shape.so/)
 
-### Gradients
+#### 🌈 Gradients
 
-* https://meshgradient.com/
-* https://www.grabient.com/
-* https://gradienthunt.com/
-* https://meshy.uxie.io/
+- [Mesh Gradient](https://meshgradient.com/)
+- [Grabient](https://www.grabient.com/)
+- [Gradient Hunt](https://gradienthunt.com/)
+- [Meshy](https://meshy.uxie.io/)
 
-### Animated Backgrounds
+#### 🌊 Animated Backgrounds
 
-* https://animatedbackgrounds.me/
+- [Animated Backgrounds](https://animatedbackgrounds.me/)
 
-### Flow Charts
+#### 📊 Flow Charts
 
-* https://excalidraw.com/
-* https://www.flowmapp.com/
-* https://www.lucidchart.com/
+- [Excalidraw](https://excalidraw.com/)
+- [Flowmapp](https://www.flowmapp.com/)
+- [Lucidchart](https://www.lucidchart.com/)
 
-## Mockups
+### 🎨 Mockups
 
-* https://mockupbro.com/
+- [Mockup Bro](https://mockupbro.com/)
 
-## Fonts
+### 🎵 Fonts
 
-* http://velvetyne.fr/
+- [Velvetyne](http://velvetyne.fr/)
 
-## Utility
+### 🔧 Utility
 
-* Remove background: https://www.remove.bg/de
-* Remove background: https://picwish.com
-* Improve screenshots: https://www.screenstab.com/editor/
-* Improve quality of images: https://letsenhance.io/
-* Improve hand drawing: https://www.autodraw.com/
-* Colors and fonts: https://www.colorsandfonts.com/
+- [Remove Background](https://www.remove.bg/de)
+- [PicWish](https://picwish.com)
+- [Screens Tab](https://www.screenstab.com/editor/)
+- [Let's Enhance](https://letsenhance.io/)
+- [Auto Draw](https://www.autodraw.com/)
+- [Colors and Fonts](https://www.colorsandfonts.com/)
 
-### Color palettes
+### 🎨 Color palettes
 
-* AI takeover: *#FD76CB #FFAC30 #000000 #FFFEFD*
-* Spaceship: *#6B9FED #24F9F9 #A1A7C8 #FFFFFF*
-* Humanoid: *#5AC994 #C0F7B7 #123143 #141B29*
-* Singularity: *#EF84F% #15265C #2EE09A #FFFFFF*
+- **AI Takeover:** `#FD76CB #FFAC30 #000000 #FFFEFD`
+- **Spaceship:** `#6B9FED #24F9F9 #A1A7C8 #FFFFFF`
+- **Humanoid:** `#5AC994 #C0F7B7 #123143 #141B29`
+- **Singularity:** `#EF84F% #15265C #2EE09A #FFFFFF`
+- **Lake:** `#284445 #216A7E #216A7E #216A7E #216A7E`
+- **Rio:** `#298CK #DEBSA2 #597678 #24322E #BESA2E`
+- **Tokyo:** `#DG0B3F #ODA6B5 #DOA4A4 #18CCCE #175F78`
+- **Montreal:** `#1A9FAC #755822 #282422 #9F8668 #DDDEDD`
+- **Berlin:** `#7B1B1E #AE7F31 #241B18 #F2EFE9 #807F6E`
+- **New York:** `#E0372E #6B3620 #5D5765 #D7BFB4 #8696CF`
 
-* Lake: *#284445 #216A7E #216A7E #216A7E #216A7E*
-* Rio: *#298CK #DEBSA2 #597678 #24322E #BESA2E*
-* Tokyo: *#DG0B3F #ODA6B5 #DOA4A4 #18CCCE #175F78*
-* Montreal: *#1A9FAC #755822 #282422 #9F8668 #DDDEDD*
-* Berlin: *#7B1B1E #AE7F31 #241B18 #F2EFE9 #807F6E*
-* New york: *#E0372E #6B3620 #5D5765 #D7BFB4 # 8696CF*
+### 🖋️ Fonts
 
-### Fonts
-
-* Ambit
-* Helvetica Now
-* Avenir Next Pro
-* Plantin
-* Futura PT
-* TT Norms
-* Brandon Grotesque
+- Ambit
+- Helvetica Now
+- Avenir Next Pro
+- Plantin
+- Futura PT
+- TT Norms
+- Brandon Grotesque
