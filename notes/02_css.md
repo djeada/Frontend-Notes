@@ -464,11 +464,12 @@ s     ##########
 |     ##########
 ˅
 ```
+
 The cross axis, in this setup, runs horizontally.
 
 ### Example
 
-Let's take a look at a complete example:
+HTML:
 
 ```html
 <div class="container">
@@ -492,7 +493,9 @@ Let's take a look at a complete example:
 </div>
 ```
 
- ```css
+CSS:
+
+```css
 .container {
    display: flex;
    justify-content: center;
@@ -1476,9 +1479,9 @@ Relative units are responsive and adapt based on the context in which they're us
 
 ## Links
 
-* Official Website: https://www.w3.org/Style/CSS/
-* http://isobar-idev.github.io/code-standards/
-* https://github.com/hail2u/html-best-practices
-* http://learn.shayhowe.com/html-css/writing-your-best-code/
-* https://www.webaccessibility.com/best_practices.php
-* Formatter: https://www.cleancss.com/css-beautify/
+- [Official Website](https://www.w3.org/Style/CSS/)
+- [Isobar Front-end Code Standards](http://isobar-idev.github.io/code-standards/)
+- [HTML Best Practices](https://github.com/hail2u/html-best-practices)
+- [Writing Your Best Code](http://learn.shayhowe.com/html-css/writing-your-best-code/)
+- [Web Accessibility Best Practices](https://www.webaccessibility.com/best_practices.php)
+- [CleanCSS Formatter](https://www.cleancss.com/css-beautify/)
