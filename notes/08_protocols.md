@@ -1,73 +1,96 @@
 ## Protocols
 
-Understanding network protocols is essential for frontend engineers as they need to know how to request data from the backend and how it is sent.
+Grasping the intricacies of network protocols is pivotal for frontend developers. This ensures seamless interaction between the frontend and backend, facilitating data requests and transfers.
 
-## Basics
+## Foundational Concepts
 
 ### Internet
 
-The Internet is a global network of computers connected to each other, which communicate through a standardized set of protocols.
+The Internet, often referred to as the "net," is an expansive ensemble of globally connected computers. These systems communicate using an agreed-upon set of protocols, forming the backbone of our modern digital age.
 
 ### Browsers
 
-A web browser is a software application that enables a user to access and display web pages or other online content through its graphical user interface.
+Web browsers act as the gateway between users and the vast universe of the Internet. They are software applications tailored to fetch, present, and traverse online content. Modern browsers, like Google Chrome, Mozilla Firefox, and Microsoft Edge, also come equipped with tools to aid developers in debugging and optimization.
 
-### DNS
+### DNS (Domain Name System)
 
-The Domain Name System (DNS) translates human-readable domain names, like nytimes.com or espn.com, into Internet Protocol (IP) addresses that web browsers use to load Internet resources.
+The DNS is akin to the Internet's phonebook. Instead of flipping pages to find phone numbers, the DNS system converts domain names (like `openai.com`) into IP addresses (like `192.0.2.1`). This conversion is crucial because, while domain names are easy for people to remember, computers or networks access locations based on IP addresses.
 
 ### Domain Name
 
-A domain name is a unique, easy-to-remember address used to access websites. The DNS system allows users to connect to websites using domain names instead of IP addresses.
+A domain name is the friendly face of an IP address. Instead of remembering a string of numbers, users can type in a human-readable address, like `google.com`, to access a website. Domain names are hierarchical, with the main domain (e.g., `google`) and a domain suffix or Top-Level Domain (TLD) like `.com`.
 
-## Web Security
+## Diving Deeper: Protocols in Action
+
+### HTTP/HTTPS
+
+**HTTP (HyperText Transfer Protocol)** and its secure variant, **HTTPS**, are the primary protocols used for transferring web content. When you visit a website, your browser sends an HTTP request to the server, which then responds with the content.
+
+- **HTTPS** (Secure) uses SSL/TLS encryption to ensure that the data transferred between the server and the browser remains confidential and untampered.
+
+### FTP
+
+**FTP (File Transfer Protocol)** is an older protocol used to transfer files between a client and a server. While less common in modern frontend tasks, it's still vital for certain web maintenance activities.
+
+### WebSockets
+
+**WebSockets** provide full-duplex communication channels over a single TCP connection. This means data can be sent simultaneously in both directions. For frontend developers, WebSockets can be invaluable for creating real-time web applications like chat apps or live sports updates.
+
+### TCP and UDP
+
+**TCP (Transmission Control Protocol)** and **UDP (User Datagram Protocol)** are foundational communication protocols. While TCP is connection-oriented and ensures data delivery, UDP is connectionless and does not guarantee data delivery, making it faster in certain applications.
+
+## Web Security Essentials
+
+Web security is paramount in safeguarding both websites and their users from malicious threats. Below is a dive into some core elements of web security.
 
 ### HTTPS
 
-HTTPS (Hypertext Transfer Protocol Secure) is a secure version of the HTTP protocol that encrypts data sent between a web server and a browser, protecting sensitive information from interception and tampering.
+**HTTPS** (Hypertext Transfer Protocol Secure) is a fortified version of HTTP. It introduces encryption to the data transfer process between browsers and web servers, ensuring data integrity and confidentiality.
 
 ### CORS
 
-Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to specify which origins (domain, scheme, or port) are permitted to load resources from it, preventing unauthorized cross-origin access to data.
+**Cross-Origin Resource Sharing (CORS)** is a mechanism employing HTTP headers. It empowers servers to define which origins (specified by domain, scheme, or port) can access its resources, thus preventing unauthorized cross-origin data access.
 
 ### Content Security Policy
 
-Content Security Policy (CSP) is a security standard that helps prevent cross-site scripting, clickjacking, and other code injection attacks by specifying which sources of content are allowed to be loaded by a web page.
+**Content Security Policy (CSP)** serves as a protective shield against code injection attacks, including cross-site scripting and clickjacking. It defines content sources permitted to be loaded on a web page, giving developers tighter control.
 
 ### OWASP Security Risks
 
-OWASP (Open Web Application Security Project) is an online community that produces freely-available articles, methodologies, documentation, tools, and technologies related to web application security. Their Top Ten Project highlights the most critical security risks to web applications.
+**OWASP** (Open Web Application Security Project) is a collaborative platform offering a plethora of resources related to web app security. Notably, its Top Ten Project spotlights the most perilous security threats web applications face.
 
 ### Generate a CSR on Your Server
 
-You can use the OpenSSL command for Apache or Nginx:
+To initiate a Certificate Signing Request (CSR), leverage the OpenSSL command for servers like Apache or Nginx:
 
-```Bash
+```bash
 openssl req -new -newkey rsa:2048 -nodes -keyout your_domain.com.key -out your_domain.com.csr
 ```
 
-### What is SSL/TLS?
+### Understanding SSL/TLS
 
-* SSL (Secure Sockets Layer) and its successor, TLS (Transport Layer Security), are cryptographic protocols that improve the security of internet connections by encrypting them.
-* When servers use plain HTTP without SSL/TLS, they deliver unencrypted data to browsers. This makes it vulnerable to eavesdropping and data interception. 
-* With SSL/TLS, a secure session is established before data is transferred. The server sends its credentials to the client, which can verify the server's authenticity through a central Certificate Authority (CA). Data is transferred only after the CA confirms the server's credentials.
+- **SSL** (Secure Sockets Layer) and its modern successor, **TLS** (Transport Layer Security), are cryptographic standards enhancing web connection security through encryption.
+- Without **SSL/TLS**, servers transmit unencrypted data, leaving it susceptible to interception. SSL/TLS creates a secure conduit for data transmission, where the server's authenticity is verified by a Certificate Authority (CA).
 
-### Obtain an SSL/TLS Certificate
+### Acquiring an SSL/TLS Certificate
 
-You can purchase an SSL/TLS certificate from various providers, such as:
+Acquire **SSL/TLS** certificates from several trusted vendors, such as:
 
-- [Namecheap](https://www.namecheap.com/security/ssl-certificates/domain-validation/)
-- [DigiCert](https://www.digicert.com/)
-- [Let's Encrypt](https://letsencrypt.org/) (Free)
+- Namecheap
+- DigiCert
+- Let's Encrypt (A free alternative)
 
-To check if a given URL uses SSL/TLS, use a tool like [SSL Labs SSL Test](https://www.ssllabs.com/ssltest/).
+To assess if a site employs SSL/TLS, utilize tools like SSL Labs SSL Test.
 
-### Install Certificate on Your Server
+### Setting Up Certificate on Your Server
 
-1. Modify your Virtual Host configuration to listen on port 443 (HTTPS) instead of port 80 (HTTP).
-2. Specify the locations of your SSL/TLS key and certificate files in the configuration.
-3. Enable SSL/TLS in your server configuration.
-4. Restart the server to apply the changes and enable HTTPS on your website.
+To implement **SSL/TLS**:
+
+1. Adjust your Virtual Host configuration for it to listen on port 443 (representing HTTPS) as opposed to port 80 (HTTP).
+2. Indicate your SSL/TLS key and certificate file locations within your server configuration.
+3. Activate SSL/TLS in your server settings.
+4. Reboot the server, applying the modifications and ushering in HTTPS support for your website.
 
 ## HTTP
 
@@ -75,8 +98,8 @@ The protocol responsible for requesting and sending resources over the internet 
 
 It works with pairs of requests and responses.
 
-* Request: comes from the browser (request method, http headers, body)
-* Response: is sent from the server (status code, http headers, body)
+- Request: comes from the browser (request method, http headers, body)
+- Response: is sent from the server (status code, http headers, body)
 
 HTTP is built on top of other protocols. In the transport layer it is mostly TCP.
 
@@ -141,11 +164,11 @@ The response should look something like this:
 
 Many standards:
 
-* XML-RPC (1998)
-* SOAP (1999)
-* REST (2000)
-* JSON-RPC (2005)
-* GraphQL (2015)
+- XML-RPC (1998)
+- SOAP (1999)
+- REST (2000)
+- JSON-RPC (2005)
+- GraphQL (2015)
 
 ## REST standard
 
@@ -155,8 +178,8 @@ Mostly done via HTTP methods.
 
 Example REST APIs:
 
-* https://jsonplaceholder.typicode.com
-* https://restcountries.eu
+- https://jsonplaceholder.typicode.com
+- https://restcountries.eu
 
 An example with GET method:
 
@@ -274,37 +297,39 @@ Response:
 
 ## What happens when you enter a URL in the browser?
 
-1. You enter `https://example-website.com` in the browser.
+When you enter a URL into a browser's address bar, a series of complex actions take place to fetch and display the desired webpage. Let's delve deeper into this process.
 
-    * Hidden behind a user-friendly name like `https://example-website.com` is an IP address of a server that keeps the website's data.
-    * In order to communicate with the server, we require that IP address.
-    * We obtain the address from a service known as DNS. 
+1. **Entering the URL**
 
-2. Browser uses DNS.
+- Upon typing `https://example-website.com`, you're not directly communicating with the website but with its associated IP address.
+- IP addresses identify servers hosting website data. To initiate communication, this IP address is essential.
+- The translation from domain name to IP address is done by the Domain Name System (DNS).
 
-    * The browser requests that the DNS service translate a given URL to an IP address.
-    * If the local DNS servers do not know the IP address, they will query the global DNS servers for it.
-    * When an address is identified, it is returned to the browser.
+2. **DNS Resolution**
 
-3. TCP connection between the browser and the server.
+- The browser queries DNS servers to translate the URL into its corresponding IP address.
+- If the local DNS cache (on your machine or router) doesn't have the address saved, the request goes to higher-tier DNS servers.
+- Once the IP address is located, it's relayed back to the browser, sometimes being cached for faster future access.
 
-    * TCP connection is established between the browser and the server.
-    * The packets from a client browser request are routed through the router, the isp and the whole networks of devices.
-    * This is an extremely circuitous and inefficient route.
-    * Additionaly many websites, employ a content delivery network, or cdn, to cache static and dynamic material closer to the browser.
+3. **Establishing a TCP Connection**
 
-4. HTTP requests over the TCP connection.
+- The browser and server establish a Transmission Control Protocol (TCP) handshake to ensure reliable data transfer.
+- Data packets traverse intricate networks, passing through routers, ISPs, and many intermediary devices.
+- Given the potential inefficiencies of this process, many websites use Content Delivery Networks (CDNs). CDNs store cached versions of web content in various locations, ensuring faster delivery by serving the data from a location near the user.
 
-    * The browser sends an http request to the server in order to obtain the page's contents.
-    * The http request includes a request line, headers (or request metadata), and a content.
-    * The request must include all the information that the server needs to determine what kind of data it needs to send to the client.
+4. **Sending HTTP Requests**
 
-5. HTTP responses over the TCP connection.
+- Post the TCP handshake, the browser sends an HTTP or HTTPS request to the server.
+- This request encapsulates a request line, headers (containing metadata about the request), and occasionally, content.
+- It's imperative that the request carries all necessary details for the server to understand and fulfill it.
 
-    * The server sends an HTTP response to the client.
-    * The response includes everything the clinet needs in order to render the website (HTML, CSS, JS and resources such as images).
+5. **Receiving HTTP Responses**
 
-6. Content rendering.
+- The server processes the request and returns an HTTP response to the browser.
+- This response contains essential resources for displaying the website: HTML files, stylesheets (CSS), scripts (JavaScript), images, and more.
 
-    * The browser parses the server's HTTP response.
-    * The content is rendered in line with the browser's rules (not every browser supports the same set of features).
+6. **Rendering the Webpage**
+
+- The browser parses the server's response.
+- It constructs the Document Object Model (DOM) and Cascading Style Sheets Object Model (CSSOM) trees, then combines them to render the webpage.
+- Browsers might interpret and display content slightly differently based on their design and the technologies they support. Hence, while the core content remains consistent, subtle variations can be observed across different browsers.
