@@ -1,172 +1,252 @@
 ## HTML
 
-* HyperText Markup Language
-* NOT a programming language
-* structure of a webpage
-* nouns of the web-design language
+* Hypertext Markup Language (HTML)
+* The "nouns" of the web
+* Lays down the basic structure of web pages
 
-## What should an HTML developer know?
+### Key Points about HTML
 
-* Structure simple web pages using HTML.
-* Correctly use closing and self-closing tags.
-* Write tags with attributes.
-* Make use of MDN as a resource.
-* Recreate a given webpage using HTML.
+- **What is HTML?**: HTML stands for Hypertext Markup Language. It's a standard markup language used to create web pages.
 
-## Building blocks of HTML
+- **Role in Web Development**: Consider HTML as the "nouns" of the web. While CSS provides the styling, HTML provides the basic structure.
 
-When learning HTML, there are three fundamental skills to master:
-1. Knowing the HTML document's overall structure.
-2. Understanding the function of tags and attributes, as well as where to look for them in the documentation.
-3. Using containers like span and div to properly divide the document body into logical groupings.
+- **Elements and Tags**: HTML documents are made up of elements, which are represented by tags. Examples include `<div>`, `<a>`, `<img>`, and so on.
 
-### Document structure
+- **Attributes**: Elements can have attributes that provide additional information about the element. For instance, an `<img>` tag might have a `src` attribute pointing to the image source.
 
-Every HTML document follows a specific structure. 
+- **Semantics**: Using the right HTML tags (like `<nav>`, `<article>`, and `<footer>`) helps in describing the content's meaning and improves accessibility.
 
-### Example
+- **Containers**: Utilizing containers like `<span>` and `<div>` helps to properly divide the document body into logical groupings.
+  
+## Skills Every HTML Developer Should Have
 
-Here is an example of a simple HTML document:
+1. **Basic Tag Knowledge**: Understanding commonly used tags and their purposes.
+
+2. **Document Structure**: Knowing how to structure an HTML document with tags like `<head>`, `<body>`, `<header>`, and `<footer>`.
+
+3. **Forms & Inputs**: Creating forms using `<form>`, `<input>`, `<textarea>`, and other related tags.
+
+4. **Embedding Media**: Incorporating images, videos, and other media types into web pages.
+
+5. **Linking**: Understanding how to link to internal and external web pages using the `<a>` tag.
+
+7. **Make use of MDN**: Regularly referring to the [Mozilla Developer Network (MDN)](https://developer.mozilla.org/) for documentation and best practices.
+
+8. **Recreation Skills**: Ability to accurately recreate a given webpage using pure HTML.
+
+## Document Structure
+
+The HTML document structure provides a standardized way to structure content on the web. Adhering to this structure ensures browser compatibility and proper rendering of web pages.
+
+Below is a foundational structure of an HTML document:
 
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Document</title>
 </head>
 
 <body>
+    <!-- Content goes here -->
 </body>
 
 </html>
 ```
 
-More or less every HTML document looks like this. The <code>!DOCTYPE</code> tag is used to specify the type of document, in this case it is HTML. All the metadata goes in the <code>head</code> section, and the actual content goes in the <code>body</code> section.
+- `<!DOCTYPE html>`: This declaration defines the document as an HTML5 document. It's a standard instruction to the web browser about what version of the HTML language the page is written in.
 
-#### Short summary
+- `<html lang="en">`: The root element of an HTML page. The `lang` attribute specifies the language of the document's content, aiding in accessibility and search engine optimization.
 
-The following tags are used to create the document structure:
+  - `<head>`: This is a container for metadata (data about data). It typically includes:
 
-* <code>html</code> - includes the whole document; it frequently has the language set, for example, 'lang="en"' 
-* <code>head</code> - metadata information such as document title, character encoding, link to stylesheets, etc.
-* <code>body</code> - everything that is displayed on the page, the actual content.
+    - `<meta charset="UTF-8">`: Sets the character set encoding type for the document. "UTF-8" encompasses almost all of the world's writing systems.
 
-### Tags and attributes
+    - `<meta name="viewport" content="width=device-width, initial-scale=1.0">`: An essential meta tag for responsive design. It ensures that the page scales and sizes correctly on different devices, especially mobile devices.
 
-The whole HTML language is built around tags and their attributes. There really are a multitude of them, yet only a handful are used in practice.
+    - `<title>`: Represents the title of the document; it's what you see on the browser tab or window. A descriptive title is essential for SEO and usability.
 
-Complete list can be found [here](https://developer.mozilla.org/de/docs/Web/HTML/Element). 
-
-#### Example
-
-Let's take a look at some made up tags:
-
-```html
-<outerTag>
-    <innerTag> Content goes here</innerTag>
-</outerTag>
-```
-
-Those tags don't exist in the real world, but they show how every other tag is used. There is an opening tag, then you may add some information, and finally you close the tag. You can put another tag inside the body of a tag. 
-
-### Void elements
-
-Void elements are tags that don't contain any content. They are used to create empty elements.
-
-##### Example
-
-An example of a void element:
-
-```html
-<img src='example.img' alt='a cute puppy'>
-```
-
-### Div and span
-
-Div and span are used to separate the document's body into logical sections. Div is an abbreviation for divider. It has no effect on the content, but it becomes quite handy if you start using CSS. Spans are similar to divs, except that they are used to denote specific items rather than entire blocks. ck.
-
-#### Example
-
-You can put a span inside a div:
-
-```html
-<div>
-    <span>This is a span</span>
-</div>
-```
-
-It is illegal to put a div inside a span. The following is not a valid HTML:
-
-```html
-<span> This is a <div>This is a div</div> span.</span>
-```
+  - `<body>`: The main content container. Everything that's displayed on the page (text, images, videos, etc.) goes here. It represents the content of an HTML document that is rendered in browsers.
 
 ## Head
 
-Here goes all the metadata information. It is important to include the title of the page, the character encoding, and the link to the stylesheet. 
+The `<head>` section of an HTML document contains metadata (information about the document) and links to resources like stylesheets, scripts, and favicons. While not directly displayed to users, its contents influence how browsers present the page and how search engines interpret it.
 
-### Title
+### The Document's Title
 
-document title that appears in the window bar:
+The `<title>` tag defines the title of the document, which appears in the browser's title bar or tab. 
 
-#### Example
-
-```html
-<title>my website</title>
-```
-
-### Meta
-
-Meta tags are used to specify metadata information about the document.
-
-1. charset
-
-    In order to specify the character encoding of the document, you can use the <code>charset</code> attribute.
-
-    ```html
-    <meta charset="UTF-8">
-    ```
-
-1. viewport
-
-    The mobile devices assume that the website is not using media queries for responsive design (it will be discussed in detail in CSS section). The viewport tag is used to tell the browser that media queries were indeed used.
-
-    ```html
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    ```
-
-1. description
-
-    Search engines use the description to position the website in the search results.
-
-    ```html
-    <meta name="description" content="This is a description">
-    ```
-
-1. keywords
-
-    Keywords may also be used to position the website in the search results.
-
-    ```html
-    <meta name="keywords" content="keyword1, keyword2, keyword3">
-    ```
-
-### Favicon
-
-Favicon is the icon that is displayed in the website tab.
-
-#### Example
-
-Let's take a look at a simple favicon:
+Here is an example:
 
 ```html
-<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<title>My Awesome Website</title>
 ```
 
-#### Additional explanations
+### Metadata Information
 
-* If no explicit link is present, browsers will look for a `favicon.ico` file in the root directory of the website.
+`<meta>` tags provide additional details about the document, influencing its behavior on devices and its appearance in search results.
+
+1. **Character Encoding**: The charset attribute defines the character encoding for the webpage. This ensures characters display correctly across all browsers.
+
+``` html
+<meta charset="UTF-8">
+```
+
+2. **Viewport**: This tag optimizes display settings for mobile devices, ensuring a responsive design. It's essential for modern web development to accommodate varying screen sizes.
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+
+3. **Description**: Provides a brief summary of the page's content. This is often displayed in search engine results, affecting click-through rates.
+
+```html
+<meta name="description" content="Discover the latest updates and features of My Awesome Website.">
+```
+
+4. **Keywords**: While modern search engines don't heavily rely on this metadata for ranking, it can still be included for potential SEO benefits.
+
+```html
+<meta name="keywords" content="innovation, tech, design">
+```
+
+5. **Favicon**: The favicon (short for "favorite icon") represents the website in browser tabs, bookmarks, and other UI elements.
+
+```html
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+```
+
+If the website does not provide an explicit favicon link in the <head>, browsers default to searching for a file named favicon.ico in the website's root directory.
+
+## Tags and Attributes
+
+At the core of HTML lies the concept of tags and attributes. These elements enable the creation of structured documents and provide a way to describe the content's presentation and semantic meaning.
+
+While a vast number of tags are defined in the HTML specification, only a subset is frequently used in day-to-day web development. For a comprehensive list of all available tags, refer to the [MDN's HTML element reference](https://developer.mozilla.org/de/docs/Web/HTML/Element).
+
+### How Tags Work
+
+HTML tags represent elements and come in pairs: an opening tag and a closing tag. The content of the element resides between these tags. Some tags, called void elements (like `<img>` and `<br>`), don't have a closing tag.
+
+```html
+<elementName> Content of the element </elementName>
+```
+
+### Nesting Tags
+
+It's common in HTML to nest one tag within another, establishing a parent-child relationship between the elements.
+
+```html
+<parentElement>
+    <childElement> Content inside child element </childElement>
+</parentElement>
+```
+
+This hierarchical structure forms the basis for the Document Object Model (DOM), a tree-like representation of the content.
+
+### Attributes
+
+Attributes provide additional information about an element and are always specified in the opening tag. They come in `name/value` pairs like this: `name="value"`.
+
+For instance, the <a> tag often uses the href attribute to specify the link destination:
+
+```html
+<a href="https://www.example.com">Visit Example</a>
+```
+
+In this example, href is the attribute name, and `https://www.example.com` is its value.
+
+## Void (Self-closing) Elements in HTML
+
+Void elements, also known as self-closing elements, are unique HTML tags that don't require a closing tag. While they don't wrap around content, they can have attributes which give them functionality or provide additional context.
+
+### Characteristics of Void Elements
+
+1. **No Closing Tag**: Unlike regular HTML elements, void elements don't have a corresponding closing tag.
+
+2. **Attributes**: Even though void elements don't contain content between an opening and closing tag, they can (and often do) contain attributes. These attributes provide additional information or specify behavior for the element.
+
+### Examples of Void Elements
+
+- `<img>`: This is used to embed images in a document. It often comes with attributes such as `src` (which specifies the URL of the image) and `alt` (which provides an alternate description for the image, aiding accessibility).
+
+```html
+<img src='example.jpg' alt='a cute puppy'>
+```
+
+- `<br>`: Represents a line break. Useful for creating breaks inside paragraphs or other inline-level content.
+
+```html
+This is some text.<br>And this is a new line.
+```
+
+- `<input>`: Used within forms to let users input data. It can have a variety of types like text, radio, checkbox, etc.
+
+```html
+<input type="text" name="username" placeholder="Enter your username">
+```
+
+- `<hr>`: Produces a thematic break or a horizontal rule. It's often used to separate content sections.
+
+```html
+<hr>
+```
+
+- `<meta>`, `<link>`, and `<area>` are other examples of void elements.
+
+## Grouping elements
+
+In HTML, `div` and `span` are two of the most versatile elements used to control and group content for various purposes, especially when combined with CSS.
+
+### Understanding `div`
+
+- **Purpose**: The `div` (short for "division") element is a block-level container that is used to group content and structure sections of a webpage.
+  
+- **Display**: By default, a `div` takes up the full width of its parent container, creating a "block" on the page.
+
+- **Usage**: It doesn't have a semantic meaning by itself. Its primary use is as a generic container, often combined with CSS classes or IDs to apply styles or JavaScript for interactivity.
+
+### Understanding `span`
+
+- **Purpose**: The `span` element is an inline-level container. It's used to single out a specific piece of content within a block, such as highlighting a text portion or wrapping an icon within a paragraph.
+
+- **Display**: Unlike `div`, a `span` doesn't create a new line; it remains inline with other content.
+
+- **Usage**: Similar to `div`, `span` is non-semantic and is primarily used to apply styles or scripts to specific parts of the content.
+
+#### Examples
+
+- Grouping content with `div`:
+
+```html
+<div class="section">
+  <p>This is a paragraph within a div.</p>
+</div>
+```
+
+- Highlighting text with `span`:
+
+``` html
+<p>This is a <span class="highlight">highlighted</span> text.</p>
+```
+
+- Nesting a span within a div is a common practice:
+
+```html
+<div>
+    <span>This is a span inside a div.</span>
+</div>
+```
+
+However, since div is a block-level element and span is an inline-level element, placing a div inside a span is considered incorrect and goes against HTML specifications:
+
+```html
+<!-- Incorrect Usage -->
+<span> This is a <div>This is a div</div> span.</span>
+```
 
 ## Readonly elements
 
