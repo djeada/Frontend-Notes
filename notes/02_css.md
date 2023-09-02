@@ -4,7 +4,7 @@
 * The "adjectives" of the web
 * Takes the basic HTML structure and styles it according to our preferences
 
-### Key Points about CSS:
+### Key Points about CSS
 
 - **What is CSS?**: CSS stands for Cascading Style Sheets. It's a language used to describe how a document, typically written in HTML, should look.
   
@@ -14,7 +14,7 @@
 
 - **Capabilities**: Using CSS, developers can control various visual aspects such as colors, positions, dimensions, and even complex animations.
 
-## Skills Every CSS Developer Should Acquire:
+## Skills Every CSS Developer Should Have
 
 1. **Basic Styling**: Understanding how to adjust properties like colors, borders, and fonts.
 
