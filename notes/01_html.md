@@ -644,47 +644,72 @@ The following are some of the commonly used audio formats:
 
 ### General
 
-* Use HTML5 and follow its semantic structure.
-* Choose appropriate tags and attributes according to their intended purpose.
-* Use UTF-8 character encoding for compatibility.
-* Add comments to explain complex or important parts of your code.
+* **Versioning**: Use version control systems like Git to track changes and collaborate.
+* **Validation**: Regularly use tools like the W3C HTML validator to check the quality of your code.
+* **Mobile-First**: Design with a mobile-first approach, ensuring mobile users get an optimized experience.
+* **Stay Updated**: Stick to HTML5, taking advantage of its features and semantics.
+* **Right Tool for the Job**: Select tags and attributes that best match the content's intended purpose.
+* **Comments**: Annotate your code with comments to clarify complex sections or document important decisions.
 
 ### Formatting
 
-* For each block, list, or table element, create a new line and indent child elements consistently.
-* Use double quotation marks when quoting attribute values.
-* Maintain consistent casing for tag names, preferably lowercase.
-* Remove trailing white spaces and keep indentation consistent.
+* **Consistent Naming**: Adopt a naming convention for classes and IDs.
+* **Self-closing Tags**: For void elements, use self-closing tags, e.g., `<img src="..." alt="..." />`.
+* **Clarity Through Spacing**: Start each block, list, or table element on a new line and consistently indent child elements.
+* **Quotation Consistency**: Use double quotation marks for attribute values.
+* **Tag Case**: Stick to lowercase for all HTML tag names for consistency.
+* **Whitespace**: Eliminate trailing spaces and ensure consistent indentation for readability.
 
 ### Semantic and Accessibility
 
-* Use semantic tags like `article`, `time`, `header`, `nav`, and `aside` for improved readability and accessibility.
-* Use `<p>` tags for paragraphs instead of multiple `<br>` elements.
-* Do not use tables for layout purposes.
-* Use heading tags (h1-h6) to outline the page content and structure.
-* Add `alt` text to images to improve accessibility and user experience.
-* Explicitly label controls (no `<div class="button">`); use proper tags like `<button>`.
+* **Semantics Matter**: Use tags like `article`, `time`, `header`, `nav`, and `aside` for better content organization.
+* **Text Representation**: Represent paragraphs with `<p>` instead of relying on `<br>` for spacing.
+* **Table Integrity**: Only use tables for tabular data, not for general layout.
+* **Heading Hierarchy**: Utilize heading tags (`h1`-`h6`) sequentially for content structure and accessibility.
+* **Image Accessibility**: Always provide `alt` descriptions for images, ensuring context for those using screen readers.
+* **Use Genuine Controls**: Favor semantic elements like `<button>` over styled non-semantic elements.
+* **ARIA Roles**: Use ARIA roles and properties to enhance accessibility for users with disabilities.
+* **Skip Navigation Links**: Implement "skip to main content" links for better keyboard navigation.
+* **Form Labels**: Always label form controls using the `<label>` element, making them more accessible.
 
 ### HTML Structure
 
-* Avoid using XML declarations.
-* Define the `<title>` tag to describe the content of the page.
-* Define the `<body>` tag to wrap the main content of the page.
-* Close every tag that you open.
+* **Metadata**: Use meta tags like `<meta name="author" content="...">` to provide information about the content's creator or editor.
+* **Language Attribute**: Always set the `lang` attribute on the `<html>` tag, indicating the content's language, e.g., `<html lang="en">`.
+* **Character Encoding**: Always use UTF-8 for broader compatibility and accurate character representation.
+* **XML Declarations**: These are unnecessary in HTML5 documents.
+* **Title Relevance**: Provide a descriptive and concise `<title>` tag for each page.
+* **Body Integrity**: Encapsulate your main content within the `<body>` tag.
+* **Close Tags**: Every opened tag should have a corresponding closing tag to ensure proper structure.
 
-### CSS and JavaScript
+### CSS and JavaScript Integration
 
-* Avoid inline styles; use external CSS files instead.
-* Do not inline JavaScript code; use external JS files.
-* Omit the `type` attribute for CSS and JS link tags in HTML5.
-* Place references to JavaScript files in the `<head>` and use the `defer` attribute (`<script src="app.js" defer></script>`).
+* **Separation of Concerns**: Keep structure (HTML), style (CSS), and behavior (JS) separate.
+* **CSS Variables**: Use CSS custom properties (variables) for better maintainability and theming options.
+* **Non-blocking JS**: Whenever possible, utilize asynchronous JavaScript to avoid blocking the rendering of your webpage.
 
 ### Performance and Optimization
 
-* Minify CSS and JavaScript files to reduce file sizes and improve load times.
-* Use responsive design to accommodate various screen sizes and devices.
-* Optimize images for the web to reduce file sizes without sacrificing quality.
-* Utilize browser caching to improve page load times for returning visitors.
+* **Lazy Loading**: Implement image and iframe lazy loading to defer loading off-screen content.
+* **Critical CSS**: Inline critical CSS to render visible content as fast as possible.
+* **Content Delivery Network (CDN)**: Utilize CDNs to distribute and speed up content delivery globally.
+* **Server-side Rendering (SSR)**: If using frameworks like React or Vue, consider SSR for faster initial page loads.
+* **Minification**: Use tools to minify CSS and JavaScript, reducing payload and improving load times.
+* **Responsive Design**: Ensure your design adapts seamlessly across devices and screen sizes.
+* **Image Optimization**: Use tools and formats to reduce image file sizes without compromising on quality.
+* **Browser Caching**: Implement cache policies to decrease load times for repeat visitors and reduce server load.
+  
+### Security
+
+* **HTTPS**: Always use HTTPS to ensure data between the user and your site is encrypted.
+* **Content Security Policy (CSP)**: Implement a strong CSP to prevent cross-site scripting (XSS) attacks.
+* **Input Sanitization**: Always sanitize and validate user inputs to prevent potential security vulnerabilities.
+
+### SEO (Search Engine Optimization)
+
+* **Semantic Structure**: Ensure a proper hierarchical structure using headings from `<h1>` to `<h6>`.
+* **Schema Markup**: Use schema.org markup to provide search engines with structured information.
+* **Sitemaps**: Generate and submit a sitemap to search engines to help them crawl and index your site.
 
 ## Links
 
