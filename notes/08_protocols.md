@@ -300,30 +300,30 @@ Response:
 When you enter a URL into a browser's address bar, a series of complex actions take place to fetch and display the desired webpage. Let's delve deeper into this process.
 
 1. **Entering the URL**
-  - Upon typing `https://example-website.com`, you're not directly communicating with the website but with its associated IP address.
-  - IP addresses identify servers hosting website data. To initiate communication, this IP address is essential.
-  - The translation from domain name to IP address is done by the Domain Name System (DNS).
+    - Upon typing `https://example-website.com`, you're not directly communicating with the website but with its associated IP address.
+    - IP addresses identify servers hosting website data. To initiate communication, this IP address is essential.
+    - The translation from domain name to IP address is done by the Domain Name System (DNS).
 
 2. **DNS Resolution**
-  - The browser queries DNS servers to translate the URL into its corresponding IP address.
-  - If the local DNS cache (on your machine or router) doesn't have the address saved, the request goes to higher-tier DNS servers.
-  - Once the IP address is located, it's relayed back to the browser, sometimes being cached for faster future access.
+    - The browser queries DNS servers to translate the URL into its corresponding IP address.
+    - If the local DNS cache (on your machine or router) doesn't have the address saved, the request goes to higher-tier DNS servers.
+    - Once the IP address is located, it's relayed back to the browser, sometimes being cached for faster future access.
 
 3. **Establishing a TCP Connection**
-  - The browser and server establish a Transmission Control Protocol (TCP) handshake to ensure reliable data transfer.
-  - Data packets traverse intricate networks, passing through routers, ISPs, and many intermediary devices.
-  - Given the potential inefficiencies of this process, many websites use Content Delivery Networks (CDNs). CDNs store cached versions of web content in various locations, ensuring faster delivery by serving the data from a location near the user.
+    - The browser and server establish a Transmission Control Protocol (TCP) handshake to ensure reliable data transfer.
+    - Data packets traverse intricate networks, passing through routers, ISPs, and many intermediary devices.
+    - Given the potential inefficiencies of this process, many websites use Content Delivery Networks (CDNs). CDNs store cached versions of web content in various locations, ensuring faster delivery by serving the data from a location near the user.
 
 4. **Sending HTTP Requests**
-  - Post the TCP handshake, the browser sends an HTTP or HTTPS request to the server.
-  - This request encapsulates a request line, headers (containing metadata about the request), and occasionally, content.
-  - It's imperative that the request carries all necessary details for the server to understand and fulfill it.
+    - Post the TCP handshake, the browser sends an HTTP or HTTPS request to the server.
+    - This request encapsulates a request line, headers (containing metadata about the request), and occasionally, content.
+    - It's imperative that the request carries all necessary details for the server to understand and fulfill it.
 
 5. **Receiving HTTP Responses**
-  - The server processes the request and returns an HTTP response to the browser.
-  - This response contains essential resources for displaying the website: HTML files, stylesheets (CSS), scripts (JavaScript), images, and more.
+    - The server processes the request and returns an HTTP response to the browser.
+    - This response contains essential resources for displaying the website: HTML files, stylesheets (CSS), scripts (JavaScript), images, and more.
 
 6. **Rendering the Webpage**
-  - The browser parses the server's response.
-  - It constructs the Document Object Model (DOM) and Cascading Style Sheets Object Model (CSSOM) trees, then combines them to render the webpage.
-  - Browsers might interpret and display content slightly differently based on their design and the technologies they support. Hence, while the core content remains consistent, subtle variations can be observed across different browsers.
+    - The browser parses the server's response.
+    - It constructs the Document Object Model (DOM) and Cascading Style Sheets Object Model (CSSOM) trees, then combines them to render the webpage.
+    - Browsers might interpret and display content slightly differently based on their design and the technologies they support. Hence, while the core content remains consistent, subtle variations can be observed across different browsers.
