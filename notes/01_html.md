@@ -18,7 +18,7 @@
 
 - **Containers**: Utilizing containers like `<span>` and `<div>` helps to properly divide the document body into logical groupings.
   
-## Skills Every HTML Developer Should Have
+### Skills Every HTML Developer Should Have
 
 1. **Basic Tag Knowledge**: Understanding commonly used tags and their purposes.
 
