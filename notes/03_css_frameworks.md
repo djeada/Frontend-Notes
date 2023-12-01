@@ -13,11 +13,11 @@ The two most common preprocessors are:
 
 ### An outline of common features
 
-Let's look at some of the most common CSS preprocessor features and how they compare to CSS4, the latest version of CSS.
+Let's delve into some of the most prevalent CSS preprocessor features and see how they stack up against CSS4, the latest iteration of CSS.
 
 #### Variables
 
-Variables provide named values used in various parts of the code. For example, if you used red as a value in several properties and then decided to change it to blue, you can update the value in one place if you used a variable, or you would need to track down all instances separately otherwise.
+Variables facilitate the use of named values in different sections of the code. For instance, if you've utilized 'red' in various properties and later opt for 'blue', with a variable, you can alter the value in a singular location, as opposed to tracking down each instance individually.
 
 CSS:
 
@@ -93,7 +93,7 @@ child {
 
 #### Nesting
 
-Nesting allows you to write styles for nested elements in a more organized and readable manner. CSS does not have a direct equivalent feature, but the same result can be achieved using multiple nested selectors.
+Nesting provides a more structured and readable way to write styles for nested elements. While CSS lacks a direct equivalent, the same effect can be achieved using multiple nested selectors.
 
 SASS / LESS:
 
@@ -107,7 +107,7 @@ SASS / LESS:
 
 #### Mathematical operations
 
-Mathematical operations allow you to provide a dynamic value based on another value and compute it in real-time.
+Mathematical operations enable dynamic value assignment based on another value, computed in real-time.
 
 CSS:
 
@@ -159,6 +159,85 @@ body {
   background-color: darken(rgb(255, 255, 255), 10%);
   background-color: saturate(rgb(255, 255, 255), 10%);
 }
+```
+
+#### Mixins
+
+Mixins are reusable blocks of code that can be included in multiple CSS rules. They allow for writing DRY (Don't Repeat Yourself) code, avoiding repetition.
+
+CSS (Using @apply, somewhat limited):
+
+```css
+@custom-media --small-viewport (max-width: 30em);
+
+@media (--small-viewport) {
+  /* Rules here */
+}
+```
+
+SCSS:
+
+```scss
+@mixin small-viewport {
+  @media (max-width: 30em) {
+    @content;
+  }
+}
+
+@include small-viewport {
+  /* Rules here */
+}
+```
+
+LESS:
+
+```less
+.small-viewport(@rules) {
+  @media (max-width: 30em) {
+    @rules();
+  }
+}
+
+.small-viewport({
+  /* Rules here */
+});
+```
+
+#### Conditionals and Loops
+
+Conditionals and loops are not available in standard CSS. They allow for more dynamic and programmable stylesheets in preprocessors.
+
+SCSS (Using conditionals and loops):
+
+```scss
+@for $i from 1 through 3 {
+  .item-#{$i} { width: 100px * $i; }
+}
+
+@if $theme == 'dark' {
+  body { background: black; }
+} @else {
+  body { background: white; }
+}
+```
+
+LESS (Similar capabilities):
+
+```less
+.loop(@counter) when (@counter > 0) {
+  .item-@{counter} { width: 100px * @counter; }
+  .loop(@counter - 1);
+}
+.loop(3);
+
+@theme: dark;
+.body(@theme) when (@theme = dark) {
+  background: black;
+},
+.body(@theme) when (@theme = light) {
+  background: white;
+}
+.body(@theme);
 ```
 
 ## CSS Frameworks
