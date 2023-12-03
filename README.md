@@ -1,14 +1,14 @@
-# Frontend Notes
+# Frontend Notes 🚀
 
-Welcome to our repository of frontend development resources! Whether you're just starting out or looking to refresh your skills, this collection of notes and resources will help you learn about and master the foundations of frontend development. From HTML and CSS to JavaScript and beyond, we've got you covered. So let's dive in and start building awesome web applications together!
+Hello and thanks for stopping by! This is my personal treasure trove where I stash all sorts of notes, tips, and tricks about frontend development. Whether you're starting out, scaling up your skills, or just in need of a quick reference, you're in the right place.
 
 ![notes_on_fronted_UI_design_on_laptop__beautiful_images_on_laptop_Seed-3357523_Steps-50_Guidance-7 5(1)](https://user-images.githubusercontent.com/37275728/224713456-319a4758-0ff6-4bca-8673-a754444cbf20.png)
 
-## What is frontend development?
+## What is frontend development? 🌐
 
 Frontend development, also known as client-side development, refers to the process of building the user interface and visual elements of a website or application. It is responsible for creating the look, feel, and overall user experience of a product. Frontend developers work with technologies such as HTML, CSS, and JavaScript to create web pages that are visually appealing, responsive, and interactive.
 
-## Prerequisites
+## Prerequisites 🛠
 
 The following prerequisites are needed:
 
@@ -17,7 +17,7 @@ The following prerequisites are needed:
 
 Please note that some projects may have additional requirements or dependencies. It is recommended that you consult the README file for each project for more information.
 
-## Getting Started
+## Getting Started 👍
 
 The `projects` directory in the root of this repository contains multiple independent subprojects that cover various frontend development topics. Each project is designed to illustrate the implementation of a specific topic, and may have its own specific instructions and dependencies.
 
@@ -28,7 +28,9 @@ To get started with a project:
 1. Choose a project to work on and navigate to its directory: `cd 01_html/image`
 1. Open the `index.html` file in your web browser to view and interact with the project.
 
-## Notes
+Happy coding, and keep coming back for more goodies!
+
+## Notes 🤖
 
 The notes and resources in this repository are organized by topic, with each topic contained in its own subdirectory. To access a specific topic, simply navigate to the corresponding subdirectory and open the relevant files. We recommend working through the material in the following order:
 
@@ -101,54 +103,58 @@ The notes and resources in this repository are organized by topic, with each top
   <img src="https://img.icons8.com/external-febrian-hidayat-flat-febrian-hidayat/344/external-plus-ui-essential-febrian-hidayat-flat-febrian-hidayat.png" height="20" />
 </p>
 
-## Refrences
+## References
 
-Complete roadmap:
+Here's a collection of resources that I found useful while learning frontend development. 
 
-* https://developer.mozilla.org/en-US/docs/Learn/Front-end_web_developer
-* https://www.freecodecamp.org/
-* https://www.theodinproject.com/paths/full-stack-javascript
-* https://roadmap.sh/frontend
+### Complete Roadmaps
 
-HTML:
+- [MDN Web Docs: Front-end Web Developer](https://developer.mozilla.org/en-US/docs/Learn/Front-end_web_developer): A comprehensive guide covering all aspects of front-end development.
+- [FreeCodeCamp](https://www.freecodecamp.org/): Interactive learning platform for web development.
+- [The Odin Project: Full Stack JavaScript Path](https://www.theodinproject.com/paths/full-stack-javascript): A full curriculum for learning full-stack development using JavaScript.
+- [Frontend Roadmap](https://roadmap.sh/frontend): A visual guide to becoming a front-end developer.
 
-* https://html.spec.whatwg.org/multipage/
-* https://html.com/
-* http://udacity.github.io/frontend-nanodegree-styleguide/
-* https://overapi.com/html
+### HTML Resources
 
-CSS:
+- [HTML Standard](https://html.spec.whatwg.org/multipage/): The official HTML specification.
+- [HTML.com](https://html.com/): Learning resource for HTML basics and advanced topics.
+- [Udacity Frontend Style Guide](http://udacity.github.io/frontend-nanodegree-styleguide/): Style guide for HTML/CSS best practices.
+- [OverAPI.com HTML Cheat Sheet](https://overapi.com/html): A handy HTML cheat sheet.
 
-* https://www.w3.org/Style/CSS/
-* https://almanac.httparchive.org/en/2020/css
-* https://www.html5rocks.com/en/mobile/responsivedesign/
-* https://github.com/AllThingsSmitty/css-protips
-* https://sass-lang.com/guide
-* https://www.minimamente.com/project/magic/
-* https://overapi.com/css
+### CSS References
 
-JavaScript:
+- [W3C CSS](https://www.w3.org/Style/CSS/): Official CSS standards and documentation.
+- [HTTP Archive's CSS Almanac](https://almanac.httparchive.org/en/2020/css): Web technology usage statistics and insights.
+- [HTML5 Rocks: Responsive Web Design](https://www.html5rocks.com/en/mobile/responsivedesign/): Guide on responsive design with HTML5 and CSS3.
+- [CSS Protips](https://github.com/AllThingsSmitty/css-protips): A collection of tips to help take your CSS skills pro.
+- [Sass Guide](https://sass-lang.com/guide): Introduction to using Sass, a CSS preprocessor.
+- [Magic Animations](https://www.minimamente.com/project/magic/): CSS3 animations with special effects.
+- [OverAPI.com CSS Cheat Sheet](https://overapi.com/css): Comprehensive CSS cheat sheet.
 
-* https://www.javascript.com/
-* https://eloquentjavascript.net/
-* https://www.typescriptlang.org/
-* https://javascript.info/
-* https://overapi.com/javascript
+### JavaScript Learning
 
-Ui/Ux:
+- [JavaScript.com](https://www.javascript.com/): Resource for learning JavaScript.
+- [Eloquent JavaScript](https://eloquentjavascript.net/): A modern introduction to JavaScript.
+- [TypeScript](https://www.typescriptlang.org/): Learn about TypeScript, a superset of JavaScript.
+- [JavaScript.info](https://javascript.info/): In-depth guide covering all aspects of JavaScript.
+- [OverAPI.com JavaScript Cheat Sheet](https://overapi.com/javascript): JavaScript reference and cheat sheet.
 
-* https://resilientwebdesign.com/chapter1/
-* https://www.nngroup.com/articles/usability-101-introduction-to-usability
-* https://ocw.mit.edu/courses/6-831-user-interface-design-and-implementation-spring-2011/pages/lecture-notes/
-* https://principles.design/
-* https://lawsofux.com/
-* Don't make boring UI's: https://youtu.be/erA1Q0jmO4A
-* Complete UX course: https://youtu.be/uL2ZB7XXIgg
-* Ui design in Figma: https://youtu.be/5IanQIwhA4E
+### UI/UX Design
 
-Other:
+- [Resilient Web Design](https://resilientwebdesign.com/chapter1/): A web design book focusing on the foundations of a robust web.
+- [Nielsen Norman Group: Introduction to Usability](https://www.nngroup.com/articles/usability-101-introduction-to-usability/): Articles on usability and user experience.
+- [MIT OCW: User Interface Design](https://ocw.mit.edu/courses/6-831-user-interface-design-and-implementation-spring-2011/pages/lecture-notes/): MIT course materials on UI design.
+- [Principles of Design](https://principles.design/): A collection of fundamental design principles.
+- [Laws of UX](https://lawsofux.com/): Key principles that designers should consider when building user interfaces.
+- [Don't Make Boring UIs [Video]](https://youtu.be/erA1Q0jmO4A): A video guide on creating engaging UIs.
+- [Complete UX Course [Video]](https://youtu.be/uL2ZB7XXIgg): A comprehensive video course on UX.
+- [UI Design in Figma [Video]](https://youtu.be/5IanQIwhA4E): Tutorial on UI design using Figma.
 
-* How does the Internet work: https://youtu.be/oj7A2YDgIWE
+### Other Useful Resources
+
+- [How Does the Internet Work [Video]](https://youtu.be/oj7A2YDgIWE): A video explaining the workings of the internet.
+
+---
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
