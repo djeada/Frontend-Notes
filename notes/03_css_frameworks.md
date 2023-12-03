@@ -611,7 +611,7 @@ To use Bootstrap, add the following link to the `<head>` section of your HTML fi
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 ```
 
-With this, Bootstrap's default styles will be applied to elements like <body>, <h1>, <button>, etc. For additional styling, use the appropriate Bootstrap class attributes in your HTML.
+With this, Bootstrap's default styles will be applied to elements like `<body>`, `<h1>`, `<button>`, etc. For additional styling, use the appropriate Bootstrap class attributes in your HTML.
 
 ### Containers in Bootstrap
 
