@@ -1,0 +1,73 @@
+@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css';
+
+.text-center {
+  text-align: center;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.bg-light {
+  background-color: #f8f9fa;
+}
+
+.bg-dark {
+  background-color: #343a40;
+  color: #ffffff;
+}
+
+.navbar {
+  background-color: #6c757d;
+  .navbar-brand {
+    color: white;
+  }
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        color: white;
+      }
+    }
+  }
+}
+
+.jumbotron {
+  background-color: #007bff;
+  color: white;
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+.card {
+  margin-bottom: 20px;
+  .card-img-top {
+    max-width: 100%;
+    height: auto;
+  }
+  .card-title {
+    font-size: 1.25rem;
+  }
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.form-control {
+  width: 100%;
+  max-width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+footer {
+  p {
+    margin-bottom: 0;
+  }
+}
+

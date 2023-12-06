@@ -1,0 +1,85 @@
+// Variables
+@primary-color: #007bff;
+@secondary-color: #6c757d;
+
+// Mixins
+.text-center {
+  text-align: center;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.bg-light {
+  background-color: #f8f9fa;
+}
+
+.bg-dark {
+  background-color: #343a40;
+  color: #ffffff;
+}
+
+// Navbar
+.navbar {
+  background-color: @secondary-color;
+  .navbar-brand {
+    color: white;
+  }
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        color: white;
+      }
+    }
+  }
+}
+
+// Jumbotron
+.jumbotron {
+  background-color: @primary-color;
+  color: white;
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+// Card
+.card {
+  margin-bottom: 20px;
+  .card-img-top {
+    max-width: 100%;
+    height: auto;
+  }
+  .card-title {
+    font-size: 1.25rem;
+  }
+}
+
+// Categories
+.btn-secondary {
+  background-color: @secondary-color;
+  color: white;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+// Newsletter
+.form-control {
+  width: 100%;
+  max-width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// Footer
+footer {
+  p {
+    margin-bottom: 0;
+  }
+}
+
+// Apply Bootstrap
+@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css';
+

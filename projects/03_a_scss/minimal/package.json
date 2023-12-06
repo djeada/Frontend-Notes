@@ -1,0 +1,14 @@
+{
+  "name": "minimal-scss",
+  "version": "1.0.0",
+  "description": "This is a minimal setup for using SCSS (Sassy CSS) in a web project. Follow the instructions below to get started.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.69.5"
+  }
+}
