@@ -169,3 +169,7 @@ Here's a collection of resources that I found useful while learning frontend dev
 ## License
 
 This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details.
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=djeada/Frontend-Notes&type=Date)](https://star-history.com/#djeada/Frontend-Notes&Date)
