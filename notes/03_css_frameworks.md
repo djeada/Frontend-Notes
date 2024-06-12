@@ -244,107 +244,119 @@ LESS (Similar capabilities):
 
 Creating a "Hello World" project in Less (a CSS pre-processor) and compiling it to normal CSS involves a few steps. Here's a step-by-step guide in notes form:
 
-1. **Install Node.js and npm**
-   - Ensure Node.js is installed on your computer. You can download it from [https://nodejs.org/](https://nodejs.org/).
-   - npm (Node Package Manager) will be installed along with Node.js.
+I. **Install Node.js and npm**
 
-2. **Install Less**
-   - Open a terminal or command prompt.
-   - Install Less globally using npm: `npm install -g less`.
+- Ensure Node.js is installed on your computer. You can download it from [https://nodejs.org/](https://nodejs.org/).
+- npm (Node Package Manager) will be installed along with Node.js.
 
-3. **Create Your Project Directory**
-   - Create a new directory for your project: `mkdir hello-world-less`.
-   - Navigate into the directory: `cd hello-world-less`.
+II. **Install Less**
 
-4. **Create a Less File**
-   - Create a new file named `style.less`.
-   - Open `style.less` in a text editor.
-   - Write some Less code, for example:
-     ```less
-     @color: green;
+- Open a terminal or command prompt.
+- Install Less globally using npm: `npm install -g less`.
 
-     body {
-       color: @color;
-     }
-     ```
+III. **Create Your Project Directory**
 
-5. **Compile Less to CSS**
-   - In the terminal, run the following command to compile your Less file to CSS: `lessc style.less style.css`.
-   - This will create a `style.css` file with the compiled CSS.
+- Create a new directory for your project: `mkdir hello-world-less`.
+- Navigate into the directory: `cd hello-world-less`.
 
-6. **Create an HTML File**
-   - Create an HTML file named `index.html`.
-   - Link your compiled CSS file in the HTML:
-     ```html
-     <!DOCTYPE html>
-     <html>
-     <head>
-       <link rel="stylesheet" type="text/css" href="style.css">
-     </head>
-     <body>
-       <h1>Hello World</h1>
-     </body>
-     </html>
-     ```
+IV. **Create a Less File**
 
-7. **View Your Project**
-   - Open `index.html` in a web browser to view your project.
+- Create a new file named `style.less`.
+- Open `style.less` in a text editor.
+- Write some Less code, for example:
 
-8. **Deploy Your Project**
-   - For deployment, upload the `index.html` and `style.css` files to your web server or hosting provider.
+```less
+@color: green;
+
+body {
+color: @color;
+}
+```
+
+V. **Compile Less to CSS**
+
+- In the terminal, run the following command to compile your Less file to CSS: `lessc style.less style.css`.
+- This will create a `style.css` file with the compiled CSS.
+
+VI. **Create an HTML File**
+
+- Create an HTML file named `index.html`.
+- Link your compiled CSS file in the HTML:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<h1>Hello World</h1>
+</body>
+</html>
+```
+
+VII. **View Your Project**: Open `index.html` in a web browser to view your project.
+
+VIII. **Deploy Your Project**: For deployment, upload the `index.html` and `style.css` files to your web server or hosting provider.
 
 ### Step-by-step guide to creating SCSS projects
 
 Creating a "Hello World" project in SCSS (a CSS pre-processor) and compiling it to normal CSS involves a few steps. Here's a step-by-step guide in notes form:
 
-1. **Install Node.js and npm**
-   - Ensure Node.js is installed on your computer. You can download it from [https://nodejs.org/](https://nodejs.org/).
-   - npm (Node Package Manager) will be installed along with Node.js.
+I. **Install Node.js and npm**
 
-2. **Install Sass**
-   - Open a terminal or command prompt.
-   - Install Sass globally using npm: `npm install -g sass`.
+- Ensure Node.js is installed on your computer. You can download it from [https://nodejs.org/](https://nodejs.org/).
+- npm (Node Package Manager) will be installed along with Node.js.
 
-3. **Create Your Project Directory**
-   - Create a new directory for your project: `mkdir hello-world-scss`.
-   - Navigate into the directory: `cd hello-world-scss`.
+II. **Install Sass**
 
-4. **Create a SCSS File**
-   - Create a new file named `style.scss`.
-   - Open `style.scss` in a text editor.
-   - Write some SCSS code, for example:
-     ```scss
-     $color: green;
+- Open a terminal or command prompt.
+- Install Sass globally using npm: `npm install -g sass`.
 
-     body {
-       color: $color;
-     }
-     ```
+III. **Create Your Project Directory**
 
-5. **Compile SCSS to CSS**
-   - In the terminal, run the following command to compile your SCSS file to CSS: `sass style.scss style.css`.
-   - This will create a `style.css` file with the compiled CSS.
+- Create a new directory for your project: `mkdir hello-world-scss`.
+- Navigate into the directory: `cd hello-world-scss`.
 
-6. **Create an HTML File**
-   - Create an HTML file named `index.html`.
-   - Link your compiled CSS file in the HTML:
-     ```html
-     <!DOCTYPE html>
-     <html>
-     <head>
-       <link rel="stylesheet" type="text/css" href="style.css">
-     </head>
-     <body>
-       <h1>Hello World</h1>
-     </body>
-     </html>
-     ```
+IV. **Create a SCSS File**
 
-7. **View Your Project**
-   - Open `index.html` in a web browser to view your project.
+- Create a new file named `style.scss`.
+- Open `style.scss` in a text editor.
+- Write some SCSS code, for example:
 
-8. **Deploy Your Project**
-   - For deployment, upload the `index.html` and `style.css` files to your web server or hosting provider.
+```scss
+$color: green;
+
+body {
+color: $color;
+}
+```
+
+V. **Compile SCSS to CSS**
+
+- In the terminal, run the following command to compile your SCSS file to CSS: `sass style.scss style.css`.
+- This will create a `style.css` file with the compiled CSS.
+
+VI. **Create an HTML File**
+
+- Create an HTML file named `index.html`.
+- Link your compiled CSS file in the HTML:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<h1>Hello World</h1>
+</body>
+</html>
+```
+
+VII. **View Your Project**: Open `index.html` in a web browser to view your project.
+
+VIII. **Deploy Your Project**: For deployment, upload the `index.html` and `style.css` files to your web server or hosting provider.
 
 
 ## CSS Frameworks
@@ -617,23 +629,23 @@ With this, Bootstrap's default styles will be applied to elements like `<body>`,
 
 Containers are a fundamental concept in Bootstrap. They are used to encapsulate page content and provide consistent padding and centering.
 
-- **Fixed-Width Container (`container`)**: This class is used for a responsive fixed-width container. The width changes at different breakpoints (screen sizes), but it's always centered and padded from the viewport edges.
+I. **Fixed-Width Container (`container`)**: This class is used for a responsive fixed-width container. The width changes at different breakpoints (screen sizes), but it's always centered and padded from the viewport edges.
 
-    ```html
-    <div class="container">
-        <h1>Hello World</h1>
-        <!-- Your content here -->
-    </div>
-    ```
+```html
+<div class="container">
+<h1>Hello World</h1>
+<!-- Your content here -->
+</div>
+```
 
-- **Full-Width Container (`container-fluid`)**: This class creates a container that spans the entire width of the viewport. Useful for layouts that need to fill the whole width of the screen.
+II. **Full-Width Container (`container-fluid`)**: This class creates a container that spans the entire width of the viewport. Useful for layouts that need to fill the whole width of the screen.
 
-    ```html
-    <div class="container-fluid">
-        <h1>Full Width Content</h1>
-        <!-- Your content here -->
-    </div>
-    ```
+```html
+<div class="container-fluid">
+<h1>Full Width Content</h1>
+<!-- Your content here -->
+</div>
+```
 
 ### Grid System
 
@@ -830,39 +842,52 @@ In this SCSS example, the $theme-colors map is overridden to change the primary 
 
 Creating a basic "Hello World" project with Bootstrap involves the following steps. This guide assumes you are familiar with basic HTML and CSS:
 
-1. **Set Up Your HTML File**
-   - Create a new HTML file named `index.html`.
-   - Open `index.html` in a text editor.
+I. **Set Up Your HTML File**
 
-2. **Include Bootstrap**
-   - Add Bootstrap's CSS and JS to your HTML file. You can use Bootstrap's CDN (Content Delivery Network) for quick setup.
-   - Inside the `<head>` tag, include Bootstrap’s CSS:
-     ```html
-     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ775iR6n9rC6jxo2E5h7X/0pZ72n/VAapMo" crossorigin="anonymous">
-     ```
-   - Before the closing `</body>` tag, include Bootstrap’s JS and its dependencies:
-     ```html
-     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-     ```
+- Create a new HTML file named `index.html`.
+- Open `index.html` in a text editor.
 
-3. **Create a Basic Layout**
-   - Use Bootstrap’s grid system or components to create your page layout.
-   - For a simple "Hello World" message, you can use a Bootstrap container:
-     ```html
-     <div class="container">
-       <h1>Hello World</h1>
-     </div>
-     ```
+II. **Include Bootstrap**
 
-4. **Customize with Bootstrap Classes**
-   - Utilize Bootstrap's classes for typography, buttons, or other components to enhance your page.
+- Add Bootstrap's CSS and JS to your HTML file. You can use Bootstrap's CDN (Content Delivery Network) for quick setup.
+- Inside the `<head>` tag, include Bootstrap’s CSS:
 
-5. **View Your Project**
-   - Open `index.html` in a web browser to view your Bootstrap-styled "Hello World" project.
+```html
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ775iR6n9rC6jxo2E5h7X/0pZ72n/VAapMo" crossorigin="anonymous">
+```
+
+- Before the closing `</body>` tag, include Bootstrap’s JS and its dependencies:
+
+```html
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+```
+
+III. **Create a Basic Layout**
+
+- Use Bootstrap’s grid system or components to create your page layout.
+- For a simple "Hello World" message, you can use a Bootstrap container:
+
+```html
+<div class="container">
+<h1>Hello World</h1>
+</div>
+```
+
+IV. **Customize with Bootstrap Classes**: Utilize Bootstrap's classes for typography, buttons, or other components to enhance your page.
+
+V. **View Your Project**: Open `index.html` in a web browser to view your Bootstrap-styled "Hello World" project.
 
 ## Links
 
-* https://bootstrap-cheatsheet.themeselection.com/
-* https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css
+Here are some helpful resources for working with Bootstrap, understanding CSS frameworks, and improving your web development skills:
+
+* [Bootstrap Cheat Sheet](https://bootstrap-cheatsheet.themeselection.com/)
+* [Stack Overflow Discussion: Normalize.css vs. Reset.css](https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css)
+* [Bootstrap Documentation](https://getbootstrap.com/docs/4.3/getting-started/introduction/)
+* [W3Schools Bootstrap Tutorial](https://www.w3schools.com/bootstrap4/)
+* [CSS Tricks](https://css-tricks.com/)
+* [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web)
+* [Front-End Checklist](https://frontendchecklist.io/)
+* [Smashing Magazine](https://www.smashingmagazine.com/)
