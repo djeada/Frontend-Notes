@@ -1,4 +1,12 @@
-## Quizzes on Frontend
+# Quizzes on Frontend
+
+This series of quizzes covers essential topics in web development, including:
+
+- **HTML**: Test your knowledge of HTML elements, attributes, and best practices.
+- **CSS**: Explore questions on styling, layout, and best practices for creating visually appealing web pages.
+- **JavaScript**: Assess your understanding of JavaScript fundamentals, including variables, functions, asynchronous programming, and modern features like arrow functions and closures.
+- **Protocols**: Learn about key protocols such as HTTP, HTTPS, SSL, and the differences between REST and SOAP.
+- **Hosting**: Understand DNS, email setup, web hosting, and the costs associated with maintaining a website.
 
 ## HTML
 <details>
