@@ -11,7 +11,7 @@ This series of quizzes covers essential topics in web development, including:
 ## HTML
 <details>
 <summary>What is a doctype?</summary><br>
-A doctype declaration tells the web browser what version of HTML (or XML) the document is written in. It goes at the top of the HTML document, before the `<html>` tag. For HTML5, the doctype is simply: `<!DOCTYPE html>`.
+A doctype declaration tells the web browser what version of HTML (or XML) the document is written in. It goes at the top of the HTML document, before the `(html)` tag. For HTML5, the doctype is simply: `(!DOCTYPE html)`.
 </details>
 <details>
 <summary>Should I use HTML or XHTML?</summary><br>
@@ -19,31 +19,31 @@ HTML is generally preferred over XHTML for most web development purposes due to 
 </details>
 <details>
 <summary>How do I build menus?</summary><br>
-Menus can be built using HTML unordered lists (`<ul>`) and list items (`<li>`). The menu items can be styled using CSS to create a desired visual appearance.
+Menus can be built using HTML unordered lists (`(ul)`) and list items (`(li)`). The menu items can be styled using CSS to create a desired visual appearance.
 </details>
 <details>
 <summary>How do I build forms?</summary><br>
-Forms can be built using HTML form elements (`<form>`, `<input>`, `<select>`, `<textarea>`, etc.). Each form element has attributes that define its behavior and appearance, and can be styled with CSS.
+Forms can be built using HTML form elements (`(form)`, `(input)`, `(select)`, `(textarea)`, etc.). Each form element has attributes that define its behavior and appearance, and can be styled with CSS.
 </details>
 <details>
 <summary>What is the purpose of a head tag if only the developers can see the information contained within it?</summary><br>
-The `<head>` tag contains metadata about the document, including the document title, character encoding, CSS stylesheets, JavaScript code, and other information that is used by the web browser to interpret and display the content of the document.
+The `(head)` tag contains metadata about the document, including the document title, character encoding, CSS stylesheets, JavaScript code, and other information that is used by the web browser to interpret and display the content of the document.
 </details>
 <details>
 <summary>What is the difference between a &lt;header&gt; and &lt;h1&gt; tag?</summary><br>
-The `<header>` tag is used to hold introductory information about the material that will be shown, such as a logo, navigation links, or other site-wide content. The `<h1>` tag is a typography heading that represents the top-level heading of the page or section.
+The `(header)` tag is used to hold introductory information about the material that will be shown, such as a logo, navigation links, or other site-wide content. The `(h1)` tag is a typography heading that represents the top-level heading of the page or section.
 </details>
 <details>
 <summary>What is the purpose of the &lt;alt&gt; attribute in &lt;img&gt; tags?</summary><br>
-The `<alt>` attribute provides an alternative text description for an image. It is used by screen readers and other assistive technologies for accessibility purposes, and it also serves as a fallback text in case the image fails to load.
+The `(alt)` attribute provides an alternative text description for an image. It is used by screen readers and other assistive technologies for accessibility purposes, and it also serves as a fallback text in case the image fails to load.
 </details>
 <details>
 <summary>What are semantic HTML elements?</summary><br>
-Semantic HTML elements are tags that convey meaning about the structure and content of the document, making it easier for both developers and web browsers to understand the purpose of each element. Examples of semantic elements include `<article>`, `<aside>`, `<figcaption>`, `<footer>`, `<header>`, `<main>`, `<mark>`, `<nav>`, and `<section>`.
+Semantic HTML elements are tags that convey meaning about the structure and content of the document, making it easier for both developers and web browsers to understand the purpose of each element. Examples of semantic elements include `(article)`, `(aside)`, `(figcaption)`, `(footer)`, `(header)`, `(main)`, `(mark)`, `(nav)`, and `(section)`.
 </details>
 <details>
 <summary>How do I create a table in HTML?</summary><br>
-A table can be created using the `<table>` element, along with `<tr>` (table row), `<th>` (table header), and `<td>` (table data) elements. The structure of the table is defined by nesting `<tr>`, `<th>`, and `<td>` elements within the `<table>` element.
+A table can be created using the `(table)` element, along with `(tr)` (table row), `(th)` (table header), and `(td)` (table data) elements. The structure of the table is defined by nesting `(tr)`, `(th)`, and `(td)` elements within the `(table)` element.
 </details>
 <details>
 <summary>What are the main differences between HTML and CSS?</summary><br>
@@ -51,7 +51,7 @@ HTML (Hypertext Markup Language) is a markup language used to structure content 
 </details>
 <details>
 <summary>What is an &lt;iframe&gt; and when should I use it?</summary><br>
-An `<iframe>` is an inline frame element that allows you to embed another HTML document within the current HTML document. It can be used for embedding content from external sources, such as maps, videos, or other web pages, without requiring the user to navigate away from the current page. However, `<iframe>` usage should be limited as it can cause accessibility and performance issues.
+An `(iframe)` is an inline frame element that allows you to embed another HTML document within the current HTML document. It can be used for embedding content from external sources, such as maps, videos, or other web pages, without requiring the user to navigate away from the current page. However, `(iframe)` usage should be limited as it can cause accessibility and performance issues.
 </details>
 
 ## CSS
@@ -61,12 +61,12 @@ An `<iframe>` is an inline frame element that allows you to embed another HTML d
 CSS can be added to a website in several ways, including:
 
 * Inline styles - using the `style` attribute on an HTML element.
-* Internal styles - using a `<style>` tag in the `<head>` section of the HTML document.
-* External styles - using a separate CSS file and linking to it from the HTML document using the `<link>` tag in the `<head>` section of the HTML document.
+* Internal styles - using a `(style)` tag in the `(head)` section of the HTML document.
+* External styles - using a separate CSS file and linking to it from the HTML document using the `(link)` tag in the `(head)` section of the HTML document.
 </details>
 <details>
 <summary>How can I have several pages use the same CSS style?</summary><br>
-You can create a separate CSS file and link to it from each HTML document using the `<link>` tag in the `<head>` section of the HTML document.
+You can create a separate CSS file and link to it from each HTML document using the `(link)` tag in the `(head)` section of the HTML document.
 </details>
 <details>
 <summary>How do I change the background color?</summary><br>
@@ -145,7 +145,7 @@ A function declaration is a statement that creates a named function that can be 
 </details>
 <details>
 <summary>What is an arrow function in JavaScript?</summary><br>
-An arrow function is a shorthand syntax for creating a function in JavaScript. It uses the `=>` operator to separate the function parameters from the function body, and automatically returns the value of the function body without the need for a `return` statement. Arrow functions are often used to create concise and readable code, especially when used as callbacks or in functional programming.
+An arrow function is a shorthand syntax for creating a function in JavaScript. It uses the `=)` operator to separate the function parameters from the function body, and automatically returns the value of the function body without the need for a `return` statement. Arrow functions are often used to create concise and readable code, especially when used as callbacks or in functional programming.
 </details>
 
 ## Protocols
