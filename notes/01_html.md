@@ -713,8 +713,8 @@ The following are some of the commonly used audio formats:
 
 ## Links
 
-* http://isobar-idev.github.io/code-standards/
-* http://learn.shayhowe.com/html-css/writing-your-best-code/
-* https://www.webaccessibility.com/best_practices.php
-* https://github.com/hail2u/html-best-practices
-* Formatter: https://duckduckgo.com/?t=ffab&q=html+beautifier&ia=answer
+* [Isobar Code Standards](http://isobar-idev.github.io/code-standards/)
+* [Writing Your Best Code](http://learn.shayhowe.com/html-css/writing-your-best-code/)
+* [Web Accessibility Best Practices](https://www.webaccessibility.com/best_practices.php)
+* [HTML Best Practices](https://github.com/hail2u/html-best-practices)
+* [Formatter](https://duckduckgo.com/?t=ffab&q=html+beautifier&ia=answer)
