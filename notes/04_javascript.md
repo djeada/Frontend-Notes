@@ -1076,38 +1076,15 @@ In order to list all installed packages, you can use the `npm list` command:
 
 ## Links
 
-### Comprehensive JavaScript Guides and Tutorials
-
-- **[JavaScript.com](https://www.javascript.com/)**: A beginner-friendly platform offering tutorials, guides, and resources to learn JavaScript from scratch. Ideal for those new to the language.
-- **[JavaScript Info](https://javascript.info/)**: A detailed and well-structured guide covering everything from basic concepts to advanced topics in JavaScript. Suitable for developers at all levels.
-
-### Books and In-Depth Learning
-
-- **[Eloquent JavaScript](https://eloquentjavascript.net/)**: A modern introduction to JavaScript, offering a deep dive into the language's core concepts and best practices. This book is freely available online and is highly recommended for both beginners and experienced developers looking to refine their skills.
-
-### TypeScript
-
-- **[TypeScript Official Site](https://www.typescriptlang.org/)**: The primary resource for learning and understanding TypeScript, a strongly typed superset of JavaScript. The site includes comprehensive documentation, tutorials, and hands-on examples.
-
-### JavaScript Style Guides
-
-- **[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)**: A widely adopted style guide that outlines best practices and conventions for writing clean, consistent, and maintainable JavaScript code. This guide is especially useful for teams and projects to ensure code quality and uniformity.
-
-### JavaScript Documentation and References
-
-- **[OverAPI JavaScript Cheat Sheet](https://overapi.com/javascript)**: A quick reference guide providing concise and handy cheat sheets for various JavaScript functions, methods, and objects. Ideal for quick lookups and reminders.
-
-### Community and Additional Resources
-
-- **[MDN Web Docs - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)**: The Mozilla Developer Network (MDN) offers comprehensive documentation and tutorials on JavaScript. This is one of the most trusted sources for accurate and up-to-date information on web development technologies.
-
-### Further Reading and Exploration
-
-- **[You Don't Know JS (book series)](https://github.com/getify/You-Dont-Know-JS)**: An in-depth book series that delves into the intricacies of JavaScript, challenging readers to deepen their understanding of the language beyond surface-level knowledge.
-- **[W3Schools JavaScript Tutorial](https://www.w3schools.com/js/)**: A beginner-friendly resource providing step-by-step tutorials and interactive examples to learn JavaScript basics and beyond.
-- **[JavaScript Garden](https://bonsaiden.github.io/JavaScript-Garden/)**: A collection of documentation about the most quirky parts of JavaScript. It offers insights and explanations for some of the more peculiar and nuanced aspects of the language.
-
-### Online Courses and Interactive Learning
-
-- **[freeCodeCamp JavaScript Algorithms and Data Structures](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/)**: A free, interactive course covering JavaScript basics, ES6, regular expressions, and algorithms. Ideal for hands-on learning and practicing coding skills.
-- **[Codecademy JavaScript Course](https://www.codecademy.com/learn/introduction-to-javascript)**: An interactive course designed to teach JavaScript fundamentals through practical exercises and projects.
+- **[JavaScript.com](https://www.javascript.com/)**
+- **[JavaScript Info](https://javascript.info/)**
+- **[Eloquent JavaScript](https://eloquentjavascript.net/)**
+- **[TypeScript Official Site](https://www.typescriptlang.org/)**
+- **[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)**
+- **[OverAPI JavaScript Cheat Sheet](https://overapi.com/javascript)**
+- **[MDN Web Docs - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)**
+- **[You Don't Know JS (book series)](https://github.com/getify/You-Dont-Know-JS)**
+- **[W3Schools JavaScript Tutorial](https://www.w3schools.com/js/)**
+- **[JavaScript Garden](https://bonsaiden.github.io/JavaScript-Garden/)**
+- **[freeCodeCamp JavaScript Algorithms and Data Structures](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/)**
+- **[Codecademy JavaScript Course](https://www.codecademy.com/learn/introduction-to-javascript)**
