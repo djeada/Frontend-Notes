@@ -1076,15 +1076,15 @@ In order to list all installed packages, you can use the `npm list` command:
 
 ## Links
 
-- **[JavaScript.com](https://www.javascript.com/)**
-- **[JavaScript Info](https://javascript.info/)**
-- **[Eloquent JavaScript](https://eloquentjavascript.net/)**
-- **[TypeScript Official Site](https://www.typescriptlang.org/)**
-- **[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)**
-- **[OverAPI JavaScript Cheat Sheet](https://overapi.com/javascript)**
-- **[MDN Web Docs - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)**
-- **[You Don't Know JS (book series)](https://github.com/getify/You-Dont-Know-JS)**
-- **[W3Schools JavaScript Tutorial](https://www.w3schools.com/js/)**
-- **[JavaScript Garden](https://bonsaiden.github.io/JavaScript-Garden/)**
-- **[freeCodeCamp JavaScript Algorithms and Data Structures](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/)**
-- **[Codecademy JavaScript Course](https://www.codecademy.com/learn/introduction-to-javascript)**
+- [JavaScript.com](https://www.javascript.com/)
+- [JavaScript Info](https://javascript.info/)
+- [Eloquent JavaScript](https://eloquentjavascript.net/)
+- [TypeScript Official Site](https://www.typescriptlang.org/)
+- [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
+- [OverAPI JavaScript Cheat Sheet](https://overapi.com/javascript)
+- [MDN Web Docs - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [You Don't Know JS (book series)](https://github.com/getify/You-Dont-Know-JS)
+- [W3Schools JavaScript Tutorial](https://www.w3schools.com/js/)
+- [JavaScript Garden](https://bonsaiden.github.io/JavaScript-Garden/)
+- [freeCodeCamp JavaScript Algorithms and Data Structures](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/)
+- [Codecademy JavaScript Course](https://www.codecademy.com/learn/introduction-to-javascript)
