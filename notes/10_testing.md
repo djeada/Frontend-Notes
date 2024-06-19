@@ -8,29 +8,32 @@ Testing involves assessing software for errors, performance issues, or any unwan
 
 ## Levels of Testing
 
-1. **System Tests**: 
-    - Check the system as a whole, ensuring that all integrated components work smoothly together. 
-    - Often requires the complete application and environment setup.
+I. System Tests:
 
-2. **Integration Tests**: 
-    - Verify that different parts of the application work together seamlessly. 
-    - Can be between different software components or between software and hardware components.
+- Check the system as a whole, ensuring that all integrated components work smoothly together. 
+- Often requires the complete application and environment setup.
 
-3. **Unit Tests**: 
-    - Examine individual units or components of a software to ascertain if they function correctly. 
-    - Typically, a unit is the smallest part of the software that can be tested in isolation.
+II. Integration Tests:
+
+- Verify that different parts of the application work together seamlessly. 
+- Can be between different software components or between software and hardware components.
+
+III. Unit Tests:
+
+- Examine individual units or components of a software to ascertain if they function correctly. 
+- Typically, a unit is the smallest part of the software that can be tested in isolation.
 
 ### Unit Testing in Depth
 
 Unit tests aim to verify each part of the software by isolating it and proving that it functions correctly on its own.
 
-**Benefits**:
+I. Benefits:
 
 - Quickly locate and fix bugs during development.
 - Facilitate code refactoring, ensuring new changes don't introduce bugs.
 - Improve code design by making developers write testable code.
 
-**Frameworks**:
+II. Frameworks:
 
 1. **MochaJS**: A flexible test framework that supports multiple assertion libraries.
 2. **Jest**: Developed by Facebook, it comes with built-in assertions, spies, and mocks.
@@ -40,7 +43,7 @@ Unit tests aim to verify each part of the software by isolating it and proving t
 6. **NightwatchJS**: An E2E testing framework written in Node.js, using the WebDriver API.
 7. **Cypress**: Modern web automation test framework that can test anything running in a browser.
 
-**Example**: Testing roman numbers with Jest
+**Example: Testing roman numbers with Jest**
 
 ```javascript
 const romanNumberConverter = require('./romanNumberConverter');
