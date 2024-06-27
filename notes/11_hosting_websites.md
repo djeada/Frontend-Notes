@@ -1,6 +1,6 @@
 # Web Hosting Explained
 
-So, you've built your website, but it's still confined to your local machine? Web hosting is the bridge that makes your site accessible to the world. Here's a primer on how to get your website live.
+So, you've built your website, but it's still confined to your local machine? Web hosting is the bridge that makes your site accessible to the world. Here's a guide on how to get your website live.
 
 ## Domain Name
 
