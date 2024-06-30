@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Elements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .ui-element {
+            margin-bottom: 40px;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        textarea {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        .checkboxes, .radio-buttons {
+            display: flex;
+            flex-direction: column;
+        }
+        .switch {
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            position: relative;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .slider.round {
+            border-radius: 34px;
+        }
+        .slider.round:before {
+            border-radius: 50%;
+        }
+        .accordion {
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            outline: none;
+            font-size: 16px;
+        }
+        .panel {
+            padding: 0 10px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+        }
+        .tab {
+            overflow: hidden;
+            border-bottom: 1px solid #ccc;
+        }
+        .tab button {
+            background-color: inherit;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        .tab button.active {
+            background-color: #ccc;
+        }
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border-top: none;
+        }
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+        }
+        .carousel-item {
+            min-width: 100%;
+            transition: transform 0.5s ease;
+        }
+        .breadcrumbs {
+            list-style: none;
+            display: flex;
+            padding: 0;
+        }
+        .breadcrumbs li {
+            margin-right: 5px;
+        }
+        .breadcrumbs li+li:before {
+            content: '>';
+            margin-right: 5px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .notification {
+            padding: 15px;
+            background-color: #f4f4f4;
+            border-left: 6px solid #2196F3;
+            margin-bottom: 15px;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #f3f3f3;
+        }
+        .progress-bar div {
+            width: 70%;
+            height: 30px;
+            background-color: #4caf50;
+        }
+        .spinner {
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #3498db;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="ui-element">
+        <h2>Buttons</h2>
+        <button>Submit</button>
+        <button>Download</button>
+        <button>Cancel</button>
+    </div>
+    <div class="ui-element">
+        <h2>Text</h2>
+        <p>This is a text paragraph. Keep text concise and clear to enhance readability.</p>
+    </div>
+    <div class="ui-element">
+        <h2>Inputs</h2>
+        <input type="text" placeholder="Enter text">
+        <input type="email" placeholder="Enter email">
+        <input type="password" placeholder="Enter password">
+    </div>
+    <div class="ui-element">
+        <h2>Lists</h2>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </div>
+    <div class="ui-element">
+        <h2>Radio Buttons</h2>
+        <div class="radio-buttons">
+            <label><input type="radio" name="option"> Option 1</label>
+            <label><input type="radio" name="option"> Option 2</label>
+            <label><input type="radio" name="option"> Option 3</label>
+        </div>
+    </div>
+    <div class="ui-element">
+        <h2>Comboboxes</h2>
+        <select>
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+        </select>
+    </div>
+    <div class="ui-element">
+        <h2>Checkboxes</h2>
+        <div class="checkboxes">
+            <label><input type="checkbox"> Option 1</label>
+            <label><input type="checkbox"> Option 2</label>
+            <label><input type="checkbox"> Option 3</label>
+        </div>
+    </div>
+    <div class="ui-element">
+        <h2>Menus</h2>
+        <ul>
+            <li>Menu Item 1</li>
+            <li>Menu Item 2</li>
+            <li>Menu Item 3</li>
+        </ul>
+    </div>
+    <div class="ui-element">
+        <h2>Dialogs</h2>
+        <button onclick="document.getElementById('myModal').style.display='block'">Open Dialog</button>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+                <p>This is a modal dialog.</p>
+            </div>
+        </div>
+    </div>
+    <div class="ui-element">
+        <h2>Toolbars</h2>
+        <div class="toolbar">
+            <button>Tool 1</button>
+            <button>Tool 2</button>
+            <button>Tool 3</button>
+        </div>
+    </div>
+    <div class="ui-element">
+        <h2>Tooltips</h2>
+        <button title="Tooltip text">Hover over me</button>
+    </div>
+    <div class="ui-element">
+        <h2>Sliders</h2>
+        <input type="range" min="1" max="100" value="50">
+    </div>
+    <div class="ui-element">
+        <h2>Switches</h2>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+        </label>
+    </div>
+    <div class="ui-element">
+        <h2>Accordions</h2>
+        <button class="accordion">Section 1</button>
+        <div class="panel">
+            <p>Section 1 content...</p>
+        </div>
+        <button class="accordion">Section 2</button>
+        <div class="panel">
+            <p>Section 2 content...</p>
+        </div>
+    </div>
+    <div class="ui-element">
+        <h2>Tabs</h2>
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Tab1')">Tab 1</button>
+            <button class="tablinks" onclick="openTab(event, 'Tab2')">Tab 2</button>
+            <button class="tablinks" onclick="openTab(event, 'Tab3')">Tab 3</button>
+        </div>
+        <div id="Tab1" class="tabcontent">
+            <p>Tab 1 content...</p>
+        </div>
+        <div id="Tab2" class="tabcontent">
+            <p>Tab 2 content...</p>
+        </div>
+        <div id="Tab3" class="tabcontent">
+            <p>Tab 3 content...</p>
+        </div>
+    </div>
+    <div class="ui-element">
+        <h2>Carousels</h2>
+        <div class="carousel">
+            <div class="carousel-item">Item 1</div>
+            <div class="carousel-item">Item 2</div>
+            <div class="carousel-item">Item 3</div>
+        </div>
+    </div>
+    <div class="ui-element">
+        <h2>Breadcrumbs</h2>
+        <ul class="breadcrumbs">
+            <li>Home</li>
+            <li>Library</li>
+            <li>Data</li>
+        </ul>
+    </div>
+    <div class="ui-element">
+        <h2>Modals</h2>
+        <button onclick="document.getElementById('modalExample').style.display='block'">Open Modal</button>
+        <div id="modalExample" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="document.getElementById('modalExample').style.display='none'">&times;</span>
+                <p>Modal content goes here...</p>
+            </div>
+        </div>
+    </div>
+    <div class="ui-element">
+        <h2>Notifications</h2>
+        <div class="notification">This is a notification message.</div>
+    </div>
+    <div class="ui-element">
+        <h2>Progress Bars</h2>
+        <div class="progress-bar">
+            <div></div>
+        </div>
+    </div>
+    <div class="ui-element">
+        <h2>Spinners</h2>
+        <div class="spinner"></div>
+    </div>
+
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>
