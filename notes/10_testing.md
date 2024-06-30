@@ -35,13 +35,29 @@ I. Benefits:
 
 II. Frameworks:
 
-1. **MochaJS**: A flexible test framework that supports multiple assertion libraries.
-2. **Jest**: Developed by Facebook, it comes with built-in assertions, spies, and mocks.
-3. **Jasmine**: A behavior-driven testing framework with no external dependencies.
-4. **Karma**: A test runner that can execute tests in various real browsers.
-5. **Puppeteer**: Provides methods to launch Chrome and interact with it using the Chrome DevTools Protocol.
-6. **NightwatchJS**: An E2E testing framework written in Node.js, using the WebDriver API.
-7. **Cypress**: Modern web automation test framework that can test anything running in a browser.
+| Framework    | Description                                                                                     | Key Features                                             | Usage                  |
+|--------------|-------------------------------------------------------------------------------------------------|----------------------------------------------------------|------------------------|
+| **MochaJS**  | A flexible test framework that supports multiple assertion libraries.                           | - Flexible and adaptable                                 | - Unit Testing         |
+|              |                                                                                                 | - Supports various assertion libraries                   | - Integration Testing  |
+|              |                                                                                                 | - Asynchronous testing support                           |                        |
+| **Jest**     | Developed by Facebook, it comes with built-in assertions, spies, and mocks.                     | - Zero configuration                                     | - Unit Testing         |
+|              |                                                                                                 | - Snapshot testing                                       | - Integration Testing  |
+|              |                                                                                                 | - Parallel test execution                                | - UI Testing           |
+| **Jasmine**  | A behavior-driven testing framework with no external dependencies.                              | - BDD style                                              | - Unit Testing         |
+|              |                                                                                                 | - No external dependencies                               | - Integration Testing  |
+|              |                                                                                                 | - Rich set of matchers                                   |                        |
+| **Karma**    | A test runner that can execute tests in various real browsers.                                  | - Real browser testing                                   | - Running tests on CI  |
+|              |                                                                                                 | - Supports multiple browsers                             | - Cross-browser testing|
+|              |                                                                                                 | - Integration with various frameworks                    |                        |
+| **Puppeteer**| Provides methods to launch Chrome and interact with it using the Chrome DevTools Protocol.      | - Headless browser testing                               | - End-to-end Testing   |
+|              |                                                                                                 | - Screenshots and PDFs generation                        | - UI Testing           |
+|              |                                                                                                 | - Performance monitoring                                 |                        |
+| **NightwatchJS** | An E2E testing framework written in Node.js, using the WebDriver API.                      | - Simplified syntax                                      | - End-to-end Testing   |
+|              |                                                                                                 | - Built-in command-line test runner                      | - Browser Automation   |
+|              |                                                                                                 | - Parallel testing                                       |                        |
+| **Cypress**  | Modern web automation test framework that can test anything running in a browser.               | - Real-time reloads                                      | - End-to-end Testing   |
+|              |                                                                                                 | - Automatic waiting                                      | - UI Testing           |
+|              |                                                                                                 | - Time travel debugging                                  | - Integration Testing  |
 
 **Example: Testing roman numbers with Jest**
 
