@@ -73,10 +73,29 @@ Boilerplates are essentially templates or sets of standardized files used as a s
 - It is important to keep your boilerplates updated. As you learn and as technology evolves, revisiting and refining your templates is essential.
 - Clear documentation is crucial whether you're using someone else's boilerplate or creating your own. This helps in understanding the structure, components, and any specific configurations or dependencies.
 
+Sure, here is the refined list focused on boilerplates and organizing JavaScript projects:
+
 ## Links
 
-* https://github.com/MWins/rapid-site-development
-* http://www.sitepoint.com/a-minimal-html-document-html5-edition/
-* http://meyerweb.com/eric/thoughts/2011/01/03/reset-revisited/
-* http://www.cssreset.com/
-* https://html5boilerplate.com/
+* [Rapid Site Development](https://github.com/MWins/rapid-site-development)
+* [A Minimal HTML Document: HTML5 Edition](http://www.sitepoint.com/a-minimal-html-document-html5-edition/)
+* [Reset Revisited by Eric Meyer](http://meyerweb.com/eric/thoughts/2011/01/03/reset-revisited/)
+* [CSS Reset](http://www.cssreset.com/)
+* [HTML5 Boilerplate](https://html5boilerplate.com/)
+* [Node.js Boilerplate](https://github.com/sahat/hackathon-starter)
+* [Express Generator](https://expressjs.com/en/starter/generator.html)
+* [Create React App](https://create-react-app.dev/)
+* [Vue CLI](https://cli.vuejs.org/)
+* [Angular CLI](https://angular.io/cli)
+* [Next.js](https://nextjs.org/)
+* [Nuxt.js](https://nuxtjs.org/)
+* [Meteor](https://www.meteor.com/)
+* [Webpack](https://webpack.js.org/)
+* [Parcel](https://parceljs.org/)
+* [Gulp](https://gulpjs.com/)
+* [Yeoman](http://yeoman.io/)
+* [Preact CLI](https://preactjs.com/cli/)
+* [Sapper](https://sapper.svelte.dev/)
+* [Quasar Framework](https://quasar.dev/start/quasar-cli)
+* [Aurelia CLI](https://aurelia.io/docs/tutorials/creating-a-todo-app#setting-up-the-project)
+* [Gridsome](https://gridsome.org/)
