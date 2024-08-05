@@ -173,7 +173,7 @@ class App extends React.Component {
 
 #### DOM Events
 
-React supports all standard DOM events. Here is an example of handling a click event:
+React supports all standard DOM events. Below is an example of handling a click event:
 
 ```jsx
 class App extends React.Component {
@@ -679,14 +679,17 @@ npm init
 At the end of this setup, your project will have the following structure:
 
 ```
-|
-|-- src
-|   |-- App.js
-|-- dist
-|   |-- index.html
-|-- package.json
-|-- webpack.config.js
-|-- .babelrc
+Project Root
+│
+├── src
+│   └── App.js
+│
+├── dist
+│   └── index.html
+│
+├── package.json
+├── webpack.config.js
+└── .babelrc
 ```
 
 #### Transpiler
@@ -1136,15 +1139,17 @@ npm init
 At the end of this setup, your project will have the following structure:
 
 ```
-|
-|-- src
-|   |-- main.js
-|   |-- App.vue
-|-- dist
-|   |-- index.html
-|-- package.json
-|-- webpack.config.js
-|-- .babelrc
+│
+├── src
+│   ├── main.js
+│   └── App.vue
+│
+├── dist
+│   └── index.html
+│
+├── package.json
+├── webpack.config.js
+└── .babelrc
 ```
 
 #### Transpiler
@@ -1918,19 +1923,21 @@ npm init
 At the end of this setup, your project will have the following structure:
 
 ```
-|
-|-- src
-|   |-- app
-|   |   |-- app.component.ts
-|   |   |-- app.component.html
-|   |   |-- app.component.css
-|   |   |-- app.module.ts
-|   |-- main.ts
-|-- dist
-|   |-- index.html
-|-- package.json
-|-- tsconfig.json
-|-- webpack.config.js
+│
+├── src
+│   ├── app
+│   │   ├── app.component.ts
+│   │   ├── app.component.html
+│   │   ├── app.component.css
+│   │   └── app.module.ts
+│   └── main.ts
+│
+├── dist
+│   └── index.html
+│
+├── package.json
+├── tsconfig.json
+└── webpack.config.js
 ```
 
 #### Installing Angular
@@ -2128,7 +2135,7 @@ By following these steps, you will have set up a minimal Angular web application
 
 ## State Management Tools
 
-State management is crucial in front-end development, especially for applications with complex data flows and interactions. Various state management tools and libraries can help manage application state efficiently. Here, we'll cover some of the most popular state management tools: Redux, Vuex, MobX, NgRx, and Recoil.
+State management is crucial in front-end development, especially for applications with complex data flows and interactions. Various state management tools and libraries can help manage application state efficiently. Below, we'll cover some of the most popular state management tools: Redux, Vuex, MobX, NgRx, and Recoil.
 
 ### Redux
 
