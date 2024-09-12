@@ -210,6 +210,7 @@ Mostly done via HTTP methods.
 Example REST APIs:
 
 - https://jsonplaceholder.typicode.com
+- https://jsoning.com/api/
 - https://restcountries.eu
 
 An example with GET method:
