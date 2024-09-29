@@ -165,6 +165,7 @@ IV. Customize the Boilerplate:
 - Customize Styles: Adjust the CSS files to match your design requirements.
 - Add Content: Insert your content into the HTML files.
 - Configure Scripts: Set up any JavaScript files or modules needed for your project.
+
 V. Set Up Version Control:
 
 If you're starting a new project, initialize a new Git repository.
@@ -184,8 +185,7 @@ VII. Begin Development:
 
 Start building out your project, leveraging the boilerplate's structure and components to accelerate development.
 
-You save time by not having to set up the foundational files and configurations manually.
-
+- You save time by not having to set up the foundational files and configurations manually.
 - You start with a codebase that follows best practices, reducing the likelihood of errors.
 - You can concentrate on writing the unique parts of your application rather than boilerplate code.
 
