@@ -20,15 +20,15 @@ You can register a domain through various registrars. It typically incurs an ann
 - Consider the extension (TLD) that aligns with your website's purpose, such as `.com` for commercial, `.org` for organizations, or even country-specific TLDs like `.uk` or `.de`.
 - Stay aware of the renewal dates to maintain ownership of your domain. Losing a domain due to expired registration can be detrimental to your online presence.
 
-**Popular Domain Registrars**:
+Popular Domain Registrars:
 
-- [domain.com](https://www.domain.com/)
-- [Bluehost](https://www.bluehost.com/)
-- [HostGator](https://www.hostgator.com/)
-- [GoDaddy](https://www.godaddy.com/)
-- [Namecheap](https://www.namecheap.com/)
-
-These registrars offer a range of services and prices, along with additional features like privacy protection, domain parking, and email hosting. It's essential to compare their offerings to find the best fit for your needs and budget.
+| Provider    | Website                                   | Specialty                           | Pricing (Starting)      |
+|-------------|-------------------------------------------|-------------------------------------|-------------------------|
+| Domain.com  | [domain.com](https://www.domain.com/)      | Domain Registration, Hosting        | $3.75/month (hosting)   |
+| Bluehost    | [bluehost.com](https://www.bluehost.com/)  | Web Hosting, WordPress Hosting      | $2.95/month             |
+| HostGator   | [hostgator.com](https://www.hostgator.com/)| Web Hosting, VPS, Cloud Hosting     | $2.75/month             |
+| GoDaddy     | [godaddy.com](https://www.godaddy.com/)    | Domain Registration, Hosting, Email | $5.99/month             |
+| Namecheap   | [namecheap.com](https://www.namecheap.com/)| Domain Registration, Web Hosting    | $1.98/month (hosting)   |
 
 ## Hosting
 
@@ -89,8 +89,6 @@ The beauty of modern web development lies in its integration with version contro
 1. Integrate your hosting platform with your Git repository. This can usually be done through the hosting provider's dashboard, allowing you to connect directly to repositories on platforms like GitHub, GitLab, or Bitbucket.
 2. Every time you push a new update to your repository, whether it's a bug fix, a new feature, or content updates, the hosting platform detects these changes.
 3. The hosting service automatically fetches the updated code and deploys it to your live website. This process ensures that your website is always up-to-date with the latest changes. Some hosting providers offer additional features like staging environments and rollback options for better control over deployments.
-
-This approach to deployment streamlines the process, reduces human error, and ensures a more consistent and reliable delivery of website updates.
 
 ## Connecting Your Domain to Hosting
 
