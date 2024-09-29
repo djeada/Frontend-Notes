@@ -1,6 +1,6 @@
 # Frontend Notes 🚀
 
-Hello and thanks for stopping by! This is my personal treasure trove where I stash all sorts of notes, tips, and tricks about frontend development. Whether you're starting out, scaling up your skills, or just in need of a quick reference, you're in the right place.
+Hey there, and thanks for visiting! Welcome to my personal collection of notes, tips, and tricks all about frontend development. Whether you're just beginning, looking to level up your skills, or need a quick reference, you're in the right place.
 
 ![frontend](https://github.com/djeada/Frontend-Notes/assets/37275728/562de86d-66f1-42c0-991b-82c4cbe74255)
 
