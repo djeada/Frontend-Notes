@@ -2,18 +2,24 @@
 
 JavaScript is a programming language that is primarily used for client-side scripting (making web pages interactive). Since NodeJS we can also use JavaScript in server-side scripting (e.g. for APIs). 
 
-* JavaScript is a high-level language
-* JavaScript is a multi-paradigm language
-* JavaScript is interpreted
-* JavaScript is a dynamic language
-* JavaScript is a weakly-typed language
+### Key Points about JavaScript
 
-## What should a JavaScript developer know?
+- **JavaScript** is a versatile programming language primarily used for adding interactivity to web pages, making it essential for creating dynamic and responsive user experiences.
+- JavaScript is considered a **high-level language**, meaning it abstracts away most of the complex details of the computer’s hardware, making it easier to read and write while allowing developers to focus on programming logic rather than intricate details.
+- It is a **multi-paradigm language**, supporting different programming styles, including procedural, object-oriented, and functional programming, which gives developers flexibility in how they structure and write code.
+- JavaScript is an **interpreted language**, meaning the code is executed line by line by the browser’s JavaScript engine without the need for prior compilation, making it highly suitable for interactive web applications.
+- Being a **dynamic language**, JavaScript allows variables to change types at runtime, which makes it flexible but can lead to unexpected behavior if not managed carefully.
+- JavaScript is also known as a **weakly-typed language**, which means that it does not enforce strict type constraints on variables, allowing different types to be easily combined. For instance, you can add a string to a number without needing explicit type conversions.
 
-* How to add interactivity to the web page that is not already in the HTML and CSS
-* How to generate dynamic content
-* What is DOM and when should it be used
-* How to retrive data from an external API
+### Skills Every JavaScript Developer Should Have
+
+1. A strong understanding of **basic syntax and concepts** is necessary, including variables, data types, operators, conditionals, and loops, as they form the foundation of JavaScript programming.
+2. Familiarity with **functions and scope** is essential, as functions allow for code reuse, and understanding scope ensures that variables are used correctly within different contexts.
+3. Knowledge of **asynchronous programming** techniques, including callbacks, promises, and async/await, is crucial for handling operations like API requests and other time-consuming tasks without blocking the main thread.
+4. **DOM manipulation** skills are vital for creating interactive web pages, enabling developers to add, remove, and modify HTML elements dynamically in response to user actions.
+5. The ability to work with **APIs and JSON** is essential, as it allows JavaScript developers to fetch data from external sources, such as RESTful APIs, and integrate it into web applications.
+6. **Debugging and testing** are critical skills for identifying and resolving issues in JavaScript code. Familiarity with browser developer tools and debugging methods improves development efficiency.
+7. Regular use of resources like **MDN** (Mozilla Developer Network) is recommended for up-to-date documentation, learning new JavaScript features, and staying informed about best practices.
 
 ## Fundamentals
 
