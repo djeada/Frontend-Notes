@@ -634,72 +634,72 @@ The following are some of the commonly used audio formats:
 
 ### General
 
-* **Versioning**: Use version control systems like Git to track changes and collaborate.
-* **Validation**: Regularly use tools like the W3C HTML validator to check the quality of your code.
-* **Mobile-First**: Design with a mobile-first approach, ensuring mobile users get an optimized experience.
-* **Stay Updated**: Stick to HTML5, taking advantage of its features and semantics.
-* **Right Tool for the Job**: Select tags and attributes that best match the content's intended purpose.
-* **Comments**: Annotate your code with comments to clarify complex sections or document important decisions.
+* Use **version control systems** like Git to maintain a record of code changes, allowing for collaborative work and easier rollbacks when necessary.
+* Regularly perform **validation checks** using tools such as the W3C HTML validator to ensure the quality and compliance of your code.
+* Design with a **mobile-first** approach, so mobile users experience optimized functionality before scaling up for larger screens.
+* Stick to **HTML5 standards**, taking advantage of the latest features and enhanced semantic capabilities it offers.
+* Choose the **right tags and attributes** for each element, ensuring that they align with the content’s purpose and enhance readability.
+* Include **comments** in the code to explain complex sections and document significant design decisions for future reference.
 
 ### Formatting
 
-* **Consistent Naming**: Adopt a naming convention for classes and IDs.
-* **Self-closing Tags**: For void elements, use self-closing tags, e.g., `<img src="..." alt="..." />`.
-* **Clarity Through Spacing**: Start each block, list, or table element on a new line and consistently indent child elements.
-* **Quotation Consistency**: Use double quotation marks for attribute values.
-* **Tag Case**: Stick to lowercase for all HTML tag names for consistency.
-* **Whitespace**: Eliminate trailing spaces and ensure consistent indentation for readability.
+* Adopt a **consistent naming convention** for classes and IDs, such as BEM or camelCase, to maintain code readability.
+* For void elements, use **self-closing tags** like `<img src="..." alt="..." />` to improve readability and ensure the code conforms to modern standards.
+* Increase **clarity through spacing** by starting new blocks, lists, or table elements on a new line and consistently indenting nested elements.
+* Use **double quotation marks** for attribute values, maintaining consistency throughout your HTML.
+* Stick to **lowercase tag names** for uniformity, as it is easier to read and more compatible with XHTML requirements.
+* Remove unnecessary **whitespace** at the end of lines and ensure consistent indentation to improve code readability.
 
 ### Semantic and Accessibility
 
-* **Semantics Matter**: Use tags like `article`, `time`, `header`, `nav`, and `aside` for better content organization.
-* **Text Representation**: Represent paragraphs with `<p>` instead of relying on `<br>` for spacing.
-* **Table Integrity**: Only use tables for tabular data, not for general layout.
-* **Heading Hierarchy**: Utilize heading tags (`h1`-`h6`) sequentially for content structure and accessibility.
-* **Image Accessibility**: Always provide `alt` descriptions for images, ensuring context for those using screen readers.
-* **Use Genuine Controls**: Favor semantic elements like `<button>` over styled non-semantic elements.
-* **ARIA Roles**: Use ARIA roles and properties to enhance accessibility for users with disabilities.
-* **Skip Navigation Links**: Implement "skip to main content" links for better keyboard navigation.
-* **Form Labels**: Always label form controls using the `<label>` element, making them more accessible.
+* Leverage **semantic tags** like `article`, `time`, `header`, `nav`, and `aside` to structure content effectively, improving both SEO and accessibility.
+* Represent **text blocks with paragraphs** using `<p>` tags instead of using `<br>` tags for spacing, maintaining a clean document structure.
+* Limit **table usage** to tabular data presentation only, avoiding tables for page layout, which impacts accessibility and flexibility.
+* Follow a logical **heading hierarchy** with tags from `<h1>` to `<h6>` to provide clear content structure for users and search engines.
+* Always provide **alt descriptions** for images, which improves accessibility for users with visual impairments and aids in SEO.
+* Use **genuine interactive controls** such as `<button>` and `<input>` instead of relying on non-semantic elements styled to look interactive.
+* Implement **ARIA roles** to enhance accessibility, ensuring that users with disabilities can navigate the content effectively.
+* Incorporate **skip navigation links** to allow keyboard and screen reader users to bypass repetitive elements and access the main content quickly.
+* Label all **form controls** with the `<label>` tag to create accessible forms that are easier to use for screen reader users.
 
 ### HTML Structure
 
-* **Metadata**: Use meta tags like `<meta name="author" content="...">` to provide information about the content's creator or editor.
-* **Language Attribute**: Always set the `lang` attribute on the `<html>` tag, indicating the content's language, e.g., `<html lang="en">`.
-* **Character Encoding**: Always use UTF-8 for broader compatibility and accurate character representation.
-* **XML Declarations**: These are unnecessary in HTML5 documents.
-* **Title Relevance**: Provide a descriptive and concise `<title>` tag for each page.
-* **Body Integrity**: Encapsulate your main content within the `<body>` tag.
-* **Close Tags**: Every opened tag should have a corresponding closing tag to ensure proper structure.
+* Include **metadata** tags such as `<meta name="author" content="...">` to provide essential information about the page to search engines and browsers.
+* Set the **language attribute** on the `<html>` tag, specifying the primary language of the content, like `<html lang="en">` for English.
+* Choose **UTF-8 encoding** in your documents to ensure compatibility with various languages and symbols, enhancing user experience globally.
+* **Omit XML declarations** in HTML5 documents, as they are no longer required and can cause unnecessary complexity.
+* Craft a **descriptive `<title>` tag** for each page to improve SEO and provide clear navigation information for users.
+* Enclose the main content within the **`<body>` tag**, making it easier for browsers to locate and render the core elements of your page.
+* Make sure that each **opening tag has a corresponding closing tag**, preserving the integrity of the document structure and avoiding rendering errors.
 
 ### CSS and JavaScript Integration
 
-* **Separation of Concerns**: Keep structure (HTML), style (CSS), and behavior (JS) separate.
-* **CSS Variables**: Use CSS custom properties (variables) for better maintainability and theming options.
-* **Non-blocking JS**: Whenever possible, utilize asynchronous JavaScript to avoid blocking the rendering of your webpage.
+* Maintain **separation of concerns** by keeping HTML for structure, CSS for styling, and JavaScript for behavior, enabling modular code management.
+* Utilize **CSS custom properties** (variables) to simplify updates, enhance maintainability, and allow for consistent theming.
+* Use **non-blocking JavaScript** techniques like `async` and `defer` attributes to prevent JavaScript from blocking the page's initial render.
 
 ### Performance and Optimization
 
-* **Lazy Loading**: Implement image and iframe lazy loading to defer loading off-screen content.
-* **Critical CSS**: Inline critical CSS to render visible content as fast as possible.
-* **Content Delivery Network (CDN)**: Utilize CDNs to distribute and speed up content delivery globally.
-* **Server-side Rendering (SSR)**: If using frameworks like React or Vue, consider SSR for faster initial page loads.
-* **Minification**: Use tools to minify CSS and JavaScript, reducing payload and improving load times.
-* **Responsive Design**: Ensure your design adapts seamlessly across devices and screen sizes.
-* **Image Optimization**: Use tools and formats to reduce image file sizes without compromising on quality.
-* **Browser Caching**: Implement cache policies to decrease load times for repeat visitors and reduce server load.
-  
+* Implement **lazy loading** for images and iframes to defer off-screen content, reducing initial load times and saving bandwidth.
+* Inline **critical CSS** to ensure that above-the-fold content loads as quickly as possible, improving perceived load times.
+* Utilize a **Content Delivery Network (CDN)** to distribute static assets, increasing load speed for users worldwide.
+* Consider **server-side rendering (SSR)** for frameworks like React or Vue to reduce the time it takes for content to appear on the screen.
+* Use **minification tools** to compress CSS and JavaScript, reducing file sizes and optimizing page load times.
+* Ensure **responsive design** so the layout adapts smoothly across different devices and screen sizes for a better user experience.
+* Optimize images using **compression tools and modern formats** to reduce file sizes without losing visual quality.
+* Leverage **browser caching** by setting appropriate cache-control headers, minimizing load times for returning visitors and decreasing server requests.
+
 ### Security
 
-* **HTTPS**: Always use HTTPS to ensure data between the user and your site is encrypted.
-* **Content Security Policy (CSP)**: Implement a strong CSP to prevent cross-site scripting (XSS) attacks.
-* **Input Sanitization**: Always sanitize and validate user inputs to prevent potential security vulnerabilities.
+* Enforce **HTTPS** to secure data transmission, ensuring user data remains encrypted and protected from interception.
+* Implement a **Content Security Policy (CSP)** to help prevent XSS attacks by controlling the sources from which content can be loaded.
+* Prioritize **input sanitization** and validation for all user inputs, minimizing the risk of security vulnerabilities like SQL injection or XSS.
 
 ### SEO (Search Engine Optimization)
 
-* **Semantic Structure**: Ensure a proper hierarchical structure using headings from `<h1>` to `<h6>`.
-* **Schema Markup**: Use schema.org markup to provide search engines with structured information.
-* **Sitemaps**: Generate and submit a sitemap to search engines to help them crawl and index your site.
+* Structure content with a **clear semantic hierarchy** using heading tags, helping search engines better understand and index your content.
+* Use **schema.org markup** to enhance search engines' ability to recognize and display relevant information about your site in search results.
+* Generate and submit an **XML sitemap** to major search engines, improving the discoverability and crawlability of your site’s pages.
 
 ## Links
 
