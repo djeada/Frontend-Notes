@@ -2,7 +2,7 @@
 
 JavaScript is a programming language that is primarily used for client-side scripting (making web pages interactive). Since NodeJS we can also use JavaScript in server-side scripting (e.g. for APIs). 
 
-### Key Points about JavaScript
+Main idea:
 
 - **JavaScript** is a versatile programming language primarily used for adding interactivity to web pages, making it essential for creating dynamic and responsive user experiences.
 - JavaScript is considered a **high-level language**, meaning it abstracts away most of the complex details of the computer’s hardware, making it easier to read and write while allowing developers to focus on programming logic rather than intricate details.
@@ -21,11 +21,11 @@ JavaScript is a programming language that is primarily used for client-side scri
 6. **Debugging and testing** are critical skills for identifying and resolving issues in JavaScript code. Familiarity with browser developer tools and debugging methods improves development efficiency.
 7. Regular use of resources like **MDN** (Mozilla Developer Network) is recommended for up-to-date documentation, learning new JavaScript features, and staying informed about best practices.
 
-## Fundamentals
+### Fundamentals
 
 The following are the fundamental concepts of JavaScript:
 
-### Adding JavaScript to the HTML
+#### Adding JavaScript to the HTML
 
 You can either inline JavaScript or include refrence to an external JavaScript file:
 
@@ -43,7 +43,7 @@ You can either inline JavaScript or include refrence to an external JavaScript f
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 ```
 
-### Null and Undefined
+#### Null and Undefined
 
 1. Undefined means that a variable has not been assigned a value.
 2. Null is a value set to a variable that is supposed to represent the absence of a value.
@@ -62,7 +62,7 @@ console.log(x === y); // false
 console.log(x == y); // true
 ```
 
-### Useful Built-In Methods
+#### Useful Built-In Methods
 
 A few useful built-in methods that you can use in JavaScript:
 
@@ -88,7 +88,7 @@ var name = prompt("Enter your name");
 alert("Hello " + name);
 ```
 
-### Numbers
+#### Numbers
 
 Some of the most common number operations:
 
@@ -109,7 +109,7 @@ var pi = parseFloat("3.14159");
 console.log(pi.toFixed(2));
 ```
 
-### Common Math Operations
+#### Common Math Operations
 
 Some of the most common math functions:
 
@@ -135,7 +135,7 @@ var y = Math.sin(x);
 console.log(y);
 ```
 
-### Comparison Operators
+#### Comparison Operators
 
 The comparison operators are used to compare two values. 
 
@@ -160,7 +160,7 @@ console.log(x == y); // false
 console.log(x < y); // true
 ```
 
-### Logical Operators
+#### Logical Operators
 
 The logical operators are used to combine two or more conditions.
 
@@ -180,7 +180,7 @@ console.log(x > 10 && x < 20); // true
 console.log(y > 10 && y < 20); // false
 ```
 
-### Conditionals
+#### Conditionals
 
 The conditionals are used to execute different code depending on the value of a variable.
 
@@ -202,7 +202,7 @@ if (x > 10 && x < 20) {
 }
 ```
 
-### While Loops
+#### While Loops
 
 The while loops are used to execute a block of code as long as a condition is true.
 
@@ -221,7 +221,7 @@ while (i <= 10) {
 } // 1 2 3 4 5 6 7 8 9 10
 ```
 
-### For Loops
+#### For Loops
 
 The for loops are used to execute a block of code a number of times.
 
@@ -237,7 +237,7 @@ for (var i = 1; i <= 10; i++) {
 }
 ```
 
-## Functions
+### Functions
 
 A function is a named block of code that performs a specific task. We already used built-in functions like `alert()` and `prompt()` to display messages and get input from the user. Each function has to be first defined and then called. Once defined, the function can be called as many times as needed.
 
@@ -253,7 +253,7 @@ function sayHello() {
 sayHello(); // Function call
 ```
 
-### Function Arguments
+#### Function Arguments
 
 The function arguments are the values that are passed to the function when it is called.
 
@@ -269,7 +269,7 @@ function add(x, y) {
 add(10, 20); // 30
 ```
 
-### The "return" Keyword
+#### The "return" Keyword
 
 The "return" keyword is used to return a value from a function.
 
@@ -286,7 +286,7 @@ var result = add(10, 20);
 console.log(result); // 30
 ```
 
-### ES6 Arrow Functions
+#### ES6 Arrow Functions
   
 Arrow functions are a new way to define functions in JavaScript. They are a shorter syntax for writing function definitions.
 
@@ -304,15 +304,15 @@ const add = (x, y) => {
 }
 ```
 
-### Scope
+#### Scope
 
 The scope of a variable is the part of a program where that variable can be accessed.
 
-| Variable | Scope |
-| -------- | ------ |
-| `var` | Global |
-| `let` | Block |
-| `const` | Block |
+| Variable Type | Scope      | Mutability            | Hoisting                     | Description                                                                                   | Best Practices                                   |
+|---------------|------------|-----------------------|------------------------------|-----------------------------------------------------------------------------------------------|--------------------------------------------------|
+| `var`         | Global or function | Mutable               | Hoisted but initialized as `undefined` | - `var` is function-scoped, meaning it’s accessible throughout the function where it’s declared.<br> - Variables declared with `var` are hoisted to the top of their scope, meaning they are accessible before their declaration (with an `undefined` value).<br> - Can be redeclared within the same scope. | Avoid using `var` due to potential issues with scope and hoisting. Instead, use `let` or `const`. |
+| `let`         | Block      | Mutable               | Hoisted but not initialized    | - `let` is block-scoped, meaning it’s only accessible within the block (e.g., inside a loop or conditional statement) where it’s declared.<br> - While `let` variables are hoisted, they are not initialized, so referencing them before declaration results in a `ReferenceError`.<br> - Can’t be redeclared in the same scope. | Use `let` when you expect the variable value to change later in the code.                  |
+| `const`       | Block      | Immutable (value cannot be reassigned) | Hoisted but not initialized    | - `const` is also block-scoped and follows the same scoping and hoisting rules as `let`.<br> - Values assigned to `const` cannot be reassigned. However, if the value is an object or array, its properties or elements can still be modified.<br> - Can’t be redeclared in the same scope. | Use `const` by default when you don’t plan to reassign the variable, as it provides more predictable behavior. |
 
 In the example below we create a variable that is accessible from anywhere in the program:
 
@@ -345,7 +345,7 @@ console.log(add(a)); // 30
 console.log(add(b)); // Uncaught ReferenceError: y is not defined
 ```
 
-### Higher-Order Functions
+#### Higher-Order Functions
 
 Higher-order functions are functions that take other functions as arguments or return functions.
 
@@ -368,9 +368,8 @@ console.log(doMath(2, 3, add)); // 5
 console.log(doMath(2, 3, multiply)); // 6
 ```
 
-## Arrays
+### Arrays
 
-### Intro
 Arrays are used to hold several values under a single name and to organize them using indexes represented by consecutive integers.
 
 Let's create an array of numbers:
@@ -393,7 +392,7 @@ for (var i = 0; i < 5; i++) {
 console.log(numbers);
 ```
 
-### Copying Arrays
+#### Copying Arrays
 
 The array can be copied using the `.slice()` method:
 
@@ -412,7 +411,7 @@ var numbers = [1, 2, 3, 4, 5];
 console.log(numbers.slice(1, 3)); // [2, 3]
 ```
 
-### Array Methods: Mutators
+#### Mutators
 
 The array can be modified using the `.push()` and `.pop()` methods:
 
@@ -426,7 +425,7 @@ numbers.pop();
 console.log(numbers); // [1, 2, 3, 4, 5]
 ```
 
-### Array Methods: Accessors
+#### Accessors
 
 Methods that return a new value or representation are known as accessor methods.
 
@@ -450,7 +449,7 @@ numbers.sort();
 console.log(numbers.join()); // 1,1,2,4,5,6,7,8,9,10
 ```
 
-### Array Methods: Iterators
+#### Array Methods: Iterators
 
 The array can be iterated using the `.forEach()` method:
 
@@ -462,7 +461,7 @@ numbers.forEach(function(number) {
 });
 ```
 
-## Strings
+### Strings
 
 Strings are sequences of characters. They are used to represent text. We use single or double quotes to create strings.
 
@@ -473,7 +472,7 @@ var name = "John";
 console.log(name); // John
 ```
 
-### Common String Methods
+#### Common String Methods
 
 Some of common string methods include:
 
@@ -494,9 +493,7 @@ var text = "John loves JavaScript";
 console.log(text.slice(5, 10)); // loves
 ```
 
-## Classes
-
-### Intro
+### Classes
 
 Classes are a way to capture under a single name a set of related properties (data) and methods (functions). The class is a blueprint for creating objects.
 
@@ -523,7 +520,7 @@ john.speak(); // Hello, my name is John and I am 30 years old.
 jane.speak(); // Hello, my name is Jane and I am 25 years old.
 ```
 
-### Arrays vs Objects
+#### Arrays vs Objects
 
 * Arrays are used to hold several values under a single name and to organize them using indexes represented by consecutive integers.
 * Objects are used to hold several values under a single name and to organize them using named properties.
@@ -546,9 +543,9 @@ console.log(point.x, point.y); // 5, 8
 console.log(array); // [5, 8]
 ```
 
-## Exceptions
+### Exceptions
 
-### Throwing Exceptions
+#### Throwing Exceptions
 
 1. `throw` - Throws an exception.
 
@@ -556,7 +553,7 @@ console.log(array); // [5, 8]
 throw new Error("An error has occurred.");
 ```
 
-### Try/Catch Blocks
+#### Try/Catch Blocks
 
 The following syntax is used to handle exceptions:
 
@@ -574,16 +571,14 @@ try {
 }
 ```
 
-### Types of Errors
+#### Types of Errors
 
 1. `ReferenceError` - Thrown when a variable or function is not defined.
 2. `TypeError` - Thrown when a value is not of the expected type.
 3. `SyntaxError` - Thrown when a syntax error is encountered.
 4. `URIError` - Thrown when an invalid URI is encountered.
 
-## Dom
-
-### Intro
+### Dom
 
 The DOM is a programming interface that allows you to access and manipulate the content of the web page.
 
@@ -619,7 +614,7 @@ h1.style.fontSize = "50px";
 h1.style.textAlign = "center";
 ```
 
-### DOM Element Selector Methods
+#### DOM Element Selector Methods
 
 The following methods can be used to select elements from the DOM:
 
@@ -636,7 +631,7 @@ var div = document.getElementById("container");
 div.style.background = "linear-gradient(to right, #00ffff, #0000ff)";
 ```
 
-### Edit DOM Elements
+#### Edit DOM Elements
 
 Once selected, you can edit the content of the element using the following methods:
 
@@ -652,7 +647,7 @@ var paragraph = document.getElementById("paragraph");
 paragraph.innerHTML += "This text was appended using JavaScript.";
 ```
 
-### DOM Events
+#### DOM Events
 
 There are two types of events:
 
@@ -667,19 +662,18 @@ There are two types of events:
   
 Let's add an event listener to the button with id `button`:
 
-  ```javascript
-  var button = document.getElementById("button");
-  button.addEventListener("click", function() {
-    alert("The button was clicked!");
-  });
-  ```
+```javascript
+var button = document.getElementById("button");
+button.addEventListener("click", function() {
+  alert("The button was clicked!");
+});
+```
 
-## ES6+ Features
+### ES6+ Features
 
 ES6+ features are JavaScript features that were added to the language in 2015. Those futures are widely considered to be a great improvement on the language.
 
-
-### Spread operator
+#### Spread operator
 
 * `...` - The spread operator is used to expand the elements of an array into a list of arguments.
 
@@ -695,7 +689,7 @@ var newNumbers = [...numbers, 6, 7, 8, 9, 10];
 console.log(newNumbers); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 
-### Destructuring
+#### Destructuring
 
 Destructuring is a JavaScript feature that allows you to extract data from arrays and objects into distinct variables.
 
@@ -711,7 +705,7 @@ console.log(second); // 2
 console.log(third); // 3
 ```
 
-### Promises and Async/Await
+#### Promises and Async/Await
 
 * `Promise` - A promise is an object that represents the eventual result of an asynchronous operation.
 * `async` - The async keyword is used to declare functions that will execute asynchronously.
@@ -719,15 +713,15 @@ console.log(third); // 3
 
 Let's take a look at aexample:  
 
-  ```javascript
-  async function getData() { // async function declaration
-    var response = await fetch("https://jsonplaceholder.typicode.com/users"); // awaitings the response of the fetch call
-    var data = await response.json(); // awaitings the response of the json call
-    console.log(data);
-  }
-  ```
+```javascript
+async function getData() { // async function declaration
+  var response = await fetch("https://jsonplaceholder.typicode.com/users"); // awaitings the response of the fetch call
+  var data = await response.json(); // awaitings the response of the json call
+  console.log(data);
+}
+```
 
-### Template strings
+#### Template strings
 
 Template strings are a new type of string literal that allows embedded expressions.
 
@@ -739,26 +733,26 @@ var age = 30;
 var sentence = `My name is ${name} and I am ${age} years old.`;
 ```
 
-### Object Literals
+#### Object Literals
 
 Object literals are another way (as opposed to the class syntax) to create objects. For a simple examples there is no difference between the two. When we start adding methods however, then each copy of an object created trough literal carries a copy of all the methods which leads to a memory waste.
 
 In the example bleow we create a simple object called `person` and add a method to it:
 
-  ```javascript
-  var person = {
-    firstName: "John",
-    lastName: "Doe",
-    id: 5566,
-    fullName: function() {
-      return this.firstName + " " + this.lastName;
-    }
-  };
+```javascript
+var person = {
+  firstName: "John",
+  lastName: "Doe",
+  id: 5566,
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
 
-  person.fullName(); // "John Doe"
-  ```
+person.fullName(); // "John Doe"
+```
 
-###  for...of
+####  for...of
 
 The for...of statement is used to iterate over iterable objects, arrays, and strings.
 
@@ -771,7 +765,7 @@ for (var element of array) {
 }
 ```
 
-### Modules
+#### Modules
 
 Modules are a way to organize code into separate files.
 
@@ -795,7 +789,7 @@ var fullName = person_module.getFullName(person);
 console.log(fullName); // "John Doe"
 ```
 
-### New Data Structures
+#### New Data Structures
 
 The ES6+ standard included new data structures such as Map, WeakMap, Set, and WeakSet.
 
@@ -839,7 +833,7 @@ map.forEach((v, k) => {
 });
 ```
 
-### Subclassing Built-ins
+#### Subclassing Built-ins
 
 We can now subclass the built-in types such as Array, Date, and RegExp.
 
@@ -859,7 +853,7 @@ arr = new SpecialArray(1, 2, 3);
 console.log(arr.front()); // 1
 ```
   
-## TypeScript
+### TypeScript
 
 TypeScript is a superset of JavaScript that compiles to plain JavaScript. It introduces many new features such as classes, interfaces, generics, and more.
 
@@ -869,7 +863,7 @@ Some of the advantages of using TypeScript are:
 * Stronger typing - TypeScript will help you avoid bugs caused by type errors.
 * TypeScript always exposes compilation errors during development (pre-compilation). 
 
-### Compilation
+#### Compilation
 
 TypeScript has an integrated development environment that allows you to compile your code and see the errors that are generated.
 
@@ -885,7 +879,7 @@ tsc app.ts --outFile app.js
 
 The above command will compile the TypeScript file into JavaScript and output the result into the file `app.js`. You can now include the file in your HTML code since it's a plain old JavaScript.
 
-### Converting JavaScript projects to TypeScript projects
+#### Converting JavaScript projects to TypeScript projects
 
 Let's assume that we already built a JavaScript project and we now decided to convert it to TypeScript.
 
@@ -926,11 +920,11 @@ module: {
 3. Change extension of all `.js` files to `.ts`.
 4. Refactor till you get rid of compilation errors.
 
-## Package managers
+### Package managers
 
 Package managers are used to install and manage dependencies. The chances are you won't be working with Vanilla JavaScript only. In fact you will probably be installing packages, libraries, and frameworks all the time. For that you will need a package manager.
 
-### NPM
+#### NPM
 
 NPM stands for "Node Package Manager," but don't be fooled by the term.
 React, SASS, Angular, Vue, and pretty much everything else can very certainly be installed and maintained using NPM. 
@@ -943,7 +937,7 @@ To update NPM to the newest version, use:
 npm install npm@latest -g
 ```
   
-#### Initializing a project
+##### Initializing a project
 
 In order to set up a project with NPM, you should use the following command:
 
@@ -985,7 +979,7 @@ The result of this process will look something like this:
 }
 ```
 
-#### Installing a package
+##### Installing a package
 
 The most common way to install a package is to use the `npm install` command with different flags:
 
@@ -994,18 +988,18 @@ The most common way to install a package is to use the `npm install` command wit
 * `npm install <package>@<version> --save` - This will install the package at the specified version and save it to the `dependencies` section of the `package.json` file.
 * `npm install <package>@<version> --save-dev` - This will install the package at the specified version and save it to the `devDependencies` section of the `package.json` file.
 
-#### Using an existing project
+##### Using an existing project
 
 If you downloaded a project from the internet and that project already has a `package.json` file, you can use the `npm install` command to install the dependencies.
 
-#### Listing installed packages
+##### Listing installed packages
 
 In order to list all installed packages, you can use the `npm list` command:
 
 * `npm list` - This will list all installed packages.
 * `npm list -g --depth=0` - This will list all global packages.
 
-#### Updating a package
+##### Updating a package
 
 * `npm update <package>` - This will update the package.
 * `npm update <package>@<version>` - This will update the package to the specified version.
