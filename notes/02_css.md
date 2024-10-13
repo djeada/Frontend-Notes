@@ -298,23 +298,24 @@ The above example defines a box with a content area of 100x100px, a padding of 1
 
 Margins create space around an element, separating it from other elements.
 
-| Property         | Description                            | Values                        | MDN Documentation                                                                                  |
-|------------------|----------------------------------------|-------------------------------|----------------------------------------------------------------------------------------------------|
-| `margin-top`     | Defines the space above the element.   | `auto` \| `length` \| `percentage` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-top)                             |
-| `margin-right`   | Defines the space to the right of the element. | `auto` \| `length` \| `percentage` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-right)                           |
-| `margin-bottom`  | Defines the space below the element.   | `auto` \| `length` \| `percentage` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-bottom)                          |
-| `margin-left`    | Defines the space to the left of the element.  | `auto` \| `length` \| `percentage` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-left)                            |
+| Property         | Description                            | Values                                | MDN Documentation                                                                                  |
+|------------------|----------------------------------------|---------------------------------------|----------------------------------------------------------------------------------------------------|
+| `margin-top`     | Defines the space above the element.   | `auto`, `length`, `percentage`        | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-top)                             |
+| `margin-right`   | Defines the space to the right of the element. | `auto`, `length`, `percentage`        | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-right)                           |
+| `margin-bottom`  | Defines the space below the element.   | `auto`, `length`, `percentage`        | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-bottom)                          |
+| `margin-left`    | Defines the space to the left of the element.  | `auto`, `length`, `percentage`        | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-left)                            |
 
 #### Padding
 
 Padding creates space within an element, between the content and its border.
 
-| Property         | Description                                       | Values                        | MDN Documentation                                                                                  |
-|------------------|---------------------------------------------------|-------------------------------|----------------------------------------------------------------------------------------------------|
-| `padding-top`    | Defines the space between the content and the top border of the element.    | `length` \| `percentage` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-top)                           |
-| `padding-right`  | Defines the space between the content and the right border of the element.  | `length` \| `percentage` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-right)                         |
-| `padding-bottom` | Defines the space between the content and the bottom border of the element. | `length` \| `percentage` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-bottom)                        |
-| `padding-left`   | Defines the space between the content and the left border of the element.   | `length` \| `percentage` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-left)                          |
+| Property         | Description                                       | Values                     | MDN Documentation                                                                                  |
+|------------------|---------------------------------------------------|----------------------------|----------------------------------------------------------------------------------------------------|
+| `padding-top`    | Defines the space between the content and the top border of the element.    | `length`, `percentage`     | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-top)                           |
+| `padding-right`  | Defines the space between the content and the right border of the element.  | `length`, `percentage`     | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-right)                         |
+| `padding-bottom` | Defines the space between the content and the bottom border of the element. | `length`, `percentage`     | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-bottom)                        |
+| `padding-left`   | Defines the space between the content and the left border of the element.   | `length`, `percentage`     | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-left)                          |
+
 
 #### Border
 
@@ -322,11 +323,12 @@ Borders surround an element, giving it structure and sometimes helping it stand 
 
 | Property         | Description                           | Values                                                        | MDN Documentation                                                                                   |
 |------------------|---------------------------------------|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| `border-width`   | Defines the thickness of the border.  | `auto` \| `length`                                            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/border-width)                           |
-| `border-style`   | Determines the pattern or design of the border. | `none` \| `hidden` \| `dotted` \| `dashed` \| `solid` \| `double` \| `groove` \| `ridge` \| `inset` \| `outset` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/border-style)    |
+| `border-width`   | Defines the thickness of the border.  | `auto`, `length`                                              | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/border-width)                           |
+| `border-style`   | Determines the pattern or design of the border. | `none`, `hidden`, `dotted`, `dashed`, `solid`, `double`, `groove`, `ridge`, `inset`, `outset` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/border-style)    |
 | `border-color`   | Sets the color of the border.         | Color name, hex, rgba, etc.                                   | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/border-color)                           |
 | `border-radius`  | Creates rounded borders.              | `length` (can set each corner individually)                   | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius)                          |
-| `border-image`   | Uses an image as the border.          | `none` \| image source \| slice \| width \| outset \| repeat  | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/border-image)                           |
+| `border-image`   | Uses an image as the border.          | `none`, image source, slice, width, outset, repeat            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/border-image)                           |
+
 
 #### Outline
 
@@ -334,9 +336,10 @@ Outlines are similar to borders but don't take up space. They're often used for 
 
 | Property          | Description                             | Values                                                        | MDN Documentation                                                                                   |
 |-------------------|-----------------------------------------|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| `outline-width`   | Defines the thickness of the outline.   | `auto` \| `length`                                            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/outline-width)                          |
-| `outline-style`   | Determines the pattern or design of the outline. | `none` \| `hidden` \| `dotted` \| `dashed` \| `solid` \| `double` \| `groove` \| `ridge` \| `inset` \| `outset` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/outline-style)    |
+| `outline-width`   | Defines the thickness of the outline.   | `auto`, `length`                                              | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/outline-width)                          |
+| `outline-style`   | Determines the pattern or design of the outline. | `none`, `hidden`, `dotted`, `dashed`, `solid`, `double`, `groove`, `ridge`, `inset`, `outset` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/outline-style)    |
 | `outline-color`   | Sets the color of the outline.          | Color name, hex, rgba, etc.                                   | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/outline-color)                          |
+
 
 #### Advanced Tips
 
@@ -358,25 +361,24 @@ When an element is defined as a flex container (using `display: flex` or `displa
 
 | Property           | Description                                                                                              | Values                                                                            |
 |--------------------|----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| `display`          | Initiates the flex context, allowing use of Flexbox properties.                                          | `flex` \| `inline-flex`                                                           |
-| `flex-direction`   | Defines the direction of the main axis, controlling the flow of flex items.                              | `row` \| `row-reverse` \| `column` \| `column-reverse`                            |
-| `flex-wrap`        | Determines whether flex items should wrap onto multiple lines when there isn’t enough space.             | `nowrap` \| `wrap` \| `wrap-reverse`                                              |
-| `justify-content`  | Aligns items along the main axis within the container.                                                   | `flex-start` \| `flex-end` \| `center` \| `space-between` \| `space-around` \| `space-evenly` |
-| `align-items`      | Aligns items along the cross axis within the container.                                                  | `flex-start` \| `flex-end` \| `center` \| `baseline` \| `stretch`                 |
-| `align-content`    | Aligns lines of flex items when there is extra space on the cross axis.                                 | `flex-start` \| `flex-end` \| `center` \| `space-between` \| `space-around` \| `stretch` |
+| `display`          | Initiates the flex context, allowing use of Flexbox properties.                                          | `flex`, `inline-flex`                                                             |
+| `flex-direction`   | Defines the direction of the main axis, controlling the flow of flex items.                              | `row`, `row-reverse`, `column`, `column-reverse`                                  |
+| `flex-wrap`        | Determines whether flex items should wrap onto multiple lines when there isn’t enough space.             | `nowrap`, `wrap`, `wrap-reverse`                                                  |
+| `justify-content`  | Aligns items along the main axis within the container.                                                   | `flex-start`, `flex-end`, `center`, `space-between`, `space-around`, `space-evenly` |
+| `align-items`      | Aligns items along the cross axis within the container.                                                  | `flex-start`, `flex-end`, `center`, `baseline`, `stretch`                         |
+| `align-content`    | Aligns lines of flex items when there is extra space on the cross axis.                                 | `flex-start`, `flex-end`, `center`, `space-between`, `space-around`, `stretch`    |
 
 
 2. **Item Properties**: These are set on the flex items.
 
 | Property         | Description                                                                                     | Values                                                    |
 |------------------|-------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
-| `flex`           | Shorthand for setting `flex-grow`, `flex-shrink`, and `flex-basis`.                             | `none` \| `auto` \| `<flex-grow> <flex-shrink> <flex-basis>` |
-| `align-self`     | Allows an individual flex item to override the container’s `align-items` property.              | `auto` \| `flex-start` \| `flex-end` \| `center` \| `baseline` \| `stretch` |
+| `flex`           | Shorthand for setting `flex-grow`, `flex-shrink`, and `flex-basis`.                             | `none`, `auto`, `<flex-grow> <flex-shrink> <flex-basis>`  |
+| `align-self`     | Allows an individual flex item to override the container’s `align-items` property.              | `auto`, `flex-start`, `flex-end`, `center`, `baseline`, `stretch` |
 | `order`          | Specifies the order of the flex item within the container.                                      | Integer values, e.g., `0` (default), `1`, `-1`, etc.      |
-| `flex-basis`     | Sets the initial main size of a flex item before any space distribution by `flex-grow` and `flex-shrink`. | `auto` \| `length` \| `percentage`                         |
+| `flex-basis`     | Sets the initial main size of a flex item before any space distribution by `flex-grow` and `flex-shrink`. | `auto`, `length`, `percentage`                            |
 | `flex-grow`      | Specifies how much a flex item will grow relative to the rest of the flex items.                | Integer values, e.g., `0` (default), `1`, `2`, etc.       |
 | `flex-shrink`    | Specifies how much a flex item will shrink relative to the rest of the flex items.              | Integer values, e.g., `1` (default), `0`, etc.            |
-
 
 #### Understanding the Axes
 
@@ -492,7 +494,7 @@ To create a flex container, use the `display` property:
 
 | Property   | Description                                                      | Values                                   | MDN Documentation                                                                 |
 |------------|------------------------------------------------------------------|------------------------------------------|------------------------------------------------------------------------------------|
-| `display`  | Determines the element's inner and outer display type.           | `flex` (block-level) \| `inline-flex` (inline-level) | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/display)              |
+| `display`  | Determines the element's inner and outer display type.           | `flex` (block-level) , `inline-flex` (inline-level) | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/display)              |
 
 
 ##### Ordering and Orientation
@@ -502,10 +504,9 @@ Control the order in which items appear and their directional flow:
 | Property          | Description                                                                                     | Values                                                  | MDN Documentation                                                                                   |
 |-------------------|-------------------------------------------------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
 | `order`           | Specifies the order of the flex item relative to its siblings.                                  | `<number>` (default: `0`)                               | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/order)                                  |
-| `flex-direction`  | Defines the direction of the main axis, determining the orientation of flex items.              | `row` \| `row-reverse` \| `column` \| `column-reverse`  | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)                         |
-| `flex-wrap`       | Specifies whether flex items wrap onto multiple lines or columns.                               | `nowrap` \| `wrap` \| `wrap-reverse`                    | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap)                              |
+| `flex-direction`  | Defines the direction of the main axis, determining the orientation of flex items.              | `row`, `row-reverse`, `column`, `column-reverse`        | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)                         |
+| `flex-wrap`       | Specifies whether flex items wrap onto multiple lines or columns.                               | `nowrap`, `wrap`, `wrap-reverse`                        | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap)                              |
 | `flex-flow`       | Shorthand property for setting both `flex-direction` and `flex-wrap`.                           | `<flex-direction> || <flex-wrap>`                       | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow)                              |
-
 
 ##### Alignment and Justification
 
@@ -513,10 +514,9 @@ Determine how items are aligned and spaced within the flex container:
 
 | Property           | Description                                                                                          | Values                                                                          | MDN Documentation                                                                                      |
 |--------------------|------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| `align-items`      | Aligns flex items along the cross axis of the flex container.                                        | `flex-start` \| `flex-end` \| `center` \| `baseline` \| `stretch`              | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)                               |
-| `align-content`    | Aligns flex lines within the container when there’s extra space in the cross-axis.                   | `flex-start` \| `flex-end` \| `center` \| `space-between` \| `space-around` \| `stretch` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content)                             |
-| `justify-content`  | Defines how flex items are spaced along the main axis.                                               | `flex-start` \| `flex-end` \| `center` \| `space-between` \| `space-around` \| `space-evenly` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content)                           |
-
+| `align-items`      | Aligns flex items along the cross axis of the flex container.                                        | `flex-start`, `flex-end`, `center`, `baseline`, `stretch`                       | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)                               |
+| `align-content`    | Aligns flex lines within the container when there’s extra space in the cross-axis.                   | `flex-start`, `flex-end`, `center`, `space-between`, `space-around`, `stretch`  | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content)                             |
+| `justify-content`  | Defines how flex items are spaced along the main axis.                                               | `flex-start`, `flex-end`, `center`, `space-between`, `space-around`, `space-evenly` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content)                           |
 
 ##### Flexibility of Items
 
@@ -527,7 +527,7 @@ Define how flex items grow and shrink:
 | `flex`           | Shorthand to set the `flex-grow`, `flex-shrink`, and `flex-basis` properties.                 | `<flex-grow> <flex-shrink> <flex-basis>`        | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)                                  |
 | `flex-grow`      | Specifies the flex item’s ability to grow relative to other items.                            | `<number>` (default: `0`)                       | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow)                             |
 | `flex-shrink`    | Defines the flex item’s ability to shrink relative to other items.                            | `<number>` (default: `1`)                       | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink)                           |
-| `flex-basis`     | Sets the default size of a flex item before space distribution among items.                   | `auto` \| `<length>` \| `<percentage>`          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis)                            |
+| `flex-basis`     | Sets the default size of a flex item before space distribution among items.                   | `auto`,| `<length>`, `<percentage>`          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis)                            |
 
 Leveraging these properties allows for sophisticated layout designs that adapt gracefully across different screen sizes and resolutions.
 
@@ -547,14 +547,12 @@ In web design, lists are ubiquitous. CSS provides granular control over the appe
 
 | Property             | Description                                                                   | Values                                                                                  | MDN Documentation                                                                                      |
 |----------------------|-------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| `list-style`         | Defines an element's list style, including type, position, and image.         | `none` \| `<list-style-type> <list-style-position> <list-style-image>`                  | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style)                                |
-| `list-style-type`    | Specifies the type of list marker.                                            | `disc` \| `circle` \| `square` \| `decimal` \| `lower-roman` \| `upper-roman` \| etc.   | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type)                           |
-| `list-style-position`| Determines the marker’s position relative to the list item content.           | `inside` \| `outside`                                                                   | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-position)                       |
+| `list-style`         | Defines an element's list style, including type, position, and image.         | `none`, `<list-style-type> <list-style-position> <list-style-image>`                    | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style)                                |
+| `list-style-type`    | Specifies the type of list marker.                                            | `disc`, `circle`, `square`, `decimal`, `lower-roman`, `upper-roman`, etc.               | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type)                           |
+| `list-style-position`| Determines the marker’s position relative to the list item content.           | `inside`, `outside`                                                                     | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-position)                       |
 | `list-style-image`   | Allows using an image as the list item marker.                                | `url("path_to_image")`                                                                  | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-image)                          |
-| `marker-offset`      | *(Deprecated)* Sets the distance between the marker and the nearest border edge of the list item box. | `auto` \| `<length>`                                                                    | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/marker-offset)                             |
+| `marker-offset`      | *(Deprecated)* Sets the distance between the marker and the nearest border edge of the list item box. | `auto`, `<length>`                                                                      | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/marker-offset)                             |
 | `marker-start`       | *(Deprecated)* Specifies a marker for the start of lines, replaced by SVG `marker` attribute. | Depends on SVG marker settings                                                          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/marker-start)                              |
-
-Understanding these properties allows developers to create more visually appealing lists and enhances the user experience by making content more digestible and organized.
 
 HTML:
 
@@ -595,11 +593,12 @@ Tables in CSS are designed to structure tabular data. They come with a rich set 
 
 | Property          | Description                                                                                   | Values                                                                                           | MDN Documentation                                                                                       |
 |-------------------|-----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-| `table-layout`    | Determines the algorithm used to layout the table cells, rows, and columns.                   | `auto` \| `fixed`                                                                                | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout)                               |
-| `border-collapse` | Specifies whether cell borders are collapsed into a single border or detached.                | `collapse` \| `separate`                                                                         | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/border-collapse)                            |
-| `border-spacing`  | Defines spacing between the borders of adjacent cells when `border-collapse` is set to `separate`. | `<length> <length>` (e.g., `2px 4px`)                                                        | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/border-spacing)                             |
-| `caption-side`    | Specifies the position of the table's caption.                                                | `top` \| `bottom`                                                                                | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/caption-side)                               |
-| `empty-cells`     | Determines the visibility of borders and backgrounds of empty cells.                          | `show` \| `hide`                                                                                 | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/empty-cells)                                |
+| `table-layout`    | Determines the algorithm used to layout the table cells, rows, and columns.                   | `auto`, `fixed`                                                                                  | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout)                               |
+| `border-collapse` | Specifies whether cell borders are collapsed into a single border or detached.                | `collapse`, `separate`                                                                           | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/border-collapse)                            |
+| `border-spacing`  | Defines spacing between the borders of adjacent cells when `border-collapse` is set to `separate`. | `<length> <length>` (e.g., `2px 4px`)                                                            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/border-spacing)                             |
+| `caption-side`    | Specifies the position of the table's caption.                                                | `top`, `bottom`                                                                                  | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/caption-side)                               |
+| `empty-cells`     | Determines the visibility of borders and backgrounds of empty cells.                          | `show`, `hide`                                                                                   | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/empty-cells)                                |
+
 HTML:
 
 ```html
@@ -649,22 +648,22 @@ Text is a fundamental aspect of web design, and CSS offers an extensive suite of
 | Property           | Description                                                                  | Values                                                                                  | MDN Documentation                                                                                          |
 |--------------------|------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
 | `color`            | Specifies the color of the text.                                             | HEX, RGB, RGBA, HSL, or named colors                                                    | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/color)                                          |
-| `direction`        | Sets the direction in which text is written.                                 | `ltr` \| `rtl`                                                                          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/direction)                                      |
+| `direction`        | Sets the direction in which text is written.                                 | `ltr`, `rtl`                                                                            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/direction)                                      |
 | `letter-spacing`   | Adjusts the space between characters.                                        | Units like `px`, `em`, `rem`                                                            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing)                                 |
-| `line-height`      | Determines the height of a line box.                                         | `normal` \| Number values \| Units like `px`, `em`                                      | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height)                                    |
-| `text-align`       | Aligns the inline content, such as text.                                     | `start` \| `end` \| `left` \| `right` \| `center` \| `justify`                          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align)                                     |
-| `text-decoration`  | Adds decorative lines to text.                                               | `none` \| `underline` \| `overline` \| `line-through`                                   | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration)                                |
+| `line-height`      | Determines the height of a line box.                                         | `normal`, Number values, Units like `px`, `em`                                          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height)                                    |
+| `text-align`       | Aligns the inline content, such as text.                                     | `start`, `end`, `left`, `right`, `center`, `justify`                                    | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align)                                     |
+| `text-decoration`  | Adds decorative lines to text.                                               | `none`, `underline`, `overline`, `line-through`                                         | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration)                                |
 | `text-indent`      | Indents the first line of a text block.                                      | Units like `px`, `em`, `rem`                                                            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-indent)                                    |
-| `text-transform`   | Controls the capitalization of text.                                         | `capitalize` \| `uppercase` \| `lowercase` \| `none`                                    | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform)                                 |
-| `vertical-align`   | Sets the vertical positioning of an element relative to its parent or line height. | `baseline` \| `sub` \| `super` \| `top` \| `text-top` \| `middle` \| `bottom` \| `text-bottom` \| Units like `px`, `em` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align)   |
-| `white-space`      | Specifies how whitespace inside an element is handled.                       | `normal` \| `pre` \| `nowrap` \| `pre-wrap` \| `pre-line`                               | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/white-space)                                    |
+| `text-transform`   | Controls the capitalization of text.                                         | `capitalize`, `uppercase`, `lowercase`, `none`                                          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform)                                 |
+| `vertical-align`   | Sets the vertical positioning of an element relative to its parent or line height. | `baseline`, `sub`, `super`, `top`, `text-top`, `middle`, `bottom`, `text-bottom`, Units like `px`, `em` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align)   |
+| `white-space`      | Specifies how whitespace inside an element is handled.                       | `normal`, `pre`, `nowrap`, `pre-wrap`, `pre-line`                                       | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/white-space)                                    |
 | `word-spacing`     | Adjusts the space between words.                                             | Units like `px`, `em`, `rem`                                                            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/word-spacing)                                  |
-| `text-outline`     | *(Non-standard)* Defines an outline for the text.                            | `none` \| `color` \| `width` \| `style`                                                 | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-outline)                                   |
-| `text-overflow`    | Specifies how overflowed content is signaled to the user.                    | `clip` \| `ellipsis`                                                                    | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow)                                 |
+| `text-outline`     | *(Non-standard)* Defines an outline for the text.                            | `none`, `color`, `width`, `style`                                                       | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-outline)                                   |
+| `text-overflow`    | Specifies how overflowed content is signaled to the user.                    | `clip`, `ellipsis`                                                                      | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow)                                 |
 | `text-shadow`      | Adds shadow effects to the text.                                             | `color`, `offset-x`, `offset-y`, `blur-radius`                                          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow)                                   |
-| `text-wrap`        | *(Non-standard)* Specifies line breaking rules.                              | `normal` \| `none` \| `break-word`                                                      | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-wrap)                                     |
-| `word-break`       | Controls how lines should break in case of long words or overflow.           | `normal` \| `break-all` \| `keep-all`                                                   | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/word-break)                                    |
-| `word-wrap`        | Specifies whether to break words when they overflow the content box.         | `normal` \| `break-word`                                                                | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/word-wrap)                                     |
+| `text-wrap`        | *(Non-standard)* Specifies line breaking rules.                              | `normal`, `none`, `break-word`                                                          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-wrap)                                     |
+| `word-break`       | Controls how lines should break in case of long words or overflow.           | `normal`, `break-all`, `keep-all`                                                       | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/word-break)                                    |
+| `word-wrap`        | Specifies whether to break words when they overflow the content box.         | `normal`, `break-word`                                                                  | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/word-wrap)                                     |
 
 HTML:
 
@@ -713,11 +712,11 @@ Steps to Incorporate Custom Fonts:
  
 | Property       | Description                                | Values                                                                | MDN Documentation                                                                                          |
 |----------------|--------------------------------------------|-----------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
-| `font-style`   | Dictates the style of a font.              | `normal` \| `italic` \| `oblique`                                     | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/font-style)                                     |
-| `font-weight`  | Determines the thickness of characters.    | `normal` \| `bold` \| `bolder` \| `lighter` \| `100` - `900`          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight)                                    |
+| `font-style`   | Dictates the style of a font.              | `normal`, `italic`, `oblique`                                         | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/font-style)                                     |
+| `font-weight`  | Determines the thickness of characters.    | `normal`, `bold`, `bolder`, `lighter`, `100` - `900`                  | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight)                                    |
 | `font-size`    | Specifies the size of the font.            | Units like `px`, `em`, `rem`, `%`, etc.                               | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size)                                      |
 | `font-family`  | Defines which font should be used.         | Font names in quotes, e.g., `"Helvetica, sans-serif"`                 | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family)                                    |
-| `font-variant` | Controls font variants, mainly for capitalized text. | `normal` \| `small-caps`                                              | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant)                                   |
+| `font-variant` | Controls font variants, mainly for capitalized text. | `normal`, `small-caps`                                              | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant)                                   |
 
 
 Example:
@@ -800,11 +799,11 @@ Backgrounds serve as a foundation for web elements. Whether it's a vivid color, 
 | Property            | Description                                                   | Values                                                   | MDN Documentation                                                                                             |
 |---------------------|---------------------------------------------------------------|----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
 | `background-color`  | Defines the solid background color of an element.             | Any valid color value (HEX, RGB, HSL, color names)       | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color)                                 |
-| `background-image`  | Sets an image or gradient as the element's background.        | `none` \| `url(path_to_image)`                           | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image)                                 |
-| `background-position` | Specifies the starting position of the background image.    | `top left` \| `center center` \| `10px 20px`             | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position)                              |
-| `background-repeat` | Determines if/how the background image will repeat.           | `repeat` \| `repeat-x` \| `repeat-y` \| `no-repeat`      | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat)                                |
-| `background-attachment` | Specifies if the background image scrolls with content or remains fixed. | `scroll` \| `fixed` \| `local`                      | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-attachment)                            |
-| `background-size`   | Indicates the size of the background images.                  | `cover` \| `contain` \| `50% 50%`                        | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size)                                  |
+| `background-image`  | Sets an image or gradient as the element's background.        | `none`, `url(path_to_image)`                             | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image)                                 |
+| `background-position` | Specifies the starting position of the background image.    | `top left`, `center center`, `10px 20px`                 | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position)                              |
+| `background-repeat` | Determines if/how the background image will repeat.           | `repeat`, `repeat-x`, `repeat-y`, `no-repeat`            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat)                                |
+| `background-attachment` | Specifies if the background image scrolls with content or remains fixed. | `scroll`, `fixed`, `local`              | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-attachment)                            |
+| `background-size`   | Indicates the size of the background images.                  | `cover`, `contain`, `50% 50%`                            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size)                                  |
 
 
 Let's take a look at the following example:
@@ -841,17 +840,16 @@ CSS offers impressive flexibility with backgrounds. Beyond mere solid colors:
 
 Positioning elements on a web page is a fundamental task in web design. CSS provides multiple methods to achieve desired layouts and presentations.
 
-Core Positioning Properties
+Core Positioning Properties:
 
 | Property      | Description                                                      | Values                                                                                 | MDN Documentation                                                                                     |
 |---------------|------------------------------------------------------------------|----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| `position`    | Determines the positioning method used for an element.           | `static` \| `relative` \| `absolute` \| `fixed` \| `sticky`                            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/position)                                  |
-| `float`       | Specifies how an element should float.                           | `none` \| `left` \| `right`                                                            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/float)                                     |
-| `clear`       | Sets which sides of an element will not be adjacent to floating elements. | `none` \| `left` \| `right` \| `both`                                           | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/clear)                                     |
-| `display`     | Dictates the display box type of an element.                     | `inline` \| `block` \| `inline-block` \| `table` \| `table-row` \| `table-cell` \| `none` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/display)                                   |
-| `visibility`  | Defines if an element is visible.                                | `visible` \| `hidden` \| `collapse`                                                   | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/visibility)                                |
-| `overflow`    | Controls what happens to content that overflows its box.         | `visible` \| `hidden` \| `scroll` \| `auto`                                           | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow)                                  |
-
+| `position`    | Determines the positioning method used for an element.           | `static`, `relative`, `absolute`, `fixed`, `sticky`                                    | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/position)                                  |
+| `float`       | Specifies how an element should float.                           | `none`, `left`, `right`                                                                | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/float)                                     |
+| `clear`       | Sets which sides of an element will not be adjacent to floating elements. | `none`, `left`, `right`, `both`                                                | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/clear)                                     |
+| `display`     | Dictates the display box type of an element.                     | `inline`, `block`, `inline-block`, `table`, `table-row`, `table-cell`, `none`          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/display)                                   |
+| `visibility`  | Defines if an element is visible.                                | `visible`, `hidden`, `collapse`                                                       | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/visibility)                                |
+| `overflow`    | Controls what happens to content that overflows its box.         | `visible`, `hidden`, `scroll`, `auto`                                                 | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow)                                  |
 
 HTML:
 
@@ -1025,10 +1023,10 @@ In modern web design, the ability to animate and transform elements has become a
 |-----------------------|--------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | `transform`           | Applies a 2D or 3D transformation to an element.                                     | `none`, `matrix`, `translate`, `translateX`, `translateY`, `scale`, `rotate`, `skew`, `perspective`, and 3D variants such as `translate3d`, `rotate3d`, etc.  | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transform)                                          |
 | `transform-origin`    | Defines the point around which a transformation is applied.                          | `origin-x origin-y origin-z` (e.g., `50% 50%` or `center center`)                             | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin)                                   |
-| `transform-style`     | Specifies how nested elements are rendered in 3D space.                              | `flat` \| `preserve-3d`                                                                      | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style)                                    |
+| `transform-style`     | Specifies how nested elements are rendered in 3D space.                              | `flat`, `preserve-3d`                                                                        | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style)                                    |
 | `perspective`         | Determines the distance between the viewer and the z=0 plane, affecting 3D transformations. | `length` (e.g., `1000px`)                                                                     | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective)                                        |
 | `perspective-origin`  | Establishes the origin for the perspective property.                                 | `length` or percentage (e.g., `50% 50%`)                                                     | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective-origin)                                 |
-| `backface-visibility` | Defines whether the back face of an element is visible when turned towards the viewer.| `visible` \| `hidden`                                                                        | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility)                               |
+| `backface-visibility` | Defines whether the back face of an element is visible when turned towards the viewer.| `visible`, `hidden`                                                                          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility)                               |
 
 HTML:
 
@@ -1069,10 +1067,10 @@ Transitions in CSS provide a way to control animation speed when changing CSS pr
 
 | Property                | Description                                                                        | Values                                                                                                    | MDN Documentation                                                                                             |
 |-------------------------|------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
-| `transition`            | Shorthand for setting multiple transition properties at once.                      | `[ transition-property | transition-duration | transition-timing-function | transition-delay ]`                 | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transition)                                        |
-| `transition-property`   | Specifies the CSS property to which the transition is applied.                     | `none` \| `all` \| Specific property names (e.g., `opacity`, `transform`)                                 | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property)                               |
+| `transition`            | Shorthand for setting multiple transition properties at once.                      | `[ transition-property, transition-duration, transition-timing-function, transition-delay ]`              | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transition)                                        |
+| `transition-property`   | Specifies the CSS property to which the transition is applied.                     | `none`, `all`, Specific property names (e.g., `opacity`, `transform`)                                     | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property)                               |
 | `transition-duration`   | Defines the duration of the transition effect.                                     | `time` (e.g., `0.5s`, `300ms`)                                                                            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-duration)                              |
-| `transition-timing-function` | Describes how intermediate values are calculated during a transition.         | `linear` \| `ease` \| `ease-in` \| `ease-out` \| `ease-in-out` \| cubic-bezier values                     | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function)                       |
+| `transition-timing-function` | Describes how intermediate values are calculated during a transition.         | `linear`, `ease`, `ease-in`, `ease-out`, `ease-in-out`, cubic-bezier values                               | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function)                       |
 | `transition-delay`      | Specifies a delay before the transition starts.                                    | `time` (e.g., `0.2s`)                                                                                     | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-delay)                                 |
 
 HTML:
