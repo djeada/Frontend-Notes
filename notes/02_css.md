@@ -19,7 +19,7 @@
 4. Regular use of resources like **MDN** (Mozilla Developer Network) is valuable for staying informed on CSS standards, learning best practices, and understanding how to leverage newer features effectively.
 5. Being able to **build and customize components** is crucial, as it allows developers to recreate UI elements, like buttons, cards, and modals, purely with CSS for both design precision and responsiveness.
 
-## Integrating CSS with HTML
+### Integrating CSS with HTML
 
 You can add CSS to your HTML documents in three primary ways:
 
@@ -47,11 +47,11 @@ You can add CSS to your HTML documents in three primary ways:
 </head>
 ```
 
-## Understanding Selectors
+### Understanding Selectors
 
 CSS Selectors play a pivotal role in defining which HTML elements should receive specific styles. By combining different types of selectors and properties, web developers can create intricate designs and layouts.
 
-### Selectors and Properties
+#### Selectors and Properties
 
 In CSS, a basic rule-set consists of a selector and a declaration block. The declaration block contains properties and their values.
 
@@ -63,10 +63,10 @@ selector {
 }
 ```
 
-- **Selectors**: They specify which HTML elements will be affected by the style rules.
-- **Properties and Values**: Within the declaration block, properties define what aspect of the element should be styled, and values determine how they should be styled.
+- CSS selectors **identify** which HTML elements are targeted by the style rules, allowing specific elements to be styled according to the defined criteria.
+- Inside the declaration block, **properties** indicate what aspect of the element will be styled, while **values** specify how the styling should be applied, defining the visual characteristics of the selected elements.
 
-### Different Types of CSS Selectors
+#### Different Types of CSS Selectors
 
 There's a plethora of selectors in CSS, each serving a distinct purpose. Here are some of the fundamental selectors:
 
@@ -123,7 +123,7 @@ border: 1px solid black;
 
 Additionally, CSS offers combinations of selectors, pseudo-classes, pseudo-elements, and more, giving developers a wide array of tools for precise styling.
 
-### Introduction to Pseudo-selectors
+#### Introduction to Pseudo-selectors
 
 Pseudo-selectors, also known as pseudo-classes, allow us to style elements based on their state or position, rather than just their type or attribute.
 
@@ -152,40 +152,32 @@ css
 
 In the example above, the color of text in the #gallery is red. However, paragraphs inside it are blue. Additionally, links turn green when hovered.
 
-### Common Pseudo-selectors
+#### Common Pseudo-selectors
 
 Pseudo-selectors, often termed pseudo-classes, allow developers to target and style HTML elements based on specific conditions, states, or positions rather than solely on their tags or attributes.
 
 Below is a list of commonly-used pseudo-selectors, each paired with a brief description and a link to its documentation on MDN for deeper insights:
 
-- **`:active`**: Targets elements that are currently being activated by the user (like when clicking on a link or button). [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:active)
-  
-- **`:focus`**: Highlights the currently focused element, commonly used with form fields. [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus)
+| Pseudo-Class          | Description                                                                     | MDN Documentation                                                                                  |
+|-----------------------|---------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| `:active`             | Targets elements currently being activated by the user (e.g., clicked links).   | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:active)                               |
+| `:focus`              | Highlights the currently focused element, commonly used with form fields.       | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus)                                |
+| `:hover`              | Styles an element when a user hovers over it with their cursor.                 | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:hover)                                |
+| `:link`               | Targets hyperlinks that haven't been visited by the user.                       | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:link)                                 |
+| `:visited`            | Selects links that have been visited by the user.                               | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:visited)                              |
+| `:checked`            | Targets checked elements like radio buttons or checkboxes.                      | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:checked)                              |
+| `:first-child`        | Targets the first child element inside a parent element.                        | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:first-child)                          |
+| `:last-child`         | Selects the last child element within a parent.                                 | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:last-child)                           |
+| `:nth-child(n)`       | Styles elements based on their position within a parent element.                | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child)                            |
+| `:disabled`           | Targets disabled form controls.                                                | [MDN Docs for `:disabled`](https://developer.mozilla.org/en-US/docs/Web/CSS/:disabled)             |
+| `:enabled`            | Targets enabled form controls.                                                 | [MDN Docs for `:enabled`](https://developer.mozilla.org/en-US/docs/Web/CSS/:enabled)               |
+| `:not(selector)`      | Selects elements that do not match a specified selector.                        | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:not)                                  |
 
-- **`:hover`**: Styles an element when a user hovers over it with their cursor. [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:hover)
-
-- **`:link`**: Targets hyperlinks that haven't been visited by the user. [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:link)
-
-- **`:visited`**: Selects links that have been visited by the user. [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:visited)
-
-- **`:checked`**: Targets checked elements like radio buttons or checkboxes. [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:checked)
-
-- **`:first-child`**: Targets the first child element inside a parent element. [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:first-child)
-
-- **`:last-child`**: Selects the last child element within a parent. [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:last-child)
-
-- **`:nth-child(n)`**: Allows for the styling of elements based on their position in a group. [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child)
-
-- **`:disabled`** and **`:enabled`**: Respectively target disabled and enabled form controls. [MDN Docs for `:disabled`](https://developer.mozilla.org/en-US/docs/Web/CSS/:disabled), [MDN Docs for `:enabled`](https://developer.mozilla.org/en-US/docs/Web/CSS/:enabled)
-
-- **`:not(selector)`**: Targets elements that do not match a specific selector. [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/:not)
-
-
-## Inheritance and Specificity in CSS
+### Inheritance and Specificity in CSS
 
 In the world of CSS, it's crucial to understand how rules cascade and how specificity works. Specificity determines which CSS rule is applied to an element when there are multiple conflicting rules.
 
-### Specificity Hierarchy
+#### Specificity Hierarchy
 
 When two or more CSS rules target the same element but have conflicting styles, the specificity hierarchy determines which rule is applied:
 
@@ -201,15 +193,13 @@ ids > classes, attributes, pseudo-classes > elements, pseudo-elements
 
 Useful tools like [Specificity Calculator](https://specificity.keegan.st/) can help understand and calculate the specificity of your selectors.
 
-## Pseudo-elements in CSS
+### Pseudo-elements in CSS
 
 Pseudo-elements are a powerful feature in CSS, allowing you to style certain parts of a document, or to virtually insert content into the document, without altering the actual HTML structure.
 
-### Concept
+#### Concept
 
 Pseudo-elements are different from pseudo-classes. While pseudo-classes select elements based on their state or position in relation to others (like `:hover` or `:nth-child`), pseudo-elements target specific parts of an element, like the first line or first letter, or they can virtually insert content before or after an element's content.
-
-### Example
 
 Consider this sample:
 
@@ -244,29 +234,24 @@ And the accompanying styles:
 
 In this illustration, the `::first-letter` pseudo-element targets and enlarges the initial letter of each paragraph, coloring it red. The `::before` pseudo-element introduces an arrow symbol (`→`) preceding the anchor text, appearing when hovered.
 
-### Common Pseudo-elements
+#### Common Pseudo-elements
 
 Pseudo-elements target specific parts of elements or create virtual content around them. They're instrumental in achieving certain design patterns and effects without altering the actual HTML content.
 
-- **`::before`**: Inserts virtual content before an element's actual content. Typically used with the `content` property to display strings, icons, or images. [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/::before)
+| Pseudo-Element      | Description                                                                        | MDN Documentation                                                                                   |
+|---------------------|------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| `::before`          | Inserts virtual content before an element's actual content. Typically used with the `content` property. | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/::before)                               |
+| `::after`           | Inserts virtual content after an element's content. Often used with the `content` property. | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/::after)                                |
+| `::first-letter`    | Targets the first letter of block-level elements, useful for drop cap styling.     | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/::first-letter)                         |
+| `::first-line`      | Applies styles to the first line of text within block-level elements.              | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/::first-line)                           |
 
-- **`::after`**: Similarly, it inserts virtual content but after an element's content. Just like `::before`, it's commonly paired with the `content` property. [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/::after)
+Noteworthy Points:
 
-- **`::first-letter`**: Targets the initial letter of block-level elements. This pseudo-element can be handy for design patterns like drop caps. [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/::first-letter)
+- The `content` property is **crucial** for `::before` and `::after` pseudo-elements to render any visual effect. This property specifies what content, if any, these pseudo-elements should display, making it a fundamental aspect of their functionality.
+- Pseudo-elements are purely **styling** tools and do not modify the DOM. They are not part of the source HTML and therefore cannot be directly accessed or manipulated through JavaScript, remaining invisible in the document's structure.
+- As CSS-only constructs, pseudo-elements are **inaccessible** to JavaScript. This limitation is essential to consider when planning interactive elements, as pseudo-elements cannot directly contribute to JavaScript-driven functionality.
 
-- **`::first-line`**: Captures the first line of text within block-level elements, allowing you to apply specific styles to the initial line of a paragraph or a container. [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/::first-line)
-
-### Noteworthy Points
-
-1. **Content Requirement**: For `::before` and `::after` to manifest any visual change, the `content` property is essential. It dictates what content (if any) these pseudo-elements should display.
-
-2. **Non-alteration of the DOM**: Pseudo-elements are a styling aspect only. They won't alter the DOM, meaning they're invisible in the source HTML and can't be accessed directly through JavaScript.
-
-3. **CSS Only**: Being CSS constructs, pseudo-elements are inaccessible from JavaScript, which is essential to remember when considering site interactivity and functionality.
-
-These pseudo-elements, while subtle, empower developers with additional control over design and presentation, enriching the user experience without the need for additional HTML elements.
-
-## Box Model
+### Box Model
 
 The CSS Box Model is a fundamental concept in web design that describes the rectangular boxes which are generated for elements in the document tree and laid out according to the visual formatting model. Each box has a content area and optional surrounding padding, border, and margin areas.
 
@@ -284,8 +269,6 @@ Box
 .                     .
 .......................
 ```
-
-### Example
 
 Let's take a look at a complete example:
 
@@ -311,87 +294,51 @@ Let's take a look at a complete example:
 
 The above example defines a box with a content area of 100x100px, a padding of 10px, a margin of 10px, and a black border with a width of 1px.
 
-### Margins
+#### Margins
 
 Margins create space around an element, separating it from other elements.
 
-- **Top Margin**:
-     - <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin-top">margin-top</a></code>: Defines the space above the element.
-       - Values: `auto` | `length` | `percentage`
+| Property         | Description                            | Values                        | MDN Documentation                                                                                  |
+|------------------|----------------------------------------|-------------------------------|----------------------------------------------------------------------------------------------------|
+| `margin-top`     | Defines the space above the element.   | `auto` \| `length` \| `percentage` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-top)                             |
+| `margin-right`   | Defines the space to the right of the element. | `auto` \| `length` \| `percentage` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-right)                           |
+| `margin-bottom`  | Defines the space below the element.   | `auto` \| `length` \| `percentage` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-bottom)                          |
+| `margin-left`    | Defines the space to the left of the element.  | `auto` \| `length` \| `percentage` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-left)                            |
 
-- **Right Margin**:
-     - <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin-right">margin-right</a></code>: Defines the space to the right of the element.
-       - Values: `auto` | `length` | `percentage`
-
-- **Bottom Margin**:
-     - <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin-bottom">margin-bottom</a></code>: Defines the space below the element.
-       - Values: `auto` | `length` | `percentage`
-
-- **Left Margin**:
-     - <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin-left">margin-left</a></code>: Defines the space to the left of the element.
-       - Values: `auto` | `length` | `percentage`
-
-### Padding
+#### Padding
 
 Padding creates space within an element, between the content and its border.
 
-- **Top Padding**:
-     - <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding-top">padding-top</a></code>: Defines the space between the content and the top border of the element.
-       - Values: `length` | `percentage`
+| Property         | Description                                       | Values                        | MDN Documentation                                                                                  |
+|------------------|---------------------------------------------------|-------------------------------|----------------------------------------------------------------------------------------------------|
+| `padding-top`    | Defines the space between the content and the top border of the element.    | `length` \| `percentage` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-top)                           |
+| `padding-right`  | Defines the space between the content and the right border of the element.  | `length` \| `percentage` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-right)                         |
+| `padding-bottom` | Defines the space between the content and the bottom border of the element. | `length` \| `percentage` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-bottom)                        |
+| `padding-left`   | Defines the space between the content and the left border of the element.   | `length` \| `percentage` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-left)                          |
 
-- **Right Padding**:
-     - <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding-right">padding-right</a></code>: Defines the space between the content and the right border of the element.
-       - Values: `length` | `percentage`
-
-- **Bottom Padding**:
-     - <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding-bottom">padding-bottom</a></code>: Defines the space between the content and the bottom border of the element.
-       - Values: `length` | `percentage`
-
-- **Left Padding**:
-     - <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding-left">padding-left</a></code>: Defines the space between the content and the left border of the element.
-       - Values: `length` | `percentage`
-
-### Border
+#### Border
 
 Borders surround an element, giving it structure and sometimes helping it stand out. You can define the width, style, color, and even use images as borders.
 
-- **Width**:
-     - <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-width">border-width</a></code>: Defines the thickness of the border.
-       - Values: `auto` | `length`
+| Property         | Description                           | Values                                                        | MDN Documentation                                                                                   |
+|------------------|---------------------------------------|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| `border-width`   | Defines the thickness of the border.  | `auto` \| `length`                                            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/border-width)                           |
+| `border-style`   | Determines the pattern or design of the border. | `none` \| `hidden` \| `dotted` \| `dashed` \| `solid` \| `double` \| `groove` \| `ridge` \| `inset` \| `outset` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/border-style)    |
+| `border-color`   | Sets the color of the border.         | Color name, hex, rgba, etc.                                   | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/border-color)                           |
+| `border-radius`  | Creates rounded borders.              | `length` (can set each corner individually)                   | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius)                          |
+| `border-image`   | Uses an image as the border.          | `none` \| image source \| slice \| width \| outset \| repeat  | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/border-image)                           |
 
-- **Style**:
-     - <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-style">border-style</a></code>: Determines the pattern or design of the border.
-       - Values: `none` | `hidden` | `dotted` | `dashed` | `solid` | `double` | `groove` | `ridge` | `inset` | `outset`
-
-- **Color**:
-     - <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-color">border-color</a></code>: Sets the color of the border.
-       - Values: color name, hex, rgba, etc.
-
-- **Radius**:
-     - <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius">border-radius</a></code>: Allows you to create rounded borders.
-       - Values: `length` (can set each corner individually)
-
-- **Image**:
-     - <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-image">border-image</a></code>: Uses an image as the border.
-       - Values: `none` | image source | slice | width | outset | repeat
-
-### Outline
+#### Outline
 
 Outlines are similar to borders but don't take up space. They're often used for focus styles and other UI states.
 
-- **Width**:
-     - <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/outline-width">outline-width</a></code>: Defines the thickness of the outline.
-       - Values: `auto` | `length`
+| Property          | Description                             | Values                                                        | MDN Documentation                                                                                   |
+|-------------------|-----------------------------------------|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| `outline-width`   | Defines the thickness of the outline.   | `auto` \| `length`                                            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/outline-width)                          |
+| `outline-style`   | Determines the pattern or design of the outline. | `none` \| `hidden` \| `dotted` \| `dashed` \| `solid` \| `double` \| `groove` \| `ridge` \| `inset` \| `outset` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/outline-style)    |
+| `outline-color`   | Sets the color of the outline.          | Color name, hex, rgba, etc.                                   | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/outline-color)                          |
 
-- **Style**:
-     - <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/outline-style">outline-style</a></code>: Determines the pattern or design of the outline.
-       - Values: `none` | `hidden` | `dotted` | `dashed` | `solid` | `double` | `groove` | `ridge` | `inset` | `outset`
-
-- **Color**:
-     - <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/outline-color">outline-color</a></code>: Sets the color of the outline.
-       - Values: color name, hex, rgba, etc.
-
-### Advanced Tips
+#### Advanced Tips
 
 When setting the dimensions of an element, be cautious of extremes. An element that is either too small or too large can disrupt the layout and aesthetics of a page. In these cases, special values such as `max-content`, `min-content`, and `fit-content` are valuable:
 
@@ -399,32 +346,44 @@ When setting the dimensions of an element, be cautious of extremes. An element t
 - `max-content`: Expands the element to its largest size based on its content.
 - `fit-content`: Scales the element based on available space and its content size.
 
-
-## Flexbox
+### Flexbox
 
 Flexbox, short for "Flexible Box Layout", is a design model in CSS that allows you to design complex layout structures with a more efficient and predictable way than traditional models, especially when dealing with different screen sizes and dynamic content.
 
-### Flex Container vs. Flex Items
+#### Flex Container vs. Flex Items
 
 When an element is defined as a flex container (using `display: flex` or `display: inline-flex`), its children automatically become flex items. Flexbox involves two sets of properties:
 
 1. **Container Properties**: These are set on the flex container.
-      - `display`: Initiates the flex context (`flex` or `inline-flex`).
-      - `flex-direction`: Defines the main axis direction (`row`, `row-reverse`, `column`, `column-reverse`).
-      - `flex-wrap`: Determines if items should wrap (`nowrap`, `wrap`, `wrap-reverse`).
-      - ... and others like `justify-content`, `align-items`, `align-content`.
+
+| Property           | Description                                                                                              | Values                                                                            |
+|--------------------|----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| `display`          | Initiates the flex context, allowing use of Flexbox properties.                                          | `flex` \| `inline-flex`                                                           |
+| `flex-direction`   | Defines the direction of the main axis, controlling the flow of flex items.                              | `row` \| `row-reverse` \| `column` \| `column-reverse`                            |
+| `flex-wrap`        | Determines whether flex items should wrap onto multiple lines when there isn’t enough space.             | `nowrap` \| `wrap` \| `wrap-reverse`                                              |
+| `justify-content`  | Aligns items along the main axis within the container.                                                   | `flex-start` \| `flex-end` \| `center` \| `space-between` \| `space-around` \| `space-evenly` |
+| `align-items`      | Aligns items along the cross axis within the container.                                                  | `flex-start` \| `flex-end` \| `center` \| `baseline` \| `stretch`                 |
+| `align-content`    | Aligns lines of flex items when there is extra space on the cross axis.                                 | `flex-start` \| `flex-end` \| `center` \| `space-between` \| `space-around` \| `stretch` |
+
 
 2. **Item Properties**: These are set on the flex items.
-      - `flex`: A shorthand for setting `flex-grow`, `flex-shrink`, and `flex-basis`.
-      - `align-self`: Allows an item to override the container's `align-items` property.
-      - ... and others like `order`, `flex-basis`, `flex-grow`, `flex-shrink`.
 
-### Understanding the Axes
+| Property         | Description                                                                                     | Values                                                    |
+|------------------|-------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
+| `flex`           | Shorthand for setting `flex-grow`, `flex-shrink`, and `flex-basis`.                             | `none` \| `auto` \| `<flex-grow> <flex-shrink> <flex-basis>` |
+| `align-self`     | Allows an individual flex item to override the container’s `align-items` property.              | `auto` \| `flex-start` \| `flex-end` \| `center` \| `baseline` \| `stretch` |
+| `order`          | Specifies the order of the flex item within the container.                                      | Integer values, e.g., `0` (default), `1`, `-1`, etc.      |
+| `flex-basis`     | Sets the initial main size of a flex item before any space distribution by `flex-grow` and `flex-shrink`. | `auto` \| `length` \| `percentage`                         |
+| `flex-grow`      | Specifies how much a flex item will grow relative to the rest of the flex items.                | Integer values, e.g., `0` (default), `1`, `2`, etc.       |
+| `flex-shrink`    | Specifies how much a flex item will shrink relative to the rest of the flex items.              | Integer values, e.g., `1` (default), `0`, etc.            |
+
+
+#### Understanding the Axes
 
 Flexbox layout revolves around two axes: the main axis and the cross axis.
 
-1. **Main Axis**: The primary axis along which flex items are laid out. Its direction is determined by the `flex-direction` property.
-2. **Cross Axis**: Perpendicular to the main axis. 
+- The main axis in a flex container is the **primary axis** along which flex items are arranged. The direction of this axis is controlled by the `flex-direction` property, allowing items to be laid out horizontally or vertically.
+- The cross axis is **perpendicular** to the main axis and defines the space across which items are aligned in the flex container. This axis adjusts based on the orientation of the main axis, facilitating flexible and responsive alignment options.
 
 - If `flex-direction` is set to `row` or `row-reverse`, flex items are laid out **horizontally**:
 
@@ -459,8 +418,6 @@ s     ##########
 ```
 
 The cross axis, in this setup, runs horizontally.
-
-### Example
 
 HTML:
 
@@ -525,98 +482,79 @@ Links:
  * https://css-tricks.com/snippets/css/a-guide-to-flexbox/
  * https://yoksel.github.io/flex-cheatsheet/#section-display
 
-### Flexbox Properties
+#### Flexbox Properties
 
 Flexbox introduces a set of properties that provide a more efficient and predictable way to layout, align, and distribute space among items in a container, even when their sizes are unknown or dynamic.
 
-#### Flex Containers
+##### Flex Containers
 
 To create a flex container, use the `display` property:
 
-1. [`display`](https://developer.mozilla.org/en-US/docs/Web/CSS/display): Determines the element's inner and outer display type.
-      - **Values**: `flex` (block-level flex container) | `inline-flex` (inline-level flex container)
+| Property   | Description                                                      | Values                                   | MDN Documentation                                                                 |
+|------------|------------------------------------------------------------------|------------------------------------------|------------------------------------------------------------------------------------|
+| `display`  | Determines the element's inner and outer display type.           | `flex` (block-level) \| `inline-flex` (inline-level) | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/display)              |
 
-#### Ordering and Orientation
+
+##### Ordering and Orientation
 
 Control the order in which items appear and their directional flow:
 
-1. [`order`](https://developer.mozilla.org/en-US/docs/Web/CSS/order): Specifies the order of the flex item relative to its siblings.
-      - **Values**: `<number>` (default: 0)
-2. [`flex-direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction): Defines the direction of the main axis, determining the orientation of flex items.
-      - **Values**: `row` | `row-reverse` | `column` | `column-reverse`
-3. [`flex-wrap`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap): Specifies whether flex items wrap onto multiple lines or columns.
-      - **Values**: `nowrap` | `wrap` | `wrap-reverse`
-4. [`flex-flow`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow): A shorthand property for setting both `flex-direction` and `flex-wrap`.
-      - **Values**: `<flex-direction> || <flex-wrap>`
+| Property          | Description                                                                                     | Values                                                  | MDN Documentation                                                                                   |
+|-------------------|-------------------------------------------------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| `order`           | Specifies the order of the flex item relative to its siblings.                                  | `<number>` (default: `0`)                               | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/order)                                  |
+| `flex-direction`  | Defines the direction of the main axis, determining the orientation of flex items.              | `row` \| `row-reverse` \| `column` \| `column-reverse`  | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)                         |
+| `flex-wrap`       | Specifies whether flex items wrap onto multiple lines or columns.                               | `nowrap` \| `wrap` \| `wrap-reverse`                    | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap)                              |
+| `flex-flow`       | Shorthand property for setting both `flex-direction` and `flex-wrap`.                           | `<flex-direction> || <flex-wrap>`                       | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow)                              |
 
-#### Alignment and Justification
+
+##### Alignment and Justification
 
 Determine how items are aligned and spaced within the flex container:
 
-1. [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items): Describes how flex items are aligned along the cross axis of the flex container.
-      - **Values**: `flex-start` | `flex-end` | `center` | `baseline` | `stretch`
-2. [`align-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content): Aligns flex lines within the flex container when there's extra space in the cross-axis.
-      - **Values**: `flex-start` | `flex-end` | `center` | `space-between` | `space-around` | `stretch`
-3. [`justify-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content): Defines how flex items are spaced along the main axis.
-      - **Values**: `flex-start` | `flex-end` | `center` | `space-between` | `space-around` | `space-evenly`
+| Property           | Description                                                                                          | Values                                                                          | MDN Documentation                                                                                      |
+|--------------------|------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| `align-items`      | Aligns flex items along the cross axis of the flex container.                                        | `flex-start` \| `flex-end` \| `center` \| `baseline` \| `stretch`              | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)                               |
+| `align-content`    | Aligns flex lines within the container when there’s extra space in the cross-axis.                   | `flex-start` \| `flex-end` \| `center` \| `space-between` \| `space-around` \| `stretch` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content)                             |
+| `justify-content`  | Defines how flex items are spaced along the main axis.                                               | `flex-start` \| `flex-end` \| `center` \| `space-between` \| `space-around` \| `space-evenly` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content)                           |
 
-#### Flexibility of Items
+
+##### Flexibility of Items
 
 Define how flex items grow and shrink:
 
-1. [`flex`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex): A shorthand to set the `flex-grow`, `flex-shrink`, and `flex-basis` properties.
-      - **Values**: `<flex-grow> <flex-shrink> <flex-basis>`
-2. [`flex-grow`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow): Specifies the flex item's ability to grow relative to other items.
-      - **Values**: `<number>` (default: 0)
-3. [`flex-shrink`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink): Defines the flex item's ability to shrink relative to other items.
-      - **Values**: `<number>` (default: 1)
-4. [`flex-basis`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis): Defines the default size of a flex item before the available space is distributed.
-      - **Values**: `auto` | `<length>` | `<percentage>`
+| Property         | Description                                                                                   | Values                                          | MDN Documentation                                                                                  |
+|------------------|-----------------------------------------------------------------------------------------------|-------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| `flex`           | Shorthand to set the `flex-grow`, `flex-shrink`, and `flex-basis` properties.                 | `<flex-grow> <flex-shrink> <flex-basis>`        | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)                                  |
+| `flex-grow`      | Specifies the flex item’s ability to grow relative to other items.                            | `<number>` (default: `0`)                       | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow)                             |
+| `flex-shrink`    | Defines the flex item’s ability to shrink relative to other items.                            | `<number>` (default: `1`)                       | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink)                           |
+| `flex-basis`     | Sets the default size of a flex item before space distribution among items.                   | `auto` \| `<length>` \| `<percentage>`          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis)                            |
 
 Leveraging these properties allows for sophisticated layout designs that adapt gracefully across different screen sizes and resolutions.
 
-### Noteworthy Points
+Noteworthy Points:
 
 - Flexbox layouts adapt to the size of the container and the size of the content. This makes it great for creating responsive designs without depending heavily on media queries.
-
 - Flex items will, by default, try to fit onto one line. Use the `flex-wrap` property if you want items to wrap onto multiple lines.
-
 - Flexbox also provides tools for alignment, distribution, and spacing of items, using properties like `align-items`, `justify-content`, and `gap`.
 
-## Special Styling Elements
+### Special Styling Elements
 
 Certain elements in CSS come with a unique set of styling options. One such element is the list, with its associated markers.
 
-### Lists & Markers
+#### Lists & Markers
 
 In web design, lists are ubiquitous. CSS provides granular control over the appearance and positioning of list items and their markers.
 
-#### Key Properties
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/list-style">list-style</a></code>**: Defines an element's list style.
-      - `none`: No style is applied.
-      - Composite value: A combination of `list-style-type`, `list-style-position`, and `list-style-image`.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type">list-style-type</a></code>**: Specifies the type of list marker.
-      - Common values: `disc`, `circle`, `square`, `decimal`, `decimal-leading-zero`, `lower-roman`, `upper-roman`.
-      - More unique values: `lower-greek`, `lower-latin`, `upper-latin`, `armenian`, `georgian`, `none`.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-position">list-style-position</a></code>**: Determines the position of the marker relative to the list item content.
-      - `inside`: The marker is placed inside the list item box.
-      - `outside`: The marker is outside the list item box, creating an indent.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-image">list-style-image</a></code>**: Allows you to use an image as the list item marker.
-      - `url("path_to_image")`: Specifies the URL path to the image to be used as the marker.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/marker-offset">marker-offset</a></code>**: (Deprecated) Specifies the distance between a marker and the principal block box's nearest border edges.
-      - `auto`: The browser determines the offset.
-      - Length values (e.g., `5px`, `1em`): Defines a specific distance.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/marker-start">marker-start</a></code>**: (Deprecated in favor of SVG's `marker` attribute) Specifies a marker to be used at the start of lines.
+| Property             | Description                                                                   | Values                                                                                  | MDN Documentation                                                                                      |
+|----------------------|-------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| `list-style`         | Defines an element's list style, including type, position, and image.         | `none` \| `<list-style-type> <list-style-position> <list-style-image>`                  | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style)                                |
+| `list-style-type`    | Specifies the type of list marker.                                            | `disc` \| `circle` \| `square` \| `decimal` \| `lower-roman` \| `upper-roman` \| etc.   | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type)                           |
+| `list-style-position`| Determines the marker’s position relative to the list item content.           | `inside` \| `outside`                                                                   | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-position)                       |
+| `list-style-image`   | Allows using an image as the list item marker.                                | `url("path_to_image")`                                                                  | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-image)                          |
+| `marker-offset`      | *(Deprecated)* Sets the distance between the marker and the nearest border edge of the list item box. | `auto` \| `<length>`                                                                    | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/marker-offset)                             |
+| `marker-start`       | *(Deprecated)* Specifies a marker for the start of lines, replaced by SVG `marker` attribute. | Depends on SVG marker settings                                                          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/marker-start)                              |
 
 Understanding these properties allows developers to create more visually appealing lists and enhances the user experience by making content more digestible and organized.
-
-#### Example
 
 HTML:
 
@@ -651,33 +589,17 @@ li {
 
 In the above example, we have a list with three items. The list is set to display: inline-block. This means that the items will be displayed horizontally as opposed to the default vertical. The items are distinguished by a border and a box-shadow.
 
-### Table
+#### Table
 
 Tables in CSS are designed to structure tabular data. They come with a rich set of properties that offer detailed styling options to enhance their appearance and usability.
 
-### Key Styling Properties
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout">table-layout</a></code>**: Determines the algorithm used to layout the table cells, rows, and columns.
-      - `auto`: Uses the content's width to adjust the column widths. This might cause slower rendering for large tables.
-      - `fixed`: The horizontal layout only depends on the table's width and the width of columns, not the contents of its cells. It provides faster rendering.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-collapse">border-collapse</a></code>**: Specifies whether cell borders are collapsed into a single border or detached as in standard HTML.
-      - `collapse`: Borders are merged into a single border where possible.
-      - `separate`: Borders are split; each cell displays its own border.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-spacing">border-spacing</a></code>**: Determines the spacing between the borders of adjacent cells when `border-collapse` is set to `separate`. 
-      - Length values (e.g., `2px 4px`): The first value defines horizontal spacing and the second defines vertical spacing.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/caption-side">caption-side</a></code>**: Specifies the position of the table's caption.
-      - `top`: The caption is displayed above the table.
-      - `bottom`: The caption is displayed below the table.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/empty-cells">empty-cells</a></code>**: Determines the visibility of borders and backgrounds of empty cells.
-      - `show`: Show the borders and background, even if the cell is empty.
-      - `hide`: No borders or background are shown if the cell is empty.
-
-#### Example
-
+| Property          | Description                                                                                   | Values                                                                                           | MDN Documentation                                                                                       |
+|-------------------|-----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| `table-layout`    | Determines the algorithm used to layout the table cells, rows, and columns.                   | `auto` \| `fixed`                                                                                | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout)                               |
+| `border-collapse` | Specifies whether cell borders are collapsed into a single border or detached.                | `collapse` \| `separate`                                                                         | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/border-collapse)                            |
+| `border-spacing`  | Defines spacing between the borders of adjacent cells when `border-collapse` is set to `separate`. | `<length> <length>` (e.g., `2px 4px`)                                                        | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/border-spacing)                             |
+| `caption-side`    | Specifies the position of the table's caption.                                                | `top` \| `bottom`                                                                                | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/caption-side)                               |
+| `empty-cells`     | Determines the visibility of borders and backgrounds of empty cells.                          | `show` \| `hide`                                                                                 | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/empty-cells)                                |
 HTML:
 
 ```html
@@ -720,66 +642,29 @@ th, td {
   <img src="https://user-images.githubusercontent.com/37275728/185166325-58e220dc-4d57-4292-bb30-141baa3abb7f.PNG" width=400 />
 </p>
 
-### Text
+#### Text
 
 Text is a fundamental aspect of web design, and CSS offers an extensive suite of properties to style text with precision. From basic color settings to intricate shadow effects, text styling can be as simple or as detailed as the design requires.
 
-### Key Text Styling Properties
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color">color</a></code>**: Specifies the color of the text.
-      - Can be defined using HEX, RGB, RGBA, HSL, or named colors.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/direction">direction</a></code>**: Sets the direction in which text is written.
-      - `ltr`: Left to Right (default for most languages).
-      - `rtl`: Right to Left (common for Arabic, Hebrew).
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing">letter-spacing</a></code>**: Adjusts the space between characters.
-      - Can be defined using units like `px`, `em`, `rem`, etc.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/line-height">line-height</a></code>**: Determines the height of a line box.
-      - `normal`: Default line height.
-      - Number values (e.g., `1.5`), or units like `px`, `em`.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-align">text-align</a></code>**: Aligns the inline content like text.
-      - Values: `start`, `end`, `left`, `right`, `center`, `justify`.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration">text-decoration</a></code>**: Adds decorative lines to text.
-      - Values: `none`, `underline`, `overline`, `line-through`. (Note: `blink` is deprecated.)
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-indent">text-indent</a></code>**: Indents the first line of a text block.
-      - Can be defined using units like `px`, `em`, `rem`, etc.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform">text-transform</a></code>**: Controls the capitalization of text.
-      - Values: `capitalize`, `uppercase`, `lowercase`, `none`.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align">vertical-align</a></code>**: Sets the vertical positioning of an element relative to its parent or the line height.
-      - Values include: `baseline`, `sub`, `super`, `top`, `text-top`, `middle`, `bottom`, `text-bottom`, and units like `px`, `em`.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/white-space">white-space</a></code>**: Specifies how whitespace inside an element is handled.
-      - Values: `normal`, `pre`, `nowrap`, `pre-wrap`, `pre-line`.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/word-spacing">word-spacing</a></code>**: Adjusts the space between words.
-      - Can be defined using units like `px`, `em`, `rem`, etc.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-outline">text-outline</a></code>** (Note: not standard): Defines an outline for the text.
-      - Values: `none`, `color`, `width`, `style`, or combined as `[ color, width, style ]`.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow">text-overflow</a></code>**: Specifies how overflowed content is signaled to the user.
-      - Values: `clip`, `ellipsis`.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow">text-shadow</a></code>**: Adds shadow effects to the text.
-      - Values can include `color`, `offset-x`, `offset-y`, and `blur-radius`.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-wrap">text-wrap</a></code>** (Note: not standard): Specifies line breaking rules.
-      - Values: `normal`, `none`, `break-word`.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/word-break">word-break</a></code>**: Controls how lines should break in case of long words or overflow.
-      - Values: `normal`, `break-all`, `keep-all`.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/word-wrap">word-wrap</a></code>**: Specifies whether to break words when they overflow the content box.
-      - Values: `normal`, `break-word`.
-
-#### Example
+| Property           | Description                                                                  | Values                                                                                  | MDN Documentation                                                                                          |
+|--------------------|------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| `color`            | Specifies the color of the text.                                             | HEX, RGB, RGBA, HSL, or named colors                                                    | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/color)                                          |
+| `direction`        | Sets the direction in which text is written.                                 | `ltr` \| `rtl`                                                                          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/direction)                                      |
+| `letter-spacing`   | Adjusts the space between characters.                                        | Units like `px`, `em`, `rem`                                                            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing)                                 |
+| `line-height`      | Determines the height of a line box.                                         | `normal` \| Number values \| Units like `px`, `em`                                      | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height)                                    |
+| `text-align`       | Aligns the inline content, such as text.                                     | `start` \| `end` \| `left` \| `right` \| `center` \| `justify`                          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align)                                     |
+| `text-decoration`  | Adds decorative lines to text.                                               | `none` \| `underline` \| `overline` \| `line-through`                                   | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration)                                |
+| `text-indent`      | Indents the first line of a text block.                                      | Units like `px`, `em`, `rem`                                                            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-indent)                                    |
+| `text-transform`   | Controls the capitalization of text.                                         | `capitalize` \| `uppercase` \| `lowercase` \| `none`                                    | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform)                                 |
+| `vertical-align`   | Sets the vertical positioning of an element relative to its parent or line height. | `baseline` \| `sub` \| `super` \| `top` \| `text-top` \| `middle` \| `bottom` \| `text-bottom` \| Units like `px`, `em` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align)   |
+| `white-space`      | Specifies how whitespace inside an element is handled.                       | `normal` \| `pre` \| `nowrap` \| `pre-wrap` \| `pre-line`                               | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/white-space)                                    |
+| `word-spacing`     | Adjusts the space between words.                                             | Units like `px`, `em`, `rem`                                                            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/word-spacing)                                  |
+| `text-outline`     | *(Non-standard)* Defines an outline for the text.                            | `none` \| `color` \| `width` \| `style`                                                 | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-outline)                                   |
+| `text-overflow`    | Specifies how overflowed content is signaled to the user.                    | `clip` \| `ellipsis`                                                                    | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow)                                 |
+| `text-shadow`      | Adds shadow effects to the text.                                             | `color`, `offset-x`, `offset-y`, `blur-radius`                                          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow)                                   |
+| `text-wrap`        | *(Non-standard)* Specifies line breaking rules.                              | `normal` \| `none` \| `break-word`                                                      | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-wrap)                                     |
+| `word-break`       | Controls how lines should break in case of long words or overflow.           | `normal` \| `break-all` \| `keep-all`                                                   | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/word-break)                                    |
+| `word-wrap`        | Specifies whether to break words when they overflow the content box.         | `normal` \| `break-word`                                                                | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/word-wrap)                                     |
 
 HTML:
 
@@ -806,11 +691,11 @@ p {
 
 In the above example, we have a paragraph. The text in the paragraph is set to be bold, centered and surrounded by a shadow. The font-family is selected to be sans-serif and the font-size is set to 1.5em.
 
-## Style
+### Style
 
 CSS provides a suite of generic styling properties that can be applied universally across elements. Two commonly used properties are `font` and `color`. While `font` dictates the appearance and style of text, `color` sets the foreground color for text and other graphical elements.
 
-### Font
+#### Font
 
 Fonts play a pivotal role in establishing the visual identity of a website. With the advent of web fonts, designers are no longer restricted to a few standard system fonts. Today, a vast collection of fonts can be easily integrated into web projects to achieve the desired typography.
 
@@ -826,24 +711,16 @@ Steps to Incorporate Custom Fonts:
 3. Insert the link or code snippet into the `<head>` section of your HTML file.
 4. Reference the font in your CSS using the `font-family` property.
  
-#### Key Font Properties:
+| Property       | Description                                | Values                                                                | MDN Documentation                                                                                          |
+|----------------|--------------------------------------------|-----------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| `font-style`   | Dictates the style of a font.              | `normal` \| `italic` \| `oblique`                                     | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/font-style)                                     |
+| `font-weight`  | Determines the thickness of characters.    | `normal` \| `bold` \| `bolder` \| `lighter` \| `100` - `900`          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight)                                    |
+| `font-size`    | Specifies the size of the font.            | Units like `px`, `em`, `rem`, `%`, etc.                               | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size)                                      |
+| `font-family`  | Defines which font should be used.         | Font names in quotes, e.g., `"Helvetica, sans-serif"`                 | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family)                                    |
+| `font-variant` | Controls font variants, mainly for capitalized text. | `normal` \| `small-caps`                                              | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant)                                   |
 
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-style">font-style</a></code>**: Dictates the style of a font.
-      - Options: `normal`, `italic`, `oblique`.
 
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight">font-weight</a></code>**: Determines the thickness of characters in a font.
-      - Options: `normal`, `bold`, `bolder`, `lighter`, ranging from `100` (thinnest) to `900` (thickest).
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-size">font-size</a></code>**: Specifies the size of a font.
-      - Can be defined using units like `px`, `em`, `rem`, `%`, etc.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-family">font-family</a></code>**: Defines which font should be used.
-      - Typically defined using the font name in quotes (e.g., `"Helvetica, sans-serif"`).
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant">font-variant</a></code>**: Controls font variants, mainly for capitalized text.
-      - Options: `normal`, `small-caps`.
-
-#### Example
+Example:
 
 ```css
 p { 
@@ -863,19 +740,16 @@ In the example above, the font-family is set to "Helvetica Neue", which is a fon
 
 Web fonts have reshaped the landscape of web typography. Platforms like Google Fonts and Adobe Fonts host a myriad of fonts, ensuring websites can have unique and tailored typography. When using custom fonts, it's vital to ensure they're web-optimized for performance and that fallback fonts are specified to cater to users with limited font access or slow internet connections.
 
-### Colors
+#### Colors
 
 In web design, colors have a profound influence on user experience and branding. CSS provides diverse methods to assign colors to HTML elements. Besides color, you can also control an element's transparency or opacity, impacting how underlying content might be visible through it.
 
-#### Fundamental Color Properties:
+| Property  | Description                                     | Values                                              | MDN Documentation                                                                                      |
+|-----------|-------------------------------------------------|-----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| `color`   | Specifies the foreground color of an element.   | HEX, RGB, RGBA, HSL, HSLA, color names               | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/color)                                      |
+| `opacity` | Determines the transparency level of an element.| Range from `0.0` (fully transparent) to `1.0` (fully opaque) | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/opacity)                                    |
 
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color">color</a></code>**: Specifies the foreground color of an element.
-      - Accepts a variety of color formats.
-
-- **<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/opacity">opacity</a></code>**: Determines the transparency level of an element.
-      - Range: `0.0` (fully transparent) to `1.0` (fully opaque).
-
-#### Common Methods to Define Colors:
+Common Methods to Define Colors:
 
 - **Color Names**: Human-friendly names for colors. Examples include `red`, `blue`, and `goldenrod`.
 - **RGB**: Specifies colors using Red, Green, and Blue values. Example: `rgb(255, 0, 0)` yields red.
@@ -883,8 +757,6 @@ In web design, colors have a profound influence on user experience and branding.
 - **HEX**: Uses hexadecimal values to define colors. Example: `#ff0000` represents red.
 - **HSL**: Represents colors using Hue, Saturation, and Lightness. Useful for creating color variations.
 - **HSLA**: Combines HSL with an Alpha channel for transparency control.
-
-#### Example
 
 HTML:
 
@@ -914,37 +786,25 @@ CSS:
 
 The background color of the container is set to a dark greenish color in the example above, but it will appear lighter since the opacity is set to 50%. The font color is set to a light grayish color to provide contrast against the background.
 
-#### Additional explanations
+##### Additional explanations
 
 The color you choose in design can evoke emotions, deliver messages, and even influence decision-making. Being adept at using various color definitions in CSS can empower designers to create visually striking and user-friendly interfaces. 
 
 While HEX and RGB are ubiquitous methods for setting colors, HSL can be more intuitive when making adjustments or creating color schemes. Furthermore, the inclusion of an alpha channel in RGBA and HSLA allows designers to introduce varying levels of transparency, perfect for layered designs and overlays.
 
-### Background
+#### Background
 
 Backgrounds serve as a foundation for web elements. Whether it's a vivid color, a subtle gradient, or an evocative image, the background can enhance or soften content, guiding users' attention and enriching the visual experience.
 
-#### Core Background Properties
+| Property            | Description                                                   | Values                                                   | MDN Documentation                                                                                             |
+|---------------------|---------------------------------------------------------------|----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| `background-color`  | Defines the solid background color of an element.             | Any valid color value (HEX, RGB, HSL, color names)       | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color)                                 |
+| `background-image`  | Sets an image or gradient as the element's background.        | `none` \| `url(path_to_image)`                           | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image)                                 |
+| `background-position` | Specifies the starting position of the background image.    | `top left` \| `center center` \| `10px 20px`             | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position)                              |
+| `background-repeat` | Determines if/how the background image will repeat.           | `repeat` \| `repeat-x` \| `repeat-y` \| `no-repeat`      | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat)                                |
+| `background-attachment` | Specifies if the background image scrolls with content or remains fixed. | `scroll` \| `fixed` \| `local`                      | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-attachment)                            |
+| `background-size`   | Indicates the size of the background images.                  | `cover` \| `contain` \| `50% 50%`                        | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size)                                  |
 
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-color">background-color</a>**: Defines the solid background color of an element.
-      - Accepts any valid color value.
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-image">background-image</a>**: Sets an image or gradient as the element's background.
-      - Value: `none` or `url(path_to_image)`.
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-position">background-position</a>**: Specifies the starting position of the background image.
-      - Examples: `top left`, `center center`, `10px 20px`.
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat">background-repeat</a>**: Determines if/how the background image will repeat.
-      - Options: `repeat`, `repeat-x`, `repeat-y`, `no-repeat`.
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-attachment">background-attachment</a>**: Specifies if the background image scrolls with the content or remains fixed.
-      - Values: `scroll`, `fixed`, `local`.
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-size">background-size</a>**: Indicates the size of the background images.
-      - Examples: `cover`, `contain`, `50% 50%`.
-
-#### Example
 
 Let's take a look at the following example:
 
@@ -971,39 +831,28 @@ p {
 
 In the example above, the background color of the div is set to dark green, and the background color of the paragraphs is set to light gray.
 
-#### Additional explanations
+##### Additional explanations
 
 CSS offers impressive flexibility with backgrounds. Beyond mere solid colors:
 
-- **Gradients**: These enable smooth transitions between multiple colors. With CSS, you can craft both linear gradients (where colors transition side-by-side) and radial gradients (where colors transition in a circular pattern).
+- Gradients allow for **smooth transitions** between multiple colors, enhancing visual appeal. CSS provides options for both linear gradients, where colors shift side-by-side, and radial gradients, where colors transition in a circular pattern, enabling diverse styling possibilities.
+- Images in the background can act as **decorative elements**, textures, or even full-screen backdrops. Using properties like `background-size`, `background-position`, and `background-repeat`, designers can customize images to suit various aesthetic goals and functional requirements.
 
-- **Images**: They can serve as decorative patterns, textures, or even immersive full-screen backdrops. By manipulating properties like `background-size`, `background-position`, and `background-repeat`, designers can tailor images to fit various aesthetic and functional needs.
-
-## Positioning
+### Positioning
 
 Positioning elements on a web page is a fundamental task in web design. CSS provides multiple methods to achieve desired layouts and presentations.
 
-### Core Positioning Properties
+Core Positioning Properties
 
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">position</a>**: Determines the positioning method used for an element.
-     - Values: `static`, `relative`, `absolute`, `fixed`, `sticky`.
+| Property      | Description                                                      | Values                                                                                 | MDN Documentation                                                                                     |
+|---------------|------------------------------------------------------------------|----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| `position`    | Determines the positioning method used for an element.           | `static` \| `relative` \| `absolute` \| `fixed` \| `sticky`                            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/position)                                  |
+| `float`       | Specifies how an element should float.                           | `none` \| `left` \| `right`                                                            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/float)                                     |
+| `clear`       | Sets which sides of an element will not be adjacent to floating elements. | `none` \| `left` \| `right` \| `both`                                           | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/clear)                                     |
+| `display`     | Dictates the display box type of an element.                     | `inline` \| `block` \| `inline-block` \| `table` \| `table-row` \| `table-cell` \| `none` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/display)                                   |
+| `visibility`  | Defines if an element is visible.                                | `visible` \| `hidden` \| `collapse`                                                   | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/visibility)                                |
+| `overflow`    | Controls what happens to content that overflows its box.         | `visible` \| `hidden` \| `scroll` \| `auto`                                           | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow)                                  |
 
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float">float</a>**: Specifies how an element should float.
-     - Options: `none`, `left`, `right`.
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clear">clear</a>**: Sets which sides of an element will not be adjacent to earlier floating elements.
-     - Values: `none`, `left`, `right`, `both`.
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display">display</a>**: Dictates the display box type of an element.
-     - Options: `inline`, `block`, `inline-block`, `table`, `table-row`, `table-cell`, `none`.
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/visibility">visibility</a>**: Defines if an element is visible.
-     - Choices: `visible`, `hidden`, `collapse`.
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow">overflow</a>**: Controls what happens to content that overflows its box.
-     - Values: `visible`, `hidden`, `scroll`, `auto`.
-
-#### Example
 
 HTML:
 
@@ -1064,62 +913,49 @@ CSS:
 
 In the example above, the parent element has a narrow rectangular border. The first child element is positioned absolutely, whereas the second is positioned relatively. The other elements have default (static) positioning.
 
-### Additional explanations
-
 Position Property:
-- **Static**: The default position. Elements are ordered as they appear in the HTML document.
-- **Relative**: Elements are positioned relative to their normal position, but don't affect the position of adjacent elements.
-- **Absolute**: Elements are positioned relative to their closest positioned ancestor. If none exists, it's relative to the initial container.
-- **Fixed**: Positioned relative to the viewport. The element stays fixed even during scrolling.
-- **Sticky**: A hybrid of relative and fixed. The element is treated as relative until a given scroll point, after which it acts as fixed.
+
+| Position Value | Description                                                                                                                   |
+|----------------|-------------------------------------------------------------------------------------------------------------------------------|
+| `Static`       | The default position. Elements are ordered as they appear in the HTML document.                                               |
+| `Relative`     | Elements are positioned relative to their normal position but do not affect the position of adjacent elements.                |
+| `Absolute`     | Elements are positioned relative to their closest positioned ancestor. If none exists, it is relative to the initial container. |
+| `Fixed`        | Positioned relative to the viewport, so the element stays fixed even during scrolling.                                        |
+| `Sticky`       | A hybrid of relative and fixed. The element behaves as relative until a given scroll point, after which it acts as fixed.     |
 
 Display Property:
-- **Inline**: Elements are in line with adjacent elements. Respects left/right margins and padding, but not top/bottom. Width and height cannot be set.
-- **Block**: Elements form a block, breaking onto a new line. They respect all margins and padding and occupy the full width by default.
-- **Inline-block**: Elements are inline, but can have properties like block elements. Useful for buttons or items in a horizontal navigation.
+
+| Display Value   | Description                                                                                                                                                           |
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Inline`        | Elements are in line with adjacent elements. Respects left/right margins and padding, but not top/bottom. Width and height cannot be set.                             |
+| `Block`         | Elements form a block, breaking onto a new line. They respect all margins and padding and occupy the full width by default.                                           |
+| `Inline-block`  | Elements are inline but can have properties like block elements, such as width and height. Useful for buttons or items in a horizontal navigation.                    |
 
 Lastly, always remember that with the evolving nature of CSS and web design, utilizing developer tools in browsers and referencing platforms like MDN can help keep your understanding current and your designs sharp.
 
 ![Screenshot from 2022-10-11 20-46-35](https://user-images.githubusercontent.com/37275728/195174303-2330e847-fcb9-4c86-9b38-13130dd010e6.png)
 
-## Animations and Dynamic Effects
+### Animations and Dynamic Effects
 
 In the digital era, motion design plays a pivotal role in enhancing user experience. CSS3, the third level of Cascading Style Sheets, offers a wide variety of animation capabilities to bring life to web elements and improve user interaction.
 
-### Animations
+#### Animations
 
 CSS animations allow elements to transition between styles over a set duration and through specified keyframes. This means an element can smoothly shift from one style to another over a given time period.
 
-#### Core Animation Properties
+Core Animation Properties
 
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation">animation</a>**: A shorthand property to set multiple animation properties at once.
-     - Values: `animation-name`, `animation-duration`, `animation-timing-function`, `animation-delay`, `animation-iteration-count`, `animation-direction`, `animation-fill-mode`, and `animation-play-state`.
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-name">animation-name</a>**: Names the animation for reference.
-     - Value type: `string` (name of the keyframes)
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration">animation-duration</a>**: Specifies how long the animation takes for a single cycle.
-     - Value type: `time` (e.g., `2s` or `200ms`)
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function">animation-timing-function</a>**: Describes the pacing of the animation.
-     - Common values: `linear`, `ease`, `ease-in`, `ease-out`, `ease-in-out`.
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-delay">animation-delay</a>**: Sets a delay before the animation starts.
-     - Value type: `time`.
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count">animation-iteration-count</a>**: Dictates how many times the animation plays.
-     - Value type: `number` or `infinite`.
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-direction">animation-direction</a>**: Determines the direction of the animation.
-     - Values: `normal`, `reverse`, `alternate`, `alternate-reverse`.
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-fill-mode">animation-fill-mode</a>**: Defines what values are applied before/after the animation.
-     - Values: `none`, `forwards`, `backwards`, `both`.
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-play-state">animation-play-state</a>**: Determines whether the animation is running or paused.
-     - Values: `running`, `paused`.
-
-#### Example
+| Property                  | Description                                                             | Values                                                                                               | MDN Documentation                                                                                             |
+|---------------------------|-------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| `animation`               | Shorthand to set multiple animation properties at once.                | `animation-name`, `animation-duration`, `animation-timing-function`, `animation-delay`, `animation-iteration-count`, `animation-direction`, `animation-fill-mode`, `animation-play-state` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/animation)                                         |
+| `animation-name`          | Names the animation for reference.                                      | `string` (name of the keyframes)                                                                     | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-name)                                   |
+| `animation-duration`      | Specifies how long the animation takes for a single cycle.              | `time` (e.g., `2s`, `200ms`)                                                                         | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration)                               |
+| `animation-timing-function` | Describes the pacing of the animation.                                | `linear`, `ease`, `ease-in`, `ease-out`, `ease-in-out`                                               | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function)                        |
+| `animation-delay`         | Sets a delay before the animation starts.                               | `time`                                                                                               | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-delay)                                  |
+| `animation-iteration-count` | Dictates how many times the animation plays.                          | `number` or `infinite`                                                                               | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count)                        |
+| `animation-direction`     | Determines the direction of the animation.                              | `normal`, `reverse`, `alternate`, `alternate-reverse`                                                | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-direction)                              |
+| `animation-fill-mode`     | Defines what values are applied before/after the animation.             | `none`, `forwards`, `backwards`, `both`                                                              | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-fill-mode)                              |
+| `animation-play-state`    | Determines whether the animation is running or paused.                  | `running`, `paused`                                                                                  | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-play-state)                             |
 
 HTML:
 
@@ -1159,8 +995,6 @@ CSS:
 
 The animation changes the background color of the box from <code>#3D9970</code> to <code>#85144b</code> and back again. It repeats every 3 seconds and runs forever.
 
-#### Additional Insights
-
 To create CSS animations, you'll define `@keyframes` that set the styling for different stages or "frames" of the animation. These `@keyframes` can be referenced using the `animation-name` property.
 
 ```css
@@ -1184,31 +1018,18 @@ element {
 
 This CSS rule applies the slideIn animation to the element over a 2-second duration with an ease-in-out timing function. The possibilities are vast—allowing for rich, interactive, and engaging web designs.
 
-### 2D/3D Transform
+#### 2D/3D Transform
 
 In modern web design, the ability to animate and transform elements has become a staple. CSS offers a powerful suite of properties to apply 2D and 3D transformations to elements, granting designers and developers the capacity to change an element's position, size, and orientation in creative ways.
 
-### Quick Overview
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform">transform</a>**: Applies a 2D or 3D transformation to an element.
-     - Values: `none`, `matrix`, `translate`, `translateX`, `translateY`, `translateZ`, `scale`, `scaleX`, `scaleY`, `scaleZ`, `rotate`, `rotateX`, `rotateY`, `rotateZ`, `skew`, `skewX`, `skewY`, `matrix3d`, `translate3d`, `translateX3d`, `translateY3d`, `translateZ3d`, `scale3d`, `scaleX3d`, `scaleY3d`, `scaleZ3d`, `rotate3d`, `rotateX3d`, `rotateY3d`, `rotateZ3d`, `perspective`.
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin">transform-origin</a>**: Defines the point around which a transformation is applied.
-     - Values: `origin-x origin-y origin-z` (e.g., `50% 50%` or `center center`).
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style">transform-style</a>**: Specifies how nested elements are rendered in 3D space.
-     - Values: `flat`, `preserve-3d`.
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/perspective">perspective</a>**: Determines the distance between the viewer and the z=0 plane, affecting the 3D transformation.
-     - Value type: `length` (e.g., `1000px`).
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/perspective-origin">perspective-origin</a>**: Establishes the origin for the perspective property.
-     - Value type: `length` or percentage (e.g., `50% 50%`).
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility">backface-visibility</a>**: Defines whether the back face of an element is visible when it's turned towards the viewer.
-     - Values: `visible`, `hidden`.
-    
-#### Example
+| Property              | Description                                                                          | Values                                                                                       | MDN Documentation                                                                                               |
+|-----------------------|--------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| `transform`           | Applies a 2D or 3D transformation to an element.                                     | `none`, `matrix`, `translate`, `translateX`, `translateY`, `scale`, `rotate`, `skew`, `perspective`, and 3D variants such as `translate3d`, `rotate3d`, etc.  | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transform)                                          |
+| `transform-origin`    | Defines the point around which a transformation is applied.                          | `origin-x origin-y origin-z` (e.g., `50% 50%` or `center center`)                             | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin)                                   |
+| `transform-style`     | Specifies how nested elements are rendered in 3D space.                              | `flat` \| `preserve-3d`                                                                      | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style)                                    |
+| `perspective`         | Determines the distance between the viewer and the z=0 plane, affecting 3D transformations. | `length` (e.g., `1000px`)                                                                     | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective)                                        |
+| `perspective-origin`  | Establishes the origin for the perspective property.                                 | `length` or percentage (e.g., `50% 50%`)                                                     | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective-origin)                                 |
+| `backface-visibility` | Defines whether the back face of an element is visible when turned towards the viewer.| `visible` \| `hidden`                                                                        | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility)                               |
 
 HTML:
 
@@ -1236,38 +1057,24 @@ CSS:
 
 The box element is rotated by 45 degrees first, then translated to the right by 100 pixels. 
 
-#### Additional Insights
+Additional Insights:
 
-1. **Transformations**: These operations include moving (`translate`), scaling (`scale`), rotating (`rotate`), and skewing (`skew`). These can be applied in both 2D and 3D space. For instance, `rotateX` will revolve the element around its X-axis in 3D space.
+- Transformations in CSS encompass various **operations** such as moving (`translate`), scaling (`scale`), rotating (`rotate`), and skewing (`skew`). These can be implemented in both 2D and 3D spaces, allowing for versatile adjustments like revolving an element around its X-axis with `rotateX` in 3D.
+- By default, transformations are based around the **center** of an element. The `transform-origin` property, however, lets you change this pivot point, enabling transformations around specific points such as a corner, which can be especially useful for precise rotation effects.
+- In 3D transformations, both `transform-style` and `perspective` play important roles by introducing **depth**. The `transform-style` property allows child elements to be placed in 3D space, while `perspective` adds a realistic depth effect, making the 3D transformations more visually engaging.
+- The `backface-visibility` property controls the **visibility** of an element’s reverse side in 3D space. This feature is useful when, for example, you want to hide the back side of a card during a flip animation, keeping only the front view visible to the user.
 
-2. **Origin of Transformation**: By default, transformations occur around the center of an element. However, with `transform-origin`, you can change this pivot point. This is especially useful when you want an element to rotate around its corner or any other specific point.
-
-3. **3D Space**: When dealing with 3D transformations, `transform-style` and `perspective` come into play. The former allows child elements to be positioned in 3D space, and the latter gives a sense of depth.
-
-4. **Visibility**: With `backface-visibility`, you can control the visibility of the reverse side of an element in 3D space. This can be helpful when you don't want the back of a flipped card, for example, to be shown.
-
-### Transition
+#### Transition
 
 Transitions in CSS provide a way to control animation speed when changing CSS properties. Instead of having property changes take effect instantly, you can cause the changes to take place over a period of time. This makes for a smoother visual experience and can add a touch of dynamism to web designs.
 
-### Quick Overview
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition">transition</a>**: A shorthand property for setting `transition-property`, `transition-duration`, `transition-timing-function`, and `transition-delay`.
-     - Values: `[ transition-property | transition-duration | transition-timing-function | transition-delay ]`
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property">transition-property</a>**: Specifies the name of the CSS property to which the transition is applied.
-     - Values: `none`, `all`, or specific property names (e.g., `opacity`, `transform`).
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-duration">transition-duration</a>**: Defines the duration over which transitions should occur.
-     - Value type: `time` (e.g., `0.5s` or `300ms`).
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function">transition-timing-function</a>**: Describes how the intermediate values used during a transition will be calculated.
-     - Values: `linear`, `ease`, `ease-in`, `ease-out`, `ease-in-out`, cubic-bezier values.
-
-- **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-delay">transition-delay</a>**: Specifies when the transition will start.
-     - Value type: `time` (e.g., `0.2s`).
-
-#### Example
+| Property                | Description                                                                        | Values                                                                                                    | MDN Documentation                                                                                             |
+|-------------------------|------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| `transition`            | Shorthand for setting multiple transition properties at once.                      | `[ transition-property | transition-duration | transition-timing-function | transition-delay ]`                 | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transition)                                        |
+| `transition-property`   | Specifies the CSS property to which the transition is applied.                     | `none` \| `all` \| Specific property names (e.g., `opacity`, `transform`)                                 | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property)                               |
+| `transition-duration`   | Defines the duration of the transition effect.                                     | `time` (e.g., `0.5s`, `300ms`)                                                                            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-duration)                              |
+| `transition-timing-function` | Describes how intermediate values are calculated during a transition.         | `linear` \| `ease` \| `ease-in` \| `ease-out` \| `ease-in-out` \| cubic-bezier values                     | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function)                       |
+| `transition-delay`      | Specifies a delay before the transition starts.                                    | `time` (e.g., `0.2s`)                                                                                     | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-delay)                                 |
 
 HTML:
 
@@ -1299,41 +1106,37 @@ CSS:
   <img src="https://user-images.githubusercontent.com/37275728/185173067-7bbce7ec-c113-4649-bd22-cd6d5d5e37b2.gif" width=400 />
 </p>
 
-#### Additional Insights
+Additional Insights:
 
-1. **Transition Properties**: By default, transitions apply to all properties (`all`). However, in most cases, you'll want to specify which property to animate, like `opacity` or `background-color`.
+- Transition properties default to applying to **all** properties, but you can specify particular ones for animation, such as `opacity` or `background-color`. Specifying individual properties can help focus the transition effect on just the intended elements.
+- The **duration** of a transition defines its length, with longer durations making the effect more noticeable and shorter durations providing a quick, snappy response, which can enhance the feel of user interactions.
+- A transition’s **timing function** dictates its acceleration curve, determining how it speeds up or slows down over time. Custom values like `cubic-bezier` allow you to create unique timing curves that suit specific design needs.
+- If you need a transition to start after a **delay**, the `transition-delay` property allows you to set a waiting period before the transition begins. This can be particularly useful when animating sequences where multiple elements transition one after another for a cascading effect.
 
-2. **Duration**: This determines how long the transition will take. Longer durations can make transitions more noticeable, while shorter ones can give a snappy feeling to user interactions.
-
-3. **Timing Function**: This function describes the acceleration curve of the transition, allowing for the effect to speed up, slow down, or smoothly glide into place. The `cubic-bezier` value can be used to create custom timing functions.
-
-4. **Delay**: If you want to start a transition after a certain period, use the `transition-delay` property. This can be useful in sequences where multiple elements animate one after the other.
-
-## Responsive Design
+### Responsive Design
 
 Responsive design ensures that websites adapt and render optimally across a variety of devices. It aims to offer a consistent user experience from the smallest mobile device to the largest desktop monitor.
 
-### Responsive Grid vs. Fluid Grid
+#### Responsive Grid vs. Fluid Grid
 
-- **Responsive Grid**: This approach utilizes a fixed grid system, usually based on a 12-column structure, with specific breakpoints defined in pixels to cater to different screen sizes. Once the viewport reaches a predefined size, the design might switch to a different column arrangement or even hide/show certain elements.
+- A responsive grid uses a **fixed** grid system, commonly based on a 12-column layout, with specific breakpoints in pixels to accommodate different screen sizes. At these breakpoints, the design may shift to a new column arrangement or selectively hide or show certain elements for optimal display.
+- Fluid grids offer **greater flexibility** than responsive grids by using percentages to define element widths. This approach allows elements to continuously adjust in size relative to their parent container, enabling them to expand and contract smoothly as the viewport changes.
 
-- **Fluid Grid**: Fluid grids are more flexible than responsive grids. They use percentages to define widths, thereby allowing elements to continually adjust in size relative to their parent container. As the viewport size changes, elements stretch and shrink fluidly.
+Recommended Number of Columns:
 
-### Recommended Number of Columns:
+| Device Type | Number of Columns |
+|-------------|--------------------|
+| Desktop     | 12 columns         |
+| Tablet      | 8 columns          |
+| Mobile      | 4 columns          |
 
-- **Desktop**: 12 columns
-- **Tablet**: 8 columns
-- **Mobile**: 4 columns
-
-### Mobile First Design
+#### Mobile First Design
 
 Adopting a **Mobile First** design strategy means building the initial design for the smallest screens (mobile devices) and then progressively enhancing the design for larger screens. This methodology ensures that mobile users receive only the essential features and content, helping improve performance and user experience on slower networks.
 
-### Media Queries
+#### Media Queries
 
 Media queries are the backbone of responsive design. They allow developers to apply styles based on the device characteristics. For instance, different styles can be applied depending on the device's screen width, height, orientation, and more.
-
-#### Example
 
 Let's say we want to create a button that changes its color depending on the screen size.
 
@@ -1364,70 +1167,69 @@ CSS:
   <img src="https://user-images.githubusercontent.com/37275728/185173675-ced1fce4-8ab2-4b11-8672-e75ec79f0663.gif" width=400 />
 </p>
 
-#### Key Points:
 
-1. **<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">@media</a>**: The heart of media queries in CSS.
-      - Examples of common usages: `screen`, `print`, `all`, `min-width`, `max-width`, `orientation: portrait`, `orientation: landscape`.
+| Rule       | Description                                   | Usage Examples                                                                                         | MDN Documentation                                                                                     |
+|------------|-----------------------------------------------|--------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| `@media`   | The heart of media queries in CSS. It allows for styles to be applied based on specific conditions, such as screen size or orientation. | `screen` \| `print` \| `all` \| `min-width` \| `max-width` \| `orientation: portrait` \| `orientation: landscape` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/@media)                                    |
 
-#### Additional Insights:
+Additional Insights:
 
-- **Overlapping Styles**: It's crucial to be mindful of the cascading nature of CSS. When using the same selector in multiple places within a stylesheet, any styles defined later will override those defined earlier. This can be particularly relevant when using media queries, as styles can unintentionally override one another based on their order in the CSS file.
+- Overlapping styles in CSS are influenced by its **cascading** nature, meaning that when the same selector is used multiple times, styles defined later will override earlier ones. This behavior is especially important to consider when using media queries, as their order in the stylesheet can lead to unintentional style overrides.
+- Including the **viewport meta tag** in the HTML head is essential for proper display on mobile devices. This tag, `<meta name="viewport" content="width=device-width, initial-scale=1.0">`, ensures that responsive designs adjust correctly to the device’s screen width, which is crucial for mobile responsiveness.
+- Modern layout techniques like **Flexbox** and **Grid** provide enhanced control over responsive designs, allowing for the creation of flexible, adaptive layouts without the need for traditional grid systems. These tools simplify the process of designing layouts that adapt to different screen sizes.
+- Regular **testing** across various devices and screen sizes is key to ensuring design consistency. Browser developer tools and other software can simulate different devices, helping you identify and resolve any potential design issues across different viewing environments.
 
-- **Viewport Meta Tag**: To ensure that responsive designs are displayed correctly, especially on mobile devices, it's essential to include the viewport meta tag in the HTML head. For instance: `<meta name="viewport" content="width=device-width, initial-scale=1.0">`.
-
-- **Flexbox & Grid**: Modern CSS techniques like Flexbox and Grid layout provide powerful tools to create responsive layouts with more control and less reliance on traditional grid systems.
-
-- **Testing**: Regularly testing the design on various devices and screen sizes is vital. Tools like browser developer tools and specialized software can simulate different devices and help in identifying any issues in the design.
-
-## Units
+### Units
 
 Units in CSS provide a way to express measurements. Understanding when and how to use different units is crucial for designing responsive and accessible websites.
 
-### Absolute Units
+#### Absolute Units
 
 These are fixed-size units and do not scale with changes in other properties or viewer's settings.
 
-* <code>px</code>: Pixels – A dot on the computer screen. It's a relative measurement in the sense that it's not a consistent size across devices, but within a device, it is absolute.
-* <code>pt</code>: Points – Traditionally used in print media (1pt = 1/72 of an inch).
-* <code>pc</code>: Picas – Another print measure where 1pc = 12 points.
-* <code>cm</code>: Centimeters.
-* <code>mm</code>: Millimeters.
-* <code>in</code>: Inches – 1 inch is equal to 2.54 centimeters.
-* <code>%</code>: Percentage – Relative to the parent element or another reference point.
+| Unit | Description                                                                                                                        | Conversion Example                             |
+|------|------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|
+| `px` | Pixels – A dot on the computer screen. Relative in the sense that it's not consistent across devices, but absolute within a device. | Commonly used for digital screens              |
+| `pt` | Points – Traditionally used in print media. 1pt = 1/72 of an inch.                                                                 | `12pt` = 1/6 inch                              |
+| `pc` | Picas – A print measure where 1pc = 12 points.                                                                                     | `1pc` = 12pt                                   |
+| `cm` | Centimeters.                                                                                                                       | `2.54cm` = 1 inch                              |
+| `mm` | Millimeters.                                                                                                                       | `10mm` = 1cm                                   |
+| `in` | Inches – 1 inch is equal to 2.54 centimeters.                                                                                      | `1in` = 2.54cm                                 |
+| `%`  | Percentage – Relative to the parent element or another reference point.                                                            | `50%` of the parent element's size             |
 
-### Relative Units
+
+#### Relative Units
 
 Relative units are responsive and adapt based on the context in which they're used.
 
-* <code>em</code>: Font size of the current element. If the font size is 16px, then "2em" is 32px.
-* <code>rem</code>: Font size of the root element (usually the `<html>` element). A consistent unit regardless of the nesting level.
-* <code>ch</code>: Width of the '0' character of the current font.
-* <code>ex</code>: x-height of the current font. Roughly the height of lowercase letters in most fonts.
-* <code>vh</code>: 1% of the height of the viewport window.
-* <code>vw</code>: 1% of the width of the viewport window.
-* <code>vmin</code>: 1% of the viewport's smaller dimension (height or width).
-* <code>vmax</code>: 1% of the viewport's larger dimension (height or width).
+| Unit    | Description                                                                                                  | Example Calculation                        |
+|---------|--------------------------------------------------------------------------------------------------------------|--------------------------------------------|
+| `em`    | Font size of the current element. If the font size is 16px, then "2em" is 32px.                              | `2em` = 32px (assuming base font size is 16px) |
+| `rem`   | Font size of the root element (usually `<html>`). Consistent across nested elements.                         | `2rem` = 32px (assuming root font size is 16px) |
+| `ch`    | Width of the '0' character of the current font.                                                              | Depends on the font being used             |
+| `ex`    | x-height of the current font, roughly the height of lowercase letters in most fonts.                         | Depends on the font being used             |
+| `vh`    | 1% of the height of the viewport window.                                                                     | `50vh` = half of the viewport height       |
+| `vw`    | 1% of the width of the viewport window.                                                                      | `50vw` = half of the viewport width        |
+| `vmin`  | 1% of the viewport's smaller dimension (height or width).                                                    | `10vmin` = 10% of the smaller viewport dimension |
+| `vmax`  | 1% of the viewport's larger dimension (height or width).                                                     | `10vmax` = 10% of the larger viewport dimension |
 
-### Further Insights
+Further Insights:
 
-- **Using `em` and `rem`**: These units are especially helpful for building scalable and accessible websites. They allow the design to respond to user preferences, like increasing the default font size in a browser.
-  
-- **Viewport Units**: `vh`, `vw`, `vmin`, and `vmax` are great for creating fully responsive designs that adjust based on the size of the user's screen.
+- The `em` and `rem` units are valuable for **scalability** and accessibility in web design, as they allow the layout to adapt to user preferences, such as increasing the browser's default font size. This flexibility enhances the user experience by catering to individual needs.
+- Viewport units like `vh`, `vw`, `vmin`, and `vmax` provide an **adaptive** approach to responsive design, adjusting the layout based on the user’s screen size. These units are especially useful for creating designs that remain consistent across different devices.
+- Units like `pt` and `pc`, known as **legacy** units, originate from the print industry and are less prevalent in modern web design. However, they can still be useful when creating designs intended for print or specific use cases requiring precise measurements.
+- Selecting the right **unit** is essential in web design. For typography, relative units such as `em` and `rem` are typically preferred, as they adapt well to scaling. For layout elements, units like `px`, `%`, and viewport units are widely used for a more responsive and flexible design structure.
 
-- **Legacy Units**: Units like `pt` and `pc` are derived from the print industry and are less commonly used in modern web design but can still be found in designs intended for print.
+### Best Practices
 
-- **Choosing Units**: When designing, it's crucial to pick the right unit for the job. For typography, relative units like `em` or `rem` are often recommended. For layout dimensions, `px`, `%`, and viewport units are commonly used.
-
-## Best Practices
-
-### General
+#### General
 
 * Use external CSS files and place them within the `<head>` tag.
 * Organize your CSS into logical sections and use comments to explain complex or important parts.
 * Follow a consistent naming convention for class and ID names.
 * Use shorthand properties when possible to reduce code length.
 
-### Formatting
+#### Formatting
 
 * Don't leave out the last semicolon in a CSS block.
 * Maintain consistent casing, preferably lowercase, for selector names.
@@ -1435,42 +1237,42 @@ Relative units are responsive and adapt based on the context in which they're us
 * Use a new line for each declaration in a rule set.
 * Remove trailing white spaces and keep indentation consistent.
 
-### Layout and Positioning
+#### Layout and Positioning
 
 * Use the box model consistently throughout the document.
 * Avoid breaking the flow by using absolute positioning sparingly.
 * Utilize Flexbox and Grid for modern, responsive layouts.
 * Avoid using fixed pixel values for layout and spacing; use relative units like `rem`, `em`, and percentages.
 
-### Selectors and Specificity
+#### Selectors and Specificity
 
 * Prefer classes over selectors that are tightly coupled to the DOM.
 * Reduce the usage of IDs to avoid high specificity conflicts.
 * Minimize the use of overly complex or deeply nested selectors.
 * Keep selector specificity low to make styles easier to override and maintain.
 
-### Inheritance and Efficiency
+#### Inheritance and Efficiency
 
 * Don't duplicate style declarations that can be inherited from parent elements.
 * Use unitless values when possible, or `rem` for relative units.
 * Use the hexadecimal format for colors, or use CSS variables for consistent theming.
 * Minimize the use of vendor prefixes by leveraging tools like Autoprefixer.
 
-### Responsiveness and Accessibility
+#### Responsiveness and Accessibility
 
 * Design your CSS with responsiveness in mind, using media queries to adapt to various screen sizes and devices.
 * Prioritize readability and usability in your designs.
 * Use appropriate color contrasts to ensure legibility for all users.
 * Include alternative text and labels for interactive elements to improve accessibility.
 
-### Performance and Optimization
+#### Performance and Optimization
 
 * Minify your CSS files to reduce file size and improve load times.
 * Use CSS properties like `transform` and `opacity` for animations and transitions that leverage hardware acceleration.
 * Optimize images and other assets used as background images or within your styles.
 * Utilize browser caching to improve page load times for returning visitors.
 
-## Links
+### Links
 
 - [Official Website](https://www.w3.org/Style/CSS/)
 - [Isobar Front-end Code Standards](http://isobar-idev.github.io/code-standards/)
