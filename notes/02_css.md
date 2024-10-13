@@ -527,7 +527,7 @@ Define how flex items grow and shrink:
 | `flex`           | Shorthand to set the `flex-grow`, `flex-shrink`, and `flex-basis` properties.                 | `<flex-grow> <flex-shrink> <flex-basis>`        | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)                                  |
 | `flex-grow`      | Specifies the flex item’s ability to grow relative to other items.                            | `<number>` (default: `0`)                       | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow)                             |
 | `flex-shrink`    | Defines the flex item’s ability to shrink relative to other items.                            | `<number>` (default: `1`)                       | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink)                           |
-| `flex-basis`     | Sets the default size of a flex item before space distribution among items.                   | `auto`,| `<length>`, `<percentage>`          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis)                            |
+| `flex-basis`     | Sets the default size of a flex item before space distribution among items.                   | `auto`, `<length>`, `<percentage>`          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis)                            |
 
 Leveraging these properties allows for sophisticated layout designs that adapt gracefully across different screen sizes and resolutions.
 
@@ -1167,7 +1167,7 @@ CSS:
 
 | Rule       | Description                                   | Usage Examples                                                                                         | MDN Documentation                                                                                     |
 |------------|-----------------------------------------------|--------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| `@media`   | The heart of media queries in CSS. It allows for styles to be applied based on specific conditions, such as screen size or orientation. | `screen` \| `print` \| `all` \| `min-width` \| `max-width` \| `orientation: portrait` \| `orientation: landscape` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/@media)                                    |
+| `@media`   | The heart of media queries in CSS. It allows for styles to be applied based on specific conditions, such as screen size or orientation. | `screen`, `print`, `all`, `min-width`, `max-width`, `orientation: portrait`, `orientation: landscape` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/@media)                                    |
 
 Additional Insights:
 
