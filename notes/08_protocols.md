@@ -45,20 +45,20 @@ Several popular browsers dominate the landscape, each with its unique features. 
 
 For those working on web development, browser developer tools offer a variety of features to streamline the process. With the element inspector, developers can examine and modify the structure (DOM) and style (CSS) of a webpage in real-time. The console helps with debugging JavaScript code by displaying error messages and allowing for testing directly within the browser. A network monitor provides insights into HTTP requests and responses, which is invaluable for optimizing page load times. Additionally, a performance profiler helps identify and resolve performance issues, while the security panel allows developers to inspect aspects like security certificates and identify any mixed content issues.
 
-**Browser Architecture Simplified**:
+**Browser Architecture**:
 
 ```
-+--------------------------------------------------+
-|                      Browser                     |
-|--------------------------------------------------|
++------------------------------------------------------+
+|                      Browser                         |
+|------------------------------------------------------|
 |  User Interface  |  Browser Engine  |  Data Storage  |
-|--------------------------------------------------|
-|            Rendering Engine (HTML/CSS)             |
-|--------------------------------------------------|
-|            JavaScript Interpreter (JS Engine)      |
-|--------------------------------------------------|
-|                    Networking                     |
-+--------------------------------------------------+
+|------------------------------------------------------|
+|            Rendering Engine (HTML/CSS)               |
+|------------------------------------------------------|
+|            JavaScript Interpreter (JS Engine)        |
+|------------------------------------------------------|
+|                    Networking                        |
++------------------------------------------------------+
 ```
 
 #### DNS (Domain Name System)
