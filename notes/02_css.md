@@ -786,11 +786,10 @@ CSS:
 
 The background color of the container is set to a dark greenish color in the example above, but it will appear lighter since the opacity is set to 50%. The font color is set to a light grayish color to provide contrast against the background.
 
-##### Additional explanations
+Additional explanations:
 
-The color you choose in design can evoke emotions, deliver messages, and even influence decision-making. Being adept at using various color definitions in CSS can empower designers to create visually striking and user-friendly interfaces. 
-
-While HEX and RGB are ubiquitous methods for setting colors, HSL can be more intuitive when making adjustments or creating color schemes. Furthermore, the inclusion of an alpha channel in RGBA and HSLA allows designers to introduce varying levels of transparency, perfect for layered designs and overlays.
+- The color you choose in design can evoke emotions, deliver messages, and even influence decision-making. Being adept at using various color definitions in CSS can empower designers to create visually striking and user-friendly interfaces.
+- While HEX and RGB are ubiquitous methods for setting colors, HSL can be more intuitive when making adjustments or creating color schemes. Furthermore, the inclusion of an alpha channel in RGBA and HSLA allows designers to introduce varying levels of transparency, perfect for layered designs and overlays.
 
 #### Background
 
@@ -830,8 +829,6 @@ p {
 </p>
 
 In the example above, the background color of the div is set to dark green, and the background color of the paragraphs is set to light gray.
-
-##### Additional explanations
 
 CSS offers impressive flexibility with backgrounds. Beyond mere solid colors:
 
