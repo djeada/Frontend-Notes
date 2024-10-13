@@ -24,7 +24,7 @@
 7. It’s useful to **reference resources like MDN** (Mozilla Developer Network) for up-to-date documentation, examples, and best practices for writing effective HTML code.
 8. A valuable skill is the ability to **recreate web pages** using HTML, ensuring that the developer can accurately mirror design specifications and build functional, accessible content layouts.
 
-## Document Structure
+### Document Structure
 
 The HTML document structure provides a standardized way to structure content on the web. Adhering to this structure ensures browser compatibility and proper rendering of web pages.
 
@@ -47,25 +47,19 @@ Below is a foundational structure of an HTML document:
 </html>
 ```
 
-- `<!DOCTYPE html>`: This declaration defines the document as an HTML5 document. It's a standard instruction to the web browser about what version of the HTML language the page is written in.
+- The `<!DOCTYPE html>` declaration is an essential **instruction** for web browsers, identifying the document as HTML5. This declaration ensures that browsers interpret the page using the standards of HTML5.
+- In the `<html lang="en">` element, the **root** of any HTML page is defined. The `lang` attribute, set to "en" in this example, indicates the primary language of the content, which aids in both accessibility and search engine optimization.
+- The `<head>` section of an HTML document is a **container** for metadata. Metadata in this section influences how the page is processed by browsers and understood by search engines.
+- With `<meta charset="UTF-8">`, the document’s character encoding is set to UTF-8, which supports nearly all **writing** systems worldwide. This encoding is vital for ensuring proper display of text across different languages and characters.
+- The `<meta name="viewport" content="width=device-width, initial-scale=1.0">` tag is a **key** component for responsive design. By setting the viewport width to the device width, it ensures the page adjusts properly on various devices, particularly mobile phones and tablets.
+- The `<title>` tag specifies the **name** of the document, which appears in the browser tab. An informative and relevant title is crucial for both user experience and search engine optimization, as it describes the page’s content.
+- The `<body>` tag is the **main** container for all visible content on the page. Any text, images, videos, and other elements intended for display to the user are included within this tag, making it the core of the HTML document for content rendering.
 
-- `<html lang="en">`: The root element of an HTML page. The `lang` attribute specifies the language of the document's content, aiding in accessibility and search engine optimization.
-
-  - `<head>`: This is a container for metadata (data about data). It typically includes:
-
-    - `<meta charset="UTF-8">`: Sets the character set encoding type for the document. "UTF-8" encompasses almost all of the world's writing systems.
-
-    - `<meta name="viewport" content="width=device-width, initial-scale=1.0">`: An essential meta tag for responsive design. It ensures that the page scales and sizes correctly on different devices, especially mobile devices.
-
-    - `<title>`: Represents the title of the document; it's what you see on the browser tab or window. A descriptive title is essential for SEO and usability.
-
-  - `<body>`: The main content container. Everything that's displayed on the page (text, images, videos, etc.) goes here. It represents the content of an HTML document that is rendered in browsers.
-
-## Head
+### Head
 
 The `<head>` section of an HTML document contains metadata (information about the document) and links to resources like stylesheets, scripts, and favicons. While not directly displayed to users, its contents influence how browsers present the page and how search engines interpret it.
 
-### The Document's Title
+#### The Document's Title
 
 The `<title>` tag defines the title of the document, which appears in the browser's title bar or tab. 
 
@@ -75,7 +69,7 @@ Here is an example:
 <title>My Awesome Website</title>
 ```
 
-### Metadata Information
+#### Metadata Information
 
 `<meta>` tags provide additional details about the document, influencing its behavior on devices and its appearance in search results.
 
@@ -109,15 +103,15 @@ Here is an example:
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 ```
 
-If the website does not provide an explicit favicon link in the <head>, browsers default to searching for a file named favicon.ico in the website's root directory.
+If the website does not provide an explicit favicon link in the `<head>`, browsers default to searching for a file named favicon.ico in the website's root directory.
 
-## Tags and Attributes
+### Tags and Attributes
 
 At the core of HTML lies the concept of tags and attributes. These elements enable the creation of structured documents and provide a way to describe the content's presentation and semantic meaning.
 
 While a vast number of tags are defined in the HTML specification, only a subset is frequently used in day-to-day web development. For a comprehensive list of all available tags, refer to the [MDN's HTML element reference](https://developer.mozilla.org/de/docs/Web/HTML/Element).
 
-### How Tags Work
+#### How Tags Work
 
 HTML tags represent elements and come in pairs: an opening tag and a closing tag. The content of the element resides between these tags. Some tags, called void elements (like `<img>` and `<br>`), don't have a closing tag.
 
@@ -125,7 +119,7 @@ HTML tags represent elements and come in pairs: an opening tag and a closing tag
 <elementName> Content of the element </elementName>
 ```
 
-### Nesting Tags
+#### Nesting Tags
 
 It's common in HTML to nest one tag within another, establishing a parent-child relationship between the elements.
 
@@ -137,7 +131,7 @@ It's common in HTML to nest one tag within another, establishing a parent-child 
 
 This hierarchical structure forms the basis for the Document Object Model (DOM), a tree-like representation of the content.
 
-### Attributes
+#### Attributes
 
 Attributes provide additional information about an element and are always specified in the opening tag. They come in `name/value` pairs like this: `name="value"`.
 
@@ -149,17 +143,16 @@ For instance, the <a> tag often uses the href attribute to specify the link dest
 
 In this example, href is the attribute name, and `https://www.example.com` is its value.
 
-## Void (Self-closing) Elements in HTML
+### Void (Self-closing) Elements in HTML
 
 Void elements, also known as self-closing elements, are unique HTML tags that don't require a closing tag. While they don't wrap around content, they can have attributes which give them functionality or provide additional context.
 
-### Characteristics of Void Elements
+#### Characteristics
 
-1. **No Closing Tag**: Unlike regular HTML elements, void elements don't have a corresponding closing tag.
+- Void elements are unique among HTML elements because they lack a **closing tag**. Unlike regular elements that enclose content, void elements are self-contained and do not need a separate end tag.
+- Although void elements do not have any **content** between an opening and closing tag, they can still include attributes. These attributes offer further details or define specific behaviors for the element, enhancing its functionality within the document.
 
-2. **Attributes**: Even though void elements don't contain content between an opening and closing tag, they can (and often do) contain attributes. These attributes provide additional information or specify behavior for the element.
-
-### Examples of Void Elements
+#### Examples
 
 - `<img>`: This is used to embed images in a document. It often comes with attributes such as `src` (which specifies the URL of the image) and `alt` (which provides an alternate description for the image, aiding accessibility).
 
@@ -187,27 +180,23 @@ This is some text.<br>And this is a new line.
 
 - `<meta>`, `<link>`, and `<area>` are other examples of void elements.
 
-## Grouping elements
+### Grouping elements
 
 In HTML, `div` and `span` are two of the most versatile elements used to control and group content for various purposes, especially when combined with CSS.
 
-### Understanding `div`
+#### Understanding `div`
 
-- **Purpose**: The `div` (short for "division") element is a block-level container that is used to group content and structure sections of a webpage.
-  
-- **Display**: By default, a `div` takes up the full width of its parent container, creating a "block" on the page.
+- The `div` element, short for "division," is a **block-level** container that serves to group content and organize sections within a webpage. It helps structure different parts of the page visually and functionally.
+- By default, a `div` occupies the **entire width** of its parent container, forming a block on the page. This block-level nature distinguishes it from inline elements.
+- While the `div` element itself lacks **semantic** meaning, it is widely used as a generic container. It becomes more meaningful when combined with CSS classes or IDs for styling, or with JavaScript for added interactivity.
 
-- **Usage**: It doesn't have a semantic meaning by itself. Its primary use is as a generic container, often combined with CSS classes or IDs to apply styles or JavaScript for interactivity.
+#### Understanding `span`
 
-### Understanding `span`
+- The `span` element functions as an **inline-level** container, making it ideal for isolating specific pieces of content within a larger block. For example, it can be used to highlight text or wrap icons within a paragraph without disrupting the line flow.
+- Unlike `div`, a `span` does not create a **new line** but stays inline with other content, making it suitable for small adjustments within text or images.
+- Similar to `div`, the `span` element is **non-semantic**, meaning it has no inherent meaning on its own. It is primarily utilized to apply specific styles or scripts to targeted portions of content within a document.
 
-- **Purpose**: The `span` element is an inline-level container. It's used to single out a specific piece of content within a block, such as highlighting a text portion or wrapping an icon within a paragraph.
-
-- **Display**: Unlike `div`, a `span` doesn't create a new line; it remains inline with other content.
-
-- **Usage**: Similar to `div`, `span` is non-semantic and is primarily used to apply styles or scripts to specific parts of the content.
-
-#### Examples
+Examples:
 
 - Grouping content with `div`:
 
@@ -238,15 +227,15 @@ However, since div is a block-level element and span is an inline-level element,
 <span> This is a <div>This is a div</div> span.</span>
 ```
 
-## Readonly elements
+### Readonly elements
 
 Some elements are only used for displaying information and users can't interact with them. We can call them readonly elements.
 
-### Headers and paragraphs
+#### Headers and paragraphs
 
 Basic elements that are used to display text in a document are headers and paragraphs. Headers are used to display titles and paragraphs are used to display large amounts of text. There are many levels of headers, from H1 to H6.
 
-##### Example
+Example:
 
 ```html
 <h1>This is a header</h1>
@@ -257,11 +246,11 @@ Basic elements that are used to display text in a document are headers and parag
   <img src="https://user-images.githubusercontent.com/37275728/182040915-c8e8130a-0c6d-49fc-a995-a632ef1404f9.PNG" width=400 />
 </p>
 
-### Links
+#### Links
 
 Links are used to link to other pages. When clicked, the user is taken to the linked page.
 
-##### Example
+Example:
 
 The link below will take the user to the [Wikipedia](https://en.wikipedia.org/) website.
 
@@ -281,11 +270,9 @@ You may also connect links to files stored on the server. Users may download the
 <a href="report.txt" download>report</a>
 ```
 
-### Lists
+#### Lists
 
 To display a list of items, we use lists. There are two types of lists: ordered and unordered.
-
-#### Example
 
 An example of unordered list:
 
@@ -301,18 +288,20 @@ An example of unordered list:
   <img src="https://user-images.githubusercontent.com/37275728/182040923-f4a11b95-db36-424d-9211-ec4a5210cafa.PNG" width=400 />
 </p>
 
-#### Short summary
+Short summary:
 
 The following tags are used to create lists:
 
-* <code>ul</code> - unordered list
-* <code>ol</code> - ordered list
-* <code>li</code> - list item
+| Element | Description                  | Usage                              | Example                        |
+|---------|------------------------------|------------------------------------|--------------------------------|
+| `<ul>`  | Unordered List               | Creates a bulleted list            | `<ul><li>Item</li></ul>`       |
+| `<ol>`  | Ordered List                 | Creates a numbered list            | `<ol><li>Item</li></ol>`       |
+| `<li>`  | List Item                    | Represents an item within a list   | `<ul><li>First item</li></ul>` |
 
-### Tables
+#### Tables
 Tables are used to display data using rows and columns of cells.
 
-#### Example
+Example:
 
 ```html
 <table>
@@ -338,24 +327,25 @@ Tables are used to display data using rows and columns of cells.
   <img src="https://user-images.githubusercontent.com/37275728/182040934-309078e7-21c4-4df2-9507-1df7727e448d.PNG" width=400 />
 </p>
 
-#### Short summary
+Short summary:
 
 The following tags are used to create tables:
 
-* <code>table</code> - table
-* <code>tr</code> - table row
-* <code>th</code> - table header
-* <code>td</code> - table cell
+| Element | Description                  | Usage                                   | Example                                 |
+|---------|------------------------------|-----------------------------------------|-----------------------------------------|
+| `<table>` | Table                      | Defines a table                         | `<table><tr><td>Data</td></tr></table>` |
+| `<tr>`  | Table Row                    | Defines a row within a table            | `<tr><td>Data</td></tr>`                |
+| `<th>`  | Table Header                 | Defines a header cell in a table row    | `<tr><th>Header</th></tr>`              |
+| `<td>`  | Table Cell                   | Defines a standard cell within a row    | `<tr><td>Data</td></tr>`                |
 
-## Interactive elements
+
+### Interactive elements
 
 As opposed to readonly elements, there are some elements that users can interact with and trigger actions based on their state.
 
-### Buttons
+#### Buttons
 
 Buttons are used to trigger actions. They are used to submit forms, to open links, and to trigger media playback.
-
-#### Example
 
 A simple button:
 
@@ -365,19 +355,19 @@ A simple button:
 
 Whenever the button is clicked, the event handler will be triggered.
 
-#### Short summary
+Short summary:
 
 There are following types of buttons:
 
-* <code>button</code> - default button
-* <code>submit</code> - used for submitting forms
-* <code>reset</code> - used to reset form fields
+| Element          | Description                    | Usage                                     | Example                                       |
+|------------------|--------------------------------|-------------------------------------------|-----------------------------------------------|
+| `<button>`       | Default Button                 | Creates a clickable button                | `<button>Click Me</button>`                   |
+| `<input type="submit">` | Submit Button           | Submits form data to a server             | `<input type="submit" value="Submit">`        |
+| `<input type="reset">`  | Reset Button            | Resets all fields in a form to default values | `<input type="reset" value="Reset">`      |
 
-### Input
+#### Input
 
 Input is used to collect data from the user.
-
-#### Example
 
 A simple example with placeholder text:
 
@@ -396,38 +386,42 @@ A more complex example with a label and validation:
   <img src="https://user-images.githubusercontent.com/37275728/182040948-47409f3a-8c7f-4ea9-af09-f0e5c879c115.gif" width=400 />
 </p>
 
-#### Short summary
+Short summary:
 
 Input can be one of the many types. The default type is <code>text</code>. Other types include:
 
-* <code>text</code>
-* <code>password</code>
-* <code>email</code>
-* <code>number</code>
-* <code>radio</code>
-* <code>checkbox</code>
-* <code>search</code>
+| Element                    | Description                        | Usage                                    | Example                                      |
+|----------------------------|------------------------------------|------------------------------------------|----------------------------------------------|
+| `<input type="text">`      | Text Input                         | Creates a single-line text input field   | `<input type="text" placeholder="Name">`     |
+| `<input type="password">`  | Password Input                     | Creates a field for entering passwords   | `<input type="password" placeholder="Password">` |
+| `<input type="email">`     | Email Input                        | Creates a field for email addresses      | `<input type="email" placeholder="Email">`   |
+| `<input type="number">`    | Number Input                       | Creates a field for numeric input        | `<input type="number" min="0" max="10">`     |
+| `<input type="radio">`     | Radio Button                       | Creates a radio button for selection     | `<input type="radio" name="gender" value="male">` |
+| `<input type="checkbox">`  | Checkbox                           | Creates a checkbox for selection         | `<input type="checkbox" name="agree">`       |
+| `<input type="search">`    | Search Input                       | Creates a search field                   | `<input type="search" placeholder="Search...">` |
 
 Input attributes include:
 
-* <code>placeholder</code> - text that appears in the input when it is empty
-* <code>autofocus</code> - input is focused when the page loads
-* <code>disabled</code> - input is disabled
-* <code>readonly</code> - input is readonly
-* <code>size</code> - size of the input
-* <code>list</code> - list of options for the input
+| Attribute         | Description                              | Usage                                   | Example                                                |
+|-------------------|------------------------------------------|-----------------------------------------|--------------------------------------------------------|
+| `placeholder`     | Text that appears when input is empty    | Provides a hint inside the input field  | `<input type="text" placeholder="Enter name">`         |
+| `autofocus`       | Input is focused when the page loads     | Sets the initial focus to this input    | `<input type="text" autofocus>`                        |
+| `disabled`        | Input is disabled                        | Prevents input and makes it non-editable| `<input type="text" disabled>`                         |
+| `readonly`        | Input is readonly                        | Makes the input non-editable but selectable | `<input type="text" readonly>`                     |
+| `size`            | Size of the input field                  | Defines the width of the input (in characters) | `<input type="text" size="20">`               |
+| `list`            | List of options for the input            | Links input to a `<datalist>` for suggested options | `<input type="text" list="options"><datalist id="options"><option value="Option1"><option value="Option2"></datalist>` |
 
 Possible values for the <code>validation</code> attribute:
 
-* <code>minlength</code> - minimum length of the input
-* <code>maxlength</code> - maximum length of the input
-* <code>required</code> - input is required
+| Attribute     | Description                              | Usage                                     | Example                                        |
+|---------------|------------------------------------------|-------------------------------------------|------------------------------------------------|
+| `minlength`   | Minimum length of the input              | Specifies the minimum number of characters | `<input type="text" minlength="5">`            |
+| `maxlength`   | Maximum length of the input              | Specifies the maximum number of characters | `<input type="text" maxlength="10">`           |
+| `required`    | Input is required                        | Makes the input mandatory before submission| `<input type="text" required>`                 |
 
-### Forms
+#### Forms
 
 Forms are way of grouping many inputs in a signle structure.
-
-#### Example
 
 Let's create a simple form:
 
@@ -445,18 +439,18 @@ Let's create a simple form:
 
 In this example, there is a single input field with a label. The label is used to describe the input. The input is used to collect data from the user. The button is used to submit the form.
 
-#### Short summary
+Short summary:
 
-* <code>form</code> - form
-* <code>label</code> - label
-* <code>input</code> - input
-* <code>button</code> - button
+| Element          | Description                              | Usage                                    | Example                                      |
+|------------------|------------------------------------------|------------------------------------------|----------------------------------------------|
+| `<form>`         | Form container                           | Wraps form elements and allows data submission | `<form action="/submit" method="post">...</form>` |
+| `<label>`        | Label                                    | Provides a label for an input, aiding accessibility | `<label for="username">Username:</label>` |
+| `<input>`        | Input field                              | Allows various types of user input, such as text, email, and password | `<input type="text" id="username">`      |
+| `<button>`       | Button                                   | Creates a clickable button for form actions, such as submit or reset | `<button type="submit">Submit</button>` |
 
-### Text area
+#### Text area
 
 Inputs are great, but they are displayed as a single line. Sometimes we need to collect more than one line of text and then we use text areas.
-
-#### Example
 
 Let's take a look at the following example:
 
@@ -472,15 +466,13 @@ Let's take a look at the following example:
 
 In the example above, we have a text area with a name `description` which consists of 5 rows and 50 columns.
 
-## Style
+### Style
 
 For styling elements, we generally use CSS. There are however some ways to style text using only HTML.
 
-### Text formatting
+#### Text formatting
 
 Text formatting includes making text bold, italic, underlined, and strikethrough.
-
-#### Example
 
 The following example shows how to make text bold:
 
@@ -488,37 +480,41 @@ The following example shows how to make text bold:
 <p>This is <b>bold</b> text.</p>
 ```
 
-#### Short summary
+Short summary:
 
-* <code>b</code> or <code>strong</code> - bold text
-* <code>i</code> or <code>em</code> - italic text
-* <code>u</code> - underline
-* <code>s</code> - strikethrough
+| Element           | Description                   | Usage                                    | Example                                      |
+|-------------------|-------------------------------|------------------------------------------|----------------------------------------------|
+| `b` or `strong`   | Bold Text                     | Emphasizes text by making it bold        | `b Bold Text b`, `strong Bold Text strong`   |
+| `i` or `em`       | Italic Text                   | Emphasizes text by making it italicized  | `i Italic Text i`, `em Italic Text em`       |
+| `u`               | Underline                     | Underlines the text                      | `u Underlined Text u`                        |
+| `s`               | Strikethrough                 | Adds a strikethrough effect to the text  | `s Strikethrough Text s`                     |
 
-### Special characters
+#### Special characters
 
 There are some special characters that should be escaped in HTML in order to be correctly displayed in the browser.
 
-#### Example
+Example:
 
 ```html
 <p>This is &lt;b&gt;bold&lt;/b&gt; text.</p>
 ```
 
-#### Short summary
+Short summary:
 
 The following characters should always be escaped:
 
-* <code>&</code> - ampersand is escaped by using <code>&amp;</code>
-* <code>&lt;</code> - less than is escaped by using <code>&amp;lt;</code>
-* <code>&gt;</code> - greater than is escaped by using <code>&amp;gt;</code>
-* <code>&quot;</code> - double quote is escaped by using <code>&amp;quot;</code>
+| Character Entity   | Description                     | Usage                                    | Example                  |
+|--------------------|----------------------------------|------------------------------------------|--------------------------|
+| `&`                | Ampersand                        | Escaped by using `&amp;`                 | `&amp;`                  |
+| `&lt;`             | Less Than                        | Escaped by using `&amp;lt;`              | `&amp;lt;`               |
+| `&gt;`             | Greater Than                     | Escaped by using `&amp;gt;`              | `&amp;gt;`               |
+| `&quot;`           | Double Quote                     | Escaped by using `&amp;quot;`            | `&amp;quot;`             |
 
-### Whitespace
+#### Whitespace
 
 Any sequence of whitespace characters (space, line break, tab) is treated as a single space in HTML. 
 
-## Media
+### Media
 
 We may use three types of media:
 
@@ -526,11 +522,9 @@ We may use three types of media:
 * Videos.
 * Audio.
 
-### Image
+#### Image
 
 Images are specified using the <code>img</code> tag.
-
-#### Example
 
 Let's take a look at the following example:
 
@@ -544,27 +538,29 @@ Let's take a look at the following example:
 
 We use the `srcset` attribute to specify multiple image paths for different resolutions. The first image path is the one that is displayed by default.
 
-#### Short summary
+Short summary:
 
 The following attributes are used to specify images:
 
-* <code>src</code> - path to the image
-* <code>srcset</code> - multiple paths to the image
-* <code>alt</code> - alternative text in case the image cannot be displayed
+| Attribute  | Description                           | Usage                                       | Example                                                    |
+|------------|---------------------------------------|---------------------------------------------|------------------------------------------------------------|
+| `src`      | Path to the image                     | Specifies the image file location           | `img src="image.jpg" alt="Description"`                     |
+| `srcset`   | Multiple paths to the image           | Provides multiple image sources for different resolutions | `img src="image.jpg" srcset="image-2x.jpg 2x" alt="Description"` |
+| `alt`      | Alternative text                      | Displays text if the image cannot be loaded | `img src="image.jpg" alt="Description"`                     |
 
 Some of the commenly used image formats are:
 
-* <code>jpg</code> - JPEG image
-* <code>jpeg</code> - JPEG image
-* <code>png</code> - PNG image
-* <code>gif</code> - GIF image
-* <code>svg</code> - SVG image
+| Format  | Description        | Usage                        | Example File Extension               |
+|---------|--------------------|------------------------------|---------------------------------------|
+| `jpg`   | JPEG image         | Used for photographs and complex images with gradients | `image.jpg`                           |
+| `jpeg`  | JPEG image         | Same as `jpg`, often interchangeable | `image.jpeg`                          |
+| `png`   | PNG image          | Supports transparency, good for graphics and icons | `image.png`                           |
+| `gif`   | GIF image          | Supports animation, limited color palette | `image.gif`                           |
+| `svg`   | SVG image          | Vector format, scalable without quality loss | `image.svg`                           |
 
-### Video
+#### Video
 
 Videos are specified using the <code>video</code> tag.
-
-#### Example
 
 Let's take a look at the following example:
 
@@ -578,26 +574,28 @@ Let's take a look at the following example:
 
 A video can have multiple sources. The first source is the one that is displayed by default. The second source is used if the first source is not supported. Finally, the text `Your browser does not support HTML5 video.` is displayed if the browser does not support any of the formats.
 
-#### Short summary
+Short summary:
 
 The following attributes are used to specify videos:
 
-* <code>src</code> - path to the video
-* <code>type</code> - type of the video
-* <code>controls</code> - video is displayed with controls
-* <code>autoplay</code> - video is played automatically
-* <code>loop</code> - video is played in a loop
+| Attribute  | Description                          | Usage                                      | Example                                                   |
+|------------|--------------------------------------|--------------------------------------------|-----------------------------------------------------------|
+| `src`      | Path to the video                    | Specifies the video file location          | `video src="video.mp4" controls`                           |
+| `type`     | Type of the video                    | Specifies the video format (e.g., `video/mp4`) | `source src="video.mp4" type="video/mp4"`              |
+| `controls` | Video with playback controls         | Displays play, pause, and volume controls  | `video src="video.mp4" controls`                           |
+| `autoplay` | Automatically plays the video        | Begins playing the video upon page load    | `video src="video.mp4" autoplay`                           |
+| `loop`     | Video plays in a loop                | Repeats the video automatically when it ends | `video src="video.mp4" loop`                            |
 
 Some of the commenly used video formats are:
 
-* <code>webm</code> - WebM video
-* <code>mp4</code> - MP4 video
+| Format  | Description         | Usage                                    | Example File Extension  |
+|---------|---------------------|-------------------------------------------|--------------------------|
+| `webm`  | WebM video          | Open, compressed format for web videos    | `video.webm`             |
+| `mp4`   | MP4 video           | Widely used video format compatible with most devices | `video.mp4`              |
 
-### Audio
+#### Audio
 
 Audio is specified using the <code>audio</code> tag.
-
-#### Example
 
 Let us take a look at the following example:
 
@@ -615,24 +613,29 @@ Let us take a look at the following example:
 
 The first source is the one that is played by default. The second source is used if the first source is not supported. Finally, the text `Your browser does not support the audio element.` is displayed if the browser does not support any of the formats.
 
-#### Short summary
+Short summary:
 
 The following attributes are used to specify audio:
 
-* <code>src</code> - path to the audio
-* <code>type</code> - type of the audio
-* <code>controls</code> - audio is displayed with controls
-* <code>autoplay</code> - audio is played automatically
-* <code>loop</code> - audio is played in a loop
+| Attribute  | Description                          | Usage                                      | Example                                                    |
+|------------|--------------------------------------|--------------------------------------------|------------------------------------------------------------|
+| `src`      | Path to the audio                    | Specifies the audio file location          | `audio src="audio.mp3" controls`                           |
+| `type`     | Type of the audio                    | Specifies the audio format (e.g., `audio/mpeg`) | `source src="audio.mp3" type="audio/mpeg"`            |
+| `controls` | Audio with playback controls         | Displays play, pause, and volume controls  | `audio src="audio.mp3" controls`                           |
+| `autoplay` | Automatically plays the audio        | Begins playing the audio upon page load    | `audio src="audio.mp3" autoplay`                           |
+| `loop`     | Audio plays in a loop                | Repeats the audio automatically when it ends | `audio src="audio.mp3" loop`                          |
+
 
 The following are some of the commonly used audio formats:
 
-* <code>mp3</code> - MP3 audio
-* <code>wav</code> - WAV audio
+| Format  | Description         | Usage                                  | Example File Extension  |
+|---------|---------------------|-----------------------------------------|--------------------------|
+| `mp3`   | MP3 audio           | Widely used for compressed audio files  | `audio.mp3`              |
+| `wav`   | WAV audio           | Uncompressed, high-quality audio format | `audio.wav`              |
 
-## Best Practices
+### Best Practices
 
-### General
+#### General
 
 * Use **version control systems** like Git to maintain a record of code changes, allowing for collaborative work and easier rollbacks when necessary.
 * Regularly perform **validation checks** using tools such as the W3C HTML validator to ensure the quality and compliance of your code.
@@ -641,7 +644,7 @@ The following are some of the commonly used audio formats:
 * Choose the **right tags and attributes** for each element, ensuring that they align with the content’s purpose and enhance readability.
 * Include **comments** in the code to explain complex sections and document significant design decisions for future reference.
 
-### Formatting
+#### Formatting
 
 * Adopt a **consistent naming convention** for classes and IDs, such as BEM or camelCase, to maintain code readability.
 * For void elements, use **self-closing tags** like `<img src="..." alt="..." />` to improve readability and ensure the code conforms to modern standards.
@@ -650,7 +653,7 @@ The following are some of the commonly used audio formats:
 * Stick to **lowercase tag names** for uniformity, as it is easier to read and more compatible with XHTML requirements.
 * Remove unnecessary **whitespace** at the end of lines and ensure consistent indentation to improve code readability.
 
-### Semantic and Accessibility
+#### Semantic and Accessibility
 
 * Leverage **semantic tags** like `article`, `time`, `header`, `nav`, and `aside` to structure content effectively, improving both SEO and accessibility.
 * Represent **text blocks with paragraphs** using `<p>` tags instead of using `<br>` tags for spacing, maintaining a clean document structure.
@@ -662,7 +665,7 @@ The following are some of the commonly used audio formats:
 * Incorporate **skip navigation links** to allow keyboard and screen reader users to bypass repetitive elements and access the main content quickly.
 * Label all **form controls** with the `<label>` tag to create accessible forms that are easier to use for screen reader users.
 
-### HTML Structure
+#### HTML Structure
 
 * Include **metadata** tags such as `<meta name="author" content="...">` to provide essential information about the page to search engines and browsers.
 * Set the **language attribute** on the `<html>` tag, specifying the primary language of the content, like `<html lang="en">` for English.
@@ -672,13 +675,13 @@ The following are some of the commonly used audio formats:
 * Enclose the main content within the **`<body>` tag**, making it easier for browsers to locate and render the core elements of your page.
 * Make sure that each **opening tag has a corresponding closing tag**, preserving the integrity of the document structure and avoiding rendering errors.
 
-### CSS and JavaScript Integration
+#### CSS and JavaScript Integration
 
 * Maintain **separation of concerns** by keeping HTML for structure, CSS for styling, and JavaScript for behavior, enabling modular code management.
 * Utilize **CSS custom properties** (variables) to simplify updates, enhance maintainability, and allow for consistent theming.
 * Use **non-blocking JavaScript** techniques like `async` and `defer` attributes to prevent JavaScript from blocking the page's initial render.
 
-### Performance and Optimization
+#### Performance and Optimization
 
 * Implement **lazy loading** for images and iframes to defer off-screen content, reducing initial load times and saving bandwidth.
 * Inline **critical CSS** to ensure that above-the-fold content loads as quickly as possible, improving perceived load times.
@@ -689,19 +692,19 @@ The following are some of the commonly used audio formats:
 * Optimize images using **compression tools and modern formats** to reduce file sizes without losing visual quality.
 * Leverage **browser caching** by setting appropriate cache-control headers, minimizing load times for returning visitors and decreasing server requests.
 
-### Security
+#### Security
 
 * Enforce **HTTPS** to secure data transmission, ensuring user data remains encrypted and protected from interception.
 * Implement a **Content Security Policy (CSP)** to help prevent XSS attacks by controlling the sources from which content can be loaded.
 * Prioritize **input sanitization** and validation for all user inputs, minimizing the risk of security vulnerabilities like SQL injection or XSS.
 
-### SEO (Search Engine Optimization)
+#### SEO (Search Engine Optimization)
 
 * Structure content with a **clear semantic hierarchy** using heading tags, helping search engines better understand and index your content.
 * Use **schema.org markup** to enhance search engines' ability to recognize and display relevant information about your site in search results.
 * Generate and submit an **XML sitemap** to major search engines, improving the discoverability and crawlability of your site’s pages.
 
-## Links
+### Links
 
 * [Isobar Code Standards](http://isobar-idev.github.io/code-standards/)
 * [Writing Your Best Code](http://learn.shayhowe.com/html-css/writing-your-best-code/)
