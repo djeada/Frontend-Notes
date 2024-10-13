@@ -751,12 +751,14 @@ In web design, colors have a profound influence on user experience and branding.
 
 Common Methods to Define Colors:
 
-- **Color Names**: Human-friendly names for colors. Examples include `red`, `blue`, and `goldenrod`.
-- **RGB**: Specifies colors using Red, Green, and Blue values. Example: `rgb(255, 0, 0)` yields red.
-- **RGBA**: Like RGB, but with an added Alpha channel to indicate transparency. Example: `rgba(255, 0, 0, 0.5)` gives a semi-transparent red.
-- **HEX**: Uses hexadecimal values to define colors. Example: `#ff0000` represents red.
-- **HSL**: Represents colors using Hue, Saturation, and Lightness. Useful for creating color variations.
-- **HSLA**: Combines HSL with an Alpha channel for transparency control.
+| Color Format | Description                                                                                      | Example                           |
+|--------------|--------------------------------------------------------------------------------------------------|-----------------------------------|
+| Color Names  | Human-friendly names for colors.                                                                 | `red`, `blue`, `goldenrod`        |
+| RGB          | Specifies colors using Red, Green, and Blue values.                                              | `rgb(255, 0, 0)` (red)            |
+| RGBA         | Like RGB, but with an added Alpha channel to indicate transparency.                              | `rgba(255, 0, 0, 0.5)` (semi-transparent red) |
+| HEX          | Uses hexadecimal values to define colors.                                                        | `#ff0000` (red)                   |
+| HSL          | Represents colors using Hue, Saturation, and Lightness. Useful for creating color variations.    | `hsl(0, 100%, 50%)` (red)         |
+| HSLA         | Combines HSL with an Alpha channel for transparency control.                                     | `hsla(0, 100%, 50%, 0.5)` (semi-transparent red) |
 
 HTML:
 
