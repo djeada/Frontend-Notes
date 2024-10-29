@@ -367,7 +367,6 @@ WebSockets enable full-duplex communication over a single TCP connection, which 
 The advantages of using WebSockets are numerous:
 
 - They allow **bi-directional communication**, meaning that the client and server can both send messages at any time, independently of each other. This creates a more interactive experience, especially in real-time applications.
-  
 - A **persistent connection** is established, so there’s no need to repeatedly open new HTTP connections for each message exchange. This reduces the overhead associated with traditional HTTP requests, making communication faster and less resource-intensive.
 - Because WebSockets provide **low latency**, they are ideal for applications that require immediate updates. This makes them well-suited for any app where speed is essential, such as online gaming or live streaming.
 
