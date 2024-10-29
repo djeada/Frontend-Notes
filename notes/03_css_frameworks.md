@@ -394,7 +394,7 @@ Different frameworks cater to different needs:
 4. **[Semantic UI](https://semantic-ui.com)**: Offers human-friendly HTML and integrates well with React.
 5. **[Foundation](https://get.foundation/sites/docs/)**: Focused on professional-grade responsiveness and accessibility.
 
-#### ### Common Elements of All Frameworks
+#### Common Elements of All Frameworks
 
 CSS frameworks simplify web development by offering pre-styled components and layout systems that make it easier to build visually appealing, responsive websites. They share several foundational elements that ensure consistency, responsiveness, and ease of use. Understanding these common elements can help you leverage a framework effectively—or decide to create your own custom solution if you’d prefer.
 
