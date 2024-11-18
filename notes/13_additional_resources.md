@@ -1,6 +1,6 @@
 ## Additional Resources
 
-Dive into these handpicked resources to enhance your projects and designs. From templates and components to fonts and colors, you'll find it here.
+Check out these curated resources to support your projects and designs. You'll find templates, components, fonts, and color palettes to fit your needs.
 
 ### 📄 Templates
 
