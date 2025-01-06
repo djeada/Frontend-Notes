@@ -33,12 +33,12 @@ A few essential components form the backbone of this global communication:
 
 A web browser is the user’s gateway to the World Wide Web. By sending requests (using protocols like HTTP or HTTPS) and interpreting the responses (usually HTML, CSS, and JavaScript), browsers present web pages in a form humans can interact with. Although browsers often look straightforward on the outside, they have a lot going on behind the scenes:
 
-- **User Interface (UI)**: This includes visual elements like the address bar, navigation buttons (back, forward, refresh), tabs, and bookmarking features.  
-- **Browser Engine**: The engine acts as a liaison between the UI and the rendering engine.  
-- **Rendering Engine**: This critical component parses HTML and CSS files to draw the webpage on your screen. It determines how texts, images, and layout elements appear.  
-- **Networking**: Handles fetching resources from the network via HTTP or other protocols. It also deals with aspects such as caching and security checks (e.g., handling SSL/TLS certificates).  
-- **JavaScript Interpreter (JS Engine)**: Executes JavaScript code embedded in websites, enabling interactive elements, animations, and dynamic data.  
-- **Data Storage**: Includes mechanisms like cookies, local storage, and caches, allowing sites to store user information and speed up return visits.
+- The **user interface (UI)** includes components like the address bar, navigation buttons such as back, forward, and refresh, tabs for managing multiple pages, and bookmarking features for saving favorite websites.  
+- The **browser engine** serves as the intermediary between the UI and the rendering engine, ensuring communication and task delegation.  
+- The **rendering engine** processes HTML, CSS, and other code to display a website's content on the screen, determining the appearance of text, images, and layouts.  
+- **Networking** functionalities manage resource fetching using protocols like HTTP/HTTPS, handle caching to improve performance, and perform security checks, including SSL/TLS validation.  
+- The **JavaScript interpreter (JS engine)** executes JavaScript code to enable interactive features, animations, and the dynamic updating of webpage content.  
+- **Data storage** mechanisms such as cookies, local storage, and caches allow websites to store user preferences, session data, and other information, facilitating faster and more personalized browsing experiences.  
 
 Different browsers, such as Google Chrome, Mozilla Firefox, Microsoft Edge, and Safari, each have their own unique features and optimizations. For web developers, browser **developer tools** are a vital resource. These tools allow you to inspect a webpage’s structure (DOM), view and modify CSS in real-time, debug JavaScript via a console, and examine HTTP requests to optimize performance.
 
@@ -64,10 +64,10 @@ The Domain Name System (DNS) transforms human-readable domain names (e.g., `exam
 
 The DNS process involves several key players:
 
-- **DNS Resolver**: Often provided by your ISP, this component receives a domain name query and sets out to find the correct IP address.  
-- **Root Servers**: At the top of the DNS hierarchy, these servers direct queries to the correct top-level domain (TLD) servers (like `.com` or `.org`).  
-- **TLD Servers**: Store information for a particular extension or TLD and forward the query to the appropriate authoritative server.  
-- **Authoritative Servers**: Contain the actual DNS records for specific domains, including A/AAAA records (mapping domains to IPs), MX records (mail exchange), and more.
+- The **DNS resolver** is a component, often provided by your ISP, that receives a domain name query and works to find the corresponding IP address.  
+- **Root servers** sit at the top of the DNS hierarchy and redirect queries to the appropriate top-level domain (TLD) servers, such as `.com` or `.org`.  
+- **TLD servers** maintain information for specific extensions or TLDs and forward the query to the relevant authoritative server.  
+- **Authoritative servers** store the actual DNS records for domains, including A/AAAA records for IP mapping, MX records for mail exchange, and other types.
 
 The DNS resolution process starts in your browser’s cache. If the address isn’t found there, the query moves to the operating system cache. If there is still no match, the request travels to the DNS resolver, which then queries root servers, TLD servers, and eventually the authoritative server for the domain. The resolver finally returns the correct IP address to your browser, enabling it to communicate with the website’s server.
 
@@ -87,9 +87,16 @@ The DNS resolution process starts in your browser’s cache. If the address isn�
 
 A domain name is a website’s easy-to-remember address, allowing people to visit online resources without having to recall complex numerical IPs. A typical domain name (e.g., `www.google.com`) can be broken down into:
 
-- **Subdomain**: An optional part of the domain, such as `www`, `blog`, or `mail`, used to organize different sections of a website.  
-- **Second-Level Domain (SLD)**: The main part of the domain, such as “google” in `google.com`.  
-- **Top-Level Domain (TLD)**: The suffix (e.g., `.com`, `.net`, `.org`) that often hints at the nature or region of the website.
+- A **subdomain** is an optional part of the domain, such as `www`, `blog`, or `mail`, used to structure and organize different sections of a website.  
+- The **second-level domain (SLD)** is the primary part of the domain, such as “google” in `google.com`.  
+- The **top-level domain (TLD)** is the suffix, like `.com`, `.net`, or `.org`, which often indicates the purpose or region of the website.  
+
+To illustrate, a typical domain name can be broken down like this:
+
+```
+[Subdomain].[Second-Level Domain].[Top-Level Domain]
+    www             google               com
+```
 
 The domain name system is overseen by the Internet Corporation for Assigned Names and Numbers (ICANN). TLD registries manage specific top-level domains, while registrars provide the interface for individuals and businesses to purchase and manage their domain names.
 
@@ -113,21 +120,23 @@ HyperText Transfer Protocol (HTTP) is the foundation of data exchange on the web
 
 Key characteristics of HTTP include:
 
-- **Request-Response Cycle**: Every interaction begins with a request from the client and ends with a response from the server.  
-- **Statelessness**: Each request is independent; the server does not store any memory of prior requests, which simplifies server design but requires additional mechanisms (like cookies or sessions) to persist user data.  
-- **TCP-Based**: HTTP typically leverages the Transmission Control Protocol (TCP) at the transport layer, ensuring reliable data transmission.
+- The **request-response cycle** involves an interaction where the client sends a request, and the server processes it to return a response.  
+- **Statelessness** ensures that each HTTP request is independent, meaning the server retains no memory of past interactions, which simplifies server design but requires mechanisms like cookies or sessions to maintain user data.  
+- **TCP-based** communication underlies HTTP, using the Transmission Control Protocol (TCP) to guarantee reliable data transmission between client and server.
 
 In the HTTP world, both requests and responses consist of specific parts:
 
-1. **Request** (from the client):  
-   - **Method** (e.g., GET, POST, PUT, DELETE) to indicate the requested action.  
-   - **Headers** carrying metadata such as user agent, accepted data types, and authentication details.  
-   - **Body** containing data when needed (e.g., form submissions via POST).
+**Request** (from the client):  
 
-2. **Response** (from the server):  
-   - **Status Code** (e.g., 200 OK, 404 Not Found) indicating whether the request succeeded or failed.  
-   - **Headers** providing context about the response, such as content type and caching instructions.  
-   - **Body** containing the requested resource or an error message.
+- **Method** (e.g., GET, POST, PUT, DELETE) to indicate the requested action.  
+- **Headers** carrying metadata such as user agent, accepted data types, and authentication details.  
+- **Body** containing data when needed (e.g., form submissions via POST).
+
+**Response** (from the server):  
+
+- **Status Code** (e.g., 200 OK, 404 Not Found) indicating whether the request succeeded or failed.  
+- **Headers** providing context about the response, such as content type and caching instructions.  
+- **Body** containing the requested resource or an error message.
 
 **Basic HTTP Methods**:
 
@@ -322,10 +331,10 @@ File Transfer Protocol (FTP) is one of the oldest and most straightforward ways 
 
 Main features of FTP include:
 
-- **Separate Connections** – FTP typically establishes one connection for control commands and another for actual data transfer, enhancing efficiency during large file exchanges.  
-- **Authentication** – Access generally requires a username and password, though some servers allow **anonymous FTP** to download publicly available files.  
-- **Active Mode**: The server initiates the data connection to the client.  
-- **Passive Mode**: The client initiates the data connection, making it more firewall-friendly.  
+- **Separate connections** are used in FTP, with one for control commands and another for data transfer, improving efficiency during large file exchanges.  
+- **Authentication** typically requires a username and password, although some servers permit **anonymous FTP** for downloading publicly accessible files.  
+- In **active mode**, the server initiates the data connection to the client.  
+- In **passive mode**, the client initiates the data connection, which is more suitable for navigating firewalls.  
 
 Security-wise, **plain FTP traffic is unencrypted** and can be intercepted. Hence, more secure variants like FTPS (FTP over SSL/TLS) and SFTP (FTP over SSH) are recommended when data privacy is a concern.
 
