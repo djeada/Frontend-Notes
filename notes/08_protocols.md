@@ -1,19 +1,19 @@
 ## Protocols
 
-It's important for frontend developers to really grasp how network protocols work. These protocols control how data moves across networks, making sure the frontend and backend communicate smoothly. It's not enough to just know the names and basic functions of these protocols — developers need to understand the details of how they operate to ensure that systems can communicate efficiently and securely.
+In today’s connected world, front-end developers do far more than style web pages and craft user interfaces. They also need to understand the underlying network protocols that shape how data travels between their applications and the servers that power them. By mastering the inner workings of protocols, developers can create more efficient, secure, and reliable experiences for users. This section explores some of the foundational concepts, tools, and processes that every front-end developer should know to ensure smooth communication between the front end and back end.
 
 ### Foundational Concepts
 
 #### Internet
 
-The Internet is a complex, interconnected system that brings together millions of devices across the globe. Often called a “network of networks,” it connects various private, public, academic, business, and government networks. This allows for seamless communication between people and devices worldwide, making it possible to share information almost instantaneously.
+The Internet is often called a “network of networks” because it consists of numerous smaller, interconnected networks run by private, public, academic, business, and government entities. This global system enables billions of devices to connect and exchange information at unprecedented speed and scale.
 
-The foundation of the Internet relies on a few essential components:
+A few essential components form the backbone of this global communication:
 
-- The Transmission Control Protocol (TCP) and Internet Protocol (IP) form the backbone of Internet communication. Together, they break data into packets, send it across networks, and reassemble it at the destination, ensuring the data arrives accurately and intact.
-- Routers, often described as traffic controllers, play a crucial role in directing data across different networks. They analyze the most efficient path for data to travel, which may involve passing through multiple networks before reaching the final destination.
-- Switches operate within individual networks, helping data move between devices on a local scale. They ensure that the data reaches the correct device, whether within a home, office, or data center.
-- Fiber optic cables and, in some cases, satellites carry data over long distances. Fiber optics, for example, transmit data as light signals, allowing rapid and efficient long-distance communication. Satellites, on the other hand, are invaluable for connecting remote or hard-to-reach areas, where laying cables might not be feasible.
+- **TCP/IP** (Transmission Control Protocol/Internet Protocol) is the Internet’s core suite of protocols. TCP divides large pieces of data into packets and reassembles them upon arrival, ensuring reliable transfer. IP handles the addressing and routing of these packets to ensure they reach the correct destination.  
+- **Routers** are specialized devices that examine and direct data across different networks. They figure out the most efficient path for a packet to travel, which can involve hopping through multiple networks.  
+- **Switches** operate within a local or private network (such as an office network) to forward data from one device to another efficiently. They are sometimes compared to traffic organizers within a smaller area.  
+- **Fiber optic cables** and, in certain cases, **satellites** carry data over long distances. Fiber optic cables send data as pulses of light, allowing rapid and high-capacity transmission, whereas satellites are critical for reaching remote or hard-to-wire locations.
 
 **Simplified Internet Diagram**:
 
@@ -31,19 +31,16 @@ The foundation of the Internet relies on a few essential components:
 
 #### Browsers
 
-Web browsers are essential software applications that allow users to access, retrieve, and view information on the World Wide Web. They act as clients by sending requests to web servers using protocols like HTTP or HTTPS, and they render the received content, typically written in formats such as HTML, CSS, and JavaScript, so users can interact with it.
+A web browser is the user’s gateway to the World Wide Web. By sending requests (using protocols like HTTP or HTTPS) and interpreting the responses (usually HTML, CSS, and JavaScript), browsers present web pages in a form humans can interact with. Although browsers often look straightforward on the outside, they have a lot going on behind the scenes:
 
-Browsers consist of several core components that work together to deliver a smooth browsing experience:
+- **User Interface (UI)**: This includes visual elements like the address bar, navigation buttons (back, forward, refresh), tabs, and bookmarking features.  
+- **Browser Engine**: The engine acts as a liaison between the UI and the rendering engine.  
+- **Rendering Engine**: This critical component parses HTML and CSS files to draw the webpage on your screen. It determines how texts, images, and layout elements appear.  
+- **Networking**: Handles fetching resources from the network via HTTP or other protocols. It also deals with aspects such as caching and security checks (e.g., handling SSL/TLS certificates).  
+- **JavaScript Interpreter (JS Engine)**: Executes JavaScript code embedded in websites, enabling interactive elements, animations, and dynamic data.  
+- **Data Storage**: Includes mechanisms like cookies, local storage, and caches, allowing sites to store user information and speed up return visits.
 
-- The user interface, or UI, includes all the visual elements like the address bar, navigation buttons (back and forward), and bookmarks. These features make it easy for users to navigate through web pages and return to previously visited sites.
-- Behind the scenes, the browser engine connects the UI with the rendering engine, which is responsible for displaying content on the screen. The rendering engine parses HTML and CSS to create a visual representation of the web page, ensuring it looks as intended.
-- Networking capabilities are essential for handling tasks like sending HTTP requests and receiving responses. This is how a browser retrieves the data needed to display web pages.
-- A JavaScript interpreter executes JavaScript code embedded in websites, allowing for dynamic and interactive content. This interpreter makes it possible to display everything from animations to interactive forms.
-- Data storage capabilities help manage various types of saved information, including cookies, local storage, and cache. This allows browsers to remember login details, store user preferences, and load pages more quickly on subsequent visits.
-
-Several popular browsers dominate the landscape, each with its unique features. Google Chrome is widely recognized for its speed and developer-friendly tools, while Mozilla Firefox emphasizes privacy and offers extensive customization options. Microsoft Edge, built on the Chromium engine, integrates smoothly with the Windows ecosystem, making it a popular choice for Windows users. Safari, optimized for Apple devices, provides an efficient browsing experience on macOS and iOS.
-
-For those working on web development, browser developer tools offer a variety of features to streamline the process. With the element inspector, developers can examine and modify the structure (DOM) and style (CSS) of a webpage in real-time. The console helps with debugging JavaScript code by displaying error messages and allowing for testing directly within the browser. A network monitor provides insights into HTTP requests and responses, which is invaluable for optimizing page load times. Additionally, a performance profiler helps identify and resolve performance issues, while the security panel allows developers to inspect aspects like security certificates and identify any mixed content issues.
+Different browsers, such as Google Chrome, Mozilla Firefox, Microsoft Edge, and Safari, each have their own unique features and optimizations. For web developers, browser **developer tools** are a vital resource. These tools allow you to inspect a webpage’s structure (DOM), view and modify CSS in real-time, debug JavaScript via a console, and examine HTTP requests to optimize performance.
 
 **Browser Architecture**:
 
@@ -63,17 +60,16 @@ For those working on web development, browser developer tools offer a variety of
 
 #### DNS (Domain Name System)
 
-The Domain Name System, or DNS, functions much like the Internet's phonebook. When you type a website address, such as `openai.com`, DNS translates this human-readable name into a machine-readable IP address, like `192.0.2.1`. This process allows you to access websites by entering memorable names rather than complex numerical codes.
+The Domain Name System (DNS) transforms human-readable domain names (e.g., `example.com`) into machine-readable IP addresses (e.g., `192.0.2.1`). Without DNS, users would have to memorize strings of numbers to access websites, which would be both unwieldy and impractical.
 
-Several key components make up the DNS system. First, the DNS resolver is a client-side element that starts the process by sending DNS queries. At the top of the hierarchy, root name servers hold authority over the root zone, directing the query to the appropriate next step. Top-Level Domain (TLD) servers, which manage domains like `.com`, `.org`, and `.net`, come next, followed by authoritative name servers that store specific domain records. Together, these components work in sequence to help users reach the correct web address.
+The DNS process involves several key players:
 
-The DNS uses different types of records to handle various tasks:
+- **DNS Resolver**: Often provided by your ISP, this component receives a domain name query and sets out to find the correct IP address.  
+- **Root Servers**: At the top of the DNS hierarchy, these servers direct queries to the correct top-level domain (TLD) servers (like `.com` or `.org`).  
+- **TLD Servers**: Store information for a particular extension or TLD and forward the query to the appropriate authoritative server.  
+- **Authoritative Servers**: Contain the actual DNS records for specific domains, including A/AAAA records (mapping domains to IPs), MX records (mail exchange), and more.
 
-- An A record maps a domain to an IPv4 address, while an AAAA record maps it to an IPv6 address, accommodating both traditional and modern Internet protocols.
-- CNAME records allow one domain name to serve as an alias for another, making it easier to manage domain structure.
-- MX records specify mail exchange servers, ensuring email gets directed to the right place, and TXT records, often used for verification purposes, contain additional information for various security checks.
-
-When you enter a website address into your browser, the DNS resolution process begins. First, the browser checks its cache for a stored IP address. If it’s not there, the operating system cache is the next stop. Should both caches be empty, a recursive resolver, typically provided by your ISP, takes over. This resolver queries a root server, which points to the TLD server for the domain’s extension (such as `.com`). The TLD server then directs the resolver to the authoritative name server holding the domain’s IP address. Finally, the resolver retrieves this address and sends it back to the browser, allowing it to establish a connection to the website’s server.
+The DNS resolution process starts in your browser’s cache. If the address isn’t found there, the query moves to the operating system cache. If there is still no match, the request travels to the DNS resolver, which then queries root servers, TLD servers, and eventually the authoritative server for the domain. The resolver finally returns the correct IP address to your browser, enabling it to communicate with the website’s server.
 
 **DNS Query Flow Diagram**:
 
@@ -89,22 +85,13 @@ When you enter a website address into your browser, the DNS resolution process b
 
 #### Domain Name
 
-A domain name is the human-friendly address you type into a browser to reach a website. Instead of remembering numerical IP addresses, users can simply enter a domain name, like `google.com`, to access the site. This makes navigating the Internet easier and more intuitive.
+A domain name is a website’s easy-to-remember address, allowing people to visit online resources without having to recall complex numerical IPs. A typical domain name (e.g., `www.google.com`) can be broken down into:
 
-Domain names have a specific structure with three main parts, each serving a distinct purpose:
+- **Subdomain**: An optional part of the domain, such as `www`, `blog`, or `mail`, used to organize different sections of a website.  
+- **Second-Level Domain (SLD)**: The main part of the domain, such as “google” in `google.com`.  
+- **Top-Level Domain (TLD)**: The suffix (e.g., `.com`, `.net`, `.org`) that often hints at the nature or region of the website.
 
-- The subdomain is an optional prefix, commonly `www`, but it can also be something specific like `mail` or `blog`. This part helps organize different sections of a website.
-- The second-level domain (SLD) represents the primary identity of the website. In `google.com`, for instance, "google" is the SLD, which is the memorable part most people recognize.
-- Finally, the top-level domain (TLD) is the suffix at the end, such as `.com`, `.org`, or `.net`. This part often indicates the domain’s purpose or type of organization.
-
-To illustrate, a typical domain name can be broken down like this:
-
-```
-[Subdomain].[Second-Level Domain].[Top-Level Domain]
-    www             google               com
-```
-
-Managing domain names relies on a hierarchical system. At the top, the Internet Corporation for Assigned Names and Numbers (ICANN) oversees the entire domain name structure and its allocation. Specific organizations called registries are responsible for managing TLDs and keeping DNS records updated. Then, registrars are the entities where individuals or businesses can register domain names. Once registered, the person or organization that acquires the domain is known as the registrant, effectively the domain’s owner.
+The domain name system is overseen by the Internet Corporation for Assigned Names and Numbers (ICANN). TLD registries manage specific top-level domains, while registrars provide the interface for individuals and businesses to purchase and manage their domain names.
 
 **Domain Name System Hierarchy**:
 
@@ -122,33 +109,35 @@ Managing domain names relies on a hierarchical system. At the top, the Internet 
 
 #### HTTP (HyperText Transfer Protocol)
 
-HTTP, or Hypertext Transfer Protocol, serves as the backbone for transmitting web documents like HTML across the Internet. It relies on a request-response model, where the client, usually a web browser, initiates a request, and the server responds with the desired content.
+HyperText Transfer Protocol (HTTP) is the foundation of data exchange on the web, enabling the transfer of HTML and related media files between clients (like web browsers) and servers. Its **request-response model** lies at the heart of web interactions, allowing a client to request resources and a server to respond with the necessary data.
 
-Several key characteristics define HTTP. First, the **request-response cycle** is fundamental: the client sends a request, and the server returns a response. It’s also a **stateless protocol**, meaning each request stands alone, with no memory of past interactions; this simplicity enhances efficiency. Additionally, HTTP typically operates over **TCP**, or Transmission Control Protocol, at the transport layer, which ensures reliable delivery of data between client and server.
+Key characteristics of HTTP include:
 
-In an HTTP interaction, both the request and response have specific components:
+- **Request-Response Cycle**: Every interaction begins with a request from the client and ends with a response from the server.  
+- **Statelessness**: Each request is independent; the server does not store any memory of prior requests, which simplifies server design but requires additional mechanisms (like cookies or sessions) to persist user data.  
+- **TCP-Based**: HTTP typically leverages the Transmission Control Protocol (TCP) at the transport layer, ensuring reliable data transmission.
 
-I. For the **request**, sent by the client:
+In the HTTP world, both requests and responses consist of specific parts:
 
-- The **method** specifies the type of action, such as GET for retrieving data or POST for submitting data.
-- **Headers** provide context, including details like content type and user agent.
-- The **body** contains data when the request requires it, as seen with POST or PUT methods.
+1. **Request** (from the client):  
+   - **Method** (e.g., GET, POST, PUT, DELETE) to indicate the requested action.  
+   - **Headers** carrying metadata such as user agent, accepted data types, and authentication details.  
+   - **Body** containing data when needed (e.g., form submissions via POST).
 
-II. On the server’s side, the **response** includes:
-
-- A **status code** that informs the client about the outcome, with codes like `200 OK` for success or `404 Not Found` if the resource isn’t available.
-- **Headers** that give additional information, such as the content type and content length.
-- A **body** that delivers the actual content requested or an error message, depending on the outcome.
+2. **Response** (from the server):  
+   - **Status Code** (e.g., 200 OK, 404 Not Found) indicating whether the request succeeded or failed.  
+   - **Headers** providing context about the response, such as content type and caching instructions.  
+   - **Body** containing the requested resource or an error message.
 
 **Basic HTTP Methods**:
 
-| Method  | Description |
-| ------- | ----------- |
-| `GET`   | Retrieve resources from the server |
-| `POST`  | Submit data to the server, often to create or modify a resource |
-| `PUT`   | Replace or add a resource at a specific URL |
-| `PATCH` | Modify part of an existing resource |
-| `DELETE`| Remove a resource |
+| Method  | Description                                                   |
+| ------- | ------------------------------------------------------------- |
+| `GET`   | Retrieve resources without making any changes on the server. |
+| `POST`  | Send data to create or update resources on the server.       |
+| `PUT`   | Replace or add a resource at a specified URL.                 |
+| `PATCH` | Modify parts of an existing resource.                         |
+| `DELETE`| Remove a resource identified by a specific URL.               |
 
 #### HTTP Request-Response Cycle Diagram
 
@@ -161,7 +150,7 @@ II. On the server’s side, the **response** includes:
 
 #### GET Method
 
-The `GET` method is used to request data from the server without modifying it. An example would be retrieving a webpage or making a query to a search engine.
+The `GET` method simply fetches data from a server and is commonly used for retrieving webpages or requesting information without altering data on the server.
 
 **Sample HTTP GET Request**:
 
@@ -179,21 +168,21 @@ HTTP/1.1 200 OK
 Content-Type: text/html
 Content-Length: 3057
 
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+<!DOCTYPE html>
+<html>
 ...
 ```
 
-**Using `curl` in the terminal** to make a `GET` request:
+When using command-line tools like `curl`, you can specify request headers and see the server’s response:
 
 ```bash
 curl -i -H "Accept: application/json" -H "Content-Type: application/json" "https://api.github.com/users/octocat"
 ```
 
-**Response**:
+**Example Response**:
 
 ```json
-HTTP/2 200 
+HTTP/2 200
 {
   "login": "octocat",
   "id": 583231,
@@ -204,7 +193,7 @@ HTTP/2 200
 
 #### POST Method
 
-The `POST` method is used to send data to the server to create or update a resource, such as submitting a form on a webpage.
+The `POST` method is generally used when submitting data to the server, such as form information. It can also be employed to create new resources or update existing ones on the server side.
 
 **Using `curl` to send a POST request**:
 
@@ -212,7 +201,7 @@ The `POST` method is used to send data to the server to create or update a resou
 curl -X POST -H "Content-Type: application/json" -d '{"username":"testuser", "password":"testpassword"}' "https://reqbin.com/echo/post/json"
 ```
 
-**Response**:
+**Example Response**:
 
 ```json
 {
@@ -226,27 +215,25 @@ curl -X POST -H "Content-Type: application/json" -d '{"username":"testuser", "pa
 
 ### HTTP APIs and Standards
 
-Various standards have been established for APIs over time, allowing systems to communicate over HTTP.
+Over time, several standards and protocols have emerged for building APIs that communicate via HTTP. These standards guide how requests and responses are formatted and handled, fostering consistency and interoperability across various systems.
 
-Some of the key API standards include:
-
-| **Protocol**       | **Year** | **Description**                                                                                                  |
-|--------------------|----------|-------------------------------------------------------------------------------------------------------------------|
-| **XML-RPC**        | 1998     | A protocol for remote procedure calls using XML to encode the calls.                                             |
-| **SOAP**           | 1999     | A protocol for exchanging structured information in web services.                                                |
-| **REST**           | 2000     | An architectural style that uses standard HTTP methods to interact with resources.                               |
-| **JSON-RPC**       | 2005     | A remote procedure call protocol encoded in JSON.                                                                |
-| **GraphQL**        | 2015     | A query language for APIs that allows clients to specify exactly the data they need.                             |
+| **Protocol** | **Year** | **Description**                                                                                              |
+|--------------|----------|--------------------------------------------------------------------------------------------------------------|
+| **XML-RPC**  | 1998     | A pioneering protocol for remote procedure calls, encoding requests and responses in XML.                    |
+| **SOAP**     | 1999     | A more complex XML-based protocol designed for exchanging structured information in web services.            |
+| **REST**     | 2000     | An architectural style that uses standard HTTP methods to interact with resources in a stateless manner.     |
+| **JSON-RPC** | 2005     | Similar to XML-RPC but uses JSON for lightweight request and response formatting.                            |
+| **GraphQL**  | 2015     | A flexible query language for APIs that lets clients request only the data they need in a single endpoint.   |
 
 #### REST (Representational State Transfer)
 
-RESTful APIs rely on standard HTTP methods like GET, POST, PUT, and DELETE to manipulate resources. Each resource is identified by a URL, and actions are performed using these methods.
+Representational State Transfer (REST) is an architectural style that takes full advantage of standard HTTP methods—such as GET, POST, PUT, and DELETE—to manage and manipulate resources. In RESTful APIs, each resource is associated with a unique URL (or endpoint), and the requested operation is determined by the HTTP method used. Because REST is built on top of HTTP, it benefits from the protocol’s simplicity, scalability, and widespread adoption, making it one of the most popular approaches to building modern web services.
 
-**Example REST API**:
+**Example REST APIs**:
 
-- `https://jsonplaceholder.typicode.com`: A free fake API for testing and prototyping.
-- `https://jsoning.com/api/`: An API for working with JSON data.
-- `https://restcountries.com/v3.1/all`: A REST API providing country data.
+- `https://jsonplaceholder.typicode.com`: A free, no-auth fake API you can use for testing and prototyping.  
+- `https://jsoning.com/api/`: Provides endpoints for working with JSON data, also handy for quick experiments.  
+- `https://restcountries.com/v3.1/all`: Returns detailed country data in a RESTful manner.
 
 **GET Request Example**:
 
@@ -265,6 +252,8 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" "https
 }
 ```
 
+This example demonstrates retrieving a specific resource (in this case, a to-do item) using the GET method. Notice the response is in JSON, which is a common data format for RESTful APIs.
+
 **POST Request Example**:
 
 ```bash
@@ -281,62 +270,64 @@ curl --data "title=New Todo&completed=false" https://jsonplaceholder.typicode.co
 }
 ```
 
+Here, the `POST` method is used to create a new resource on the server. The server responds with a JSON object containing the newly created resource, including an automatically generated `id`.
+
 ### HTTP Status Codes
 
-HTTP status codes are three-digit numbers that indicate the result of an HTTP request.
+HTTP status codes are three-digit numbers that the server sends back to the client to indicate how a request was handled. They help developers understand whether an action was successful or if an error occurred.
 
-| Category        | Status Code Range  |
-|-----------------|--------------------|
-| Informational   | 1xx                |
-| Successful      | 2xx                |
-| Redirection     | 3xx                |
-| Client Error    | 4xx                |
-| Server Error    | 5xx                |
+| Category       | Status Code Range |
+|----------------|-------------------|
+| Informational  | 1xx               |
+| Successful     | 2xx               |
+| Redirection    | 3xx               |
+| Client Error   | 4xx               |
+| Server Error   | 5xx               |
 
 **Common HTTP Status Codes**:
 
-| Code | Description |
-| ---- | ----------- |
-| 200  | OK - The request was successful |
-| 201  | Created - A resource was successfully created |
-| 301  | Moved Permanently - The requested resource has a new permanent URI |
-| 302  | Found - The resource is temporarily located at a different URI |
-| 400  | Bad Request - The request could not be understood or was missing required parameters |
-| 401  | Unauthorized - Authentication is required |
-| 403  | Forbidden - The request is understood, but the server is refusing to fulfill it |
-| 404  | Not Found - The requested resource could not be found |
-| 500  | Internal Server Error - An error occurred on the server |
+| Code | Description                                                                        |
+|-----:|:------------------------------------------------------------------------------------|
+| 200  | **OK** – The request was successful, and the response contains the requested data. |
+| 201  | **Created** – A new resource was successfully created on the server.               |
+| 301  | **Moved Permanently** – The resource has a new permanent URI.                       |
+| 302  | **Found** – The resource is temporarily located at a different URI.                 |
+| 400  | **Bad Request** – The request was malformed or missing required parameters.         |
+| 401  | **Unauthorized** – Authentication is required or has failed.                        |
+| 403  | **Forbidden** – The server understands the request but refuses to authorize it.     |
+| 404  | **Not Found** – The requested resource could not be located on the server.          |
+| 500  | **Internal Server Error** – The server encountered an unexpected condition.         |
 
 ### HTTPS (HTTP Secure)
 
-HTTPS is the secure version of HTTP. It uses **SSL/TLS** to encrypt communication between the client and server, providing three main benefits:
+HTTPS is a secure extension of HTTP that uses **SSL/TLS** encryption to protect data as it travels between client and server. By encrypting the information, HTTPS prevents unauthorized individuals from intercepting or altering data in transit. It also verifies that clients are communicating with the legitimate server, reinforcing trust and security.
 
-- Data exchanged is encrypted and protected from eavesdropping.
-- Ensures that data is not altered during transmission.
-- Verifies the identity of the server to ensure the client is communicating with the correct server.
+Some of the key advantages of HTTPS include:
+
+1. **Encryption** – Ensures that sensitive data, like login credentials and payment information, remains confidential.  
+2. **Data Integrity** – Detects whether data has been tampered with or corrupted during transit.  
+3. **Authentication** – Proves the server’s identity, safeguarding against impostor or malicious sites pretending to be legitimate.
 
 #### HTTPS Connection Process
 
-1. The client requests a secure connection, including supported encryption methods.
-2. The server responds, providing its SSL certificate.
-3. The client verifies the server's certificate to ensure it's authentic.
-4. Both parties agree on encryption keys to use for secure communication.
-5. Data is encrypted and exchanged securely.
+1. **Client Hello** – The client requests a secure connection and provides a list of supported encryption methods.  
+2. **Server Response** – The server responds with its SSL certificate and chosen encryption method.  
+3. **Certificate Verification** – The client verifies the authenticity of the server’s certificate.  
+4. **Key Exchange** – Both parties agree upon encryption keys for the secure session.  
+5. **Secure Data Transfer** – The client and server encrypt their communication using the agreed-upon keys.
 
 #### FTP
 
-FTP, or File Transfer Protocol, is a standard network protocol that facilitates file transfers between a client and a server over a TCP-based network. It’s commonly used for straightforward file sharing, especially when large files or batches of files need to be moved efficiently.
+File Transfer Protocol (FTP) is one of the oldest and most straightforward ways to transfer large quantities of data between a client and a server over a TCP network. It was traditionally used to distribute software packages, share files among teams, and host downloadable assets. While it remains a staple in many server environments, security considerations have led to more widespread use of encrypted alternatives like SFTP or FTPS.
 
-FTP has a few key features:
+Main features of FTP include:
 
-- It operates with two separate connections: one for control commands and another specifically for data transfers. By using distinct channels, FTP can handle commands while simultaneously transferring data, ensuring a smooth file exchange process.
-- To access FTP servers, users generally need a username and password. However, FTP also offers an option called **anonymous FTP**, which allows users to connect without needing credentials. This feature is commonly used for public file repositories.
-- The protocol supports both **Active** and **Passive** modes for data connections. In Active Mode, the server initiates the data connection to the client, which works well in unrestricted environments. In contrast, Passive Mode is often more suitable for situations involving firewalls, as it requires the client to establish both the control and data connections.
+- **Separate Connections** – FTP typically establishes one connection for control commands and another for actual data transfer, enhancing efficiency during large file exchanges.  
+- **Authentication** – Access generally requires a username and password, though some servers allow **anonymous FTP** to download publicly available files.  
+- **Active Mode**: The server initiates the data connection to the client.  
+- **Passive Mode**: The client initiates the data connection, making it more firewall-friendly.  
 
-There are some important security considerations with FTP as well:
-
-- **Standard FTP transmissions are unencrypted**, which means data, including sensitive information like usernames and passwords, is vulnerable to interception. This lack of encryption can expose connections to eavesdropping or data theft.
-- For more secure file transfers, alternatives like FTPS and SFTP offer encryption. FTPS uses SSL/TLS to secure the data stream, adding a layer of protection over the standard protocol. SFTP, on the other hand, operates over SSH (Secure Shell), providing end-to-end encryption for both authentication and data transfer.
+Security-wise, **plain FTP traffic is unencrypted** and can be intercepted. Hence, more secure variants like FTPS (FTP over SSL/TLS) and SFTP (FTP over SSH) are recommended when data privacy is a concern.
 
 **FTP Workflow Diagram**:
 
@@ -352,32 +343,32 @@ There are some important security considerations with FTP as well:
 
 **Common FTP Commands**:
 
-| **Command** | **Description**                               |
-|-------------|-----------------------------------------------|
-| **LIST**    | List files in the current directory.          |
-| **RETR**    | Retrieve (download) a file.                   |
-| **STOR**    | Store (upload) a file.                        |
-| **DELE**    | Delete a file.                                |
-| **MKD**     | Make a new directory.                         |
+| **Command** | **Description**                                    |
+|-------------|----------------------------------------------------|
+| **LIST**    | Lists files in the current directory               |
+| **RETR**    | Retrieves (downloads) a file from the server       |
+| **STOR**    | Uploads a file to the server                       |
+| **DELE**    | Deletes a file on the server                       |
+| **MKD**     | Creates a new directory on the server              |
 
 #### WebSockets
 
-WebSockets enable full-duplex communication over a single TCP connection, which allows for real-time data exchange between a client and a server. This setup is particularly useful in scenarios where both sides need to send and receive data quickly and efficiently.
+WebSockets enable **bi-directional** (two-way) communication between a client and a server over a **single, persistent** TCP connection. Unlike traditional HTTP, where the client must always initiate requests, WebSockets let the server push updates to the client as soon as they happen.
 
-The advantages of using WebSockets are numerous:
+Key benefits of using WebSockets include:
 
-- They allow **bi-directional communication**, meaning that the client and server can both send messages at any time, independently of each other. This creates a more interactive experience, especially in real-time applications.
-- A **persistent connection** is established, so there’s no need to repeatedly open new HTTP connections for each message exchange. This reduces the overhead associated with traditional HTTP requests, making communication faster and less resource-intensive.
-- Because WebSockets provide **low latency**, they are ideal for applications that require immediate updates. This makes them well-suited for any app where speed is essential, such as online gaming or live streaming.
+- **Real-time Data** – Perfect for chat applications, multiplayer games, or any scenario requiring immediate updates.  
+- **Reduced Overhead** – Once the connection is established, messages can flow freely without repeatedly creating new HTTP requests.  
+- **Low Latency** – Ideal for high-speed interactions where every millisecond counts.
 
-WebSockets are often used in a variety of real-time applications:
+Use cases often involve:
 
-- **Chat applications** rely on WebSockets to deliver instant messaging, allowing users to communicate with each other in real-time without delay.
-- **Live feeds**, such as news updates, sports scores, or social media notifications, benefit from WebSockets by providing users with the latest information as soon as it becomes available.
-- For **collaborative tools**, WebSockets enable features like real-time document editing or shared workspaces, allowing multiple users to work on the same content simultaneously and see changes immediately.
-- In **IoT (Internet of Things) data streams**, WebSockets facilitate continuous data flow from sensors and devices, making it easier to monitor real-time data from various sources like smart home devices or industrial sensors.
+- **Chat Apps** – Real-time text, voice, or video chat.  
+- **Live Feeds** – Continuously streaming news, sports scores, or social media updates.  
+- **Collaborative Tools** – Document editing or shared workspaces with simultaneous multiple-user interactions.  
+- **IoT Data Streams** – Delivering real-time metrics from sensors, devices, and other hardware.
 
-The WebSocket handshake process is straightforward and ensures the protocol switch happens seamlessly. It begins with a **client request** that includes an `Upgrade` header to indicate the switch from HTTP to WebSocket. The **server responds** with a `101 Switching Protocols` message to confirm this upgrade, and once this response is received, a **connection is established**. From there, communication switches to WebSocket, allowing both client and server to begin exchanging data in real-time.
+The handshake process starts as a typical HTTP request with an `Upgrade` header to specify the switch to WebSockets. The server confirms with a `101 Switching Protocols` response, and from that point forward, communication no longer uses the standard request-response cycle but instead a persistent, event-driven channel.
 
 **Simplified WebSocket Diagram**:
 
@@ -408,44 +399,44 @@ socket.onclose = () => {
 
 #### TCP and UDP
 
-TCP, or Transmission Control Protocol, and UDP, or User Datagram Protocol, are essential components of the Internet Protocol Suite, both operating at the transport layer. While they share the role of transporting data, they do so in very different ways, each suited to specific types of network communication.
+TCP (Transmission Control Protocol) and UDP (User Datagram Protocol) are the two main protocols used at the transport layer of the Internet protocol suite. They define how data should be packaged, transmitted, and received over IP networks, each focusing on different priorities.
 
-TCP has a few key features that make it ideal for reliable, ordered data transmission:
+**TCP**:
 
-- It is **connection-oriented**, meaning it requires a connection to be established between the sender and receiver before any data is sent. This ensures that both sides are ready to communicate.
-- With **reliable delivery** as a priority, TCP makes sure that data packets arrive in order and without any errors. If a packet is lost or corrupted, TCP will retransmit it, guaranteeing the complete and correct data reaches the destination.
-- **Flow control** is an integral part of TCP. By managing the rate of data transmission, TCP ensures that the sender does not overwhelm the receiver with too much data at once.
-- Through **error checking**, TCP verifies data integrity using checksums. This helps detect and correct errors during data transmission, ensuring that the information received matches what was sent.
+- **Connection-Oriented** – A three-way handshake (SYN, SYN-ACK, ACK) must take place before data transfer begins.  
+- **Reliability** – Guarantees data will be delivered accurately and in sequence. If packets are lost or damaged, they will be retransmitted.  
+- **Flow Control and Congestion Control** – Adjusts the rate of data flow to prevent network overload.  
+- **Use Cases** – Web browsing, emails, and file transfers, where data integrity is paramount.
 
-On the other hand, UDP takes a more streamlined approach, favoring speed over reliability:
+**UDP**:
 
-- UDP is **connectionless**, meaning it doesn’t require a connection to be established before data is transmitted. This allows for faster data transfer since there’s no initial setup phase.
-- Known for **unreliable delivery**, UDP does not guarantee that packets will arrive in order or even at all. It simply sends the data, which can make it more suitable for applications where speed is more critical than accuracy, such as live video streaming or online gaming.
-- With **low overhead**, UDP is faster because it lacks many of the error-checking and order-maintaining mechanisms of TCP. This minimalism makes it a preferred choice when efficiency is more important than precision.
-- UDP is particularly **suitable for broadcasts** because it can send data to multiple recipients without establishing individual connections. This capability is often used in applications like live broadcasts, where data needs to reach a wide audience quickly.
+- **Connectionless** – Data can be sent without the overhead of establishing a formal connection.  
+- **Unreliable** – There are no guarantees on packet delivery, ordering, or duplication handling.  
+- **Low Overhead** – Minimal setup and error-checking make it faster but riskier if packet loss is unacceptable.  
+- **Use Cases** – Live video/audio streaming, online gaming, and VoIP calls, where speed and real-time updates are more critical than error-free transfers.
 
 **Comparison Table**:
 
-| Feature           | TCP                           | UDP                       |
-|-------------------|-------------------------------|---------------------------|
-| Connection        | Connection-Oriented           | Connectionless            |
-| Reliability       | Reliable (Acknowledgements)   | Unreliable                |
-| Ordering          | Ordered Data Transmission     | No Ordering Guarantees    |
-| Overhead          | Higher (due to error checking)| Lower                     |
-| Use Cases         | Web Browsing, Email, File Transfer | Streaming, Gaming, VoIP |
+| Feature           | TCP                           | UDP                          |
+|-------------------|-------------------------------|------------------------------|
+| Connection        | Connection-Oriented (Handshake) | Connectionless               |
+| Reliability       | Guaranteed (Acknowledgements)   | Not Guaranteed (No ACK)      |
+| Ordering          | Strictly Ordered Packets        | No Ordering Enforcement      |
+| Overhead          | Higher                          | Lower                        |
+| Use Cases         | HTTP, Email, File Transfer      | Streaming, Gaming, VoIP      |
 
 **TCP Connection Process (Three-Way Handshake)**:
 
-1. **SYN**: Client sends synchronization packet to server.
-2. **SYN-ACK**: Server acknowledges with synchronization-acknowledgment packet.
-3. **ACK**: Client sends acknowledgment to establish connection.
+1. **SYN** – The client sends a synchronization request to the server.  
+2. **SYN-ACK** – The server acknowledges the request and sends back its own synchronization signal.  
+3. **ACK** – The client confirms receipt of the server’s acknowledgment, establishing the connection fully.
 
 **TCP Diagram**:
 
 ```
-[Client] -- SYN --> [Server]
-[Client] <-- SYN-ACK -- [Server]
-[Client] -- ACK --> [Server]
+[Client] -- SYN -->      [Server]
+[Client] <-- SYN-ACK --  [Server]
+[Client] -- ACK -->      [Server]
 Connection Established
 ```
 
@@ -453,6 +444,7 @@ Connection Established
 
 ```
 [Client] -- Data Packet --> [Server]
+
 (No handshake; data sent immediately)
 ```
 
