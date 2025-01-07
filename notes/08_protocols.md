@@ -177,8 +177,8 @@ HTTP/1.1 200 OK
 Content-Type: text/html
 Content-Length: 3057
 
-<!DOCTYPE html>
-<html>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
 ...
 ```
 
