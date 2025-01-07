@@ -8,8 +8,6 @@ In today’s connected world, front-end developers do far more than style web pa
 
 The Internet is often called a “network of networks” because it consists of numerous smaller, interconnected networks run by private, public, academic, business, and government entities. This global system enables billions of devices to connect and exchange information at unprecedented speed and scale.
 
-A few essential components form the backbone of this global communication:
-
 - **TCP/IP** (Transmission Control Protocol/Internet Protocol) is the Internet’s core suite of protocols. TCP divides large pieces of data into packets and reassembles them upon arrival, ensuring reliable transfer. IP handles the addressing and routing of these packets to ensure they reach the correct destination.  
 - **Routers** are specialized devices that examine and direct data across different networks. They figure out the most efficient path for a packet to travel, which can involve hopping through multiple networks.  
 - **Switches** operate within a local or private network (such as an office network) to forward data from one device to another efficiently. They are sometimes compared to traffic organizers within a smaller area.  
@@ -61,8 +59,6 @@ Different browsers, such as Google Chrome, Mozilla Firefox, Microsoft Edge, and 
 #### DNS (Domain Name System)
 
 The Domain Name System (DNS) transforms human-readable domain names (e.g., `example.com`) into machine-readable IP addresses (e.g., `192.0.2.1`). Without DNS, users would have to memorize strings of numbers to access websites, which would be both unwieldy and impractical.
-
-The DNS process involves several key players:
 
 - The **DNS resolver** is a component, often provided by your ISP, that receives a domain name query and works to find the corresponding IP address.  
 - **Root servers** sit at the top of the DNS hierarchy and redirect queries to the appropriate top-level domain (TLD) servers, such as `.com` or `.org`.  
@@ -117,8 +113,6 @@ The domain name system is overseen by the Internet Corporation for Assigned Name
 #### HTTP (HyperText Transfer Protocol)
 
 HyperText Transfer Protocol (HTTP) is the foundation of data exchange on the web, enabling the transfer of HTML and related media files between clients (like web browsers) and servers. Its **request-response model** lies at the heart of web interactions, allowing a client to request resources and a server to respond with the necessary data.
-
-Key characteristics of HTTP include:
 
 - The **request-response cycle** involves an interaction where the client sends a request, and the server processes it to return a response.  
 - **Statelessness** ensures that each HTTP request is independent, meaning the server retains no memory of past interactions, which simplifies server design but requires mechanisms like cookies or sessions to maintain user data.  
