@@ -67,7 +67,7 @@
 * [ ] `@each $i from 1 through 3 { … }`
 * [ ] `@for $i in 1..3 { … }`
 * [x] `@for $i from 1 through 3 { … }`
-* [ ] `@while $i < 4 { … }`
+* [ ] `@while $i &lt; 4 { … }`
 * [ ] `@loop $i { … }`
 
 #### Q. What function returns the value associated with a key in a SCSS map?
@@ -134,7 +134,7 @@
 * [ ] `center();`
 * [ ] `@center();`
 
-#### Q. What does the following Less guard do? `.rounded(@radius) when (@radius > 0) { border-radius: @radius;}`
+#### Q. What does the following Less guard do? `.rounded(@radius) when (@radius &gt; 0) { border-radius: @radius;}`
 
 * [ ] Always applies the mixin
 * [x] Applies only if `@radius` is greater than 0
@@ -226,7 +226,7 @@
 
 * [ ] `.theme-dark`
 * [ ] `.mode-dark`
-* [x] Add `data-bs-theme="dark"` on `<html>` or `<body>`
+* [x] Add `data-bs-theme="dark"` on `&lt;html&gt;` or `&lt;body&gt;`
 * [ ] `.dark-mode`
 * [ ] `.bg-dark-mode`
 
@@ -288,11 +288,11 @@
 
 #### Q. How do you disable a Bootstrap button via HTML?
 
-* [ ] `<button class="btn btn-primary" disabled="false">`
-* [ ] `<button class="btn btn-primary" data-disabled>`
-* [x] `<button class="btn btn-primary" disabled>`
-* [ ] `<button class="btn btn-primary" disabled="true">`
-* [ ] `<button class="btn btn-primary" .disabled>`
+* [ ] `&lt;button class="btn btn-primary" disabled="false"&gt;`
+* [ ] `&lt;button class="btn btn-primary" data-disabled&gt;`
+* [x] `&lt;button class="btn btn-primary" disabled&gt;`
+* [ ] `&lt;button class="btn btn-primary" disabled="true"&gt;`
+* [ ] `&lt;button class="btn btn-primary" .disabled&gt;`
 
 #### Q. Which breakpoint shorthand applies styles only on large screens and up?
 
@@ -361,7 +361,7 @@
 #### Q. How do you enable right-to-left (RTL) support in Bootstrap?
 
 * [ ] Add `dir="rtl"` and include the `bootstrap.rtl.css` build
-* [ ] Just set `dir="rtl"` on `<html>`
+* [ ] Just set `dir="rtl"` on `&lt;html&gt;`
 * [ ] Use the `.rtl` utility class
 * [x] Add `dir="rtl"` and include the `bootstrap.rtl.css` build
 * [ ] Import `bootstrap-rtl.css` via JavaScript
@@ -430,11 +430,11 @@
 * [ ] `@local`
 * [ ] `@private`
 
-#### Q. How do you select all `<p>` elements inside a container with class `.article`?
+#### Q. How do you select all `&lt;p&gt;` elements inside a container with class `.article`?
 
 * [ ] `.article p { … }`
 * [ ] `p .article { … }`
-* [ ] `article > p { … }`
+* [ ] `article &gt; p { … }`
 * [x] `.article p { … }`
 * [ ] `#article p { … }`
 
@@ -515,7 +515,7 @@
 * [ ] `@media all and (max-device-width: 600px) { … }`
 * [ ] `@media screen and (min-width: 600px) { … }`
 * [x] `@media screen and (max-width: 600px) { … }`
-* [ ] `@media (width < 600px) { … }`
+* [ ] `@media (width &lt; 600px) { … }`
 * [ ] `@media only screen (max-width: 600px) { … }`
 
 #### Q. Which CSS property adds space inside an element’s border?
@@ -586,7 +586,7 @@
 
 * [ ] `div.item span`
 * [ ] `.item span:hover`
-* [x] `#container .item > span.active`
+* [x] `#container .item &gt; span.active`
 * [ ] `body div#container .item span`
 * [ ] `*`
 
@@ -619,7 +619,7 @@
 * [x] `@container (min-width: 400px) { … }`
 * [ ] `@media container and (min-width: 400px) { … }`
 * [ ] `@container-type (min-width: 400px) { … }`
-* [ ] `@query (container-width >= 400px) { … }`
+* [ ] `@query (container-width &gt;= 400px) { … }`
 * [ ] `@container width: 400px { … }`
 
 #### Q. Which pseudo-class matches an element when it receives keyboard focus but not mouse focus?
@@ -688,9 +688,9 @@
 
 #### Q. What feature does the `:root` selector target?
 
-* [ ] The first `<div>` in the document
-* [ ] All `<html>` children
-* [x] The document’s root element (usually `<html>`)
+* [ ] The first `&lt;div&gt;` in the document
+* [ ] All `&lt;html&gt;` children
+* [x] The document’s root element (usually `&lt;html&gt;`)
 * [ ] All custom properties
 * [ ] The highest z-index element
 
