@@ -414,14 +414,6 @@
 * [ ] Throws a ReferenceError
 * [ ] `null`
 
-#### Q. Which code correctly binds `this` in a callback? `class Counter { count = 0; increment() { this.count++; } start() { setTimeout(this.increment, 1000); } }`
-
-* [ ] Already works as intended
-* [ ] `start() { setTimeout(this.increment.bind(this), 1000); }`
-* [ ] `start() { setTimeout(() => this.increment(), 1000); }`
-* [x] Both of the above fix the binding
-* [ ] Use `var self = this` inside `start`
-
 #### Q. What order do these statements execute? `console.log('A'); setTimeout(() => console.log('B'), 0); Promise.resolve().then(() => console.log('C')); console.log('D');`
 
 * [ ] A, B, C, D
