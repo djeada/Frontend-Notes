@@ -21,6 +21,27 @@
 
 ### Integrating CSS with HTML
 
+#### See the result before reading the syntax
+
+![An unstyled information card compared with a styled, spaced card](../assets/visual-examples/card-styling.svg)
+
+**Before:** semantic HTML is readable but has the browser's default spacing. **After:** a class adds padding, border, readable width, and typography without changing content. Open the [working before/after project](../projects/visual-examples/index.html), inspect the card in DevTools, then toggle its declarations. One possible reusable rule is:
+
+```css
+.card {
+  box-sizing: border-box;
+  width: min(100%, 28rem);
+  padding: 1.25rem;
+  border: 1px solid #64748b;
+  border-radius: 0.75rem;
+  background: #fff;
+  color: #0f172a;
+}
+```
+
+`box-sizing: border-box` includes padding and border in the declared width, **not margin**. Check the actual contrast, narrow-screen wrapping and focus before shipping a theme.
+
+
 You can add CSS to your HTML documents in three primary ways:
 
 1. **Inline Styles**: This method involves adding CSS directly within the HTML tags. However, it's not recommended for larger styles or for maintaining consistency across pages.
@@ -48,6 +69,13 @@ You can add CSS to your HTML documents in three primary ways:
 ```
 
 ### Understanding Selectors
+
+#### Cascade: why your rule may not be applied
+
+![Simplified CSS cascade troubleshooting flow](../assets/diagrams/css-cascade.svg)
+
+First confirm the selector matches and the declaration is valid; then examine origins, `!important`, cascade layers, specificity, scoping, and source order as applicable. A highly specific selector does not universally win over every other declaration. In DevTools, inspect the **Computed** pane and overridden declarations instead of repeatedly adding `!important`. CSS custom properties such as `--accent` are resolved with `var(--accent, fallback)` when a fallback is needed.
+
 
 CSS Selectors play a pivotal role in defining which HTML elements should receive specific styles. By combining different types of selectors and properties, web developers can create intricate designs and layouts.
 
@@ -350,6 +378,13 @@ When setting the dimensions of an element, be cautious of extremes. An element t
 - `fit-content`: Scales the element based on available space and its content size.
 
 ### Flexbox
+
+#### See the effect: `justify-content` versus `align-items`
+
+![Flex items before alignment and after main-axis and cross-axis alignment](../assets/visual-examples/flex-alignment.svg)
+
+Flexbox lays out items on a **main axis** and a **cross axis**. The `flex-direction` property chooses the main axis; `justify-content` distributes free space along it and `align-items` aligns items across it. Try changing `flex-direction` to `column` in the [live example](../projects/visual-examples/index.html): the axes change, so memorizing “justify is horizontal” is misleading. Use `gap` for spacing and check wrapping when labels become longer.
+
 
 Flexbox, short for "Flexible Box Layout", is a design model in CSS that allows you to design complex layout structures with a more efficient and predictable way than traditional models, especially when dealing with different screen sizes and dynamic content.
 

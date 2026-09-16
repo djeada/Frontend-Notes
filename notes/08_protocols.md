@@ -8,7 +8,7 @@ In today’s connected world, front-end developers do far more than style web pa
 
 The Internet is often called a “network of networks” because it consists of numerous smaller, interconnected networks run by private, public, academic, business, and government entities. This global system enables billions of devices to connect and exchange information at unprecedented speed and scale.
 
-- **TCP/IP** (Transmission Control Protocol/Internet Protocol) is the Internet’s core suite of protocols. TCP divides large pieces of data into packets and reassembles them upon arrival, ensuring reliable transfer. IP handles the addressing and routing of these packets to ensure they reach the correct destination.  
+- **TCP/IP** (Transmission Control Protocol/Internet Protocol) is the Internet’s core suite of protocols. TCP presents a reliable ordered **byte stream**; IP and lower network layers carry packets, while TCP handles segmentation, ordering and retransmission. A TCP write does not necessarily correspond to one network packet or one read. IP handles the addressing and routing of these packets to ensure they reach the correct destination.
 - **Routers** are specialized devices that examine and direct data across different networks. They figure out the most efficient path for a packet to travel, which can involve hopping through multiple networks.  
 - **Switches** operate within a local or private network (such as an office network) to forward data from one device to another efficiently. They are sometimes compared to traffic organizers within a smaller area.  
 - **Fiber optic cables** and, in certain cases, **satellites** carry data over long distances. Fiber optic cables send data as pulses of light, allowing rapid and high-capacity transmission, whereas satellites are critical for reaching remote or hard-to-wire locations.
@@ -35,7 +35,7 @@ A web browser is the user’s gateway to the World Wide Web. By sending requests
 - The **browser engine** serves as the intermediary between the UI and the rendering engine, ensuring communication and task delegation.  
 - The **rendering engine** processes HTML, CSS, and other code to display a website's content on the screen, determining the appearance of text, images, and layouts.  
 - **Networking** functionalities manage resource fetching using protocols like HTTP/HTTPS, handle caching to improve performance, and perform security checks, including SSL/TLS validation.  
-- The **JavaScript interpreter (JS engine)** executes JavaScript code to enable interactive features, animations, and the dynamic updating of webpage content.  
+- The **JavaScript engine** can parse, compile, optimize and execute JavaScript code to enable interactive features, animations, and the dynamic updating of webpage content.
 - **Data storage** mechanisms such as cookies, local storage, and caches allow websites to store user preferences, session data, and other information, facilitating faster and more personalized browsing experiences.  
 
 Different browsers, such as Google Chrome, Mozilla Firefox, Microsoft Edge, and Safari, each have their own unique features and optimizations. For web developers, browser **developer tools** are a vital resource. These tools allow you to inspect a webpage’s structure (DOM), view and modify CSS in real-time, debug JavaScript via a console, and examine HTTP requests to optimize performance.
@@ -57,6 +57,9 @@ Different browsers, such as Google Chrome, Mozilla Firefox, Microsoft Edge, and 
 ```
 
 #### DNS (Domain Name System)
+
+DNS supplies many record types, not only IPv4 addresses: `A` provides IPv4, `AAAA` IPv6, `CNAME` an alias, `MX` mail routing, and `TXT` often verification/policy data. Recursive resolvers cache responses according to TTL; DNS resolution need not traverse root/TLD servers on every visit. DNS does not by itself encrypt HTTP or prove a site is legitimate.
+
 
 The Domain Name System (DNS) transforms human-readable domain names (e.g., `example.com`) into machine-readable IP addresses (e.g., `192.0.2.1`). Without DNS, users would have to memorize strings of numbers to access websites, which would be both unwieldy and impractical.
 
@@ -112,11 +115,20 @@ The domain name system is overseen by the Internet Corporation for Assigned Name
 
 #### HTTP (HyperText Transfer Protocol)
 
+#### Follow a real request visually
+
+![Browser URL, DNS lookup, TLS connection, HTTP request, server response, and browser rendering](../assets/diagrams/request-lifecycle.svg)
+
+For `https://example.com`, the browser may consult caches, resolve the hostname, establish a secure connection (TCP plus TLS for common HTTP/1.1/2 cases, or QUIC with TLS for HTTP/3), send HTTP request headers, receive a response, then parse and render resources. The diagram is a **conceptual sequence**, not a packet capture: caches, service workers, connection reuse and proxies can change the actual path.
+
+**Try it:** open the [visual demo](../projects/visual-examples/index.html) with browser DevTools → Network. Reload with and without cache, inspect `Status`, `Content-Type`, `Cache-Control`, timing, and failed requests. A successful DNS lookup does not guarantee that the server, TLS certificate or application is working. `fetch()` normally resolves even for HTTP `404` and `500`; inspect `response.ok`. CORS controls which cross-origin responses browser scripts can access, **not API authentication or authorization**.
+
+
 HyperText Transfer Protocol (HTTP) is the foundation of data exchange on the web, enabling the transfer of HTML and related media files between clients (like web browsers) and servers. Its **request-response model** lies at the heart of web interactions, allowing a client to request resources and a server to respond with the necessary data.
 
 - The **request-response cycle** involves an interaction where the client sends a request, and the server processes it to return a response.  
-- **Statelessness** ensures that each HTTP request is independent, meaning the server retains no memory of past interactions, which simplifies server design but requires mechanisms like cookies or sessions to maintain user data.  
-- **TCP-based** communication underlies HTTP, using the Transmission Control Protocol (TCP) to guarantee reliable data transmission between client and server.
+- **Stateless protocol semantics** mean each request carries the information needed to interpret it; applications can still maintain server-side session state via cookies or tokens. HTTP statelessness does not imply a server has no memory.
+- **Transport depends on HTTP version:** HTTP/1.1 and HTTP/2 commonly use TCP; HTTP/3 uses QUIC over UDP, which provides reliable streams and incorporates TLS 1.3. Do not describe all HTTP as TCP-based.
 
 In the HTTP world, both requests and responses consist of specific parts:
 

@@ -13,7 +13,7 @@ The two most common preprocessors are:
 
 #### An outline of common features
 
-Let's delve into some of the most prevalent CSS preprocessor features and see how they stack up against CSS4, the latest iteration of CSS.
+Let's delve into some of the most prevalent CSS preprocessor features and see how they stack up against the current modular CSS specifications. There is no single language version called “CSS4”; different CSS modules have their own levels.
 
 ##### Variables
 
@@ -53,19 +53,17 @@ body {
 
 ##### Inheritance
 
-Inheritance copies all definitions from one selector to another.
+CSS inheritance means some *property values* pass from a parent element to its descendants; it is not copying one selector’s declarations into another selector. Sass `@extend` and Less mixins implement different kinds of reuse.
 
-CSS (Using @apply):
+Native CSS (inherited text color versus shared selectors):
 
 ```css
-.parent {
-  color: red;
-}
-
-.child {
-  @apply .parent;
-}
+.parent { color: red; }
+/* A nested descendant inherits color by default; unrelated elements do not. */
+.parent, .unrelated-but-same-color { color: red; }
 ```
+
+`@apply` is **not a standard native-CSS selector inheritance rule**. Some tooling implements an `@apply` directive with its own syntax and compilation step; do not paste it into plain CSS expecting it to work.
 
 SCSS:
 
@@ -93,7 +91,20 @@ child {
 
 ##### Nesting
 
-Nesting provides a more structured and readable way to write styles for nested elements. While CSS lacks a direct equivalent, the same effect can be achieved using multiple nested selectors.
+**See what native CSS can do today:**
+
+```css
+.card {
+  padding: 1rem;
+  & .title { font-weight: 700; }
+  &:hover { border-color: rebeccapurple; }
+}
+```
+
+This works in browsers supporting native CSS nesting without a Sass compilation step. Sass is still useful for mixins, modules and build-time functions, but do not add a build tool solely because you think CSS has no variables or nesting. Compare the [unstyled/styled card illustration](../assets/visual-examples/card-styling.svg) and [live demo](../projects/visual-examples/index.html); the image shows the visual CSS effect, **not** a framework performance comparison.
+
+
+Nesting provides a more structured and readable way to write styles for nested elements. Modern native CSS supports nesting. Its parsing and selector behavior are not identical to every Sass/Less form, so check compatibility and use `&` when you need the parent selector.
 
 SASS / LESS:
 
@@ -106,6 +117,9 @@ SASS / LESS:
 ```
 
 ##### Mathematical operations
+
+Separate **build-time calculations** (such as Sass `math.div()`) from native CSS **computed-value calculations** (`calc()`, `min()`, `max()`, `clamp()`). They have different timing and unit constraints. In current Sass, use `@use 'sass:math';` and `math.div($spacing, 2)` instead of relying on deprecated ambiguous slash division.
+
 
 Mathematical operations enable dynamic value assignment based on another value, computed in real-time.
 
@@ -139,9 +153,9 @@ Available functions include:
 
 ```css
 body {
-  background-color: rgb(255, 255, 255);
-  background-color: min(rgb(255, 255, 255), rgb(0, 0, 0));
-  background-color: max(rgb(255, 255, 255), rgb(0, 0, 0));
+  background-color: rgb(255 255 255);
+  width: min(100%, 40rem);
+  padding: max(1rem, 2vw);
 }
 ```
 
@@ -165,12 +179,10 @@ body {
 
 Mixins are reusable blocks of code that can be included in multiple CSS rules. They allow for writing DRY (Don't Repeat Yourself) code, avoiding repetition.
 
-CSS (Using @apply, somewhat limited):
+Native CSS media query (this is **not** a mixin or `@apply`):
 
 ```css
-@custom-media --small-viewport (max-width: 30em);
-
-@media (--small-viewport) {
+@media (max-width: 30em) {
   /* Rules here */
 }
 ```

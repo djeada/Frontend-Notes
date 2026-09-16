@@ -7,7 +7,7 @@ Main idea:
 - **JavaScript** is a versatile programming language primarily used for adding interactivity to web pages, making it essential for creating dynamic and responsive user experiences.
 - JavaScript is considered a **high-level language**, meaning it abstracts away most of the complex details of the computer’s hardware, making it easier to read and write while allowing developers to focus on programming logic rather than intricate details.
 - It is a **multi-paradigm language**, supporting different programming styles, including procedural, object-oriented, and functional programming, which gives developers flexibility in how they structure and write code.
-- JavaScript is an **interpreted language**, meaning the code is executed line by line by the browser’s JavaScript engine without the need for prior compilation, making it highly suitable for interactive web applications.
+- JavaScript has specified language semantics but modern engines may parse, compile, interpret, and optimize code. It is inaccurate to describe all execution as strictly line-by-line interpretation without prior compilation.
 - Being a **dynamic language**, JavaScript allows variables to change types at runtime, which makes it flexible but can lead to unexpected behavior if not managed carefully.
 - JavaScript is also known as a **weakly-typed language**, which means that it does not enforce strict type constraints on variables, allowing different types to be easily combined. For instance, you can add a string to a number without needing explicit type conversions.
 
@@ -23,11 +23,29 @@ Main idea:
 
 ### Fundamentals
 
+#### See what JavaScript changes in the browser
+
+![A form before input validation and after informative error feedback](../assets/visual-examples/form-validation.svg)
+
+HTML supplies the form, CSS styles its feedback, and JavaScript can respond when the user submits. Open the [live example](../projects/visual-examples/index.html) and inspect `script.js`: it checks validity, sets `aria-invalid`, and writes a message using `textContent`. It prevents actual network submission; production code must **also** validate input on the server. A visible error alone does not prove it is announced by assistive technology: check accessible descriptions and focus behavior.
+
+```js
+const form = document.querySelector('#newsletter');
+form.addEventListener('submit', event => {
+  event.preventDefault(); // Demo only; a production form must send valid data.
+  const email = form.elements.namedItem('email');
+  if (!email.checkValidity()) email.focus();
+});
+```
+
+The example assumes the input has `name="email"`, as in the live project. Browser APIs such as `document` are **host APIs**, not intrinsic parts of the ECMAScript language specification.
+
+
 The following are the fundamental concepts of JavaScript:
 
 #### Adding JavaScript to the HTML
 
-You can either inline JavaScript or include refrence to an external JavaScript file:
+You can either inline JavaScript or include a reference to an external JavaScript file:
 
 1. Inline JavaScript is put between `<script>` tags:
 
@@ -79,7 +97,7 @@ A few useful built-in methods that you can use in JavaScript:
 1. `Boolean()` - to convert a value to a boolean
 1. `Array()` - to convert a value to an array
 1. `Object()` - to convert a value to an object
-1. `Date()` - to get the current date and time
+1. `Date()` - when called without `new`, returns a date string; `new Date()` constructs a Date object
 
 Let's take a look at some examples:
 
@@ -90,15 +108,18 @@ alert("Hello " + name);
 
 #### Numbers
 
+**Important sign check:** `Number.MIN_VALUE > 0` is `true`. It describes the smallest positive nonzero `Number`, not the most negative value. The finite negative value with largest magnitude is `-Number.MAX_VALUE`; the distinct value `-Infinity` is not finite. `Number('12px')` is `NaN`, whereas `parseInt('12px', 10)` is `12`, so choose full-string validation when a form requires the entire input to be numeric.
+
+
 Some of the most common number operations:
 
 1. `number.toFixed(n)` - returns a string with n decimal places for a variable named number
 2. `number.toPrecision(n)` - returns a string with n significant digits for a variable named number
 3. `number.valueOf()` - returns the number as a primitive value
-4. `parseInt(string)` - returns the first number in the string
-5. `parseFloat(string)` - returns the first floating point number in the string
+4. `parseInt(string, 10)` - parses an integer prefix when possible (for example, `parseInt("12px", 10) === 12`); returns `NaN` when no valid prefix exists
+5. `parseFloat(string)` - parses a numeric prefix when possible; returns `NaN` for an invalid starting character
 6. `Number.MAX_VALUE` - largest possible JS number
-7. `Number.MIN_VALUE` - smallest possible JS number
+7. `Number.MIN_VALUE` - smallest **positive nonzero** representable Number (approximately `5e-324`), not the most negative value
 8. `Number.NEGATIVE_INFINITY` - -Infinity
 9. `Number.POSITIVE_INFINITY` - Infinity
 

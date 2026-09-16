@@ -1,7 +1,7 @@
 ## JavaScript Frameworks
 
-* Most Web Apps today are built using a JavaScript framework rather than written in Vanilla JavaScript.
-* Almost everyone agrees that every frontend developer should be familiar with at least one JavaScript framework.
+* Many web applications use frameworks or libraries, but static sites and smaller interactive pages may not need one. The right choice depends on the requirements.
+* Learning a framework can help you work on existing applications, but HTML, CSS, JavaScript and browser fundamentals remain essential.
 * Some take it to the extreme and start learning the frontend development with one of JavaScript frameworks. 
 * I still believe that before diving into the world of JavaScript frameworks, you should first understand the fundamentals of frontend development. So if you haven't done that by now, I suggest you take a step back and learn the basics.
 
@@ -51,17 +51,28 @@ Links:
 
 ## React
 
+**Current entry-point API:** React 19 removed legacy `ReactDOM.render`. Import `createRoot` from `react-dom/client`, then call `createRoot(container).render(<App />)`. The React examples below now use `createRoot`; ensure the same code block imports it rather than importing `ReactDOM` from `react-dom`.
+
+```jsx
+import { createRoot } from 'react-dom/client';
+function App() { return <button type="button">Hello</button>; }
+createRoot(document.getElementById('root')).render(<App />);
+```
+
+For a new project, follow the current [React project guide](https://react.dev/learn/start-a-new-react-project), not deprecated Create React App instructions. Choose a framework or build tool based on routing, deployment, server rendering and learning goals; a library alone does not decide these requirements. The [button states illustration](../assets/visual-examples/button-states.svg) shows UI states that are necessary regardless of framework, and the [vanilla JavaScript demo](../projects/visual-examples/index.html) provides a baseline before adding dependencies.
+
+
 React is a JavaScript library for building user interfaces, often referred to as a framework due to its extensive ecosystem. Unlike a framework, which provides a structured approach to building applications, a library like React allows for more flexibility in implementation.
 
 Pros:
 
-- React is currently the most popular library for building user interfaces, which means that there is a high demand for developers skilled in React. This popularity also indicates a robust job market and numerous opportunities for React developers.
-- React is backed by Meta (formerly Facebook), a major tech company, ensuring continuous development, updates, and long-term support. This backing provides confidence in React’s longevity and relevance in the industry.
+- React is widely used for building user interfaces; usage surveys and hiring demand differ by population and date, so do not infer current market rankings from an undated claim. This popularity also indicates a robust job market and numerous opportunities for React developers.
+- React is maintained by a community and Meta contributors, but organizational backing does not guarantee an indefinite support timeline. This backing provides confidence in React’s longevity and relevance in the industry.
 - The core library of React is relatively small, which makes it lightweight, fast, and easy to learn. Developers can quickly get up to speed and start building applications without needing to understand a vast amount of codebase.
 - There is a huge and active community around React. This extensive community provides a wealth of resources, including tutorials, documentation, forums, and third-party libraries. Developers can easily find solutions to common problems, share knowledge, and collaborate on projects.
 - React’s component-based architecture allows for reusable and maintainable code. Developers can create modular components that can be reused across different parts of an application, reducing redundancy and improving code quality.
-- React’s virtual DOM implementation ensures efficient updates and rendering of components, leading to improved performance, especially in dynamic applications.
-- React has a rich ecosystem with numerous tools and libraries that enhance development productivity. Tools like Create React App, React DevTools, and various state management libraries (such as Redux) simplify and streamline the development process.
+- React reconciles component output to update interfaces. Actual performance depends on application architecture, rendering patterns, bundle size and measurement; a virtual DOM is not an automatic performance guarantee.
+- React has a rich ecosystem with numerous tools and libraries that enhance development productivity. Tools such as React DevTools and appropriate state management can support development. Create React App is deprecated for new projects; consult the current React project setup guide.
 
 Cons:
 
@@ -83,7 +94,7 @@ Components in React are written using JSX, an extension to JavaScript that allow
 
 ```jsx
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 class HelloWorld extends React.Component {
   render() {
@@ -96,7 +107,7 @@ class HelloWorld extends React.Component {
   }
 }
 
-ReactDOM.render(<HelloWorld />, document.getElementById('root'));
+createRoot(document.getElementById("root")).render(<HelloWorld />);
 ```
 
 #### Props
@@ -136,7 +147,7 @@ function Container(props) {
 
 #### Mounting
 
-Mounting is the process of rendering a React component to the DOM. It involves several lifecycle methods:
+Mounting adds a component to the rendered tree. The following are **class-component lifecycle methods across mounting, updating, unmounting and error handling**, not a list of methods all invoked during mounting:
 
 1. `constructor(props)` - Called before the component is mounted.
 2. `render()` - Defines what the component UI looks like.
@@ -766,13 +777,13 @@ In the `src/App.js` file, include the following React script:
 
 ```javascript
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 const App = () => {
     return <h1>Hello World</h1>;
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+createRoot(document.getElementById("root")).render(<App />);
 ```
 
 In addition to JavaScript, an HTML file is required to render the React code. Place the `index.html` file in the `dist` folder:

@@ -26,6 +26,15 @@
 
 ### Document Structure
 
+#### See the effect: generic blocks versus semantic regions
+
+![Before: generic unlabeled blocks. After: header, navigation, main and footer landmarks](../assets/visual-examples/semantic-html.svg)
+
+The two layouts can look nearly identical with CSS, but semantic elements communicate structure to browser and assistive-technology navigation. Inspect the real, separate [before HTML](../projects/visual-examples/semantic-before.html) and [after HTML](../projects/visual-examples/semantic-after.html) examples with CSS disabled. Use `<header>` for introductory material, `<nav aria-label="Main">` for navigation, one main region for central content and `<footer>` for supporting information. Headings should describe actual sections: an `<h1>` is a heading, not a substitute for `<header>`. The diagram is illustrative, not a screenshot or proof of accessible behavior.
+
+The doctype in the document below switches the browser into no-quirks mode; test layout with DevTools rather than assuming a doctype makes CSS responsive.
+
+
 The HTML document structure provides a standardized way to structure content on the web. Adhering to this structure ensures browser compatibility and proper rendering of web pages.
 
 Below is a foundational structure of an HTML document:
@@ -47,11 +56,11 @@ Below is a foundational structure of an HTML document:
 </html>
 ```
 
-- The `<!DOCTYPE html>` declaration is an essential **instruction** for web browsers, identifying the document as HTML5. This declaration ensures that browsers interpret the page using the standards of HTML5.
+- The `<!DOCTYPE html>` declaration is an essential **instruction** for web browsers, triggering no-quirks (standards) mode in an HTML document. It is not an HTML version selector.
 - In the `<html lang="en">` element, the **root** of any HTML page is defined. The `lang` attribute, set to "en" in this example, indicates the primary language of the content, which aids in both accessibility and search engine optimization.
 - The `<head>` section of an HTML document is a **container** for metadata. Metadata in this section influences how the page is processed by browsers and understood by search engines.
 - With `<meta charset="UTF-8">`, the document’s character encoding is set to UTF-8, which supports nearly all **writing** systems worldwide. This encoding is vital for ensuring proper display of text across different languages and characters.
-- The `<meta name="viewport" content="width=device-width, initial-scale=1.0">` tag is a **key** component for responsive design. By setting the viewport width to the device width, it ensures the page adjusts properly on various devices, particularly mobile phones and tablets.
+- The `<meta name="viewport" content="width=device-width, initial-scale=1.0">` tag is a **key** component for responsive design. By setting the viewport width to the device width, it sets a device-width viewport. Responsive layout still requires flexible CSS, correctly sized media, and testing at different widths.
 - The `<title>` tag specifies the **name** of the document, which appears in the browser tab. An informative and relevant title is crucial for both user experience and search engine optimization, as it describes the page’s content.
 - The `<body>` tag is the **main** container for all visible content on the page. Any text, images, videos, and other elements intended for display to the user are included within this tag, making it the core of the HTML document for content rendering.
 
@@ -79,7 +88,7 @@ Here is an example:
 <meta charset="UTF-8">
 ```
 
-2. **Viewport**: This tag optimizes display settings for mobile devices, ensuring a responsive design. It's essential for modern web development to accommodate varying screen sizes.
+2. **Viewport**: This tag configures viewport behavior on mobile devices; it does not, by itself, ensure a responsive design. It's essential for modern web development to accommodate varying screen sizes.
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,7 +100,7 @@ Here is an example:
 <meta name="description" content="Discover the latest updates and features of My Awesome Website.">
 ```
 
-4. **Keywords**: While modern search engines don't heavily rely on this metadata for ranking, it can still be included for potential SEO benefits.
+4. **Keywords**: Do not recommend `meta name="keywords"` as an SEO ranking technique; major search engines generally ignore it. Focus on a descriptive title, useful content, and clear structure.
 
 ```html
 <meta name="keywords" content="innovation, tech, design">
@@ -145,7 +154,7 @@ In this example, href is the attribute name, and `https://www.example.com` is it
 
 ### Void (Self-closing) Elements in HTML
 
-Void elements, also known as self-closing elements, are unique HTML tags that don't require a closing tag. While they don't wrap around content, they can have attributes which give them functionality or provide additional context.
+Void elements (not the same as XML self-closing syntax) are unique HTML tags that don't require a closing tag. While they don't wrap around content, they can have attributes which give them functionality or provide additional context.
 
 #### Characteristics
 
@@ -340,6 +349,23 @@ The following tags are used to create tables:
 
 
 ### Interactive elements
+
+#### See the effect: a form with and without persistent labels
+
+![Before: ambiguous form feedback. After: an explicit label, visible error, and clear action](../assets/visual-examples/form-validation.svg)
+
+A placeholder disappears during typing and must not be the only label. Compare this usable native HTML with the [interactive form](../projects/visual-examples/index.html):
+
+```html
+<form action="/register" method="post">
+  <label for="email">Email address</label>
+  <input id="email" name="email" type="email" autocomplete="email" required>
+  <button type="submit">Register</button>
+</form>
+```
+
+The `name` allows form submission, and `required`/`type="email"` provide browser checks. **Server-side validation is still mandatory.** Use links for navigation and buttons for actions; a button inside a form defaults to submit unless given `type="button"`. The demonstration prevents submission to avoid sending personal information.
+
 
 As opposed to readonly elements, there are some elements that users can interact with and trigger actions based on their state.
 

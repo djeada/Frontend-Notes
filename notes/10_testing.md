@@ -130,7 +130,7 @@ The local page must implement the custom context-menu handler. Right-clicking a 
 
 A screenshot comparison answers “did these pixels or regions change?” rather than “is the page correct?” Baseline images can catch unintended layout changes, but fonts, operating systems, dynamic timestamps, advertisements, and animations create noise. Fix viewport dimensions, font assets, device scale, data fixtures, and animation state before interpreting diffs. Review expected visual changes intentionally; do not update all baselines automatically just to make tests green.
 
-A beginner-friendly set of comparisons is provided by the [visual examples](visual-examples.md), with a runnable [browser project](../projects/visual-examples/README.md). These SVGs are *illustrative wireframes*, **not** real screenshot test baselines:
+A beginner-friendly set of comparisons is provided by the [before-and-after examples](../projects/visual-examples/README.md), with a runnable [browser project](../projects/visual-examples/README.md). These SVGs are *illustrative wireframes*, **not** real screenshot test baselines:
 
 ![Side-by-side comparison of a form with hidden versus explicit error feedback](../assets/visual-examples/form-validation.svg)
 
