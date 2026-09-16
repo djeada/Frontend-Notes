@@ -134,6 +134,10 @@ A beginner-friendly set of comparisons is provided by the [before-and-after exam
 
 ![Side-by-side comparison of a form with hidden versus explicit error feedback](../assets/visual-examples/form-validation.svg)
 
+**Actual browser-rendered before/after:**
+
+![Browser screenshot of the form validation comparison](../assets/visual-examples/form-validation-browser.png)
+
 For an actual regression test, launch the demo at a fixed viewport, capture a screenshot, change one CSS property, capture it again, and explain the intended pixel differences. Also verify that the error text is announced or discoverable, since a screenshot cannot prove accessible behavior.
 
 #### Mock servers and request interception

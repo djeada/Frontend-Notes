@@ -30,6 +30,10 @@
 
 ![Before: generic unlabeled blocks. After: header, navigation, main and footer landmarks](../assets/visual-examples/semantic-html.svg)
 
+**Actual browser-rendered before/after:**
+
+![Browser screenshot of the semantic html comparison](../assets/visual-examples/semantic-html-browser.png)
+
 The two layouts can look nearly identical with CSS, but semantic elements communicate structure to browser and assistive-technology navigation. Inspect the real, separate [before HTML](../projects/visual-examples/semantic-before.html) and [after HTML](../projects/visual-examples/semantic-after.html) examples with CSS disabled. Use `<header>` for introductory material, `<nav aria-label="Main">` for navigation, one main region for central content and `<footer>` for supporting information. Headings should describe actual sections: an `<h1>` is a heading, not a substitute for `<header>`. The diagram is illustrative, not a screenshot or proof of accessible behavior.
 
 The doctype in the document below switches the browser into no-quirks mode; test layout with DevTools rather than assuming a doctype makes CSS responsive.
@@ -353,6 +357,10 @@ The following tags are used to create tables:
 #### See the effect: a form with and without persistent labels
 
 ![Before: ambiguous form feedback. After: an explicit label, visible error, and clear action](../assets/visual-examples/form-validation.svg)
+
+**Actual browser-rendered before/after:**
+
+![Browser screenshot of the form validation comparison](../assets/visual-examples/form-validation-browser.png)
 
 A placeholder disappears during typing and must not be the only label. Compare this usable native HTML with the [interactive form](../projects/visual-examples/index.html):
 

@@ -25,6 +25,10 @@
 
 ![An unstyled information card compared with a styled, spaced card](../assets/visual-examples/card-styling.svg)
 
+**Actual browser-rendered before/after:**
+
+![Browser screenshot of the card styling comparison](../assets/visual-examples/card-styling-browser.png)
+
 **Before:** semantic HTML is readable but has the browser's default spacing. **After:** a class adds padding, border, readable width, and typography without changing content. Open the [working before/after project](../projects/visual-examples/index.html), inspect the card in DevTools, then toggle its declarations. One possible reusable rule is:
 
 ```css
@@ -382,6 +386,10 @@ When setting the dimensions of an element, be cautious of extremes. An element t
 #### See the effect: `justify-content` versus `align-items`
 
 ![Flex items before alignment and after main-axis and cross-axis alignment](../assets/visual-examples/flex-alignment.svg)
+
+**Actual browser-rendered before/after:**
+
+![Browser screenshot of the flex alignment comparison](../assets/visual-examples/flex-alignment-browser.png)
 
 Flexbox lays out items on a **main axis** and a **cross axis**. The `flex-direction` property chooses the main axis; `justify-content` distributes free space along it and `align-items` aligns items across it. Try changing `flex-direction` to `column` in the [live example](../projects/visual-examples/index.html): the axes change, so memorizing “justify is horizontal” is misleading. Use `gap` for spacing and check wrapping when labels become longer.
 

@@ -6,6 +6,9 @@ Hi, and welcome. This is my personal set of notes on frontend development—tips
 
 ## Visual examples: see what changes in the browser
 
+![Actual browser screenshot comparing the before and after styled cards](assets/visual-examples/card-styling-browser.png)
+
+
 Frontend is visual. Each original chapter now links to a relevant editable SVG comparison and/or the [runnable visual examples](projects/visual-examples/README.md). Compare [unstyled and styled cards](assets/visual-examples/card-styling.svg), [Flexbox alignment](assets/visual-examples/flex-alignment.svg), [form feedback](assets/visual-examples/form-validation.svg), [responsive navigation](assets/visual-examples/responsive-navigation.svg), and [keyboard focus](assets/visual-examples/keyboard-focus.svg). The SVGs are explanatory illustrations, **not exported screenshots**; run the associated HTML/CSS/JavaScript files to inspect actual rendering.
 
 Follow each project's own README: some examples are standalone HTML files, while framework projects require their documented dependency installation and local server. A viewport meta tag does not make a design responsive; test on small screens, at increased zoom, and with a keyboard.

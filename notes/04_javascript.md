@@ -27,6 +27,10 @@ Main idea:
 
 ![A form before input validation and after informative error feedback](../assets/visual-examples/form-validation.svg)
 
+**Actual browser-rendered before/after:**
+
+![Browser screenshot of the form validation comparison](../assets/visual-examples/form-validation-browser.png)
+
 HTML supplies the form, CSS styles its feedback, and JavaScript can respond when the user submits. Open the [live example](../projects/visual-examples/index.html) and inspect `script.js`: it checks validity, sets `aria-invalid`, and writes a message using `textContent`. It prevents actual network submission; production code must **also** validate input on the server. A visible error alone does not prove it is announced by assistive technology: check accessible descriptions and focus behavior.
 
 ```js

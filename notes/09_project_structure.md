@@ -83,6 +83,10 @@ src/tests/cart.test.js               src/features/cart/cart.test.js
 
 ![Visual example comparing cluttered and purposeful content hierarchy](../assets/visual-examples/visual-hierarchy.svg)
 
+**Actual browser-rendered before/after:**
+
+![Browser screenshot of the visual hierarchy comparison](../assets/visual-examples/visual-hierarchy-browser.png)
+
 A feature-first arrangement can simplify locating its tests and styles. Shared primitives (button, dialog, formatting functions) can still live in `src/shared/`. Use import boundaries to prevent cycles rather than expecting directory names to enforce architecture. The illustration teaches **interface hierarchy**, not a benchmark proving one file tree is faster.
 
 ### Best practices for a production build

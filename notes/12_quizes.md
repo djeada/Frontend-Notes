@@ -29,6 +29,10 @@ Use `<form>` with labeled controls such as `<input>`, `<select>`, `<textarea>`, 
 
 ![A form with an ambiguous error compared with one that gives text feedback](../assets/visual-examples/form-validation.svg)
 
+**Actual browser-rendered before/after:**
+
+![Browser screenshot of the form validation comparison](../assets/visual-examples/form-validation-browser.png)
+
 Try the live [form demonstration](../projects/visual-examples/README.md) and submit both invalid and valid input.
 </details>
 
@@ -56,6 +60,10 @@ Try the live [form demonstration](../projects/visual-examples/README.md) and sub
 Elements such as `<article>`, `<aside>`, `<figcaption>`, `<footer>`, `<header>`, `<main>`, `<nav>`, and `<section>` communicate purpose and relationships. Choose by meaning and behavior rather than appearance. A `<div>` is fine when no semantic element fits. Semantics assist navigation but do not automatically guarantee accessibility or SEO.
 
 ![A page made of generic blocks compared with a page with labeled semantic regions](../assets/visual-examples/semantic-html.svg)
+
+**Actual browser-rendered before/after:**
+
+![Browser screenshot of the semantic html comparison](../assets/visual-examples/semantic-html-browser.png)
 </details>
 
 <details>
@@ -102,6 +110,10 @@ Use `background-color`, for example `body { background-color: #f0f0f0; }`. Check
 First identify **which property** you see: an image border and the focus outline are different. Do **not** globally apply `outline: none` to links. Keep a visible keyboard focus indicator, for example `a:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }`. You may style the border separately if a border is unwanted.
 
 ![A keyboard user losing their position when focus is hidden versus a visible focus indicator](../assets/visual-examples/keyboard-focus.svg)
+
+**Actual browser-rendered before/after:**
+
+![Browser screenshot of the keyboard focus comparison](../assets/visual-examples/keyboard-focus-browser.png)
 </details>
 
 <details>
