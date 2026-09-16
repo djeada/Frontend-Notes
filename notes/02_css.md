@@ -21,6 +21,60 @@
 
 ### Integrating CSS with HTML
 
+#### Separate content from presentation, then verify the result
+
+A small card is a useful controlled experiment: keep the **same HTML** before and after, then toggle only the CSS class. This isolates the effect of styling from changes in text, structure or JavaScript. The [actual Chromium screenshot](../assets/visual-examples/card-styling-browser.png) shows both rendered states side by side.
+
+```html
+<article class="course-card">
+  <h2>Starter course</h2>
+  <p>Learn to build a small web page.</p>
+  <a href="/courses/starter">View course</a>
+</article>
+```
+
+```css
+.course-card {
+  max-width: 28rem;
+  padding: 1.5rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.75rem;
+  background: white;
+  color: #0f172a;
+}
+.course-card h2 { margin-block: 0 0.5rem; line-height: 1.2; }
+.course-card p { max-width: 60ch; }
+.course-card a:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 3px; }
+```
+
+**What changes:** padding creates interior breathing room; the border defines grouping; a constrained line length improves scanning; a visible focus indicator preserves keyboard discoverability. CSS does not confer HTML semantics on its own. If the source markup uses a `<div>` instead of `<article>`, simply making it look like a card does not change its semantic role. Try disabling the stylesheet and confirm that headings and links remain usable.
+
+
+#### See the result before reading the syntax
+
+![An unstyled information card compared with a styled, spaced card](../assets/visual-examples/card-styling.svg)
+
+**Actual browser-rendered before/after:**
+
+![Browser screenshot of the card styling comparison](../assets/visual-examples/card-styling-browser.png)
+
+**Before:** semantic HTML is readable but has the browser's default spacing. **After:** a class adds padding, border, readable width, and typography without changing content. Open the [working before/after project](../projects/visual-examples/index.html), inspect the card in DevTools, then toggle its declarations. One possible reusable rule is:
+
+```css
+.card {
+  box-sizing: border-box;
+  width: min(100%, 28rem);
+  padding: 1.25rem;
+  border: 1px solid #64748b;
+  border-radius: 0.75rem;
+  background: #fff;
+  color: #0f172a;
+}
+```
+
+`box-sizing: border-box` includes padding and border in the declared width, **not margin**. Check the actual contrast, narrow-screen wrapping and focus before shipping a theme.
+
+
 You can add CSS to your HTML documents in three primary ways:
 
 1. **Inline Styles**: This method involves adding CSS directly within the HTML tags. However, it's not recommended for larger styles or for maintaining consistency across pages.
@@ -48,6 +102,30 @@ You can add CSS to your HTML documents in three primary ways:
 ```
 
 ### Understanding Selectors
+
+#### Worked selector exercise: why the blue rule wins
+
+```html
+<p class="message" id="status">Saved successfully</p>
+```
+
+```css
+p { color: green; }                  /* type selector: 0-0-1 */
+.message { color: purple; }          /* class selector: 0-1-0 */
+#status { color: blue; }             /* ID selector: 1-0-0 */
+```
+
+Assuming these normal declarations share an origin and cascade layer, the text is **blue**, despite the green rule appearing first and the purple rule appearing second. The ID selector is more specific. Specificity is not a universal score: origin, importance, cascade layers and other cascade stages can take precedence. Inline styles and declarations in transitions have special rules too. Use DevTools' Styles pane to see which rule wins and *why*, and the Computed pane for the final value.
+
+**Try it:** replace `#status` with `.message`, then reverse the last two rules. When selector specificity ties at the same cascade stage, later source order wins. Add `@layer base, components;`, place one class rule in each named layer, and observe that layer order matters before specificity for normal declarations. Do not use `!important` as a routine override. Read the [MDN cascade guide](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Introduction) before combining importance and layers: their precedence reverses for important declarations.
+
+
+#### Cascade: why your rule may not be applied
+
+![Simplified CSS cascade troubleshooting flow](../assets/diagrams/css-cascade.svg)
+
+First confirm the selector matches and the declaration is valid; then examine origins, `!important`, cascade layers, specificity, scoping, and source order as applicable. A highly specific selector does not universally win over every other declaration. In DevTools, inspect the **Computed** pane and overridden declarations instead of repeatedly adding `!important`. CSS custom properties such as `--accent` are resolved with `var(--accent, fallback)` when a fallback is needed.
+
 
 CSS Selectors play a pivotal role in defining which HTML elements should receive specific styles. By combining different types of selectors and properties, web developers can create intricate designs and layouts.
 
@@ -253,6 +331,26 @@ Noteworthy Points:
 
 ### Box Model
 
+#### Calculate the actual box size before debugging overflow
+
+Imagine a product card with `width: 320px`, `padding: 24px` on both sides and a `2px` border on both sides. Under the default `box-sizing: content-box`, its border-box width is `320 + 48 + 4 = 372px`; margins are additional spacing outside the border. Under `border-box`, the *declared* 320px includes padding and border, so the content area is `268px` when dimensions can resolve. The original box diagram below is a conceptual illustration; actual measurements come from DevTools.
+
+```css
+/* Apply predictable sizing to elements and their pseudo-elements. */
+*, *::before, *::after { box-sizing: border-box; }
+.card {
+  width: min(100%, 20rem);
+  padding: 1.5rem;
+  border: 2px solid #64748b;
+  margin-inline: auto;
+}
+```
+
+A fixed `width: 400px` on a 320px viewport will overflow regardless of a viewport meta tag. `width: min(100%, 20rem)` keeps this card within the parent's available width in the ordinary case. Long unbroken strings, min-content constraints and oversized media can still overflow: inspect the specific element rather than hiding all page overflow. `margin-inline: auto` distributes spare inline-axis space on a block with a definite used width; it does not vertically center an arbitrary element.
+
+**Exercise:** add `overflow-wrap: anywhere` to a paragraph containing a long URL. Compare its computed width before and after, then toggle `box-sizing` in DevTools. Adjacent vertical margins of normal-flow blocks may collapse, but Flexbox/Grid item margins do not collapse in the same way. Reference: [MDN box model](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model).
+
+
 The CSS Box Model is a fundamental concept in web design that describes the rectangular boxes which are generated for elements in the document tree and laid out according to the visual formatting model. Each box has a content area and optional surrounding padding, border, and margin areas.
 
 ```
@@ -350,6 +448,48 @@ When setting the dimensions of an element, be cautious of extremes. An element t
 - `fit-content`: Scales the element based on available space and its content size.
 
 ### Flexbox
+
+#### Build and test a wrapping toolbar
+
+![Actual browser rendering: scattered controls versus an aligned wrapping toolbar](../assets/visual-examples/flex-alignment-browser.png)
+
+```html
+<div class="toolbar">
+  <h2>My tasks</h2>
+  <div class="toolbar__actions">
+    <button type="button">Filter</button>
+    <button type="button">New task</button>
+  </div>
+</div>
+```
+
+```css
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.toolbar__actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.toolbar h2 { margin: 0; }
+```
+
+`justify-content` has an effect when the flex line has distributable free space. `align-items` aligns across the main axis (the cross axis); `align-content` matters primarily when there are **multiple flex lines** and spare cross-axis space. `flex: 1` is a shorthand, not simply `flex-grow: 1`; check the computed grow, shrink and basis values. When a long label refuses to shrink, try `min-width: 0` on the appropriate flex item and allow text to wrap instead of clipping it.
+
+**Before/after test:** compare the [runnable toolbar](../projects/visual-examples/index.html) at wide and narrow widths. Force 200% zoom, add a very long translated button label, and confirm that the controls remain visible. `order` changes visual arrangement but not necessarily reading or keyboard focus order, so do not use it to repair the DOM sequence. Reference: [MDN Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts).
+
+
+#### See the effect: `justify-content` versus `align-items`
+
+![Flex items before alignment and after main-axis and cross-axis alignment](../assets/visual-examples/flex-alignment.svg)
+
+**Actual browser-rendered before/after:**
+
+![Browser screenshot of the flex alignment comparison](../assets/visual-examples/flex-alignment-browser.png)
+
+Flexbox lays out items on a **main axis** and a **cross axis**. The `flex-direction` property chooses the main axis; `justify-content` distributes free space along it and `align-items` aligns items across it. Try changing `flex-direction` to `column` in the [live example](../projects/visual-examples/index.html): the axes change, so memorizing “justify is horizontal” is misleading. Use `gap` for spacing and check wrapping when labels become longer.
+
 
 Flexbox, short for "Flexible Box Layout", is a design model in CSS that allows you to design complex layout structures with a more efficient and predictable way than traditional models, especially when dealing with different screen sizes and dynamic content.
 

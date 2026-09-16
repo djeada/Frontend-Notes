@@ -1,232 +1,507 @@
 # Quizzes on Frontend
 
-This series of quizzes covers essential topics in web development, including:
-
-- **HTML**: Test your knowledge of HTML elements, attributes, and best practices.
-- **CSS**: Explore questions on styling, layout, and best practices for creating visually appealing web pages.
-- **JavaScript**: Assess your understanding of JavaScript fundamentals, including variables, functions, asynchronous programming, and modern features like arrow functions and closures.
-- **Protocols**: Learn about key protocols such as HTTP, HTTPS, SSL, and the differences between REST and SOAP.
-- **Hosting**: Understand DNS, email setup, web hosting, and the costs associated with maintaining a website.
+Use these expandable questions to test explanations, not just terminology. Before opening an answer, predict the result and try a small browser example. The categories cover HTML, CSS, JavaScript, protocols and hosting. Examples are illustrative; versions, browser support and hosting prices should be verified when you use them.
 
 ## HTML
-<details>
-<summary>What is a doctype?</summary><br>
-A doctype declaration tells the web browser what version of HTML (or XML) the document is written in. It goes at the top of the HTML document, before the `html` tag. For HTML5, the doctype is simply: `!DOCTYPE html`.
+
+### Applied HTML scenarios — predict, then verify
+
+<details><summary>1. A document has a viewport meta tag but a 900px-wide image overflows on a 320px phone. Why?</summary>
+
+The viewport declaration changes viewport sizing behavior; it does not constrain fixed-width content. Use a responsive rule such as `img { max-width: 100%; height: auto; }`, inspect the container, and test with actual content. Try the [responsive browser demo](../projects/visual-examples/index.html) at narrow widths.
 </details>
-<details>
-<summary>Should I use HTML or XHTML?</summary><br>
-HTML is generally preferred over XHTML for most web development purposes due to its greater flexibility and compatibility with modern web development techniques. XHTML, while stricter in its syntax, requires more effort to maintain and can cause compatibility issues with some web technologies.
+
+<details><summary>2. A form has placeholder="Email" but no label. What disappears when someone types?</summary>
+
+The visible prompt disappears; the input may also lack a reliable accessible name. Use `<label for="mail">Email</label><input id="mail" name="email" type="email">`. Helper text is separate from the label. The [form comparison screenshot](../assets/visual-examples/form-validation-browser.png) shows what feedback changes visually.
 </details>
-<details>
-<summary>How do I build menus?</summary><br>
-Menus can be built using HTML unordered lists (`ul`) and list items (`li`). The menu items can be styled using CSS to create a desired visual appearance.
+
+<details><summary>3. Should a clickable logo that navigates home be a button or link?</summary>
+
+Use a link with a real `href` and an accessible name representing the destination. Use a button for an action that does not navigate. If the logo image is the link's only content, meaningful `alt` text can supply its name.
 </details>
-<details>
-<summary>How do I build forms?</summary><br>
-Forms can be built using HTML form elements (`form`, `input`, `select`, `textarea`, etc.). Each form element has attributes that define its behavior and appearance, and can be styled with CSS.
+
+<details><summary>4. Does replacing every div with section make the page automatically accessible?</summary>
+
+No. Choose elements by meaning; `section` generally needs an accessible identifying heading when used as a region. A page needs sensible heading order, link text, forms, keyboard behavior and testing. Compare the [semantic structure browser capture](../assets/visual-examples/semantic-html-browser.png) and inspect its two underlying HTML documents.
 </details>
-<details>
-<summary>What is the purpose of a head tag if only the developers can see the information contained within it?</summary><br>
-The `head` tag contains metadata about the document, including the document title, character encoding, CSS stylesheets, JavaScript code, and other information that is used by the web browser to interpret and display the content of the document.
+
+<details><summary>5. A data table has visually bold first-row cells written as td. What information is missing?</summary>
+
+The cells are not explicitly headers. Use `<th scope="col">` for simple column headers, `<th scope="row">` for row headers, and a `<caption>` when useful. CSS can style `td` bold, but that does not give it header semantics.
 </details>
+
+
 <details>
-<summary>What is the difference between a &lt;header&gt; and &lt;h1&gt; tag?</summary><br>
-The `header` tag is used to hold introductory information about the material that will be shown, such as a logo, navigation links, or other site-wide content. The `h1` tag is a typography heading that represents the top-level heading of the page or section.
+<summary>What is a doctype?</summary>
+
+The HTML doctype is written **`<!doctype html>`**, at the beginning of the document. It triggers the browser's **no-quirks (standards) mode**; it is not a declaration selecting a specific HTML version. Omitting or changing it can cause legacy quirks-mode layout behavior.
 </details>
+
 <details>
-<summary>What is the purpose of the &lt;alt&gt; attribute in &lt;img&gt; tags?</summary><br>
-The `alt` attribute provides an alternative text description for an image. It is used by screen readers and other assistive technologies for accessibility purposes, and it also serves as a fallback text in case the image fails to load.
+<summary>Should I use HTML or XHTML?</summary>
+
+For most ordinary web pages served as `text/html`, use HTML syntax and the HTML Living Standard. XHTML uses XML serialization, usually with the `application/xhtml+xml` media type, so XML well-formedness rules apply; choose it only with a concrete requirement and proper content negotiation. An XHTML-like trailing slash in an HTML void tag does not turn an HTML document into XML.
 </details>
+
 <details>
-<summary>What are semantic HTML elements?</summary><br>
-Semantic HTML elements are tags that convey meaning about the structure and content of the document, making it easier for both developers and web browsers to understand the purpose of each element. Examples of semantic elements include `article`, `aside`, `figcaption`, `footer`, `header`, `main`, `mark`, `nav`, and `section`.
+<summary>How do I build menus?</summary>
+
+For **site navigation**, use `<nav>` with descriptive `<a href>` links; a list (`<ul><li>…`) is optional when it adds useful grouping. An ARIA `menu` is a distinct application-style pattern that brings additional keyboard requirements. Do not add `role="menu"` to an ordinary site navbar just for styling.
 </details>
+
 <details>
-<summary>How do I create a table in HTML?</summary><br>
-A table can be created using the `table` element, along with `tr` (table row), `th` (table header), and `td` (table data) elements. The structure of the table is defined by nesting `tr`, `th`, and `td` elements within the `table` element.
+<summary>How do I build forms?</summary>
+
+Use `<form>` with labeled controls such as `<input>`, `<select>`, `<textarea>`, and `<button>`. Every control needs an accessible name; for example, `<label for="email">Email</label><input id="email" name="email" type="email" required>`. A `placeholder` is not a substitute for a persistent label. Client-side validation helps interaction but the server must validate submitted values again.
+
+![A form with an ambiguous error compared with one that gives text feedback](../assets/visual-examples/form-validation.svg)
+
+**Actual browser-rendered before/after:**
+
+![Browser screenshot of the form validation comparison](../assets/visual-examples/form-validation-browser.png)
+
+Try the live [form demonstration](../projects/visual-examples/README.md) and submit both invalid and valid input.
 </details>
+
 <details>
-<summary>What are the main differences between HTML and CSS?</summary><br>
-HTML (Hypertext Markup Language) is a markup language used to structure content on the web, while CSS (Cascading Style Sheets) is a stylesheet language used for describing the look and formatting of a document written in HTML. In other words, HTML is responsible for the content structure, and CSS is responsible for the visual presentation.
+<summary>What is the purpose of the head element if users cannot see most of it directly?</summary>
+
+`<head>` contains metadata and resource references such as document title, character encoding, viewport, CSS and certain scripts. The title *is* visible in browser tabs and often in bookmarks and search results. Metadata also affects processing and accessibility; it is not just information for developers.
 </details>
+
 <details>
-<summary>What is an &lt;iframe&gt; and when should I use it?</summary><br>
-An `iframe` is an inline frame element that allows you to embed another HTML document within the current HTML document. It can be used for embedding content from external sources, such as maps, videos, or other web pages, without requiring the user to navigate away from the current page. However, `iframe` usage should be limited as it can cause accessibility and performance issues.
+<summary>What is the difference between header and h1?</summary>
+
+`<header>` groups introductory content or navigational aids for a page or section. `<h1>` is the highest-level **heading**, defining a topic in the heading hierarchy, not merely choosing a font size. A header can contain an h1, but neither replaces the other. Use headings in logical order; style appearance with CSS.
+</details>
+
+<details>
+<summary>What is the purpose of the alt attribute on img?</summary>
+
+`alt` supplies an alternative appropriate to the image's **purpose**, not always a literal description. For a decorative image, use `alt=""`; for an informative diagram, summarize the information; for an image-only link, communicate the link's destination or action. It can also appear as fallback if the image cannot load.
+</details>
+
+<details>
+<summary>What are semantic HTML elements?</summary>
+
+Elements such as `<article>`, `<aside>`, `<figcaption>`, `<footer>`, `<header>`, `<main>`, `<nav>`, and `<section>` communicate purpose and relationships. Choose by meaning and behavior rather than appearance. A `<div>` is fine when no semantic element fits. Semantics assist navigation but do not automatically guarantee accessibility or SEO.
+
+![A page made of generic blocks compared with a page with labeled semantic regions](../assets/visual-examples/semantic-html.svg)
+
+**Actual browser-rendered before/after:**
+
+![Browser screenshot of the semantic html comparison](../assets/visual-examples/semantic-html-browser.png)
+</details>
+
+<details>
+<summary>How do I create a table in HTML?</summary>
+
+Use `<table>` for **tabular data**; `<tr>` creates rows, `<th>` header cells and `<td>` ordinary cells. Add `<caption>` when useful and `scope="col"` or `scope="row"` for simple header associations. For complex headers, explicit `headers`/`id` relationships may be needed. Do not use tables just to arrange a page layout.
+</details>
+
+<details>
+<summary>What are the main differences between HTML and CSS?</summary>
+
+HTML describes content and meaning; CSS specifies presentation and layout. HTML should still make sense without CSS. For example, `<button>Subscribe</button>` provides a native control while CSS changes its color, spacing and focus appearance.
+</details>
+
+<details>
+<summary>What is an iframe and when should I use it?</summary>
+
+`<iframe>` embeds another browsing context, such as a map or video. Give it a useful `title`, consider `loading="lazy"` for off-screen content, review permissions via `allow`, and use `sandbox` when applicable. The embedded content has its own accessibility and security responsibilities. An iframe is not the default solution for ordinary internal components.
 </details>
 
 ## CSS
 
-<details>
-<summary>How do I add CSS to a website?</summary><br>
-CSS can be added to a website in several ways, including:
+### Applied CSS scenarios — inspect the computed result
 
-* Inline styles - using the `style` attribute on an HTML element.
-* Internal styles - using a `style` tag in the `head` section of the HTML document.
-* External styles - using a separate CSS file and linking to it from the HTML document using the `link` tag in the `head` section of the HTML document.
+<details><summary>1. A card declares width: 320px, padding: 24px on each side and a 2px border on each side. How wide is its border box by default?</summary>
+
+With default `box-sizing: content-box`, it is `320 + 48 + 4 = 372px`, excluding margins. With `border-box`, a declared width of 320px includes padding and borders when layout can resolve the dimension. Inspect the Box Model in DevTools.
 </details>
+
+<details><summary>2. An ID selector and a class selector set different colors. Does the last rule always win?</summary>
+
+No. If origin, importance, layer and other earlier cascade stages tie, specificity decides; an ID selector is more specific than a class selector. Source order resolves ties at the relevant stage. Important declarations and cascade layers complicate this, so inspect computed styles.
+</details>
+
+<details><summary>3. flex-direction changes from row to column. Does justify-content still mean horizontal alignment?</summary>
+
+No. `justify-content` uses the main axis, which changes with `flex-direction`; `align-items` uses the cross axis. Experiment with the [actual Flexbox comparison](../assets/visual-examples/flex-alignment-browser.png).
+</details>
+
+<details><summary>4. What does a size container query measure that a media query does not?</summary>
+
+A size container query tests an eligible ancestor container's dimensions, not the viewport. Declare a container such as `container-type: inline-size`, then use `@container`. The query styles descendants, not the query container itself. See the [responsive navigation captures](../assets/visual-examples/responsive-navigation-browser.png).
+</details>
+
+<details><summary>5. Why is outline: none dangerous on interactive controls?</summary>
+
+It can hide keyboard focus. Replace it with a strong `:focus-visible` outline when styling focus, test Tab navigation and forced-colors mode. Compare the [browser focus image](../assets/visual-examples/keyboard-focus-browser.png).
+</details>
+
+
 <details>
-<summary>How can I have several pages use the same CSS style?</summary><br>
-You can create a separate CSS file and link to it from each HTML document using the `link` tag in the `head` section of the HTML document.
+<summary>How do I add CSS to a website?</summary>
+
+Inline styles use an element's `style` attribute; internal styles use a `<style>` element; external styles use `<link rel="stylesheet" href="styles.css">` in the head. External stylesheets are often easier to share and cache. Choose according to scope and maintainability.
 </details>
+
 <details>
-<summary>How do I change the background color?</summary><br>
-You can change the background color of an HTML element using the `background-color` property in CSS. For example: `body { background-color: #f0f0f0; }`
+<summary>How can several pages use the same CSS?</summary>
+
+Link the same external stylesheet from each page with the appropriate relative or absolute path. For example, `<link rel="stylesheet" href="/css/site.css">` assumes that `/css/site.css` is available at the site's root. Confirm the URL works for your deployment's base path.
 </details>
+
 <details>
-<summary>How do I remove blue outline on linked images?</summary><br>
-You can remove the blue outline on linked images by setting the `outline` property to `none` in CSS. For example: `a img { outline: none; }`
+<summary>How do I change the background color?</summary>
+
+Use `background-color`, for example `body { background-color: #f0f0f0; }`. Check that foreground text has sufficient contrast against the new background, including disabled and error states.
 </details>
+
 <details>
-<summary>Should I use px, pt or em?</summary><br>
-The choice of measurement units (`px`, `pt`, `em`, etc.) in CSS depends on the specific use case and design requirements. Generally, `px` is a good choice for fixed sizes, such as border widths, while `em` or `rem` is better for scalable sizes, such as font sizes. `pt` is less commonly used in web development and is typically used for print design.
+<summary>How do I remove a blue outline on linked images?</summary>
+
+First identify **which property** you see: an image border and the focus outline are different. Do **not** globally apply `outline: none` to links. Keep a visible keyboard focus indicator, for example `a:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }`. You may style the border separately if a border is unwanted.
+
+![A keyboard user losing their position when focus is hidden versus a visible focus indicator](../assets/visual-examples/keyboard-focus.svg)
+
+**Actual browser-rendered before/after:**
+
+![Browser screenshot of the keyboard focus comparison](../assets/visual-examples/keyboard-focus-browser.png)
 </details>
+
 <details>
-<summary>What is the difference between classes and IDs in CSS?</summary><br>
-Classes and IDs are both selectors used to target HTML elements and apply styles to them. The main difference is that classes can be applied to multiple elements on a page, while IDs are unique and should only be applied to a single element. Additionally, classes use a period (`.`) prefix in the CSS, while IDs use a hash (`#`) prefix.
+<summary>Should I use px, pt, em or rem?</summary>
+
+CSS `px` is a reference pixel, useful for borders and some measurements; `rem` depends on the root element's font size, while `em` depends on the current element's computed font size (or parent for `font-size`). `pt` is often used in print styles. Use scalable text and test browser zoom; no unit choice alone makes a page responsive.
 </details>
+
 <details>
-<summary>How do I center a block element horizontally?</summary><br>
-To center a block element horizontally, you can set its `margin-left` and `margin-right` properties to `auto`, and specify a `width`. For example: `.centered { margin-left: auto; margin-right: auto; width: 50%; }`
+<summary>What is the difference between classes and IDs?</summary>
+
+A class value can be reused across elements; an HTML `id` must be unique within its document. CSS selects `.class-name` or `#unique-id`. IDs also support fragment navigation and label associations, so do not duplicate them.
 </details>
+
 <details>
-<summary>What is the CSS box model?</summary><br>
-The CSS box model is a rectangular layout paradigm used for all HTML elements. It consists of four areas: content, padding, border, and margin. The content area contains the actual content of the element, while the padding, border, and margin areas surround it, defining the space between the content and other elements on the page.
+<summary>How do I center a block element horizontally?</summary>
+
+Give it an inline size smaller than its containing block and auto inline margins: `.centered { width: min(100% - 2rem, 60rem); margin-inline: auto; }`. `margin-inline` is writing-mode aware. Flexbox or Grid can center children for different layout needs; horizontal centering does not automatically produce vertical centering.
 </details>
+
 <details>
-<summary>What is a CSS pseudo-class?</summary><br>
-A CSS pseudo-class is a keyword added to a selector that specifies a special state of the selected element(s). Pseudo-classes allow you to style elements based on user interaction or the element's state. For example, the `:hover` pseudo-class targets an element when the user hovers over it, and the `:checked` pseudo-class targets a checkbox or radio button when it is selected.
+<summary>What is the CSS box model?</summary>
+
+From inside to outside: content, padding, border, and margin. With `box-sizing: border-box`, the declared width includes content + padding + border, **not margin**. Use DevTools to inspect an actual element's computed box. Margin collapsing can affect vertical spacing in some block layouts.
 </details>
+
 <details>
-<summary>What is the difference between `display: none` and `visibility: hidden` in CSS?</summary><br>
-`display: none` completely removes the element from the page layout, causing other elements to fill the space it would have occupied. `visibility: hidden` hides the element visually, but the space it occupies in the layout remains. In other words, `display: none` affects the document flow, while `visibility: hidden` does not.
+<summary>What is a CSS pseudo-class?</summary>
+
+A pseudo-class matches state or structure, such as `:hover`, `:checked`, `:focus-visible`, or `:nth-child()`. `:hover` is not a substitute for keyboard focus styling. A pseudo-**element**, such as `::before`, represents a different selector concept.
 </details>
-  
+
+<details>
+<summary>What is the difference between display: none and visibility: hidden?</summary>
+
+`display: none` removes the element's box from layout and generally removes it from the accessibility tree. `visibility: hidden` makes it invisible while retaining its layout space and also normally hides it from the accessibility tree. `opacity: 0` only changes opacity and can leave an interactive invisible control—do not substitute it without considering focus and accessibility.
+</details>
+
 ## JavaScript
 
-<details>
-<summary>Will my React-powered website only work in browsers that support React?</summary><br>
-No, React-powered websites will work in any modern web browser, regardless of whether or not it supports React. React code is typically transpiled to standard JavaScript code that can be executed by any JavaScript engine.
+### Applied JavaScript scenarios — explain each output
+
+<details><summary>1. What do Number('12px') and parseInt('12px', 10) produce?</summary>
+
+`Number('12px')` is `NaN`; `parseInt('12px', 10)` returns 12 because it accepts a valid integer prefix. A form that requires the whole string to be an integer should validate the entire input, not silently accept trailing text.
 </details>
-<details>
-<summary>Do my clients need to install Angular on their PCs and phones in order to browse an Angular-powered website?</summary><br>
-No, clients do not need to install Angular on their PCs or phones in order to browse an Angular-powered website. The Angular code is typically compiled into standard HTML, CSS, and JavaScript that can be executed by any modern web browser.
+
+<details><summary>2. Is Number.MIN_VALUE the most negative finite Number?</summary>
+
+No. It is the smallest **positive nonzero** representable Number. The finite negative value with greatest magnitude is `-Number.MAX_VALUE`, while `-Infinity` is not finite.
 </details>
-<details>
-<summary>What is JavaScript and what can it be used for?</summary><br>
-JavaScript is a high-level, dynamic, and interpreted programming language that is primarily used for client-side web development. It allows developers to create interactive web pages and user interfaces, manipulate the contents of a web page, and communicate with web servers using asynchronous technology. It can also be used for server-side programming, desktop application development, and game development.
+
+<details><summary>3. Why can fetch('/missing') resolve even when the server returns 404?</summary>
+
+The Fetch promise generally resolves to a `Response` for HTTP errors. Check `response.ok` or `response.status`; reject/throw explicitly for application handling. Network failures and aborts are different cases.
 </details>
-<details>
-<summary>What is the difference between var, let, and const in JavaScript?</summary><br>
-`var` is a keyword that declares a variable with function scope, meaning it can be accessed within the function it was declared in. `let` and `const` are newer keywords that declare variables with block scope, meaning they can only be accessed within the block they were declared in. The difference between `let` and `const` is that `let` declares a variable that can be reassigned a new value, while `const` declares a variable that cannot be reassigned after it has been assigned a value.
+
+<details><summary>4. What logs first: a synchronous statement, a Promise.then callback, or setTimeout(..., 0)?</summary>
+
+The synchronous statement runs during the current job, then the Promise reaction microtask, then the timer task (assuming a typical browser event-loop case). A zero-delay timer does not execute immediately in the middle of the current job.
 </details>
-<details>
-<summary>What is an object in JavaScript?</summary><br>
-In JavaScript, an object is a collection of key-value pairs, where the keys are strings and the values can be any JavaScript data type, including other objects. Objects can be used to represent complex data structures, such as arrays, lists, or maps, and can be manipulated using various methods and functions.
+
+<details><summary>5. Does assigning a React state variable immediately change its value in the current render?</summary>
+
+No. A state setter schedules an update; code in the current render/event sees that render's state snapshot. Use a functional updater like `setCount(c => c + 1)` when next state depends on previous state. React's old `ReactDOM.render` API should be replaced with `createRoot` for current examples.
 </details>
+
+
 <details>
-<summary>What is a closure in JavaScript?</summary><br>
-A closure is a function in JavaScript that has access to its own lexical scope, as well as the lexical scope of its outer functions, even after the outer functions have returned. This allows the function to "remember" the values of its variables and parameters, and to maintain state across multiple function calls. Closures are often used in event handlers, callbacks, and asynchronous programming.
+<summary>Will my React-powered website only work in browsers that support React?</summary>
+
+Users do not separately install React; the application delivers appropriate JavaScript and possibly server-rendered HTML. But **not every browser is supported automatically**: compatibility depends on the React version, compiled syntax, target browsers, APIs, and polyfills. Check the current framework and build-tool support statements.
 </details>
+
 <details>
-<summary>What is the difference between synchronous and asynchronous code in JavaScript?</summary><br>
-Synchronous code is executed in sequence, with each line of code waiting for the previous line to finish before executing. Asynchronous code, on the other hand, allows multiple lines of code to be executed simultaneously, without waiting for each other to finish. This is accomplished using callbacks, promises, or async/await syntax, which allow the code to continue executing while waiting for long-running tasks to complete.
+<summary>Do clients need to install Angular on their computers or phones?</summary>
+
+No. The deployed application delivers compiled JavaScript, CSS and HTML or renders some HTML on a server. It still requires browser support for the generated syntax and used web APIs; users normally do not install a separate Angular runtime themselves.
 </details>
+
 <details>
-<summary>What is the difference between == and === in JavaScript?</summary><br>
-`==` is a loose equality operator that compares two values for equality after performing type coercion, meaning it will attempt to convert the values to a common type before comparing them. `===` is a strict equality operator that compares two values for equality without performing type coercion, meaning it will only return true if the values are of the same type and have the same value.
+<summary>What is JavaScript and what can it be used for?</summary>
+
+JavaScript is a dynamically typed, multi-paradigm programming language used in browsers, servers and other runtimes. Browser hosts provide the DOM and `fetch`; Node.js provides other host APIs. Calling JavaScript purely “interpreted line by line” is inaccurate: engines can parse, compile and optimize execution.
 </details>
+
 <details>
-<summary>What is a callback function in JavaScript?</summary><br>
-A callback function is a function that is passed as an argument to another function, and is executed when the parent function has completed its task. Callback functions are commonly used in JavaScript for event handling, asynchronous programming, and functional programming. They allow developers to create reusable and modular code that can be easily composed and extended.
+<summary>What is the difference between var, let and const?</summary>
+
+`var` is function-scoped (or global when declared in the relevant global context) and can be redeclared; `let` and `const` are block-scoped and have a temporal dead zone before initialization. A `const` binding cannot be reassigned, but an object referenced by it may still be mutated. Prefer `const` when you do not reassign and `let` otherwise.
 </details>
+
 <details>
-<summary>What is the difference between a function declaration and a function expression in JavaScript?</summary><br>
-A function declaration is a statement that creates a named function that can be called anywhere in the code, even before it is declared. A function expression, on the other hand, is an expression that creates an anonymous function that can only be called after it is assigned to a variable or passed as an argument to another function. Function expressions are often used to create callbacks or to create closures.
+<summary>What is an object in JavaScript?</summary>
+
+An object has properties whose keys are **strings or symbols**; property values can have any JavaScript type. Arrays are objects with specialized array behavior. `Map` is a separate collection with different iteration and key semantics, including object keys; it is not just another ordinary object literal.
 </details>
+
 <details>
-<summary>What is an arrow function in JavaScript?</summary><br>
-An arrow function is a shorthand syntax for creating a function in JavaScript. It uses the `=` operator to separate the function parameters from the function body, and automatically returns the value of the function body without the need for a `return` statement. Arrow functions are often used to create concise and readable code, especially when used as callbacks or in functional programming.
+<summary>What is a closure?</summary>
+
+A function retains access to the lexical environment in which it was defined. Example: `function counter() { let n = 0; return () => ++n; } const next = counter(); next(); // 1` and the next call returns `2`. Each `counter()` call creates a distinct captured `n`.
+</details>
+
+<details>
+<summary>What is the difference between synchronous and asynchronous code?</summary>
+
+Synchronous operations follow the execution flow until they finish or throw. Asynchronous operations may finish later, using callbacks, promises and `async`/`await`. `await` suspends **its async function**, not the whole JavaScript runtime; JavaScript does not automatically execute adjacent lines simultaneously. Understand the event loop and potential blocking CPU tasks.
+</details>
+
+<details>
+<summary>What is the difference between == and ===?</summary>
+
+`==` performs the abstract equality comparison with some coercions (`0 == false` is `true`); `===` compares without those coercions (`0 === false` is `false`). Neither operator structurally compares two independently created objects; object equality is normally by reference. Prefer `===` unless the coercion is intentional and understood.
+</details>
+
+<details>
+<summary>What is a callback function?</summary>
+
+A callback is a function supplied to another piece of code to call according to its contract. It may run synchronously, as in `array.map(fn)`, or later, as in an event listener. A callback does **not** necessarily wait until the outer function completes.
+</details>
+
+<details>
+<summary>What is the difference between a function declaration and expression?</summary>
+
+A declaration such as `function greet() {}` creates a binding whose initialization follows declaration semantics. A function expression such as `const greet = function () {};` creates a function value as the expression is evaluated; calling the `const` binding before initialization throws. Function expressions can be named or anonymous, contrary to the claim that they are always anonymous.
+</details>
+
+<details>
+<summary>What is an arrow function?</summary>
+
+Arrow syntax uses **`=>`**, not `=`. A concise body returns an expression (`const double = n => n * 2`); a block body requires an explicit `return` to return a value. Arrows also have lexical `this` and cannot be used as constructors with `new`.
 </details>
 
 ## Protocols
 
-<details>
-<summary>What is SSL?</summary><br>
-SSL (Secure Sockets Layer) is a security protocol used to establish a secure encrypted connection between a web server and a web browser. It ensures that data transmitted between the two is private and cannot be intercepted or modified by third parties.
-</details>
-<details>
-<summary>What is HTTP?</summary><br>
-HTTP (Hypertext Transfer Protocol) is a protocol used to transfer data over the World Wide Web. It defines how messages are formatted and transmitted, and how web servers and browsers should respond to various commands and requests.
-</details>
-<details>
-<summary>Why are there so many HTTP codes?</summary><br>
-There are many HTTP status codes because they provide a standardized way for web servers and browsers to communicate the outcome of various requests and responses. The codes are grouped into several categories based on their general meaning, such as informational, success, redirection, client error, and server error.
-</details>
-<details>
-<summary>What is an API?</summary><br>
-API (Application Programming Interface) is a set of rules, protocols, and tools used for building software applications. APIs define how software components should interact with each other and provide a standardized way for applications to exchange data and services.
-</details>
-<details>
-<summary>Do all APIs work the same way?</summary><br>
-No, APIs can vary widely in their design and implementation depending on the specific use case and technology stack being used. However, most APIs follow certain common principles and standards, such as RESTful architecture, JSON or XML data formats, and HTTP or HTTPS protocols.
-</details>
-<details>
-<summary>What is the difference between GET and POST requests in HTTP?</summary><br>
-GET and POST are two HTTP methods used to request data from a server. GET requests are used to retrieve data from a specified resource, while POST requests are used to submit data to be processed to a specified resource. GET requests include data in the URL as query parameters, while POST requests send data in the request body.
-</details>
-<details>
-<summary>What is a RESTful API?</summary><br>
-A RESTful API (Representational State Transfer) is an API that adheres to the principles of the REST architectural style. It uses HTTP requests to perform CRUD (Create, Read, Update, Delete) operations on resources, which are identified by URLs. RESTful APIs are stateless, meaning each request is treated independently and does not rely on any stored state information from previous requests.
-</details>
-<details>
-<summary>What are the main differences between SOAP and REST?</summary><br>
-SOAP (Simple Object Access Protocol) and REST (Representational State Transfer) are both web service communication protocols. The main differences between them are:
+### Applied network scenarios — choose the right layer
 
-1. SOAP is a protocol, while REST is an architectural style.
-2. SOAP uses XML for message exchange, while REST can use multiple data formats, such as JSON, XML, or plain text.
-3. SOAP typically requires more complex processing and has a larger overhead compared to REST, making REST generally faster and more lightweight.
-4. SOAP is more rigid in its structure, while REST is more flexible and can be easily scaled.
+<details><summary>1. Does HTTP/3 require a TCP connection?</summary>
+
+No. HTTP/3 runs over QUIC, which uses UDP and provides reliable streams with TLS 1.3 integration. HTTP/1.1 and HTTP/2 commonly use TCP. The HTTP semantics are not identical to the underlying transport format.
 </details>
-<details>
-<summary>What is CORS?</summary><br>
-CORS (Cross-Origin Resource Sharing) is a mechanism that allows many resources (e.g., fonts, JavaScript, etc.) on a web page to be requested from another domain outside the domain from which the resource originated. This is useful for allowing web pages to access resources from different origins for security and privacy reasons. CORS works by adding HTTP headers to request and response messages, indicating which origins are allowed to access the resources.
+
+<details><summary>2. The DNS A record is correct but HTTPS shows a certificate warning. Which layer needs investigation?</summary>
+
+DNS resolution alone cannot validate the TLS certificate. Inspect certificate hostname, expiry, provisioning and chain, as well as the server's HTTPS configuration. Do not disable certificate verification to hide a problem.
 </details>
+
+<details><summary>3. Does CORS prevent another client from calling a public API?</summary>
+
+No. CORS mediates cross-origin access by browser scripts. It is not authentication or authorization; the API must enforce permissions server-side regardless of origin.
+</details>
+
+<details><summary>4. Why might a cached page return 304?</summary>
+
+A conditional request allows a server to indicate the cached representation is still valid. The client can reuse an appropriate stored body; 304 does not carry a new normal representation body. Inspect validators and Cache-Control instead of calling every cached response an error.
+</details>
+
+<details><summary>5. Why is curl -I insufficient proof that a site's GET route works?</summary>
+
+`curl -I` sends HEAD; some applications handle HEAD differently. Verify the actual GET request and response body/content type when debugging a page. Check status, redirects and network failures separately.
+</details>
+
+
 <details>
-<summary>What is the purpose of a CDN?</summary><br>
-A CDN (Content Delivery Network) is a system of distributed servers that deliver web content to users based on their geographic location, the origin of the content, and the content delivery server. The main purpose of a CDN is to reduce latency, improve load times, and provide a better user experience by serving content from a server that is geographically closer to the user. CDNs can also help to distribute traffic and protect against DDoS attacks.
+<summary>What is SSL?</summary>
+
+SSL is the obsolete predecessor to **TLS (Transport Layer Security)**. Modern HTTPS uses TLS rather than the old SSL protocols. TLS protects data in transit between endpoints when properly configured, but cannot prevent compromise of an endpoint or guarantee that a website's content is trustworthy.
+</details>
+
+<details>
+<summary>What is HTTP?</summary>
+
+HTTP defines request and response message semantics, methods, status codes and headers for transferring representations of resources. HTTP/1.1 and HTTP/2 commonly run over TCP, while HTTP/3 runs over QUIC over UDP. HTTPS means HTTP protected by TLS (including TLS 1.3 integrated with QUIC for HTTP/3).
+</details>
+
+<details>
+<summary>Why are there many HTTP status codes?</summary>
+
+They classify outcomes: `1xx` informational, `2xx` success, `3xx` redirection, `4xx` client-error responses, `5xx` server-error responses. For example, `200` is successful, `404` means no current representation was found, and `500` indicates a server error. A browser `fetch()` Promise usually resolves for `404`/`500`; inspect `response.ok`.
+</details>
+
+<details>
+<summary>What is an API?</summary>
+
+An application programming interface defines how software components interact. It can be a local library interface, browser API or network service; it does not necessarily use HTTP, REST, JSON or a web server.
+</details>
+
+<details>
+<summary>Do all APIs work the same way?</summary>
+
+No. APIs may use HTTP, message queues, RPC, local calls or other mechanisms. JSON and XML are possible formats, not universal requirements. Read the interface contract, status/error model, authentication rules and versioning policy of the specific API.
+</details>
+
+<details>
+<summary>What is the difference between GET and POST?</summary>
+
+GET requests a representation and is defined as safe (it should not cause intended state-changing effects). POST submits a representation for resource-specific processing. GET can contain a query string but does not have to; POST often uses a body but its semantics are not defined solely by the presence of one. Authentication and authorization apply to both.
+</details>
+
+<details>
+<summary>What is a RESTful API?</summary>
+
+REST is an architectural style based on constraints such as a uniform interface and stateless communication. An HTTP API using resource URLs and methods may follow some REST principles. CRUD is a common application pattern, not REST's complete definition; statelessness means each request contains sufficient context, not that servers cannot store any application state.
+</details>
+
+<details>
+<summary>What are the differences between SOAP and REST?</summary>
+
+SOAP is a messaging protocol with an XML-based message format, while REST is an architectural style. RESTful HTTP APIs can choose different representation types. Performance and scalability depend on concrete implementation, payloads, caching and architecture; neither technology is *universally* faster or more scalable.
+</details>
+
+<details>
+<summary>What is CORS?</summary>
+
+Cross-Origin Resource Sharing is an **HTTP-header-based browser mechanism** allowing a server to specify which origins may read cross-origin responses from frontend scripts. Browsers may send a preflight request for certain operations. CORS is **not authentication or authorization**, and it does not prevent a server-to-server client from making an HTTP request.
+</details>
+
+<details>
+<summary>What is the purpose of a CDN?</summary>
+
+A content delivery network uses distributed infrastructure and caching to reduce delivery latency and origin load for suitable content. Benefits depend on configuration, geographical distribution, cache policy and actual user conditions. Some providers offer DDoS mitigation as a separate or integrated service; a CDN does not automatically secure an application.
 </details>
 
 ## Hosting
 
-<details>
-<summary>What is DNS?</summary><br>
-DNS (Domain Name System) is a system used to translate human-readable domain names (such as example.com) into IP addresses that can be used by computers to locate and communicate with web servers.
+### Applied deployment scenarios — justify the next action
+
+<details><summary>1. A static host serves index.html, but a direct reload of /profile returns 404. Is DNS necessarily broken?</summary>
+
+No. A client-side router may need an appropriate hosting rewrite/fallback rule, or the route may not exist on the server. Inspect the host's routing behavior and route design rather than changing DNS at random.
 </details>
-<details>
-<summary>What is a DNS server?</summary><br>
-A DNS server is a computer or network device that provides DNS services by translating domain names into IP addresses and vice versa.
+
+<details><summary>2. Can a frontend environment variable named SECRET_API_KEY be considered private?</summary>
+
+No, not when its value is shipped in browser JavaScript. Move secret-dependent operations and authorization to a protected backend; storing a secret in a different frontend directory does not hide it.
 </details>
-<details>
-<summary>How do I set up email for my domain name?</summary><br>
-Email can be set up for a domain name by configuring the domain's DNS records to include MX (Mail Exchange) records that specify the mail server(s) responsible for handling incoming mail for that domain.
+
+<details><summary>3. A provider says to create a CNAME for www. Should you overwrite existing MX records at the apex?</summary>
+
+No. Mail records have separate purposes. Follow the host's exact hostname instructions, identify the authoritative DNS provider, preserve mail and verification records, and check the applicable record restrictions.
 </details>
-<details>
-<summary>How do I set up DNS?</summary><br>
-DNS can be set up by configuring the domain's DNS records to include various types of records, such as A records (for mapping domain names to IP addresses), MX records (for specifying mail servers), CNAME records (for creating aliases for domain names), and TXT records (for storing arbitrary text data). This can typically be done through a web-based control panel provided by the domain registrar or hosting provider.
+
+<details><summary>4. Are DNS changes guaranteed to take exactly 48 hours?</summary>
+
+No. Recursive caches may retain earlier answers until their TTL; authority changes and operational factors vary. Inspect authoritative records and cached responses rather than quoting a universal duration.
 </details>
-<details>
-<summary>What is hosting and how does it differ from a web server?</summary><br>
-Hosting is a service provided by a company that allows individuals or organizations to make their website accessible on the internet. Hosting providers typically offer a variety of plans and options that provide varying amounts of storage space, bandwidth, and other features. A web server is a computer program that is responsible for serving web pages to users when they request them. Web servers can be installed on a hosting provider's infrastructure or on a dedicated physical or virtual server.
+
+<details><summary>5. The site works locally but styles are missing after deployment. What should you inspect first?</summary>
+
+Open DevTools Network, find the CSS request, check its URL, status and content type, and inspect the host's build output path and asset base URL. The error may have nothing to do with JavaScript frameworks or SSL configuration.
 </details>
+
+
 <details>
-<summary>When do I need secure HTTP webpages?</summary><br>
-Secure HTTP webpages (HTTPS) are needed when sensitive information, such as passwords, credit card numbers, or other personal data, is being transmitted between the web server and the user's browser. HTTPS encrypts this data so that it cannot be intercepted or modified by third parties. Additionally, some web browsers and search engines may prioritize secure websites in search results or display warning messages for non-secure websites.
+<summary>What is DNS?</summary>
+
+The Domain Name System maps names to records such as `A`, `AAAA`, `CNAME`, `MX` and `TXT`. Resolving a name often supplies addresses but DNS does more than translating names to IPs.
 </details>
+
 <details>
-<summary>How much does it cost to set up a website?</summary><br>
-The cost of setting up a website can vary widely depending on the specific requirements and technologies being used. A simple website built using a content management system (CMS) such as WordPress can be set up for less than $100, while a complex e-commerce website with custom features and integrations can cost tens of thousands of dollars or more.
+<summary>What is a DNS server?</summary>
+
+DNS servers have different roles. An **authoritative server** provides records for a zone; a **recursive resolver** queries and caches answers on behalf of clients. Not every DNS server is a simple two-way domain/IP translator.
 </details>
+
 <details>
-<summary>What are the annual costs for operating a website?</summary><br>
-The annual costs of operating a website can include expenses such as domain registration, hosting fees, website maintenance and updates, security and backup services, and marketing and advertising costs. These costs can vary widely depending on the size and complexity of the website, as well as the specific services and vendors being used.
+<summary>How do I set up email for a domain?</summary>
+
+Follow your mail provider's instructions for `MX` records and the relevant sender authentication records, often SPF, DKIM and DMARC via `TXT` or other specified records. Avoid overwriting existing records. DNS alone does not create a working mailbox or configure anti-spam policies.
 </details>
+
+<details>
+<summary>How do I set up DNS?</summary>
+
+Determine the domain's **authoritative nameservers**, then add only the records required by the host. `A` and `AAAA` associate IP addresses; `CNAME` is an alias where permitted; `MX` handles mail, and `TXT` has verification and policy uses. A managed host may ask for an alias instead of an A record. Changes to cached responses are governed by TTL, not a universal propagation clock.
+</details>
+
+<details>
+<summary>What is hosting and how does it differ from a web server?</summary>
+
+Hosting is an arrangement making web assets or a running application available; a web server is software (and sometimes colloquially the machine) that handles requests. A static deployment can use object storage and CDN infrastructure. Who manages OS patches, certificates and backups depends on the specific plan.
+</details>
+
+<details>
+<summary>When do I need HTTPS?</summary>
+
+Use HTTPS throughout a public site, **not only when collecting passwords or payment data**. TLS protects the transport and enables important browser security features, but does not establish that the site's claims or business are trustworthy. Configure certificate renewal and redirects appropriately.
+</details>
+
+<details>
+<summary>How much does setting up a website cost?</summary>
+
+There is no reliable universal figure. Scope, domain renewal, hosting tier, design, content, development, maintenance, and regional taxes all contribute. Estimate costs using current vendor prices and a stated timeframe; a historical “less than $100” example is not a dependable general quotation.
+</details>
+
+<details>
+<summary>What are annual operating costs?</summary>
+
+Budget for domain renewal, hosting and usage, backups, monitoring, security updates, content maintenance, support, and any paid third-party APIs or fonts. Check introductory versus renewal prices and the staff time needed to operate the site; revise the budget as traffic changes.
+</details>
+
+## Five applied questions
+
+<details>
+<summary>Does the viewport meta element automatically create a responsive site?</summary>
+
+No. It changes viewport behavior; layout still needs flexible widths, media constraints and testing on narrow screens. Compare the [responsive navigation diagram](../assets/visual-examples/responsive-navigation.svg) with the [live example](../projects/visual-examples/README.md).
+</details>
+
+<details>
+<summary>Does Number.MIN_VALUE hold JavaScript's most negative number?</summary>
+
+No. `Number.MIN_VALUE` is the **smallest positive nonzero** Number, approximately `5e-324`. A finite negative number of largest magnitude is `-Number.MAX_VALUE`.
+</details>
+
+<details>
+<summary>Can browser required/email validation replace server-side validation?</summary>
+
+No. Browser checks improve usability but can be bypassed; the server must validate and authorize the request. The [form demo](../projects/visual-examples/README.md) intentionally prevents network submission and explains this limit.
+</details>
+
+<details>
+<summary>Do all CSS declarations with higher selector specificity win?</summary>
+
+No. Origin and importance, cascade layers, scoping and then specificity/source order influence the winner in their defined order. Inspect the [cascade diagram](../assets/diagrams/css-cascade.svg) and compare computed declarations in DevTools.
+</details>
+
+<details>
+<summary>Can I treat a screenshot comparison as an accessibility test?</summary>
+
+No. It can detect pixel differences but cannot establish accessible names, focus behavior, announcements or reading order. Use the keyboard and accessibility tree alongside visual regression checks.
+</details>
+
+**References:** [HTML Living Standard](https://html.spec.whatwg.org/multipage/), [MDN: doctype](https://developer.mozilla.org/en-US/docs/Glossary/Doctype), [MDN: CSS outline](https://developer.mozilla.org/en-US/docs/Web/CSS/outline), [MDN: fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API), [WCAG 2.2](https://www.w3.org/TR/WCAG22/).

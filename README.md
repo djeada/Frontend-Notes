@@ -4,6 +4,15 @@ Hi, and welcome. This is my personal set of notes on frontend development—tips
 
 ![frontend](https://github.com/djeada/Frontend-Notes/assets/37275728/562de86d-66f1-42c0-991b-82c4cbe74255)
 
+## Visual examples: see what changes in the browser
+
+![Actual browser screenshot comparing the before and after styled cards](assets/visual-examples/card-styling-browser.png)
+
+
+Frontend is visual. Each original chapter now links to a relevant editable SVG comparison and/or the [runnable visual examples](projects/visual-examples/README.md). Compare [unstyled and styled cards](assets/visual-examples/card-styling.svg), [Flexbox alignment](assets/visual-examples/flex-alignment.svg), [form feedback](assets/visual-examples/form-validation.svg), [responsive navigation](assets/visual-examples/responsive-navigation.svg), and [keyboard focus](assets/visual-examples/keyboard-focus.svg). The SVGs are explanatory illustrations, **not exported screenshots**; run the associated HTML/CSS/JavaScript files to inspect actual rendering.
+
+Follow each project's own README: some examples are standalone HTML files, while framework projects require their documented dependency installation and local server. A viewport meta tag does not make a design responsive; test on small screens, at increased zoom, and with a keyboard.
+
 ## What is frontend development? 🌐
 
 Frontend development, also known as client-side development, refers to the process of building the user interface and visual elements of a website or application. It is responsible for creating the look, feel, and overall user experience of a product. Frontend developers work with technologies such as HTML, CSS, and JavaScript to create web pages that are visually appealing, responsive, and interactive.
@@ -115,7 +124,7 @@ We encourage contributions that enhance the repository's value. To contribute:
 
 ## References
 
-Here's a collection of resources that I found useful while learning frontend development. 
+Here's a collection of resources that I found useful while learning frontend development.
 
 ### Complete Roadmaps
 

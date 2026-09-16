@@ -26,6 +26,56 @@
 
 ### Document Structure
 
+#### Worked page: structure, behavior, and visual output
+
+The browser parses HTML into a document tree. CSS styles that tree; JavaScript can update it. A semantic page can be styled to look identical to a page made entirely of generic `<div>` elements, yet expose more useful navigation landmarks. Compare the [browser-rendered before/after screenshot](../assets/visual-examples/semantic-html-browser.png) with the [two runnable documents](../projects/visual-examples/semantic-before.html) and [semantic version](../projects/visual-examples/semantic-after.html). The screenshot demonstrates appearance, not an accessibility-test result.
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Field notes — latest posts</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a href="#content">Skip to content</a>
+  <header>
+    <a href="/">Field notes</a>
+    <nav aria-label="Primary"><a href="/posts">Posts</a></nav>
+  </header>
+  <main id="content">
+    <h1>Latest posts</h1>
+    <article>
+      <h2><a href="/posts/one">First experiment</a></h2>
+      <p>What changed and what we learned.</p>
+    </article>
+  </main>
+  <footer><p>© Field notes</p></footer>
+</body>
+</html>
+```
+
+The `defer` script runs after HTML parsing and before `DOMContentLoaded`, in document order relative to other deferred classic scripts; a module script is deferred by default. A heading describes content hierarchy, whereas `<header>`, `<nav>`, `<main>`, `<article>`, and `<footer>` communicate regions or content type. A skip link must lead to an existing ID. On a normal page, do not create multiple visible page-level `<main>` elements.
+
+**Try it:** save the HTML as `index.html`, create an empty `style.css` and `app.js`, then open it in a browser. Check the document title, skip link, headings, and accessibility-tree landmarks. Disable CSS: the reading order should still make sense. Resize to 320 CSS pixels and 200% zoom: the viewport meta tag alone will not prevent overflow. Reference: [MDN document and website structure](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Structuring_documents).
+
+
+#### See the effect: generic blocks versus semantic regions
+
+![Before: generic unlabeled blocks. After: header, navigation, main and footer landmarks](../assets/visual-examples/semantic-html.svg)
+
+**Actual browser-rendered before/after:**
+
+![Browser screenshot of the semantic html comparison](../assets/visual-examples/semantic-html-browser.png)
+
+The two layouts can look nearly identical with CSS, but semantic elements communicate structure to browser and assistive-technology navigation. Inspect the real, separate [before HTML](../projects/visual-examples/semantic-before.html) and [after HTML](../projects/visual-examples/semantic-after.html) examples with CSS disabled. Use `<header>` for introductory material, `<nav aria-label="Main">` for navigation, one main region for central content and `<footer>` for supporting information. Headings should describe actual sections: an `<h1>` is a heading, not a substitute for `<header>`. The diagram is illustrative, not a screenshot or proof of accessible behavior.
+
+The doctype in the document below switches the browser into no-quirks mode; test layout with DevTools rather than assuming a doctype makes CSS responsive.
+
+
 The HTML document structure provides a standardized way to structure content on the web. Adhering to this structure ensures browser compatibility and proper rendering of web pages.
 
 Below is a foundational structure of an HTML document:
@@ -47,11 +97,11 @@ Below is a foundational structure of an HTML document:
 </html>
 ```
 
-- The `<!DOCTYPE html>` declaration is an essential **instruction** for web browsers, identifying the document as HTML5. This declaration ensures that browsers interpret the page using the standards of HTML5.
+- The `<!DOCTYPE html>` declaration is an essential **instruction** for web browsers, triggering no-quirks (standards) mode in an HTML document. It is not an HTML version selector.
 - In the `<html lang="en">` element, the **root** of any HTML page is defined. The `lang` attribute, set to "en" in this example, indicates the primary language of the content, which aids in both accessibility and search engine optimization.
 - The `<head>` section of an HTML document is a **container** for metadata. Metadata in this section influences how the page is processed by browsers and understood by search engines.
 - With `<meta charset="UTF-8">`, the document’s character encoding is set to UTF-8, which supports nearly all **writing** systems worldwide. This encoding is vital for ensuring proper display of text across different languages and characters.
-- The `<meta name="viewport" content="width=device-width, initial-scale=1.0">` tag is a **key** component for responsive design. By setting the viewport width to the device width, it ensures the page adjusts properly on various devices, particularly mobile phones and tablets.
+- The `<meta name="viewport" content="width=device-width, initial-scale=1.0">` tag is a **key** component for responsive design. By setting the viewport width to the device width, it sets a device-width viewport. Responsive layout still requires flexible CSS, correctly sized media, and testing at different widths.
 - The `<title>` tag specifies the **name** of the document, which appears in the browser tab. An informative and relevant title is crucial for both user experience and search engine optimization, as it describes the page’s content.
 - The `<body>` tag is the **main** container for all visible content on the page. Any text, images, videos, and other elements intended for display to the user are included within this tag, making it the core of the HTML document for content rendering.
 
@@ -79,7 +129,7 @@ Here is an example:
 <meta charset="UTF-8">
 ```
 
-2. **Viewport**: This tag optimizes display settings for mobile devices, ensuring a responsive design. It's essential for modern web development to accommodate varying screen sizes.
+2. **Viewport**: This tag configures viewport behavior on mobile devices; it does not, by itself, ensure a responsive design. It's essential for modern web development to accommodate varying screen sizes.
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,7 +141,7 @@ Here is an example:
 <meta name="description" content="Discover the latest updates and features of My Awesome Website.">
 ```
 
-4. **Keywords**: While modern search engines don't heavily rely on this metadata for ranking, it can still be included for potential SEO benefits.
+4. **Keywords**: Do not recommend `meta name="keywords"` as an SEO ranking technique; major search engines generally ignore it. Focus on a descriptive title, useful content, and clear structure.
 
 ```html
 <meta name="keywords" content="innovation, tech, design">
@@ -145,7 +195,7 @@ In this example, href is the attribute name, and `https://www.example.com` is it
 
 ### Void (Self-closing) Elements in HTML
 
-Void elements, also known as self-closing elements, are unique HTML tags that don't require a closing tag. While they don't wrap around content, they can have attributes which give them functionality or provide additional context.
+Void elements (not the same as XML self-closing syntax) are unique HTML tags that don't require a closing tag. While they don't wrap around content, they can have attributes which give them functionality or provide additional context.
 
 #### Characteristics
 
@@ -248,6 +298,30 @@ Example:
 
 #### Links
 
+##### Link behavior and accessible names: compare these examples
+
+```html
+<!-- Destination is clear when read out of context. -->
+<a href="/pricing">View pricing plans</a>
+
+<!-- Navigation uses a link; an action uses a button. -->
+<a href="/account">Your account</a>
+<button type="button" id="save">Save draft</button>
+
+<!-- An icon-only link still needs a usable accessible name. -->
+<a href="/search" aria-label="Search the site">
+  <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
+    <circle cx="10" cy="10" r="6" fill="none" stroke="currentColor"/>
+    <path d="m15 15 6 6" stroke="currentColor"/>
+  </svg>
+</a>
+```
+
+Avoid five identical links labeled “Read more”: screen-reader users may navigate by link name, so include the destination or surrounding context in the accessible name. The `download` attribute does not guarantee a download for arbitrary cross-origin URLs; server headers and browser behavior matter. `mailto:` invokes a configured email handler rather than sending email directly. If an external link deliberately opens a new tab, tell the reader when this matters and consider `rel="noopener"` (modern browsers implicitly apply this to `target="_blank"`, but explicit intent helps explain security).
+
+**Exercise:** tab through the three examples with the browser's keyboard navigation. Replace the SVG with an image missing `alt`, inspect the accessible name, and correct it. Avoid putting a clickable button inside a clickable link: nested interactive controls have confusing activation behavior. Reference: [MDN links](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Creating_links).
+
+
 Links are used to link to other pages. When clicked, the user is taken to the linked page.
 
 Example:
@@ -299,6 +373,28 @@ The following tags are used to create lists:
 | `<li>`  | List Item                    | Represents an item within a list   | `<ul><li>First item</li></ul>` |
 
 #### Tables
+
+##### Data-table example: expose relationships, not only gridlines
+
+A visual grid is not enough to express which header explains a data cell. Give a real data table a caption, mark headers with `<th>`, and use `scope` for straightforward row/column relationships. Do not use a `<table>` simply to create a two-column page layout: CSS Grid is designed for layout.
+
+```html
+<table>
+  <caption>Course enrollment, autumn term</caption>
+  <thead>
+    <tr><th scope="col">Course</th><th scope="col">Students</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">HTML</th><td>24</td></tr>
+    <tr><th scope="row">CSS</th><td>18</td></tr>
+  </tbody>
+</table>
+```
+
+**Rendered expectation:** a caption above the table, two column headings and two labeled rows. Without CSS, it still reads as structured data. `scope="row"` associates “HTML” with 24; `scope="col"` associates “Students” with that column. For complex multi-level headers, consider explicit `id`/`headers` associations rather than assuming `scope` solves every arrangement. Avoid hiding essential table content on mobile; overflow scrolling may be preferable to discarding columns.
+
+**Exercise:** add a third row and use a screen-reader table-navigation mode if available. Verify which row and column headers are announced. Reference: [MDN HTML table accessibility](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Table_accessibility).
+
 Tables are used to display data using rows and columns of cells.
 
 Example:
@@ -340,6 +436,54 @@ The following tags are used to create tables:
 
 
 ### Interactive elements
+
+#### Complete accessible form: inputs, validation, and submission
+
+![Actual browser before/after comparison of form validation](../assets/visual-examples/form-validation-browser.png)
+
+HTML provides labels, input types, form ownership and submission semantics; CSS can expose states; JavaScript can add tailored feedback. `placeholder` is only an example hint, never a persistent label. The [runnable form](../projects/visual-examples/index.html) stays on the client for the exercise; the sample below illustrates a real POST endpoint, which needs server implementation and validation.
+
+```html
+<form action="/subscribe" method="post">
+  <fieldset>
+    <legend>Newsletter preferences</legend>
+    <label for="address">Email address</label>
+    <p id="address-help">We use this address for newsletter messages.</p>
+    <input id="address" name="email" type="email"
+           autocomplete="email" aria-describedby="address-help" required>
+    <label><input type="checkbox" name="digest" value="weekly">
+      Send a weekly digest</label>
+  </fieldset>
+  <button type="submit">Subscribe</button>
+  <button type="reset">Clear form</button>
+</form>
+```
+
+`name` determines the submitted field key; `id` connects a label to a control; `value` identifies a selected checkbox in form data; unchecked checkboxes normally contribute no field. `type="email"` and `required` perform constraint checks but do not guarantee that an address exists or that submissions are safe. `method="get"` places form data in the URL; avoid it for passwords and sensitive data. POST does not provide confidentiality unless the page and endpoint use HTTPS. A reset button discards input, so many production forms should omit it.
+
+**Check it:** submit the blank form, enter `not-an-email`, then try a syntactically valid address. Observe native validation, inspect the Network panel on a controlled endpoint, and verify that server errors are also shown next to the relevant field. Reference: [MDN client-side form validation](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation).
+
+
+#### See the effect: a form with and without persistent labels
+
+![Before: ambiguous form feedback. After: an explicit label, visible error, and clear action](../assets/visual-examples/form-validation.svg)
+
+**Actual browser-rendered before/after:**
+
+![Browser screenshot of the form validation comparison](../assets/visual-examples/form-validation-browser.png)
+
+A placeholder disappears during typing and must not be the only label. Compare this usable native HTML with the [interactive form](../projects/visual-examples/index.html):
+
+```html
+<form action="/register" method="post">
+  <label for="email">Email address</label>
+  <input id="email" name="email" type="email" autocomplete="email" required>
+  <button type="submit">Register</button>
+</form>
+```
+
+The `name` allows form submission, and `required`/`type="email"` provide browser checks. **Server-side validation is still mandatory.** Use links for navigation and buttons for actions; a button inside a form defaults to submit unless given `type="button"`. The demonstration prevents submission to avoid sending personal information.
+
 
 As opposed to readonly elements, there are some elements that users can interact with and trigger actions based on their state.
 

@@ -4,6 +4,23 @@ CSS preprocessors and frameworks are two important tools in a web developer's to
 
 ### CSS Preprocessors
 
+#### Choose native CSS, a preprocessor, or a framework by problem
+
+These solve *different* problems. Native CSS is what browsers parse. Sass/Less preprocess source into CSS before the browser sees it. Frameworks may supply design conventions, components, utility classes or build tooling; using Bootstrap or Tailwind does not mean the browser understands Sass variables or Tailwind directives. A small static site might need neither a preprocessor nor a framework.
+
+| Requirement | First thing to try | Add a tool when… |
+|---|---|---|
+| Reusable runtime colors | `--accent` and `var(--accent)` | You need build-time theme generation or module conventions. |
+| Nested selectors | Native CSS nesting | A project already has Sass or needs Sass-specific features. |
+| Responsive components | Media/container queries and Grid/Flexbox | Shared component patterns justify a design system. |
+| Repeated CSS declarations | Classes, selectors, custom properties | Mixins generate meaningfully different declarations. |
+| Component libraries | Native accessible controls + your CSS | A maintained library meets verified requirements. |
+
+A preprocessor's variables disappear or are substituted during compilation, while native CSS custom properties participate in the cascade at runtime. A CSS framework does not automatically provide accessibility, low bundle size or an appropriate design. Measure actual output and inspect generated styles rather than choosing tools based on a broad popularity claim.
+
+**Practical experiment:** start with the [existing styled-card browser example](../projects/visual-examples/index.html), change a custom property in DevTools, then compile a separate Sass variable to CSS. A runtime CSS variable can respond to the cascade without rebuilding; editing `$accent` in Sass requires recompilation. Reference: [Sass variables](https://sass-lang.com/documentation/variables/) and [MDN custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*).
+
+
 CSS preprocessors are scripting languages that extend standard CSS features with new functionality borrowed from other programming languages. Variables, nesting, inheritance, mixins, functions, and mathematical operations are common examples. While preprocessors don't introduce anything that can't be accomplished with plain CSS, they offer a more efficient way of doing things.
 
 The two most common preprocessors are:
@@ -13,9 +30,27 @@ The two most common preprocessors are:
 
 #### An outline of common features
 
-Let's delve into some of the most prevalent CSS preprocessor features and see how they stack up against CSS4, the latest iteration of CSS.
+Let's delve into some of the most prevalent CSS preprocessor features and see how they stack up against the current modular CSS specifications. There is no single language version called “CSS4”; different CSS modules have their own levels.
 
 ##### Variables
+
+###### One theme implemented two ways — predict the generated CSS
+
+```css
+:root { --accent: #1d4ed8; }
+.card { border-color: var(--accent); }
+.card[data-tone="warning"] { --accent: #b45309; }
+```
+
+When `data-tone="warning"` is on the card, its own custom-property value wins through the cascade; the border updates without recompiling. Custom properties are not simple text macros: `var(--missing, red)` uses a fallback when the referenced property is invalid or absent as needed, and invalid computed values can invalidate an entire property declaration.
+
+```scss
+$accent: #1d4ed8;
+.card { border-color: $accent; }
+```
+
+Compiling the Sass example emits an ordinary CSS color declaration. To change the theme in the browser after compilation, add native CSS custom properties or generate extra theme selectors. Sass modules use `@use`/`@forward`; avoid introducing new projects that depend on the old global `@import` workflow. **Exercise:** inspect the compiled output, then try changing `$accent` in browser DevTools (it is not a CSS property and has no effect). Reference: [Sass module system](https://sass-lang.com/documentation/at-rules/use/).
+
 
 Variables facilitate the use of named values in different sections of the code. For instance, if you've utilized 'red' in various properties and later opt for 'blue', with a variable, you can alter the value in a singular location, as opposed to tracking down each instance individually.
 
@@ -53,19 +88,17 @@ body {
 
 ##### Inheritance
 
-Inheritance copies all definitions from one selector to another.
+CSS inheritance means some *property values* pass from a parent element to its descendants; it is not copying one selector’s declarations into another selector. Sass `@extend` and Less mixins implement different kinds of reuse.
 
-CSS (Using @apply):
+Native CSS (inherited text color versus shared selectors):
 
 ```css
-.parent {
-  color: red;
-}
-
-.child {
-  @apply .parent;
-}
+.parent { color: red; }
+/* A nested descendant inherits color by default; unrelated elements do not. */
+.parent, .unrelated-but-same-color { color: red; }
 ```
+
+`@apply` is **not a standard native-CSS selector inheritance rule**. Some tooling implements an `@apply` directive with its own syntax and compilation step; do not paste it into plain CSS expecting it to work.
 
 SCSS:
 
@@ -93,7 +126,44 @@ child {
 
 ##### Nesting
 
-Nesting provides a more structured and readable way to write styles for nested elements. While CSS lacks a direct equivalent, the same effect can be achieved using multiple nested selectors.
+###### Compare native nesting with compiled Sass output
+
+```css
+/* Native CSS: the browser parses the nested selector. */
+.card {
+  padding: 1rem;
+  & .card__title { margin-block: 0; }
+  &:focus-within { outline: 2px solid currentColor; }
+}
+```
+
+```scss
+/* Sass source: the build tool outputs regular CSS. */
+.card {
+  padding: 1rem;
+  & .card__title { margin-block: 0; }
+}
+```
+
+Both examples express the relationship, but they are processed by different systems. The first can be loaded directly in modern browsers supporting native nesting; the second must go through Sass when it uses `.scss` syntax and Sass-only features. Native nesting is not an excuse for deep selector chains: `.card .header .nav .item .label` is harder to override than a small explicit component class. `&` represents the parent selector, and changes such as `.card { &.featured { ... } }` match the *same element* with both classes, not a descendant.
+
+**Exercise:** toggle `.card__title` and `.card.featured` classes in DevTools and explain which selector matches. Use the [browser card comparison](../assets/visual-examples/card-styling-browser.png) to connect the code to visible grouping. Reference: [MDN CSS nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Nesting).
+
+
+**See what native CSS can do today:**
+
+```css
+.card {
+  padding: 1rem;
+  & .title { font-weight: 700; }
+  &:hover { border-color: rebeccapurple; }
+}
+```
+
+This works in browsers supporting native CSS nesting without a Sass compilation step. Sass is still useful for mixins, modules and build-time functions, but do not add a build tool solely because you think CSS has no variables or nesting. Compare the [unstyled/styled card illustration](../assets/visual-examples/card-styling.svg) and [live demo](../projects/visual-examples/index.html); the image shows the visual CSS effect, **not** a framework performance comparison.
+
+
+Nesting provides a more structured and readable way to write styles for nested elements. Modern native CSS supports nesting. Its parsing and selector behavior are not identical to every Sass/Less form, so check compatibility and use `&` when you need the parent selector.
 
 SASS / LESS:
 
@@ -106,6 +176,9 @@ SASS / LESS:
 ```
 
 ##### Mathematical operations
+
+Separate **build-time calculations** (such as Sass `math.div()`) from native CSS **computed-value calculations** (`calc()`, `min()`, `max()`, `clamp()`). They have different timing and unit constraints. In current Sass, use `@use 'sass:math';` and `math.div($spacing, 2)` instead of relying on deprecated ambiguous slash division.
+
 
 Mathematical operations enable dynamic value assignment based on another value, computed in real-time.
 
@@ -139,9 +212,9 @@ Available functions include:
 
 ```css
 body {
-  background-color: rgb(255, 255, 255);
-  background-color: min(rgb(255, 255, 255), rgb(0, 0, 0));
-  background-color: max(rgb(255, 255, 255), rgb(0, 0, 0));
+  background-color: rgb(255 255 255);
+  width: min(100%, 40rem);
+  padding: max(1rem, 2vw);
 }
 ```
 
@@ -165,12 +238,10 @@ body {
 
 Mixins are reusable blocks of code that can be included in multiple CSS rules. They allow for writing DRY (Don't Repeat Yourself) code, avoiding repetition.
 
-CSS (Using @apply, somewhat limited):
+Native CSS media query (this is **not** a mixin or `@apply`):
 
 ```css
-@custom-media --small-viewport (max-width: 30em);
-
-@media (--small-viewport) {
+@media (max-width: 30em) {
   /* Rules here */
 }
 ```
@@ -241,6 +312,29 @@ LESS (Similar capabilities):
 ```
 
 #### Step-by-step guide to creating LESS projects
+
+##### Prefer a reproducible project-local installation
+
+The global installation described below is historically common, but a project-local compiler pins the dependency in `package.json` and makes onboarding and CI more predictable. For a new disposable example:
+
+```bash
+mkdir hello-less && cd hello-less
+npm init -y
+npm install --save-dev less
+```
+
+Create `src/theme.less`:
+
+```less
+@accent: #1d4ed8;
+.card {
+  border: 2px solid @accent;
+  &__title { color: @accent; }
+}
+```
+
+Compile it with `npx lessc src/theme.less dist/theme.css` **after creating `dist`** (`mkdir -p dist` on Unix-like systems). Add scripts such as `"build:css": "lessc src/theme.less dist/theme.css"` to `package.json` so a colleague can run `npm run build:css`; check the generated file into version control only if your deployment and repository policy require it. The HTML page must link to `dist/theme.css`, not directly to the `.less` source. **Verify:** open the output file and make sure it contains valid `.card` and `.card__title` rules; inspect the same styles on the rendered card. Reference: [Less command-line usage](https://lesscss.org/usage/).
+
 
 Creating a "Hello World" project in Less (a CSS pre-processor) and compiling it to normal CSS involves a few steps. Here's a step-by-step guide in notes form:
 

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="340" viewBox="0 0 900 340" role="img" aria-labelledby="title desc">
+  <title id="title">An iterative UX research cycle</title>
+  <desc id="desc">Define the task, gather evidence, interpret observations, prototype, evaluate, and monitor after release. Feedback loops back to defining the problem.</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#334155"/></marker></defs>
+  <rect width="900" height="340" rx="18" fill="#f8fafc"/>
+  <text x="450" y="38" font-family="Arial, sans-serif" font-size="25" font-weight="bold" text-anchor="middle" fill="#0f172a">UX is a continuous learning loop</text>
+  <g fill="#dcfce7" stroke="#166534" stroke-width="2"><rect x="28" y="95" width="132" height="76" rx="12"/><rect x="170" y="95" width="132" height="76" rx="12"/><rect x="312" y="95" width="132" height="76" rx="12"/><rect x="454" y="95" width="132" height="76" rx="12"/><rect x="596" y="95" width="132" height="76" rx="12"/><rect x="738" y="95" width="132" height="76" rx="12"/></g>
+  <g font-family="Arial, sans-serif" fill="#14532d" text-anchor="middle" font-size="14" font-weight="bold"><text x="94" y="126">Define</text><text x="94" y="147">task</text><text x="236" y="126">Gather</text><text x="236" y="147">evidence</text><text x="378" y="126">Interpret</text><text x="378" y="147">findings</text><text x="520" y="126">Prototype</text><text x="520" y="147">change</text><text x="662" y="126">Evaluate</text><text x="662" y="147">with users</text><text x="804" y="126">Monitor</text><text x="804" y="147">after launch</text></g>
+  <g stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"><path d="M160 133H168"/><path d="M302 133H310"/><path d="M444 133H452"/><path d="M586 133H594"/><path d="M728 133H736"/><path d="M804 171V234H94V173"/></g>
+  <g font-family="Arial, sans-serif" text-anchor="middle" fill="#0f172a"><text x="450" y="224" font-size="15">New observations may change the problem definition</text><text x="450" y="279" font-size="14">Separate observations from hypotheses; choose methods appropriate to the question.</text><text x="450" y="301" font-size="14">Include accessibility and informed consent throughout the cycle.</text></g>
+</svg>

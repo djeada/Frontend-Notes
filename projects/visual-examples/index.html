@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frontend before and after: runnable examples</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#examples">Skip to examples</a>
+  <header class="site-header">
+    <div class="shell">
+      <strong>Frontend visual lab</strong>
+      <nav aria-label="Example navigation">
+        <a href="#semantic">HTML</a>
+        <a href="#card">CSS</a>
+        <a href="#validation">JavaScript</a>
+        <a href="#hierarchy">UI and UX</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="examples" class="shell">
+    <h1>See the difference: before and after</h1>
+    <p class="intro">These are browser-rendered examples, not just pictures. Change the CSS in DevTools, resize the browser, use Tab to navigate, and submit an invalid email. The “before” panels intentionally demonstrate problems and are not implementation advice. <a href="../../notes/02_css.md">Read the original CSS chapter and its illustrated examples</a>.</p>
+
+    <section id="semantic" aria-labelledby="semantic-title">
+      <h2 id="semantic-title">1. Semantic HTML</h2>
+      <p>Generic containers and semantic elements can look identical. The improvement is document meaning and navigable landmarks, not an automatic style change. Each demonstration is a separate HTML page, so there is exactly one main region in the improved document.</p>
+      <div class="compare">
+        <div class="panel">
+          <h3>Before: generic containers</h3>
+          <iframe title="Before: generic containers in their own document" src="semantic-before.html" loading="lazy" style="width:100%; min-height:12rem; border:0"></iframe>
+          <p><a href="semantic-before.html">Open before document</a></p>
+        </div>
+        <div class="panel">
+          <h3>After: semantic landmarks</h3>
+          <iframe title="After: semantic page landmarks in their own document" src="semantic-after.html" loading="lazy" style="width:100%; min-height:12rem; border:0"></iframe>
+          <p><a href="semantic-after.html">Open after document</a></p>
+        </div>
+      </div>
+      <p class="try">Inspect each document's DOM and accessibility tree in a separate tab. Iframe boundaries themselves are separate browsing contexts; do not interpret the host page's landmark list as the embedded page's list.</p>
+    </section>
+
+    <section id="card" aria-labelledby="card-title">
+      <h2 id="card-title">2. Card styling</h2>
+      <p>The same content becomes easier to scan when spacing, typography, boundaries, and a clear action establish hierarchy.</p>
+      <div class="compare">
+        <div class="panel"><h3>Before: minimal styling</h3><div class="raw-card"><h4>Starter course</h4><p>Learn to build a small web page.</p><a href="#card">View course</a></div></div>
+        <div class="panel"><h3>After: deliberate styling</h3><article class="styled-card"><span class="eyebrow">INTRODUCTION</span><h4>Starter course</h4><p>Learn to build a small web page.</p><a class="action" href="#card">View course</a></article></div>
+      </div>
+    </section>
+
+    <section id="alignment" aria-labelledby="alignment-title">
+      <h2 id="alignment-title">3. Flexbox alignment</h2>
+      <p>A toolbar needs predictable alignment and gaps. Make the container flex and allow wrapping rather than inserting spaces into text.</p>
+      <div class="compare">
+        <div class="panel"><h3>Before: disconnected controls</h3><div class="bad-toolbar"><h4>My tasks</h4><button type="button">Filter</button><p>Other content interrupts the buttons.</p><button type="button">New task</button></div></div>
+        <div class="panel"><h3>After: flex and gap</h3><div class="good-toolbar"><h4>My tasks</h4><div class="toolbar-actions"><button type="button">Filter</button><button type="button" class="primary">New task</button></div></div></div>
+      </div>
+      <p class="try">Inspect <code>.good-toolbar</code>, and shrink the browser until the actions wrap.</p>
+    </section>
+
+    <section id="responsive" aria-labelledby="responsive-title">
+      <h2 id="responsive-title">4. Responsive navigation</h2>
+      <p>Both examples use the same links. A CSS container query changes how each navigation bar is arranged according to the width of its container.</p>
+      <div class="compare responsive-compare">
+        <div class="panel"><h3>Wide container</h3><div class="nav-frame wide-frame"><nav class="demo-nav" aria-label="Wide example"><strong>Atlas</strong><div class="demo-links"><a href="#responsive">Courses</a><a href="#responsive">Pricing</a><a href="#responsive">Help</a></div></nav><p class="frame-copy">Content flows underneath the navigation.</p></div></div>
+        <div class="panel"><h3>Narrow container</h3><div class="nav-frame narrow-frame"><nav class="demo-nav" aria-label="Narrow example"><strong>Atlas</strong><div class="demo-links"><a href="#responsive">Courses</a><a href="#responsive">Pricing</a><a href="#responsive">Help</a></div></nav></div></div>
+      </div>
+      <p class="try">Inspect the <code>@container (max-width: 24rem)</code> rule in <code>styles.css</code>. Both versions retain normal, keyboard-accessible links.</p>
+    </section>
+
+    <section id="validation" aria-labelledby="validation-title">
+      <h2 id="validation-title">5. Form validation and feedback</h2>
+      <p>Try submitting <code>not-an-email</code> on the right. Feedback uses text, not color alone; the input points to it with <code>aria-describedby</code>.</p>
+      <div class="compare">
+        <div class="panel">
+          <h3>Before: idle state</h3>
+          <div class="form-visual"><label for="idle-email">Email address</label><input id="idle-email" type="email" placeholder="name@example.com" readonly><button type="button">Subscribe</button></div>
+          <p class="example-note">Illustrative initial state; this panel does not submit.</p>
+        </div>
+        <div class="panel">
+          <h3>After: interactive validation</h3>
+          <form id="newsletter" class="form-visual" novalidate>
+            <label for="live-email">Email address</label>
+            <input id="live-email" type="email" name="email" autocomplete="email" required aria-describedby="email-feedback">
+            <p id="email-feedback" class="feedback" aria-live="polite">Enter an address and press Subscribe.</p>
+            <button type="submit">Subscribe</button>
+          </form>
+          <p class="example-note">Demo only: no information is sent to a server.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="states" aria-labelledby="states-title">
+      <h2 id="states-title">6. Button states</h2>
+      <p>Default, hover, keyboard focus, and disabled need discernible treatments. Disabled controls are normally skipped by sequential keyboard navigation; inspect the separate focusable button with Tab.</p>
+      <div class="compare">
+        <div class="panel"><h3>Before: ambiguous styling</h3><div class="state-grid bad-states"><button type="button">Continue</button><button type="button">Continue</button><button type="button" disabled>Continue</button></div></div>
+        <div class="panel"><h3>After: distinct states</h3><div class="state-grid good-states"><div><small>Default</small><button type="button">Continue</button></div><div><small>Hover me</small><button type="button">Continue</button></div><div><small>Tab to focus</small><button type="button">Continue</button></div><div><small>Disabled</small><button type="button" disabled>Unavailable</button></div></div></div>
+      </div>
+    </section>
+
+    <section id="hierarchy" aria-labelledby="hierarchy-title">
+      <h2 id="hierarchy-title">7. Visual hierarchy</h2>
+      <p>A prominent heading, meaningful grouping, enough whitespace, and one primary action make the message easier to scan.</p>
+      <div class="compare">
+        <div class="panel"><h3>Before: competing messages</h3><div class="bad-hero"><p>SALE! LEARN NOW! GET STARTED!</p><p>Build better websites with our courses</p><p>Tutorials Projects Videos Updates</p><button type="button">Learn more</button> <button type="button">Get started</button></div></div>
+        <div class="panel"><h3>After: clear hierarchy</h3><div class="good-hero"><span class="eyebrow">FRONTEND WORKSHOP</span><h4>Build better websites</h4><p>Learn by building small, usable projects.</p><a class="action" href="#hierarchy">Start learning</a></div></div>
+      </div>
+    </section>
+
+    <section id="keyboard-focus" aria-labelledby="focus-title">
+      <h2 id="focus-title">8. Visible keyboard focus</h2>
+      <p>Press Tab until the links below are focused. The left intentionally suppresses the outline; the right retains an obvious indicator. Never copy the left pattern into production.</p>
+      <div class="compare">
+        <div class="panel"><h3>Before: hidden indicator</h3><a class="focus-demo bad-focus" href="#keyboard-focus">View course</a><p class="example-note">The focused link can be impossible to identify.</p></div>
+        <div class="panel"><h3>After: visible indicator</h3><a class="focus-demo good-focus" href="#keyboard-focus">View course</a><p class="example-note">A strong outline makes focus location clear.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer"><div class="shell">Visual teaching lab · <a href="../../notes/07_ui.md">Return to the original UI chapter</a></div></footer>
+</body>
+</html>

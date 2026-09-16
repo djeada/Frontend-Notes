@@ -1,11 +1,27 @@
 ## JavaScript Frameworks
 
-* Most Web Apps today are built using a JavaScript framework rather than written in Vanilla JavaScript.
-* Almost everyone agrees that every frontend developer should be familiar with at least one JavaScript framework.
+* Many web applications use frameworks or libraries, but static sites and smaller interactive pages may not need one. The right choice depends on the requirements.
+* Learning a framework can help you work on existing applications, but HTML, CSS, JavaScript and browser fundamentals remain essential.
 * Some take it to the extreme and start learning the frontend development with one of JavaScript frameworks. 
 * I still believe that before diving into the world of JavaScript frameworks, you should first understand the fundamentals of frontend development. So if you haven't done that by now, I suggest you take a step back and learn the basics.
 
 ## What are frameworks?
+
+### Decide whether a framework earns its complexity
+
+A static portfolio, a content website with minimal interactivity, and a client-heavy dashboard have different requirements. Begin with an explicit feature inventory: navigation/routing, persistence, data fetching, authentication boundaries, search requirements, accessibility, localization, bundle constraints, deployment environment, and team experience. Libraries and frameworks solve some of these, but none automatically supplies good information architecture or security.
+
+| Example | Possible starting point | What to investigate before choosing |
+|---|---|---|
+| Static documentation | HTML, CSS, optional build-time generator | Editing workflow, accessibility, search and hosting. |
+| Small interactive widget | Native JavaScript or a small component library | DOM ownership, reusability, testing and bundle cost. |
+| Multi-route application | An appropriate app framework | Routing, server/client data, error pages and deployment. |
+| Embedded widget in a legacy site | An isolated component | CSS isolation, integration, versioning and cleanup. |
+
+**Comparison experiment:** implement the [same button and form behavior](../projects/visual-examples/index.html) in vanilla JavaScript first. Add a framework only after identifying which duplication or state complexity it actually removes. Measure page size and runtime behavior in your own application; framework marketing and survey popularity are not performance tests. A framework may provide conventions for routes and data loading, whereas React by itself is a UI library: distinguish its API from the surrounding toolchain.
+
+**Accessibility contract:** whichever stack is chosen, a button should remain a button, a label should still name its input, keyboard focus must be visible, and API authorization still belongs on the server. Reference: [React project options](https://react.dev/learn/start-a-new-react-project).
+
 
 A software framework is a pre-written app skeleton on which you may further develop. It is a collection of files and folders to which you may modify as well as add your files and folders. A framework addresses following development issues:
 
@@ -51,17 +67,28 @@ Links:
 
 ## React
 
+**Current entry-point API:** React 19 removed legacy `ReactDOM.render`. Import `createRoot` from `react-dom/client`, then call `createRoot(container).render(<App />)`. The React examples below now use `createRoot`; ensure the same code block imports it rather than importing `ReactDOM` from `react-dom`.
+
+```jsx
+import { createRoot } from 'react-dom/client';
+function App() { return <button type="button">Hello</button>; }
+createRoot(document.getElementById('root')).render(<App />);
+```
+
+For a new project, follow the current [React project guide](https://react.dev/learn/start-a-new-react-project), not deprecated Create React App instructions. Choose a framework or build tool based on routing, deployment, server rendering and learning goals; a library alone does not decide these requirements. The [button states illustration](../assets/visual-examples/button-states.svg) shows UI states that are necessary regardless of framework, and the [vanilla JavaScript demo](../projects/visual-examples/index.html) provides a baseline before adding dependencies.
+
+
 React is a JavaScript library for building user interfaces, often referred to as a framework due to its extensive ecosystem. Unlike a framework, which provides a structured approach to building applications, a library like React allows for more flexibility in implementation.
 
 Pros:
 
-- React is currently the most popular library for building user interfaces, which means that there is a high demand for developers skilled in React. This popularity also indicates a robust job market and numerous opportunities for React developers.
-- React is backed by Meta (formerly Facebook), a major tech company, ensuring continuous development, updates, and long-term support. This backing provides confidence in React’s longevity and relevance in the industry.
+- React is widely used for building user interfaces; usage surveys and hiring demand differ by population and date, so do not infer current market rankings from an undated claim. This popularity also indicates a robust job market and numerous opportunities for React developers.
+- React is maintained by a community and Meta contributors, but organizational backing does not guarantee an indefinite support timeline. This backing provides confidence in React’s longevity and relevance in the industry.
 - The core library of React is relatively small, which makes it lightweight, fast, and easy to learn. Developers can quickly get up to speed and start building applications without needing to understand a vast amount of codebase.
 - There is a huge and active community around React. This extensive community provides a wealth of resources, including tutorials, documentation, forums, and third-party libraries. Developers can easily find solutions to common problems, share knowledge, and collaborate on projects.
 - React’s component-based architecture allows for reusable and maintainable code. Developers can create modular components that can be reused across different parts of an application, reducing redundancy and improving code quality.
-- React’s virtual DOM implementation ensures efficient updates and rendering of components, leading to improved performance, especially in dynamic applications.
-- React has a rich ecosystem with numerous tools and libraries that enhance development productivity. Tools like Create React App, React DevTools, and various state management libraries (such as Redux) simplify and streamline the development process.
+- React reconciles component output to update interfaces. Actual performance depends on application architecture, rendering patterns, bundle size and measurement; a virtual DOM is not an automatic performance guarantee.
+- React has a rich ecosystem with numerous tools and libraries that enhance development productivity. Tools such as React DevTools and appropriate state management can support development. Create React App is deprecated for new projects; consult the current React project setup guide.
 
 Cons:
 
@@ -75,6 +102,37 @@ Cons:
 
 #### Component
 
+##### Modern functional component: props, state, and an observable outcome
+
+The class component below demonstrates an older component style. For a new small component, a function with hooks is often simpler. This is an illustrative module for an app whose HTML contains `<div id="root"></div>` and whose build tool supports JSX:
+
+```jsx
+import { useState } from 'react';
+import { createRoot } from 'react-dom/client';
+
+function QuantityPicker({ productName, max = 5 }) {
+  const [quantity, setQuantity] = useState(1);
+  return (
+    <section aria-label={`Quantity for ${productName}`}>
+      <p>{productName}: {quantity}</p>
+      <button type="button" disabled={quantity === 1}
+              onClick={() => setQuantity(q => q - 1)}>Decrease</button>
+      <button type="button" disabled={quantity === max}
+              onClick={() => setQuantity(q => q + 1)}>Increase</button>
+    </section>
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  <QuantityPicker productName="Notebook" max={4} />
+);
+```
+
+**What the user sees:** initially “Notebook: 1,” with Decrease unavailable. Each Increase click updates the number; at 4, Increase becomes disabled. State lives in the component; `productName` and `max` are inputs from its parent. The functional state updater `q => q + 1` uses the queued previous state, which matters when several updates occur in one event. React normally batches updates, so reading state immediately after calling a setter still yields the snapshot for that render.
+
+**Test cases:** initial value 1; clicking Increase twice displays 3; Decrease returns to 2; the maximum cannot be exceeded. Check the disabled state's explanation and color contrast against the [button-states browser screenshot](../assets/visual-examples/button-states-browser.png). Reference: [React state as a snapshot](https://react.dev/learn/state-as-a-snapshot).
+
+
 React components are the building blocks of a React application. They can be thought of as custom, reusable HTML elements, and they encapsulate their own structure, style, and behavior.
 
 Components in React are written using JSX, an extension to JavaScript that allows writing HTML-like syntax within JavaScript. A component is a JavaScript function or class that returns a React element.
@@ -83,7 +141,7 @@ Components in React are written using JSX, an extension to JavaScript that allow
 
 ```jsx
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 class HelloWorld extends React.Component {
   render() {
@@ -96,7 +154,7 @@ class HelloWorld extends React.Component {
   }
 }
 
-ReactDOM.render(<HelloWorld />, document.getElementById('root'));
+createRoot(document.getElementById("root")).render(<HelloWorld />);
 ```
 
 #### Props
@@ -136,7 +194,7 @@ function Container(props) {
 
 #### Mounting
 
-Mounting is the process of rendering a React component to the DOM. It involves several lifecycle methods:
+Mounting adds a component to the rendered tree. The following are **class-component lifecycle methods across mounting, updating, unmounting and error handling**, not a list of methods all invoked during mounting:
 
 1. `constructor(props)` - Called before the component is mounted.
 2. `render()` - Defines what the component UI looks like.
@@ -232,6 +290,29 @@ class App extends React.Component {
 ```
 
 ### Hooks
+
+#### Effects synchronize with external systems; derived values usually do not need one
+
+An effect should connect React to something *outside* its pure rendering model, such as an event subscription, timer or network resource. Do not copy a prop into state with an effect merely to calculate a full name or filtered list; compute those values during rendering when possible. Cleanup runs when dependencies change and when a component unmounts, helping prevent leaks and stale subscriptions.
+
+```jsx
+import { useEffect, useState } from 'react';
+
+function WindowWidth() {
+  const [width, setWidth] = useState(() => window.innerWidth);
+  useEffect(() => {
+    const update = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+  return <output>Viewport: {width} CSS pixels</output>;
+}
+```
+
+This is a **client-only teaching example**: directly accessing `window` in state initialization is not safe during server rendering. In an SSR app, choose a server-safe initial value and handle hydration deliberately, or use a suitable external-store abstraction. Development Strict Mode may run an extra setup/cleanup cycle to expose bugs; do not “fix” duplicate-looking development logs by suppressing cleanup or lying about dependencies.
+
+**Compare:** computing `const doubled = count * 2` in render needs no effect. Starting a timer inside rendering, by contrast, creates a new timer on each render and is incorrect. For network requests, cancel or ignore stale results when a dependency changes, handle loading/error/empty states, and do not put authentication secrets in browser bundles. Reference: [React synchronizing with effects](https://react.dev/learn/synchronizing-with-effects) and [you might not need an effect](https://react.dev/learn/you-might-not-need-an-effect).
+
 
 Hooks are functions that let you use state and other React features without writing a class. They work inside functional components and provide a way to reuse stateful logic.
 
@@ -766,13 +847,13 @@ In the `src/App.js` file, include the following React script:
 
 ```javascript
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 const App = () => {
     return <h1>Hello World</h1>;
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+createRoot(document.getElementById("root")).render(<App />);
 ```
 
 In addition to JavaScript, an HTML file is required to render the React code. Place the `index.html` file in the `dist` folder:

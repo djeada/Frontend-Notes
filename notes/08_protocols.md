@@ -8,7 +8,7 @@ In today’s connected world, front-end developers do far more than style web pa
 
 The Internet is often called a “network of networks” because it consists of numerous smaller, interconnected networks run by private, public, academic, business, and government entities. This global system enables billions of devices to connect and exchange information at unprecedented speed and scale.
 
-- **TCP/IP** (Transmission Control Protocol/Internet Protocol) is the Internet’s core suite of protocols. TCP divides large pieces of data into packets and reassembles them upon arrival, ensuring reliable transfer. IP handles the addressing and routing of these packets to ensure they reach the correct destination.  
+- **TCP/IP** (Transmission Control Protocol/Internet Protocol) is the Internet’s core suite of protocols. TCP presents a reliable ordered **byte stream**; IP and lower network layers carry packets, while TCP handles segmentation, ordering and retransmission. A TCP write does not necessarily correspond to one network packet or one read. IP handles the addressing and routing of these packets to ensure they reach the correct destination.
 - **Routers** are specialized devices that examine and direct data across different networks. They figure out the most efficient path for a packet to travel, which can involve hopping through multiple networks.  
 - **Switches** operate within a local or private network (such as an office network) to forward data from one device to another efficiently. They are sometimes compared to traffic organizers within a smaller area.  
 - **Fiber optic cables** and, in certain cases, **satellites** carry data over long distances. Fiber optic cables send data as pulses of light, allowing rapid and high-capacity transmission, whereas satellites are critical for reaching remote or hard-to-wire locations.
@@ -29,13 +29,31 @@ The Internet is often called a “network of networks” because it consists of 
 
 #### Browsers
 
+##### From URL to pixels: identify which layer failed
+
+A browser navigation is not a single network operation. The browser may look at HTTP caches or a service worker; resolve DNS if needed; reuse an existing connection or establish TLS/QUIC; send an HTTP request; receive HTML; parse it; fetch CSS, images and scripts; construct layout; and paint. Steps may overlap, be skipped or repeat. The [request lifecycle diagram](../assets/diagrams/request-lifecycle.svg) is a conceptual teaching aid, not a promise that every request follows exactly the same path.
+
+| Visible symptom | First inspection point | Example explanation |
+|---|---|---|
+| Browser cannot resolve host | DNS and authoritative record | Typo, missing record or cached old answer. |
+| Certificate warning | HTTPS certificate and hostname | Expired certificate or wrong hostname. |
+| HTML loads but appears unstyled | Network panel's CSS request | Wrong path, 404 or MIME mismatch. |
+| Page looks fine but button does nothing | Console and event listeners | JavaScript exception or missing handler. |
+| API request returns 401 | Server authentication contract | No valid credentials; not a DNS failure. |
+| API response blocked in browser | Console and CORS headers | Cross-origin access not permitted to script. |
+
+**Reproduce it:** serve the [visual examples project](../projects/visual-examples/README.md) over `http://localhost:8000`, open DevTools, disable cache, reload and identify the HTML, CSS and JavaScript requests. Change the stylesheet link temporarily to a nonexistent path: the HTML remains meaningful but loses styling. Restore the URL and verify recovery. The browser's Network panel reveals *observed* timing and requests; do not infer a particular TCP packet sequence from its waterfall.
+
+A service worker can intercept requests and work offline, but is not present in every page. Browser storage, cache storage, HTTP cache, cookies and localStorage are distinct mechanisms with different scopes and lifetimes. Reference: [MDN how the web works](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works).
+
+
 A web browser is the user’s gateway to the World Wide Web. By sending requests (using protocols like HTTP or HTTPS) and interpreting the responses (usually HTML, CSS, and JavaScript), browsers present web pages in a form humans can interact with. Although browsers often look straightforward on the outside, they have a lot going on behind the scenes:
 
 - The **user interface (UI)** includes components like the address bar, navigation buttons such as back, forward, and refresh, tabs for managing multiple pages, and bookmarking features for saving favorite websites.  
 - The **browser engine** serves as the intermediary between the UI and the rendering engine, ensuring communication and task delegation.  
 - The **rendering engine** processes HTML, CSS, and other code to display a website's content on the screen, determining the appearance of text, images, and layouts.  
 - **Networking** functionalities manage resource fetching using protocols like HTTP/HTTPS, handle caching to improve performance, and perform security checks, including SSL/TLS validation.  
-- The **JavaScript interpreter (JS engine)** executes JavaScript code to enable interactive features, animations, and the dynamic updating of webpage content.  
+- The **JavaScript engine** can parse, compile, optimize and execute JavaScript code to enable interactive features, animations, and the dynamic updating of webpage content.
 - **Data storage** mechanisms such as cookies, local storage, and caches allow websites to store user preferences, session data, and other information, facilitating faster and more personalized browsing experiences.  
 
 Different browsers, such as Google Chrome, Mozilla Firefox, Microsoft Edge, and Safari, each have their own unique features and optimizations. For web developers, browser **developer tools** are a vital resource. These tools allow you to inspect a webpage’s structure (DOM), view and modify CSS in real-time, debug JavaScript via a console, and examine HTTP requests to optimize performance.
@@ -57,6 +75,32 @@ Different browsers, such as Google Chrome, Mozilla Firefox, Microsoft Edge, and 
 ```
 
 #### DNS (Domain Name System)
+
+##### DNS record walkthrough: apex, www, mail, and verification
+
+Suppose a hosting provider instructs you to point `www.example.com` at `site.host.example` and the domain's email provider already operates the mailbox. The website change and the email records are separate: modifying one should not erase the other. Names and values below are illustrative; **use your own provider's verified instructions**, not these demonstration targets.
+
+```text
+www.example.com.  300 IN CNAME site.host.example.
+example.com.      300 IN A     192.0.2.25
+example.com.     3600 IN MX    10 mail.example.net.
+example.com.     3600 IN TXT   "verification-example"
+```
+
+`192.0.2.0/24` is a reserved documentation network, not a real hosting destination. Standard DNS generally does not permit a CNAME to coexist with other data at the same owner name, so check provider-specific apex alias/flattening support when configuring the zone apex. An MX target is a *mail-exchange hostname*, not a web-server IP. A TXT record may carry sender policies or site verification; overwriting one can affect mail or other integrations.
+
+```bash
+dig example.com NS
+dig example.com A
+dig www.example.com CNAME
+dig example.com MX
+```
+
+These commands require `dig` and a reachable resolver. Inspect the answer section, queried record type, TTL and authoritative nameservers, not just whether some IP is printed. Recursive resolvers cache answers according to TTL, and a warm cache can bypass queries to root or TLD servers. DNS resolution does not validate the TLS certificate or prove the site is safe. **Exercise:** draw a table of the records you intend to change, current values, replacement values, TTL and rollback owner before editing a live zone. Reference: [MDN DNS](https://developer.mozilla.org/en-US/docs/Glossary/DNS).
+
+
+DNS supplies many record types, not only IPv4 addresses: `A` provides IPv4, `AAAA` IPv6, `CNAME` an alias, `MX` mail routing, and `TXT` often verification/policy data. Recursive resolvers cache responses according to TTL; DNS resolution need not traverse root/TLD servers on every visit. DNS does not by itself encrypt HTTP or prove a site is legitimate.
+
 
 The Domain Name System (DNS) transforms human-readable domain names (e.g., `example.com`) into machine-readable IP addresses (e.g., `192.0.2.1`). Without DNS, users would have to memorize strings of numbers to access websites, which would be both unwieldy and impractical.
 
@@ -110,13 +154,81 @@ The domain name system is overseen by the Internet Corporation for Assigned Name
 
 ### Protocols in Action
 
+#### HTTP versions, transport, and TLS: avoid mixing responsibilities
+
+| Layer/concept | What it provides | What it does not guarantee |
+|---|---|---|
+| DNS | Resolves names to records. | That a destination is trustworthy or available. |
+| IP | Addresses and forwards packets. | Reliable, ordered application messages. |
+| TCP | Reliable ordered byte stream. | Message boundaries matching `write()` calls. |
+| UDP | Datagram transport. | Reliability or ordering on its own. |
+| QUIC | Reliable streams and TLS 1.3 integration over UDP. | That a server supports every HTTP feature. |
+| TLS | Authenticated, encrypted transport when correctly configured. | That application code or user content is safe. |
+| HTTP | Request/response semantics and headers. | Automatic login or authorization. |
+
+HTTP/1.1 and HTTP/2 commonly run over TCP with TLS for HTTPS; HTTP/3 runs over QUIC, which uses UDP. A TCP connection delivers bytes, not an array of `fetch()` results. Browser connection reuse and multiplexing can change network waterfalls considerably. A lock icon signals certain connection properties, **not** that a business or page is trustworthy.
+
+**Diagnostic exercise:** start with “DNS works, but the browser refuses HTTPS.” Do not edit CSS or retry DNS blindly; inspect certificate chain, hostname, transport and the host's configuration. For a `403`, examine permissions and server policy. For a stalled CSS file, examine its request status and caching. Reference: [HTTP/3 RFC 9114](https://www.rfc-editor.org/rfc/rfc9114) and [MDN TLS](https://developer.mozilla.org/en-US/docs/Web/Security/Transport_Layer_Security).
+
+
 #### HTTP (HyperText Transfer Protocol)
+
+##### Inspect a response, not merely the URL
+
+```http
+GET /courses HTTP/1.1
+Host: example.com
+Accept: text/html
+
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+Cache-Control: public, max-age=60
+
+<!doctype html><title>Courses</title>
+```
+
+This is a schematic request/response pair, not a raw packet capture: actual connections may use HTTP/2 or HTTP/3 with different wire representations. `Content-Type` describes the representation; `Cache-Control` gives caches instructions. A `200 OK` means the server returned a successful HTTP response, not that the HTML is valid, usable or free of application errors. A redirect such as `301` or `302` tells the client to follow another location according to method-specific rules; inspect the redirect chain instead of treating it as a missing file.
+
+| Status | Typical meaning | Frontend response |
+|---|---|---|
+| 200 | Resource provided | Parse/render expected content. |
+| 204 | Successful, no response body | Do not call `response.json()` expecting JSON. |
+| 304 | Cached representation remains valid | Browser reuses a stored representation when appropriate. |
+| 400 | Request invalid | Show guidance; fix client input or contract. |
+| 401 | Authentication needed or invalid | Reauthenticate through the intended flow. |
+| 403 | Access denied | Do not blindly repeat a forbidden operation. |
+| 404 | Resource not found | Render a useful missing-content state. |
+| 429 | Too many requests | Respect `Retry-After` where provided. |
+| 500/503 | Server failure/unavailable | Show recoverable feedback; avoid duplicate destructive retries. |
+
+```js
+async function getCourses(signal) {
+  const response = await fetch('/api/courses', { signal });
+  if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+  if (response.status === 204) return [];
+  return response.json();
+}
+```
+
+The snippet requires an actual `/api/courses` endpoint. A browser `fetch` promise generally resolves for HTTP error statuses; it rejects for network errors, aborts and certain other failures. Error bodies may not be JSON, so production code should handle invalid response formats. CORS determines whether a browser script can read a cross-origin response; **it is not a mechanism for protecting an endpoint from direct requests**. Authorization must be enforced on the server.
+
+**Try it:** inspect the browser demo's Network tab, use DevTools throttling, observe a request with cache disabled, and explain the difference between a network failure and an HTTP 404. Reference: [MDN HTTP overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview) and [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch).
+
+
+#### Follow a real request visually
+
+![Browser URL, DNS lookup, TLS connection, HTTP request, server response, and browser rendering](../assets/diagrams/request-lifecycle.svg)
+
+For `https://example.com`, the browser may consult caches, resolve the hostname, establish a secure connection (TCP plus TLS for common HTTP/1.1/2 cases, or QUIC with TLS for HTTP/3), send HTTP request headers, receive a response, then parse and render resources. The diagram is a **conceptual sequence**, not a packet capture: caches, service workers, connection reuse and proxies can change the actual path.
+
+**Try it:** open the [visual demo](../projects/visual-examples/index.html) with browser DevTools → Network. Reload with and without cache, inspect `Status`, `Content-Type`, `Cache-Control`, timing, and failed requests. A successful DNS lookup does not guarantee that the server, TLS certificate or application is working. `fetch()` normally resolves even for HTTP `404` and `500`; inspect `response.ok`. CORS controls which cross-origin responses browser scripts can access, **not API authentication or authorization**.
+
 
 HyperText Transfer Protocol (HTTP) is the foundation of data exchange on the web, enabling the transfer of HTML and related media files between clients (like web browsers) and servers. Its **request-response model** lies at the heart of web interactions, allowing a client to request resources and a server to respond with the necessary data.
 
 - The **request-response cycle** involves an interaction where the client sends a request, and the server processes it to return a response.  
-- **Statelessness** ensures that each HTTP request is independent, meaning the server retains no memory of past interactions, which simplifies server design but requires mechanisms like cookies or sessions to maintain user data.  
-- **TCP-based** communication underlies HTTP, using the Transmission Control Protocol (TCP) to guarantee reliable data transmission between client and server.
+- **Stateless protocol semantics** mean each request carries the information needed to interpret it; applications can still maintain server-side session state via cookies or tokens. HTTP statelessness does not imply a server has no memory.
+- **Transport depends on HTTP version:** HTTP/1.1 and HTTP/2 commonly use TCP; HTTP/3 uses QUIC over UDP, which provides reliable streams and incorporates TLS 1.3. Do not describe all HTTP as TCP-based.
 
 In the HTTP world, both requests and responses consist of specific parts:
 
