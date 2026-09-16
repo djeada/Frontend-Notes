@@ -1,0 +1,75 @@
+name: One-time UX chapter illustration and review
+
+on:
+  pull_request:
+    types: [synchronize]
+
+permissions:
+  contents: write
+
+jobs:
+  update-ux:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'docs/ux-principles-illustrated-2026'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: docs/ux-principles-illustrated-2026
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Expand original UX chapter and create diagrams
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import ast
+          p=Path('tools/ux_illustration_pass.py')
+          s=p.read_text(encoding='utf-8')
+          a="('The Golden Ratio, approximately"
+          b="('The **Golden Ratio**, approximately"
+          assert s.count(a)==1
+          s=s.replace(a,b)
+          p.write_text(s,encoding='utf-8')
+          ast.parse(s)
+          PY
+          python3 tools/ux_illustration_pass.py
+      - name: Check assets, Markdown links, old diagrams and chapter retention
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, subprocess, xml.etree.ElementTree as ET
+          root=Path.cwd()
+          p=root/'notes/06_ux.md'
+          text=p.read_text(encoding='utf-8')
+          old=subprocess.run(['git','show','origin/main:notes/06_ux.md'],capture_output=True,text=True,check=True).stdout
+          assert len(text)>len(old) and '### The Structure Principle' in text and '### Rule of Thirds' in text
+          files=sorted((root/'assets/diagrams/ux').glob('*.svg'))
+          assert len(files)==19, len(files)
+          refs=re.findall(r'!\[[^\]]*\]\((\.\./assets/diagrams/ux/[^)]+\.svg)\)',text)
+          assert len(set(refs))==19 and len(refs)>=19,(len(refs),len(set(refs)))
+          for path in refs:
+              assert (p.parent/path).is_file(),path
+          for path in files:
+              element=ET.parse(path).getroot()
+              assert element.tag.endswith('svg') and element.get('viewBox')
+              assert element.find('{http://www.w3.org/2000/svg}title') is not None
+              assert element.find('{http://www.w3.org/2000/svg}desc') is not None
+          for old_marker in ['[Color Distribution Bar]','[Golden Rectangle]','[F-Pattern Heat Map]','[Rule of Thirds Grid]','[Effects vs. Causes Bar Chart]']:
+              assert old_marker not in text,old_marker
+          assert 'github.com/user-attachments/assets/0406562f' not in text
+          for topic in ['### Hick\'s Law','### Golden Ratio','### 80/20 Rule','### F-Pattern','### 60-30-10 Rule','### Rule of Thirds','### Fitts’s Law','### Jakob’s Law','### Chunking','### Tesler’s Law','### Progressive disclosure','### Recognition over recall']:
+              assert topic in text,topic
+          print(f'PASS: original UX chapter expanded {len(old.splitlines())} -> {len(text.splitlines())} lines; {len(files)} SVGs validated; {len(set(refs))} image paths valid; ASCII rule diagrams removed.')
+          PY
+      - name: Commit chapter and figures; remove one-time tooling
+        shell: bash
+        run: |
+          git rm -f .github/workflows/one-time-ux-illustrations.yml tools/ux_illustration_pass.py
+          git add -A
+          git diff --cached --check
+          git status --short
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'docs(ux): illustrate all existing rules and expand original chapter in place'
+          git push origin HEAD:docs/ux-principles-illustrated-2026
