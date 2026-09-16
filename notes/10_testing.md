@@ -1,283 +1,199 @@
 ## Frontend Testing
 
-Testing ensures the stability, security, and performance of your application. Let's delve deeper into the world of frontend testing.
+Testing reduces uncertainty about whether an application behaves as intended. A passing test suite cannot *guarantee* security, performance, or freedom from defects: its value depends on the scenarios, environments, and assertions it covers. Combine automated checks with exploratory, accessibility, and real-device testing.
 
-### What is Testing?
+### What is testing?
 
-Testing involves assessing software for errors, performance issues, or any unwanted behavior. It ensures software meets the requirements and provides a good user experience.
+A test starts with an observable requirement, performs an action or supplies input, and compares the actual outcome with the expected outcome. For example, the requirement “an invalid email is explained in text” yields a stronger test than “the form renders.” Define a failure condition before writing the assertion.
 
-### Levels of Testing
+### Levels of testing
 
-I. System Tests:
+**Unit tests** check a small, well-defined unit such as a conversion function. They should run quickly and make failures easy to diagnose. Isolation can be useful, but an excessive number of mocked dependencies may hide broken integration.
 
-- Check the system as a whole, ensuring that all integrated components work smoothly together. 
-- Often requires the complete application and environment setup.
+**Integration tests** exercise boundaries between modules or systems—for instance, a form component, its validation logic, and the HTTP client together. A test may use a real database or a controlled fake depending on the boundary being studied.
 
-II. Integration Tests:
+**System tests** assess an assembled application with its relevant environment. **End-to-end (E2E) tests** are a common workflow-oriented type: they drive a browser through a complete user journey, including several components and often a backend. These categories overlap, but are not universally identical. Label a test by what it actually exercises rather than by the tool used to run it.
 
-- Verify that different parts of the application work together seamlessly. 
-- Can be between different software components or between software and hardware components.
+The testing pyramid is a useful heuristic, not a mandatory count: make cheap, deterministic checks common and reserve slower browser tests for important user journeys. Accessibility, visual regression, security, and performance tests measure *different properties* and can exist at several levels.
 
-III. Unit Tests:
+#### Unit testing in depth
 
-- Examine individual units or components of a software to ascertain if they function correctly. 
-- Typically, a unit is the smallest part of the software that can be tested in isolation.
+Benefits:
 
-#### Unit Testing in Depth
+- Fast feedback identifies regressions while you are developing.
+- Tests can preserve intended behavior during refactoring.
+- Writing small, testable functions can make responsibilities clearer.
 
-Unit tests aim to verify each part of the software by isolating it and proving that it functions correctly on its own.
+**Choose tools by their roles.** A test *runner* discovers and executes tests; an *assertion library* describes expectations; a *browser automation tool* interacts with a browser. Some products combine several roles.
 
-I. Benefits:
+| Tool | What it primarily provides | Typical use or limitation |
+| --- | --- | --- |
+| **Mocha** | JavaScript test framework/runner; assertions can come from another library | Flexible unit or integration suites; configure assertions and mocking separately. |
+| **Jest** | Runner, assertions, mocking and snapshots | Unit and integration testing; browser DOM behavior typically requires a configured environment. |
+| **Jasmine** | Testing framework and assertions | Behavior-focused JavaScript tests. |
+| **Karma** | Test runner that launches browsers | Runs tests with another framework; it is not an assertion library by itself. |
+| **Puppeteer** | Browser automation using the Chrome DevTools Protocol | Browser workflows, screenshots and inspection; assertions and runner depend on setup. |
+| **Nightwatch** | Browser-based E2E test framework | Browser interaction using its supported automation backends. |
+| **Cypress** | Browser-oriented test runner and automation | Component and E2E tests; check the current browser/platform support for your installed version. |
+| **Playwright** | Browser automation and an optional test runner | Cross-browser workflow tests and screenshots; configure browser dependencies in CI. |
 
-- Quickly locate and fix bugs during development.
-- Facilitate code refactoring, ensuring new changes don't introduce bugs.
-- Improve code design by making developers write testable code.
+Versions, maintainers, configuration, and dependencies change; consult each tool's current documentation before choosing one. Avoid interpreting “supports UI testing” as proof that a tool checks accessible names or keyboard order automatically.
 
-II. Frameworks:
+**Example: testing a Roman-numeral function with Jest**
 
-| Framework       | Description                                                                      | Key Features                                                                 | Testing Types          | Developed By         | Dependencies                  |
-|-----------------|----------------------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------|----------------------|-------------------------------|
-| **MochaJS**     | A flexible test framework that supports multiple assertion libraries.            | - Flexible and adaptable<br>- Supports various assertion libraries<br>- Asynchronous testing support | - Unit Testing<br>- Integration Testing | Open-source Community | Varies by assertion library   |
-| **Jest**        | Developed by Facebook, it comes with built-in assertions, spies, and mocks.      | - Zero configuration<br>- Snapshot testing<br>- Parallel test execution      | - Unit Testing<br>- Integration Testing<br>- UI Testing  | Facebook              | Built-in                       |
-| **Jasmine**     | A behavior-driven testing framework with no external dependencies.               | - BDD style<br>- No external dependencies<br>- Rich set of matchers          | - Unit Testing<br>- Integration Testing | Open-source Community | None                          |
-| **Karma**       | A test runner that can execute tests in various real browsers.                   | - Real browser testing<br>- Supports multiple browsers<br>- Integration with various frameworks | - Running tests on CI<br>- Cross-browser testing | Open-source Community | Varies                         |
-| **Puppeteer**   | Provides methods to launch Chrome and interact with it using the Chrome DevTools Protocol. | - Headless browser testing<br>- Screenshots and PDFs generation<br>- Performance monitoring | - End-to-end Testing<br>- UI Testing  | Google                | Chrome DevTools Protocol      |
-| **NightwatchJS**| An E2E testing framework written in Node.js, using the WebDriver API.            | - Simplified syntax<br>- Built-in command-line test runner<br>- Parallel testing | - End-to-end Testing<br>- Browser Automation | Open-source Community | WebDriver API                 |
-| **Cypress**     | Modern web automation test framework that can test anything running in a browser.| - Real-time reloads<br>- Automatic waiting<br>- Time travel debugging        | - End-to-end Testing<br>- UI Testing<br>- Integration Testing | Cypress.io            | None (bundled)                |
-
-**Example: Testing roman numbers with Jest**
+First implement or install a module exporting `romanNumberConverter`; this snippet is a *test of that module*, not a complete working project:
 
 ```javascript
 const romanNumberConverter = require('./romanNumberConverter');
 
-test('Converts I to 1', () => {
+test('converts I to 1', () => {
   expect(romanNumberConverter('I')).toBe(1);
 });
 
-test('Converts IV to 4', () => {
+test('converts IV to 4', () => {
   expect(romanNumberConverter('IV')).toBe(4);
 });
 
-test('Converts XL to 40', () => {
+test('converts XL to 40', () => {
   expect(romanNumberConverter('XL')).toBe(40);
 });
 
-test('Converts MCMXCIV to 1994', () => {
+test('converts MCMXCIV to 1994', () => {
   expect(romanNumberConverter('MCMXCIV')).toBe(1994);
 });
 ```
 
-Explanation:
+Explain *why* subtractive pairs work (`IV = 5 - 1`, `XL = 50 - 10`), then test negative cases: empty input, invalid symbols, and malformed subtractive notation. Decide whether invalid input throws or returns a sentinel and assert that contract. A test suite with only successful inputs cannot establish validation behavior.
 
-1. Import the `romanNumberConverter` module.
-2. Test if the function converts the Roman numeral 'I' to the number 1.
-3. Check if the function converts the Roman numeral 'IV' to the number 4.
-4. Verify if the function converts the Roman numeral 'XL' to the number 40.
-5. Ensure the function converts the Roman numeral 'MCMXCIV' to the number 1994.
+#### End-to-end (E2E) testing
 
-#### E2E
+An E2E test verifies a user-visible path such as registration → login → profile update → deletion. It can reveal broken navigation, missing assets, API failures, and incorrect user-session behavior that isolated unit tests miss. It is generally more expensive and sensitive to environment and data setup.
 
-End-to-end tests (also known as system tests) are used to ensure that the entire application functions properly. These tests cover the full workflow from start to finish, replicating real user scenarios to verify that all integrated components work together as expected. On a website, we may simulate situations of normal user behavior, such as creating an account, logging in, performing activities enabled for logged-in users, and deleting the account. These tests help identify issues that unit or integration tests might miss, such as problems with user interfaces, network configurations, or third-party services.
-
-**Example: E2E test with Cypress**
+**Illustrative Cypress scenario (NOT executable against `example.com`):** The application under test must first implement the named routes, controls and messages. Use a local test deployment with deterministic fixtures; never create disposable users or delete accounts on a public site you do not control.
 
 ```javascript
-describe('User account creation, login, and deletion', () => {
-  it('Creates, logs in, and deletes a user account', () => {
-    // Visit the website
-    cy.visit('https://example.com');
+describe('User account lifecycle', () => {
+  it('registers, signs in, updates a profile and deletes a test account', () => {
+    cy.visit('/register'); // configure baseUrl to your own test deployment
+    cy.findByRole('textbox', { name: /username/i }).type('testuser');
+    cy.findByRole('textbox', { name: /email/i }).type('testuser@example.com');
+    cy.findByLabelText(/^password$/i).type('a-fixture-password');
+    cy.findByRole('button', { name: /create account/i }).click();
+    cy.findByText(/welcome, testuser/i).should('be.visible');
 
-    // Click on the "Sign Up" button
-    cy.contains('Sign Up').click();
+    cy.findByRole('button', { name: /log out/i }).click();
+    cy.findByRole('link', { name: /log in/i }).click();
+    cy.findByRole('textbox', { name: /email/i }).type('testuser@example.com');
+    cy.findByLabelText(/^password$/i).type('a-fixture-password');
+    cy.findByRole('button', { name: /log in/i }).click();
+    cy.findByRole('link', { name: /profile/i }).click();
+    cy.findByRole('textbox', { name: /profile information/i }).type('Updated profile info');
+    cy.findByRole('button', { name: /save profile/i }).click();
+    cy.findByText(/profile updated successfully/i).should('be.visible');
 
-    // Fill out the registration form
-    cy.get('#username').type('testuser');
-    cy.get('#email').type('testuser@example.com');
-    cy.get('#password').type('securepassword');
-    cy.get('#confirmPassword').type('securepassword');
-
-    // Submit the form
-    cy.get('#registerBtn').click();
-
-    // Verify registration success
-    cy.contains('Welcome, testuser!');
-
-    // Log out after successful registration
-    cy.contains('Log Out').click();
-
-    // Log in with the created account
-    cy.contains('Log In').click();
-    cy.get('#email').type('testuser@example.com');
-    cy.get('#password').type('securepassword');
-    cy.get('#loginBtn').click();
-    
-    // Verify successful login
-    cy.contains('Welcome, testuser!');
-
-    // Perform activities enabled for logged-in users
-    cy.contains('Profile').click();
-    cy.get('#updateProfile').type('Updated profile info');
-    cy.get('#saveProfile').click();
-    cy.contains('Profile updated successfully');
-
-    // Delete the account
-    cy.contains('Account Settings').click();
-    cy.contains('Delete Account').click();
-    cy.get('#confirmDeletion').click();
-
-    // Verify successful account deletion
-    cy.contains('Your account has been deleted.');
+    cy.findByRole('link', { name: /account settings/i }).click();
+    cy.findByRole('button', { name: /delete account/i }).click();
+    cy.findByRole('button', { name: /confirm deletion/i }).click();
+    cy.findByText(/account has been deleted/i).should('be.visible');
   });
 });
 ```
 
-Explanation:
+The `findByRole`, `findByLabelText`, and `findByText` commands above require the separate **Cypress Testing Library** integration; they are not built-in Cypress commands. Substitute supported `cy.contains()`/`cy.get()` selectors if that integration is absent. The example also assumes the application exposes a stable, test-only account workflow; adapt the accessible names to your real UI.
 
-1. Navigate to the specified website URL.
-2. Simulate a user clicking the "Sign Up" button to initiate the registration process.
-3. Fill in the registration form with a username, email, and password.
-4. Submit the registration form.
-5. Verify that the welcome message is displayed after registration.
-6. Log out after successful registration.
-7. Log in with the newly created account credentials.
-8. Check that the login was successful by looking for a welcome message.
-9. Perform a user-specific activity, like updating the profile, and verify the success message.
-10. Navigate to account settings, delete the account, and confirm the deletion.
-11. Verify that the account deletion message is displayed.
+A maintainable suite resets fixtures between tests, avoids shared account state, waits for **observable conditions** rather than arbitrary sleep intervals, and cleans up even after failures. Check both success and error flows (duplicate account, network failure, insufficient permissions).
 
+#### UI and browser-interaction tests
 
-#### UI tests
-
-UI tests allow us to use code to replicate real-world scenarios. Frameworks exist that allow us to use code to perform certain tasks and then compare the results to our expectations. These tests help ensure that the user interface behaves as expected in various scenarios, providing a more robust user experience. For example, suppose we wish to do a right-click on a button with a specific id, and we expect a popup window to open. Selenium is an example of a framework that would allow us to perform such tests.
-
-**Example: UI test with Selenium**
+These tests exercise visible controls: clicking, typing, tabbing, opening a dialog, or submitting a form. For example, right-click a target button and verify that its contextual popup appears. Selenium can automate such an interaction:
 
 ```python
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 
+# Illustrative only: replace this with a local test page that defines both IDs.
 driver = webdriver.Chrome()
-driver.get('https://example.com')
-
-button = driver.find_element(By.ID, 'rightClickButton')
-
-# Perform a right-click on the button
-action = ActionChains(driver)
-action.context_click(button).perform()
-
-# Verify the popup window is opened
-popup = driver.find_element(By.ID, 'popupWindow')
-assert popup.is_displayed()
-
-driver.quit()
+try:
+    driver.get('http://localhost:8000/context-menu.html')
+    button = driver.find_element(By.ID, 'rightClickButton')
+    ActionChains(driver).context_click(button).perform()
+    popup = driver.find_element(By.ID, 'popupWindow')
+    assert popup.is_displayed()
+finally:
+    driver.quit()
 ```
 
-Explanation:
+The local page must implement the custom context-menu handler. Right-clicking a generic button does **not** automatically open an application popup. Prefer stable roles, accessible names, or documented test IDs over selectors tightly coupled to layout.
 
-1. Initialize the Selenium WebDriver for Chrome.
-2. Navigate to the specified URL.
-3. Locate the button element with the specified ID.
-4. Perform a right-click action on the button using `ActionChains`.
-5. Check if the popup window is displayed.
-6. Close the browser and end the test.
+#### Visual regression tests: compare what actually renders
 
-Another technique for conducting UI tests is to record the tests themselves rather than coding the desired behavior. We then compare a set of screenshots taken at the time of recording to new screenshots taken whenever the tests are run. Recorded tests typically break for any minor change you make to your code. However, they can be useful for visual regression testing to ensure that new code changes do not alter the visual appearance of the application in unintended ways.
+A screenshot comparison answers “did these pixels or regions change?” rather than “is the page correct?” Baseline images can catch unintended layout changes, but fonts, operating systems, dynamic timestamps, advertisements, and animations create noise. Fix viewport dimensions, font assets, device scale, data fixtures, and animation state before interpreting diffs. Review expected visual changes intentionally; do not update all baselines automatically just to make tests green.
 
-#### Mock server
+A beginner-friendly set of comparisons is provided by the [visual examples](visual-examples.md), with a runnable [browser project](../projects/visual-examples/README.md). These SVGs are *illustrative wireframes*, **not** real screenshot test baselines:
 
-When testing the frontend independently of the backend, you'll need to simulate the backend. To do this, you can use a mock server. A mock server can simulate the responses from a real server, allowing frontend developers to test their applications without relying on the actual backend. This can be particularly useful for testing error states, handling network delays, or working offline.
+![Side-by-side comparison of a form with hidden versus explicit error feedback](../assets/visual-examples/form-validation.svg)
 
-**Example: Mock server with Nock**
+For an actual regression test, launch the demo at a fixed viewport, capture a screenshot, change one CSS property, capture it again, and explain the intended pixel differences. Also verify that the error text is announced or discoverable, since a screenshot cannot prove accessible behavior.
+
+#### Mock servers and request interception
+
+A controlled backend substitute helps test success, error responses, network delay, and malformed data without relying on an external service. Match the interception layer to the implementation: **Nock intercepts supported Node.js HTTP requests**; it is not a universal interceptor for `fetch` running in a real browser. For browser requests consider browser automation routing or a service-worker mocking library such as Mock Service Worker, depending on your environment.
+
+**Node.js-focused example with Nock:**
 
 ```javascript
 const nock = require('nock');
-const api = require('./api');
+const api = require('./api'); // must call a Node-compatible HTTP client to api.example.com
 
-test('Fetches data from the mock server', async () => {
-  // Set up a mock server response
+test('fetches mock data', async () => {
   nock('https://api.example.com')
     .get('/data')
     .reply(200, { message: 'Success', data: { value: 42 } });
 
-  // Call the API function
   const response = await api.fetchData();
-
-  // Verify the response from the mock server
   expect(response.message).toEqual('Success');
   expect(response.data.value).toEqual(42);
 });
 ```
 
-Explanation:
+The module `./api` is an application dependency you must implement. Add a `500` response test to prove the application displays a recoverable error, and confirm that all expected HTTP mocks were consumed so a test cannot silently pass without making a request.
 
-1. The test uses Nock to intercept HTTP requests and respond with predefined data.
-2. It sets up a mock response for a GET request to a specific endpoint.
-3. The test calls the API function that would normally make the HTTP request.
-4. It checks that the response matches the expected mock data.
+### Automated versus manual testing
 
-Using mock servers allows developers to test various scenarios, including successful data retrieval, handling of error responses, and working with different data structures. This approach can help ensure that the frontend application is resilient and can gracefully handle a wide range of backend behaviors.
+**Automated checks** run repeatable scripted scenarios in development or CI. They are good for regression coverage and fast feedback, but cannot decide whether requirements are valuable or detect every usability issue. A flaky test needs investigation; repeated reruns are not a replacement for fixing the cause.
 
-### Automated vs Manual Testing
+**Manual and exploratory checks** let testers notice confusing language, misleading hierarchy, unusual device behavior, and needs that scripted scenarios missed. Human observation is not the same as statistically representative user research; record the device, browser, task, and result so findings can be reproduced.
 
-Testing in software development is paramount to ensure the functionality, performance, and security of your application. Broadly speaking, these tests can be divided into two categories: automated and manual testing.
+A practical release checklist combines: unit and integration tests; one or two essential E2E journeys; keyboard-only navigation and visible focus; semantic labels and readable error messages; narrow viewport and 200% zoom; realistic slow-network states; and security/performance evaluation appropriate to the project.
 
-#### Automated Testing
+### Online resources for website testing
 
-Automated tests are scripted and can be executed automatically without any human intervention. These scripts can be integrated into the development process and are often run during development, build, or deployment.
+Use tools as evidence of specific properties, not as an overall quality score. A successful validator does not replace interaction testing; a performance lab score does not represent every user's network.
 
-Advantages:
+#### Code quality
 
-- Can be run quickly and frequently.
-- Test cases can be reused across different phases of development.
-- The same test is executed the same way every time, reducing the risk of human error.
-- Great for regression testing where the same tests need to be executed multiple times.
-
-#### Manual Testing
-
-Manual testing involves human testers executing test cases manually without using automation tools. They follow a test plan to ensure the application behaves as expected.
-
-Advantages:
-
-- Testers can adapt and modify tests on-the-fly based on observations.
-- Testers can provide real user feedback on the usability and experience of the application.
-- Real users might use applications in ways not anticipated during automated testing.
-
-### Online Resources for Website Testing
-
-When it comes to ensuring that your website meets industry standards and provides an optimal user experience, various online tools can assist you.
-
-#### Code Quality
-
-Ensure your HTML and CSS adhere to standards:
-
-* [W3C HTML Validator](https://validator.w3.org/)
-* [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+- [W3C HTML Validator](https://validator.w3.org/)
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 
 #### Links
 
-Ensure all links on your site are functional:
-
-* [Dr. Link Check](https://www.drlinkcheck.com/)
-* [Check My Links on GitHub](https://github.com/PageModifiedOfficial/Check-My-Links)
+- [Dr. Link Check](https://www.drlinkcheck.com/)
+- [Check My Links on GitHub](https://github.com/PageModifiedOfficial/Check-My-Links)
 
 #### Performance
 
-Analyze the speed and performance optimizations of your website:
-
-* [Dareboost](https://www.dareboost.com/en)
-* [Yellow Lab Tools](https://yellowlab.tools/)
-* [PageSpeed Insights by Google](https://pagespeed.web.dev/?utm_source=psi&utm_medium=redirect)
+- [Dareboost](https://www.dareboost.com/en)
+- [Yellow Lab Tools](https://yellowlab.tools/)
+- [PageSpeed Insights](https://pagespeed.web.dev/)
 
 #### Security
 
-Assess the security measures of your website:
-
-* [Mozilla Observatory](https://observatory.mozilla.org/)
-* [Webbkoll by Dataskydd](https://webbkoll.dataskydd.net/en)
+- [Mozilla Observatory](https://observatory.mozilla.org/)
+- [Webbkoll](https://webbkoll.dataskydd.net/en)
 
 #### SEO
 
-Evaluate and improve the SEO of your site:
+- [Ahrefs' Free SEO Tools](https://ahrefs.com/free-seo-tools)
 
-* [Ahrefs' Free SEO Tools](https://ahrefs.com/free-seo-tools)
+**Further reading:** [MDN: testing](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Testing), [Cypress documentation](https://docs.cypress.io/), [Cypress Testing Library](https://testing-library.com/docs/cypress-testing-library/intro/), [Selenium documentation](https://www.selenium.dev/documentation/), [Playwright documentation](https://playwright.dev/docs/intro), [Nock documentation](https://github.com/nock/nock).
