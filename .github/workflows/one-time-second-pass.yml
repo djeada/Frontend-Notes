@@ -17,8 +17,35 @@ jobs:
           ref: docs/review-and-expand-frontend-notes-2026
           fetch-depth: 0
           persist-credentials: true
-      - name: Verify script syntax and expand all thirteen originals
+      - name: Verify scripts and expand all thirteen originals
+        shell: bash
         run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          # Match complete heading lines, never a shorter heading contained in one
+          # beginning with more '#'. These stage-only helpers are removed at commit.
+          helper='''def insert(filename, heading, body):
+              path = NOTES / filename
+              source = path.read_text(encoding='utf-8')
+              lines = source.splitlines(keepends=True)
+              hits = [i for i, line in enumerate(lines) if line.rstrip('\\r\\n') == heading]
+              assert len(hits) == 1, f'{filename}: missing or ambiguous exact heading {heading!r}'
+              assert body.strip().splitlines()[0] not in source, f'{filename}: already inserted'
+              lines.insert(hits[0] + 1, '\\n' + body.strip() + '\\n\\n')
+              path.write_text(''.join(lines), encoding='utf-8')
+              modified.add(filename)
+          '''
+          # The string above is indented in YAML only; remove its common indent.
+          import textwrap
+          helper=textwrap.dedent(helper)
+          for name in ['tools/second_pass_a.py','tools/second_pass_b.py']:
+              p=Path(name); s=p.read_text(encoding='utf-8')
+              a=s.index('def insert(filename, heading, body):')
+              b=s.index('\n\ndef correct(', a)
+              s=s[:a]+helper.rstrip()+s[b:]
+              p.write_text(s, encoding='utf-8')
+          print('Exact Markdown heading anchors installed in temporary scripts.')
+          PY
           python3 -m py_compile tools/second_pass_a.py tools/second_pass_b.py
           python3 tools/second_pass_a.py
           python3 tools/second_pass_b.py
@@ -39,8 +66,8 @@ jobs:
           assert newlines>=750, 'Unexpectedly small update: inspect lost blocks'
           for p in paths:
               text=p.read_text(encoding='utf-8')
-              old=subprocess.run(['git','show',f'origin/main:{p.relative_to(root)}'],capture_output=True,text=True,check=True).stdout
-              assert len(text)>=int(len(old)*.90), f'Lost too much original content in {p.name}'
+              old=subprocess.run(['git','show',f'HEAD:{p.relative_to(root)}'],capture_output=True,text=True,check=True).stdout
+              assert len(text)>=len(old), f'This pass removed chapter content: {p.name}'
               assert 'notes/revisions/' not in text
           for svg in (root/'assets').rglob('*.svg'): ET.parse(svg)
           diff=subprocess.run(['git','diff','-U0','--','notes/'],capture_output=True,text=True,check=True).stdout
