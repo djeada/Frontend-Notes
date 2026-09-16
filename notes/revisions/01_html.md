@@ -1,8 +1,14 @@
 # HTML: semantics, forms, and accessible content
 
-[Original HTML chapter](../01_html.md) · [All chapter updates](README.md)
+[Original HTML chapter](../01_html.md) · [All chapter updates](README.md) · [Visual example gallery](../visual-examples.md)
 
 This companion chapter refines the existing introduction. HTML describes the *meaning and structure* of content; the browser constructs a DOM from the markup. CSS controls presentation and JavaScript adds behavior, but HTML alone should provide a usable reading order and functional links and forms.
+
+## See the effect: anonymous containers versus landmarks
+
+![Before: a page organized with generic divs. After: the same-looking page identifies header, navigation, main content, and footer.](../../assets/visual-examples/semantic-html.svg)
+
+The page may look **exactly the same** in both examples: semantics are not a visual theme. The after version adds meaningful landmarks for assistive technology and clearer document structure. Inspect both in the [runnable HTML demo](../../projects/visual-examples/index.html#semantic) using DevTools' Elements and accessibility views. In a real page, use one page-level `<main>` rather than nesting main elements.
 
 ## Corrections to the original
 

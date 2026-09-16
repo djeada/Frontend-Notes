@@ -17,6 +17,12 @@ cd Frontend-Notes
 
 Choose a chapter below, read its original long-form notes, then open its **correction and expansion companion**. Work through the related directory under [`projects/`](projects) where one exists. For a plain HTML example, open [`projects/01_html/image/index.html`](projects/01_html/image/index.html) in a browser; do not assume that the same command works for framework applications.
 
+## Learn by seeing: before and after
+
+![Unstyled content beside a styled card demonstrating the effect of CSS](assets/visual-examples/card-styling.svg)
+
+**Start with the [eight visual before/after lessons](notes/visual-examples.md)** and the [runnable frontend visual lab](projects/visual-examples/index.html). They show HTML landmarks, card styling, Flexbox, responsive navigation, JavaScript form errors, button states, UI hierarchy, and keyboard focus. Open the project in a browser to see the actual effect, resize it, use Tab, and change the CSS in DevTools. The version-controlled SVGs are *illustrative wireframes*, not browser screenshots; the runnable demo is the source for actual behavior.
+
 ## Learning path
 
 Each companion is an additive editorial pass: it clarifies specific mistakes, shows a modern working pattern, suggests practice, and links to primary references. The original chapters are retained, rather than silently replaced or claimed to be exhaustively fact-checked.
@@ -37,7 +43,7 @@ Each companion is an additive editorial pass: it clarifies specific mistakes, sh
 | 12 | [Quizzes](notes/12_quizes.md) | [Corrected answers and new questions](notes/revisions/12_quizzes.md) |
 | 13 | [Additional resources](notes/13_additional_resources.md) | [How to evaluate tools, licensing, and maintenance](notes/revisions/13_additional_resources.md) |
 
-For an overview of the revision scope and a per-chapter change list, see the [revision index](notes/revisions/README.md). Three editable, locally hosted SVG diagrams explain the [CSS cascade](assets/diagrams/css-cascade.svg), [UX iteration](assets/diagrams/ux-loop.svg), and [HTTPS request lifecycle](assets/diagrams/request-lifecycle.svg). Their source and editing guidance are in the [diagram project](projects/diagrams/README.md).
+For an overview of the revision scope and a per-chapter change list, see the [revision index](notes/revisions/README.md). Three editable, locally hosted SVG conceptual diagrams explain the [CSS cascade](assets/diagrams/css-cascade.svg), [UX iteration](assets/diagrams/ux-loop.svg), and [HTTPS request lifecycle](assets/diagrams/request-lifecycle.svg). Their source and editing guidance are in the [diagram project](projects/diagrams/README.md).
 
 ## How to study effectively
 

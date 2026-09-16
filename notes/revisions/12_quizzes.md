@@ -1,8 +1,14 @@
 # Quizzes: corrected answers and practice questions
 
-[Original quiz chapter](../12_quizes.md) · [All chapter updates](README.md)
+[Original quiz chapter](../12_quizes.md) · [All chapter updates](README.md) · [Visual example gallery](../visual-examples.md)
 
 Use the original chapter as a question bank, with the following corrections when checking answers. Explanations should state a rule, then show what that rule means in a concrete example.
+
+## Visual quiz: which focused link can you identify?
+
+![One focused link has no visible focus indicator; the other has an obvious outline.](../../assets/visual-examples/keyboard-focus.svg)
+
+Answer: the right-hand link has a visible keyboard-focus indicator. To check your understanding, Tab through the [working browser example](../../projects/visual-examples/index.html#keyboard-focus); identify which link is focused without reading the DOM. The left example is intentionally inaccessible.
 
 ## Corrections to existing answers
 

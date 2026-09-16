@@ -1,8 +1,24 @@
 # CSS: cascade, layout, and adaptable interfaces
 
-[Original CSS chapter](../02_css.md) · [All chapter updates](README.md)
+[Original CSS chapter](../02_css.md) · [All chapter updates](README.md) · [Visual example gallery](../visual-examples.md)
 
 CSS does more than add decoration: it arranges content, adapts to available space, communicates state, and can respect user preferences. Prefer understandable rules and resilient layouts over fixed pixel-perfect assumptions.
+
+## See the effect: styling a card
+
+![Before: unstyled title, copy and link. After: padded card with visual hierarchy and a clear action.](../../assets/visual-examples/card-styling.svg)
+
+The content stays the same. In the [live card example](../../projects/visual-examples/index.html#card), compare how padding, typography, a boundary, and a distinct link improve scanning; use a real anchor for navigation, even when you style it like a button.
+
+## See the effect: layout and responsiveness
+
+![Before: scattered toolbar controls. After: controls aligned in a flex row with spacing.](../../assets/visual-examples/flex-alignment.svg)
+
+A flex container with `gap` and wrapping groups actions without injecting spaces into text. [Resize this toolbar](../../projects/visual-examples/index.html#alignment) and inspect its computed display value.
+
+![The same navigation displayed horizontally in a wide viewport and vertically in a narrow viewport.](../../assets/visual-examples/responsive-navigation.svg)
+
+The responsive [navigation demo](../../projects/visual-examples/index.html#responsive) uses a **container query**, which responds to the component's containing size; a viewport media query responds to the viewport. Both can be useful, but neither is a substitute for testing with real content and zoom.
 
 ## Clarifications to the original
 

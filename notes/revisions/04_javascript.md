@@ -1,8 +1,14 @@
 # JavaScript: types, execution, and asynchronous code
 
-[Original JavaScript chapter](../04_javascript.md) · [All chapter updates](README.md)
+[Original JavaScript chapter](../04_javascript.md) · [All chapter updates](README.md) · [Visual example gallery](../visual-examples.md)
 
 JavaScript runs in browsers and other runtimes, including Node.js. It is dynamically typed and specified by ECMAScript, but calling it simply an *interpreted, line-by-line language* is misleading: implementations can parse, compile, optimize, and execute code in several stages. The language and its host-provided APIs are different things: `document` is supplied by the browser, not by ECMAScript itself.
+
+## See the effect: a form responds to user input
+
+![The form before submission and after an invalid email produces a text error and highlighted field.](../../assets/visual-examples/form-validation.svg)
+
+Run the [interactive validation demo](../../projects/visual-examples/index.html#validation), enter `not-an-email`, and submit. Inspect the JavaScript event handler: it prevents navigation, uses `checkValidity()`, sets `aria-invalid`, and writes an error with `textContent`. Editing the input clears the stale error; no data is sent. The visible message is the effect of the handler, not a CSS-only change. This is a teaching demo, so a production endpoint must still validate all input on the server.
 
 ## Corrections to the original
 
