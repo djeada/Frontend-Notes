@@ -12,7 +12,7 @@
   <header class="site-header"><div class="shell"><strong>Frontend visual lab</strong><nav aria-label="Example navigation"><a href="#semantic">HTML</a><a href="#card">CSS</a><a href="#validation">JavaScript</a><a href="#hierarchy">UI and UX</a></nav></div></header>
   <main id="examples" class="shell">
     <h1>See the difference: before and after</h1>
-    <p class="intro">These are live browser-rendered examples, not just pictures. Change the CSS in DevTools, resize the browser, use Tab to navigate, and submit an invalid email. The “before” panels intentionally demonstrate problems and are not implementation advice. <a href="../../notes/visual-examples.md">View all eight illustrated explanations</a>.</p>
+    <p class="intro">These are live browser-rendered examples, not just pictures. Change the CSS in DevTools, resize the browser, use Tab to navigate, and submit an invalid email. The “before” panels intentionally demonstrate problems and are not implementation advice. <a href="../../notes/02_css.md">Read the original CSS chapter and its illustrated examples</a>.</p>
 
     <section id="semantic" aria-labelledby="semantic-title"><h2 id="semantic-title">1. Semantic HTML</h2><p>Semantic elements often have the <em>same visual appearance</em> as generic containers. The improvement is document meaning and navigable landmarks, not an automatic style change.</p><div class="compare"><div class="panel"><h3>Before: generic containers</h3><div class="wireframe"><div class="region">&lt;div&gt; Logo / links &lt;/div&gt;</div><div class="region">&lt;div&gt; Main content &lt;/div&gt;</div><div class="region">&lt;div&gt; Copyright &lt;/div&gt;</div></div></div><div class="panel"><h3>After: named landmarks</h3><div class="wireframe"><header class="region semantic-header">&lt;header&gt; and &lt;nav&gt;</header><main class="region semantic-main">&lt;main&gt; Main content</main><footer class="region semantic-footer">&lt;footer&gt; Copyright</footer></div></div></div><p class="try">Inspect both DOM trees and accessibility landmarks in DevTools. For a real page, use one page-level main landmark, not nested mains.</p></section>
 
@@ -30,6 +30,6 @@
 
     <section id="keyboard-focus" aria-labelledby="focus-title"><h2 id="focus-title">8. Visible keyboard focus</h2><p>Press Tab until the links below are focused. The left intentionally suppresses the outline; the right retains an obvious indicator. Never copy the left pattern into production.</p><div class="compare"><div class="panel"><h3>Before: hidden indicator</h3><a class="focus-demo bad-focus" href="#keyboard-focus">View course</a><p class="example-note">The focused link can be impossible to identify.</p></div><div class="panel"><h3>After: visible indicator</h3><a class="focus-demo good-focus" href="#keyboard-focus">View course</a><p class="example-note">A strong outline makes focus location clear.</p></div></div></section>
   </main>
-  <footer class="page-footer"><div class="shell">Visual teaching lab · <a href="../../notes/visual-examples.md">Back to the illustrated gallery</a></div></footer>
+  <footer class="page-footer"><div class="shell">Visual teaching lab · <a href="../../notes/07_ui.md">Return to the original UI chapter</a></div></footer>
 </body>
 </html>
