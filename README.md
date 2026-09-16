@@ -1,175 +1,71 @@
 # Frontend Notes 🚀
 
-Hi, and welcome. This is my personal set of notes on frontend development—tips, references, and things I’ve learned along the way. Maybe they’ll be useful to you too.
+A practical collection of notes and small projects for learning how the web works: semantic HTML, adaptable CSS, JavaScript, UI architecture, accessible design, network requests, testing, and deployment.
 
-![frontend](https://github.com/djeada/Frontend-Notes/assets/37275728/562de86d-66f1-42c0-991b-82c4cbe74255)
+![Frontend illustration](https://github.com/djeada/Frontend-Notes/assets/37275728/562de86d-66f1-42c0-991b-82c4cbe74255)
 
-## What is frontend development? 🌐
+Frontend development builds the parts of websites and web applications that people encounter in a browser. **HTML** provides meaningful content and structure, **CSS** styles and lays out that content, and **JavaScript** can add interaction and communicate with services. Good frontend work also considers accessibility, performance, security, and the full user experience.
 
-Frontend development, also known as client-side development, refers to the process of building the user interface and visual elements of a website or application. It is responsible for creating the look, feel, and overall user experience of a product. Frontend developers work with technologies such as HTML, CSS, and JavaScript to create web pages that are visually appealing, responsive, and interactive.
+## Start here
 
-## Prerequisites 🛠
+You will need a modern browser and a text editor. Some projects run directly from an `index.html` file; others use Node.js and a package manager such as npm. **Read each project's README or package scripts before running it.** A local development server is often preferable to opening a file with `file://`, especially for JavaScript modules, routing, and network requests.
 
-The following prerequisites are needed:
+```sh
+git clone https://github.com/djeada/Frontend-Notes.git
+cd Frontend-Notes
+```
 
-1. A modern web browser and code editor (such as Google Chrome and Visual Studio Code, respectively)
-1. For projects that use JavaScript frameworks (sections 5.a, 5.b, and 5.c), you will need to have NPM installed on your system. This requirement will be noted in the README file for each respective project.
+Choose a chapter below, read its original long-form notes, then open its **correction and expansion companion**. Work through the related directory under [`projects/`](projects) where one exists. For a plain HTML example, open [`projects/01_html/image/index.html`](projects/01_html/image/index.html) in a browser; do not assume that the same command works for framework applications.
 
-Please note that some projects may have additional requirements or dependencies. It is recommended that you consult the README file for each project for more information.
+## Learning path
 
-## Getting Started 👍
+Each companion is an additive editorial pass: it clarifies specific mistakes, shows a modern working pattern, suggests practice, and links to primary references. The original chapters are retained, rather than silently replaced or claimed to be exhaustively fact-checked.
 
-The `projects` directory in the root of this repository contains multiple independent subprojects that cover various frontend development topics. Each project is designed to illustrate the implementation of a specific topic, and may have its own specific instructions and dependencies.
+| # | Original notes | Corrections and practical expansion |
+| --- | --- | --- |
+| 1 | [HTML](notes/01_html.md) | [Semantics, doctype, and accessible forms](notes/revisions/01_html.md) |
+| 2 | [CSS](notes/02_css.md) | [Cascade, responsive layout, and focus styling](notes/revisions/02_css.md) |
+| 3 | [CSS frameworks and preprocessors](notes/03_css_frameworks.md) | [Native nesting, Sass, and nonstandard directives](notes/revisions/03_css_frameworks.md) |
+| 4 | [JavaScript](notes/04_javascript.md) | [Type pitfalls, runtime behavior, and fetch](notes/revisions/04_javascript.md) |
+| 5 | [JavaScript frameworks](notes/05_javascript_frameworks.md) | [React 19, project tooling, and tradeoffs](notes/revisions/05_javascript_frameworks.md) |
+| 6 | [User experience](notes/06_ux.md) | [Research, observation, and iteration](notes/revisions/06_ux.md) |
+| 7 | [User interface](notes/07_ui.md) | [Accessible components and validation](notes/revisions/07_ui.md) |
+| 8 | [Protocols](notes/08_protocols.md) | [HTTPS lifecycle, caching, and CORS](notes/revisions/08_protocols.md) |
+| 9 | [Project structure](notes/09_project_structure.md) | [Scalable boundaries and safe configuration](notes/revisions/09_project_structure.md) |
+| 10 | [Testing](notes/10_testing.md) | [Test boundaries and reliable examples](notes/revisions/10_testing.md) |
+| 11 | [Hosting websites](notes/11_hosting_websites.md) | [DNS, deployment, and operational checks](notes/revisions/11_hosting_websites.md) |
+| 12 | [Quizzes](notes/12_quizes.md) | [Corrected answers and new questions](notes/revisions/12_quizzes.md) |
+| 13 | [Additional resources](notes/13_additional_resources.md) | [How to evaluate tools, licensing, and maintenance](notes/revisions/13_additional_resources.md) |
 
-To get started with a project:
+For an overview of the revision scope and a per-chapter change list, see the [revision index](notes/revisions/README.md). Three editable, locally hosted SVG diagrams explain the [CSS cascade](assets/diagrams/css-cascade.svg), [UX iteration](assets/diagrams/ux-loop.svg), and [HTTPS request lifecycle](assets/diagrams/request-lifecycle.svg). Their source and editing guidance are in the [diagram project](projects/diagrams/README.md).
 
-1. Clone the repository: `git clone https://github.com/djeada/Frontend-Notes.git`
-1. Navigate to the projects directory: `cd Frontend-Notes/projects`
-1. Choose a project to work on and navigate to its directory: `cd 01_html/image`
-1. Open the `index.html` file in your web browser to view and interact with the project.
+## How to study effectively
 
-Happy coding, and keep coming back for more goodies!
+1. Read a topic and restate its main concept in your own words.
+2. Run a small example, then change one variable and predict the result.
+3. Inspect browser DevTools: Elements, Styles, Console, Network, and accessibility information.
+4. Test with the keyboard, on a narrow viewport, and at increased zoom.
+5. Verify uncertain claims in the linked standards or current tool documentation. A framework version, hosting price, or API may have changed since a note was written.
 
-## Notes 🤖
+For network-backed projects, serve the files using the project's documented development server. Do not embed production secrets into client-side code. Keep example credentials and API endpoints separate from real accounts.
 
-The notes and resources in this repository are organized by topic, with each topic contained in its own subdirectory. To access a specific topic, simply navigate to the corresponding subdirectory and open the relevant files. We recommend working through the material in the following order:
+## Reference starting points
 
-<p float="left">
-  1. <a href="https://github.com/djeada/Frontend-Notes/blob/main/notes/01_html.md">Introduction to HTML</a>
-  <img src="https://img.icons8.com/color/344/html-5--v1.png" height="20" />
-</p>
+- [MDN Web Docs](https://developer.mozilla.org/): HTML, CSS, JavaScript, and browser APIs.
+- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/): HTML behavior and markup rules.
+- [W3C CSS Snapshot](https://www.w3.org/TR/css-2026/): the current modular CSS specification landscape.
+- [ECMAScript specification](https://tc39.es/ecma262/): JavaScript language semantics.
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/): accessibility success criteria.
+- [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/): practical application-security guidance.
+- [web.dev](https://web.dev/): frontend performance and quality.
+- [The Odin Project](https://www.theodinproject.com/) and [freeCodeCamp](https://www.freecodecamp.org/): project-based learning.
 
-<p float="left">
-  2. <a href="https://github.com/djeada/Frontend-Notes/blob/main/notes/02_css.md">Introduction to CSS</a>
-  <img src="https://img.icons8.com/color/344/css3.png" height="20" />
-</p>
+The [additional-resources chapter](notes/13_additional_resources.md) contains a broader directory of templates, images, components, and inspiration. Always verify current licensing, pricing, and maintenance before reuse.
 
-<p float="left">
-  3. <a href="https://github.com/djeada/Frontend-Notes/blob/main/notes/03_css_frameworks.md">CSS frameworks</a>
-  <img src="https://img.icons8.com/color/344/bootstrap.png" height="20" />
-  <img src="https://img.icons8.com/color/344/sass.png" height="20" />
-</p>
+## Contributing
 
-<p float="left">
-  4. <a href="https://github.com/djeada/Frontend-Notes/blob/main/notes/04_javascript.md">Introduction to JavaScript</a>
-  <img src="https://img.icons8.com/color/344/javascript--v1.png" height="20" />
-  <img src="https://img.icons8.com/color/344/typescript.png" height="20" />
-</p>
-
-<p float="left">
-  5. <a href="https://github.com/djeada/Frontend-Notes/blob/main/notes/05_javascript_frameworks.md">JavaScript frameworks</a>
-  <img src="https://img.icons8.com/officel/344/react.png" height="20" />
-  <img src="https://img.icons8.com/color/344/angularjs.png" height="20" />
-  <img src="https://img.icons8.com/color/344/vue-js.png" height="20" />
-</p>
-
-<p float="left">
-  6. <a href="https://github.com/djeada/Frontend-Notes/blob/main/notes/06_ux.md">UX</a>
-  <img src="https://img.icons8.com/external-flaticons-flat-flat-icons/452/external-ux-no-code-flaticons-flat-flat-icons.png" height="20" />
-</p>
-
-<p float="left">
-  7. <a href="https://github.com/djeada/Frontend-Notes/blob/main/notes/07_ui.md">UI</a>
-  <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/344/external-ui-computer-science-flaticons-lineal-color-flat-icons.png" height="20" />
-</p>
-
-<p float="left">
-  8. <a href="https://github.com/djeada/Frontend-Notes/blob/main/notes/08_protocols.md">Protocols</a>
-  <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/344/external-http-internet-marketing-flaticons-lineal-color-flat-icons.png" height="20" />
-</p>
-
-<p float="left">
-  9. <a href="https://github.com/djeada/Frontend-Notes/blob/main/notes/09_project_structure.md">Structuring frontend projects</a>
-  <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/344/external-project-creativity-flaticons-lineal-color-flat-icons.png" height="20" />
-</p>
-
-<p float="left">
-  10. <a href="https://github.com/djeada/Frontend-Notes/blob/main/notes/10_testing.md">Testing frameworks</a>
-  <img src="https://img.icons8.com/external-sbts2018-outline-color-sbts2018/344/external-testing-basic-ui-elements-2.5-sbts2018-outline-color-sbts2018.png" height="20" />
-</p>
-
-<p float="left">
-  11. <a href="https://github.com/djeada/Frontend-Notes/blob/main/notes/11_hosting_websites.md">Hosting websites</a>
-  <img src="https://img.icons8.com/stickers/344/servers-group.png" height="20" />
-</p>
-
-<p float="left">
-  12. <a href="https://github.com/djeada/Frontend-Notes/blob/main/notes/12_quizes.md">Quizes</a>
-  <img src="https://img.icons8.com/external-smashingstocks-thin-outline-color-smashing-stocks/344/external-quiz-education-smashingstocks-thin-outline-color-smashing-stocks.png" height="20" />
-</p>
-
-<p float="left">
-  13. <a href="https://github.com/djeada/Frontend-Notes/blob/main/notes/13_additional_resources.md">Additional resources</a>
-  <img src="https://img.icons8.com/external-febrian-hidayat-flat-febrian-hidayat/344/external-plus-ui-essential-febrian-hidayat-flat-febrian-hidayat.png" height="20" />
-</p>
-
-## How to Contribute
-
-We encourage contributions that enhance the repository's value. To contribute:
-
-1. Fork the repository.
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
-4. Push to the branch (`git push origin feature/AmazingFeature`).
-5. Open a Pull Request.
-
-## References
-
-Here's a collection of resources that I found useful while learning frontend development. 
-
-### Complete Roadmaps
-
-- [MDN Web Docs: Front-end Web Developer](https://developer.mozilla.org/en-US/docs/Learn/Front-end_web_developer): A comprehensive guide covering all aspects of front-end development.
-- [FreeCodeCamp](https://www.freecodecamp.org/): Interactive learning platform for web development.
-- [The Odin Project: Full Stack JavaScript Path](https://www.theodinproject.com/paths/full-stack-javascript): A full curriculum for learning full-stack development using JavaScript.
-- [Frontend Roadmap](https://roadmap.sh/frontend): A visual guide to becoming a front-end developer.
-
-### HTML Resources
-
-- [HTML Standard](https://html.spec.whatwg.org/multipage/): The official HTML specification.
-- [HTML.com](https://html.com/): Learning resource for HTML basics and advanced topics.
-- [Udacity Frontend Style Guide](http://udacity.github.io/frontend-nanodegree-styleguide/): Style guide for HTML/CSS best practices.
-- [OverAPI.com HTML Cheat Sheet](https://overapi.com/html): A handy HTML cheat sheet.
-
-### CSS References
-
-- [W3C CSS](https://www.w3.org/Style/CSS/): Official CSS standards and documentation.
-- [HTTP Archive's CSS Almanac](https://almanac.httparchive.org/en/2020/css): Web technology usage statistics and insights.
-- [HTML5 Rocks: Responsive Web Design](https://www.html5rocks.com/en/mobile/responsivedesign/): Guide on responsive design with HTML5 and CSS3.
-- [CSS Protips](https://github.com/AllThingsSmitty/css-protips): A collection of tips to help take your CSS skills pro.
-- [Sass Guide](https://sass-lang.com/guide): Introduction to using Sass, a CSS preprocessor.
-- [Magic Animations](https://www.minimamente.com/project/magic/): CSS3 animations with special effects.
-- [OverAPI.com CSS Cheat Sheet](https://overapi.com/css): Comprehensive CSS cheat sheet.
-
-### JavaScript Learning
-
-- [JavaScript.com](https://www.javascript.com/): Resource for learning JavaScript.
-- [Eloquent JavaScript](https://eloquentjavascript.net/): A modern introduction to JavaScript.
-- [TypeScript](https://www.typescriptlang.org/): Learn about TypeScript, a superset of JavaScript.
-- [JavaScript.info](https://javascript.info/): In-depth guide covering all aspects of JavaScript.
-- [OverAPI.com JavaScript Cheat Sheet](https://overapi.com/javascript): JavaScript reference and cheat sheet.
-
-### UI/UX Design
-
-- [Resilient Web Design](https://resilientwebdesign.com/chapter1/): A web design book focusing on the foundations of a robust web.
-- [Nielsen Norman Group: Introduction to Usability](https://www.nngroup.com/articles/usability-101-introduction-to-usability/): Articles on usability and user experience.
-- [MIT OCW: User Interface Design](https://ocw.mit.edu/courses/6-831-user-interface-design-and-implementation-spring-2011/pages/lecture-notes/): MIT course materials on UI design.
-- [Principles of Design](https://principles.design/): A collection of fundamental design principles.
-- [Laws of UX](https://lawsofux.com/): Key principles that designers should consider when building user interfaces.
-- [Don't Make Boring UIs [Video]](https://youtu.be/erA1Q0jmO4A): A video guide on creating engaging UIs.
-- [Complete UX Course [Video]](https://youtu.be/uL2ZB7XXIgg): A comprehensive video course on UX.
-- [UI Design in Figma [Video]](https://youtu.be/5IanQIwhA4E): Tutorial on UI design using Figma.
-
-### Other Useful Resources
-
-- [How Does the Internet Work [Video]](https://youtu.be/oj7A2YDgIWE): A video explaining the workings of the internet.
-
----
+Contributions that correct an inaccurate example or improve accessibility are especially welcome. Fork the repository, create a focused branch, document what changed and why, and open a pull request. Include a runnable reproduction for code changes and a primary source for factual corrections. Update both an original chapter and its companion when you resolve an outstanding discrepancy; avoid letting two versions of the same guidance contradict each other.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details.
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=djeada/Frontend-Notes&type=Date)](https://star-history.com/#djeada/Frontend-Notes&Date)
+This repository is licensed under the [MIT License](LICENSE). Individual third-party images, fonts, libraries, and linked resources may have separate terms: inspect their licenses before redistribution.

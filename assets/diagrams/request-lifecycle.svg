@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="300" viewBox="0 0 960 300" role="img" aria-labelledby="title desc">
+  <title id="title">Simplified HTTPS navigation sequence</title>
+  <desc id="desc">Resolve hostname if needed, establish or reuse a secure connection, exchange an HTTP request and response, parse resources, and fetch additional assets. Some steps may be cached or skipped.</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#334155"/></marker></defs>
+  <rect width="960" height="300" rx="18" fill="#f8fafc"/>
+  <text x="480" y="39" font-family="Arial, sans-serif" text-anchor="middle" font-size="24" font-weight="bold" fill="#0f172a">What happens during an HTTPS navigation?</text>
+  <g fill="#e0f2fe" stroke="#0369a1" stroke-width="2"><rect x="22" y="84" width="158" height="103" rx="12"/><rect x="210" y="84" width="158" height="103" rx="12"/><rect x="398" y="84" width="158" height="103" rx="12"/><rect x="586" y="84" width="158" height="103" rx="12"/><rect x="774" y="84" width="158" height="103" rx="12"/></g>
+  <g font-family="Arial, sans-serif" text-anchor="middle" fill="#0c4a6e"><g font-size="15" font-weight="bold"><text x="101" y="117">Resolve</text><text x="101" y="136">hostname</text><text x="289" y="117">Connection</text><text x="289" y="136">and TLS</text><text x="477" y="117">HTTP request</text><text x="477" y="136">and response</text><text x="665" y="117">Parse HTML</text><text x="665" y="136">and CSS</text><text x="853" y="117">Request</text><text x="853" y="136">more assets</text></g><g font-size="12"><text x="101" y="165">when uncached</text><text x="289" y="165">may be reused</text><text x="477" y="165">status + headers</text><text x="665" y="165">build DOM/layout</text><text x="853" y="165">scripts, images, APIs</text></g></g>
+  <g stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"><path d="M181 135H207"/><path d="M369 135H395"/><path d="M557 135H583"/><path d="M745 135H771"/></g>
+  <g font-family="Arial, sans-serif" text-anchor="middle" fill="#0f172a" font-size="15"><text x="480" y="229">This is a learning model, not a promise of exactly five network steps.</text><text x="480" y="253">DNS, caches, connection reuse, redirects, HTTP/2 and HTTP/3 can change the sequence.</text></g>
+</svg>
