@@ -1,132 +1,128 @@
 # Web Hosting Explained
 
-So, you've built your website, but it's still confined to your local machine? Web hosting is the bridge that makes your site accessible to the world. Here's a guide on how to get your website live.
+A website on your computer is not automatically reachable by other people. **Hosting** makes its files or application available over a network; **DNS** helps browsers find the hostname's destination; **HTTPS** protects communication between client and server. These are different concerns, and publishing a page requires checking each one.
 
-## Domain Name
+## Domain name
 
-A domain name, such as `example.com`, is the web's version of a street address. Instead of expecting visitors to recall an IP address (like `192.0.2.1`), a domain name offers a memorable and user-friendly way to reach a website. 
+A domain such as `example.com` is a human-readable name. DNS resolves that name to records, which can provide an IP address or another hostname. `192.0.2.1` is a documentation-only example address, not a suggested production hosting address. A domain does not itself store your site, and a single domain may resolve to multiple addresses.
 
-### Why Get a Domain?
+### Why register a domain?
 
-- A unique domain can represent your brand or the content of your site, setting you apart from competitors.
-- Having your own domain lends credibility and professionalism to your website, making it more trustworthy to visitors.
-- A relevant domain name can help with search engine rankings by incorporating keywords and enhancing the recognizability of your brand.
+- Choose a memorable name that represents the project and works well when spoken or typed.
+- A custom domain gives you control over the name across hosting migrations **as long as you maintain its registration and DNS**.
+- Branding and relevant content may help people recognize your site, but a keyword in the name does not by itself guarantee higher search rankings or make a site trustworthy.
 
-### Registering a Domain
+### Registering a domain
 
-You can register a domain through various registrars. It typically incurs an annual fee, which can vary based on the domain's TLD (e.g., `.com`, `.net`, `.org`). While you "own" the domain, you're essentially leasing the rights to use that name for a set period.
+A registrar registers names for a renewable term under a registry's rules; registration is not permanent ownership. Check the first-year **and renewal** price, transfer policy, WHOIS/privacy options where applicable, domain lock, two-factor authentication, and renewal reminders. A low introductory hosting price is not the same thing as a domain registration price.
 
-- It's important to choose a domain name that is easy to remember, reflects your brand, and avoids common spelling errors.
-- Consider the extension (TLD) that aligns with your website's purpose, such as `.com` for commercial, `.org` for organizations, or even country-specific TLDs like `.uk` or `.de`.
-- Stay aware of the renewal dates to maintain ownership of your domain. Losing a domain due to expired registration can be detrimental to your online presence.
+Providers to compare (listed as examples, not endorsements or verified price offers):
 
-Popular Domain Registrars:
+| Provider | Site | Services to check |
+| --- | --- | --- |
+| Domain.com | [domain.com](https://www.domain.com/) | Registration and hosting; compare separate renewal terms. |
+| Bluehost | [bluehost.com](https://www.bluehost.com/) | Hosting, WordPress and domain options. |
+| HostGator | [hostgator.com](https://www.hostgator.com/) | Shared/VPS hosting and domain options. |
+| GoDaddy | [godaddy.com](https://www.godaddy.com/) | Registration, DNS, hosting and email. |
+| Namecheap | [namecheap.com](https://www.namecheap.com/) | Registration, DNS and hosting. |
 
-| Provider    | Website                                   | Specialty                           | Pricing (Starting)      |
-|-------------|-------------------------------------------|-------------------------------------|-------------------------|
-| Domain.com  | [domain.com](https://www.domain.com/)      | Domain Registration, Hosting        | $3.75/month (hosting)   |
-| Bluehost    | [bluehost.com](https://www.bluehost.com/)  | Web Hosting, WordPress Hosting      | $2.95/month             |
-| HostGator   | [hostgator.com](https://www.hostgator.com/)| Web Hosting, VPS, Cloud Hosting     | $2.75/month             |
-| GoDaddy     | [godaddy.com](https://www.godaddy.com/)    | Domain Registration, Hosting, Email | $5.99/month             |
-| Namecheap   | [namecheap.com](https://www.namecheap.com/)| Domain Registration, Web Hosting    | $1.98/month (hosting)   |
+The old table displayed unverified starting monthly hosting prices alongside a section about domain registration. Promotions, taxes, renewal costs, term lengths and included features change: obtain current figures from each provider's checkout before making a decision.
 
 ## Hosting
 
-Hosting is a fundamental part of the web ecosystem, serving as the bridge between a website's creation and its accessibility to users worldwide. Depending on your needs, technical expertise, and budget, you can choose between different hosting solutions.
+There are different hosting models, and the word *managed* describes the division of operational responsibility, not necessarily whether a plan is free or whether it runs a particular framework.
 
-### Managed Hosting: Hassle-Free Web Hosting
+### Managed hosting
 
-Managed hosting is a go-to solution for those who prefer a hands-off approach. In this setup, the hosting provider oversees the server's technicalities, from security updates to performance optimization.
+A managed provider operates some infrastructure and may supply deployments, TLS certificates, rollbacks, monitoring, backups, or automatic updates. **Exactly which responsibilities are included depends on the service and plan.** You still own application code, access controls, secret handling, content, and any duties the provider's shared-responsibility terms assign to you.
 
-I. Advantages:
+**Advantages:** less server administration; integration with Git; sometimes global content delivery, preview environments and support.
 
-- Most managed hosting providers offer one-click installations for popular platforms like WordPress, making the process of getting your site live exceptionally straightforward.
-- The host takes care of necessary security patches, software updates, and backups, reducing the burden on you to manage these critical tasks.
-- Access to dedicated support teams means you can get expert assistance with any technical issues, server configurations, or performance optimizations.
+**Tradeoffs:** platform-specific deployment behavior; runtime/build limits; limits or charges for usage; some loss of low-level configuration control. Free tiers may exist but are not universal or guaranteed over time.
 
-II. Drawbacks:
+Examples:
 
-- Managed hosting can be more expensive than unmanaged options, as you're paying for the convenience of having the technical aspects handled for you.
-- You may have less control over server configurations and available software, as the host manages these aspects.
-- Some managed hosting plans may have limits on resources, which might not suit high-traffic sites or large-scale applications.
+- [Netlify](https://www.netlify.com/): deployment and hosting for web sites and supported application functions.
+- [Vercel](https://vercel.com/): frontend-oriented deployment, including supported framework and function runtimes.
+- [GitHub Pages](https://pages.github.com/): static site hosting from a repository; **not a general-purpose Node.js backend host**.
 
-III. Popular Free Managed Hosting Providers:
+A static site often needs only built HTML, CSS, JavaScript and image assets. Server-rendered applications or API routes need a platform with a supported runtime. Read the build command, output directory and environment-variable documentation before selecting one.
 
-- [Netlify](https://www.netlify.com/): Ideal for modern web projects, offering continuous deployment from Git across a global application delivery network.
-- [Vercel](https://vercel.com/): Specializes in frontend frameworks like Next.js and React, offering features like serverless functions and excellent scalability.
-- [GitHub Pages](https://pages.github.com/): Perfect for hosting simple websites directly from a GitHub repository, especially useful for personal, project, or documentation sites.
+### Virtual private server (VPS)
 
-Managed hosting is particularly beneficial for businesses or individuals who don't have the time or technical expertise to handle server management tasks and prefer to focus on their website's content and business aspects.
+A VPS provides a virtual machine with an allocated amount of compute, memory and storage. Depending on the provider and plan, you may control the operating system and server software. Isolation and performance depend on the virtualization, host contention, resource limits and configuration; a VPS does **not guarantee** consistent performance or immunity from neighboring workloads.
 
-### Virtual Private Server (VPS): Customizable and Scalable
+**Advantages:** control over runtime, web server, logging, scheduled jobs and deployment approach; adjustable resources on many platforms.
 
-A VPS is like having your own dedicated slice of a server. You get root access, which means you have the autonomy to customize it however you like, from the operating system to the applications.
+**Tradeoffs:** you may be responsible for operating-system patches, user permissions, firewall, TLS renewal, intrusion monitoring, backups and restoration. A VPS is not automatically cheaper than managed hosting once administration time is included.
 
-I. Advantages:
+Examples worth comparing: [Vultr](https://www.vultr.com/), [Hostinger VPS](https://www.hostinger.com/vps-hosting), [GoDaddy VPS](https://www.godaddy.com/hosting/vps). Review region, bandwidth billing, support, backup/restore, and managed versus unmanaged responsibility for the specific plan.
 
-- With a VPS, you have the freedom to customize the server to your specific needs. This includes installing, configuring, and managing any software you want, from web servers to custom applications.
-- One of the key benefits of a VPS is its scalability. As your site or application grows in traffic and resource needs, it's relatively straightforward to allocate more resources like CPU, RAM, or storage.
-- Your VPS runs independently of others on the same physical server, ensuring consistent performance. This isolation also offers a higher level of security, as your resources are not shared with other users.
+### Deployment: from Git to a live site
 
-II. Drawbacks:
+A Git push does not automatically deploy every site: **deployment must be configured**, and many teams only deploy production from a protected branch after reviews and checks.
 
-- Managing a VPS requires a fair amount of technical knowledge, including server setup, security measures, and ongoing maintenance.
-- While a VPS can be more affordable than a dedicated server, it is generally more expensive than shared or managed hosting options.
-- You are responsible for managing your server's resources, which can be a challenge if you're not familiar with server administration.
+1. **Identify the application type.** A static site might publish `dist/`; a server application may need an image or executable plus a running process.
+2. **Build locally.** Read `package.json` scripts or the project's README; run its tests and build instead of assuming every repository uses `npm run build`.
+3. **Configure the host.** Connect the appropriate repository and branch, or set up your own CI deployment credentials. Set its build command, runtime version, output folder, route/fallback rules, and deployment region as required.
+4. **Set secrets on the server/platform.** Never commit private API keys to the repository or bundle them into public browser JavaScript. Browser-exposed environment variables are not secret.
+5. **Deploy a preview.** Check navigation and deep links, static assets, API calls, error pages, keyboard interaction, mobile layout, and browser console/network errors.
+6. **Release deliberately.** Confirm production domain, run migrations when applicable, and know how to roll back. An automatic deployment is not always instantaneous or error-free.
+7. **Operate.** Monitor uptime, errors, certificates, resource usage and backups. Practice restoration; a backup you cannot restore is not a reliable recovery plan.
 
-III. Popular VPS Providers:
+## Connecting a domain to hosting
 
-- [Vultr](https://www.vultr.com/): Offers a wide range of cloud services and VPS options with a focus on simplicity and cost-effectiveness.
-- [Hostinger VPS](https://www.hostinger.com/vps-hosting): Known for its affordable and user-friendly VPS hosting services.
-- [GoDaddy VPS](https://www.godaddy.com/hosting/vps): A well-known provider offering a range of VPS hosting plans with various levels of resource allocation and control.
+The record type depends on **what your host actually instructs you to configure**. Do not invent an IP address or create a conflicting record simply because a tutorial says every deployment needs an `A` record.
 
-VPS hosting is ideal for websites and applications that have outgrown shared hosting but don't yet require the resources of a dedicated server.
+1. In your hosting dashboard, add the intended custom domain (for example, `www.example.com`) and read the provider's exact DNS instructions.
+2. Determine which DNS provider is **authoritative** for your domain. DNS settings may live with a separate provider, not the registrar.
+3. Add the required records: `A` maps a hostname to an IPv4 address, `AAAA` maps to IPv6, and `CNAME` aliases one hostname to another where allowed. Some DNS providers support `ALIAS`/`ANAME` or CNAME flattening at the zone apex; these are provider-specific conveniences, not interchangeable standard record types. `MX` is for mail routing, and `TXT` commonly conveys verification or mail-policy information; do not overwrite existing mail records when setting up a website.
+4. Check for conflicting records on the same name and configure any `www` ↔ apex redirect deliberately. Avoid routing a domain to two unrelated hosting services accidentally.
+5. Verify records and HTTPS. Request a certificate through the hosting provider or configure one yourself and test the final hostname over `https://`.
+6. Wait for cached DNS answers to expire according to their time-to-live (**TTL**) and resolver behavior. There is **no universal 48-hour propagation period**: an authoritative change may be available quickly while prior answers remain cached until their TTL, and some changes take longer for other operational reasons.
 
-### Deployment: Syncing Code to Hosting
+![From a browser request through DNS and HTTPS to a server response](../assets/diagrams/request-lifecycle.svg)
 
-The beauty of modern web development lies in its integration with version control systems like Git. Deploying updates or changes has never been more effortless:
+**Practical check:** a DNS lookup such as `dig example.com A` checks an IPv4 response, while `dig www.example.com CNAME` checks a possible alias. Not every valid site needs both. Then use browser DevTools → Network to inspect the HTTPS request and response; verify that a deep route reloads rather than returning a hosting 404. See the detailed [protocols chapter](08_protocols.md) for DNS, TLS, caching and HTTP semantics.
 
-1. Integrate your hosting platform with your Git repository. This can usually be done through the hosting provider's dashboard, allowing you to connect directly to repositories on platforms like GitHub, GitLab, or Bitbucket.
-2. Every time you push a new update to your repository, whether it's a bug fix, a new feature, or content updates, the hosting platform detects these changes.
-3. The hosting service automatically fetches the updated code and deploys it to your live website. This process ensures that your website is always up-to-date with the latest changes. Some hosting providers offer additional features like staging environments and rollback options for better control over deployments.
+**Before changing production DNS:** document existing records, reduce the relevant TTL in advance *if useful and permitted*, identify what can be rolled back, and preserve mail settings. Domain configuration errors can disrupt website **or email** even when deployment code is correct.
 
-## Connecting Your Domain to Hosting
+## DIY: home server hosting
 
-To make your website live under your domain:
+A home server can teach operating systems, networking, and deployment, but it introduces reliability, privacy, and security responsibilities. Prefer a throwaway learning service without personal data before exposing a real application to the public Internet.
 
-1. Retrieve the IP address assigned to your hosting. This information is typically available in your hosting dashboard. It's a unique number that represents the server where your website is hosted. If you're using a managed hosting service, this may involve finding the specific server or instance details.
-2. Log into your domain registrar's portal. This is where you initially registered your domain. Most registrars have a user-friendly dashboard or control panel where you can manage your domain settings.
-3. In the DNS (Domain Name System) settings, set the 'A' (Address) record to point to your hosting's IP address. The A record is what tells the DNS system where to find your website when someone types in your domain name. You may also need to update other records, such as CNAME, MX, or TXT records, depending on your hosting setup and requirements.
-4.  DNS changes can take anywhere from a few minutes to 48 hours to propagate across the global DNS system. This waiting period is normal as it takes time for the new settings to be recognized by DNS servers worldwide. During this time, your website may be intermittently available or unavailable.
+### Advantages
 
-Additional Tips:
+1. Learn server installation, reverse proxies, network routes, logging and monitoring firsthand.
+2. Reuse available hardware for experimentation while accounting for electricity, backups, bandwidth and time.
+3. Control hardware and operating system within the limits of your internet provider and router.
 
-- If your hosting provides SSL certificates for secure connections (https://), make sure to configure this as well. An SSL certificate not only secures your website but also improves its credibility and search engine ranking.
-- Before making any DNS changes, it's a good practice to back up your website. This ensures that you have a copy of your site in case anything goes wrong during the transition.
-- Use online tools to check the status of your domain propagation. These tools can help you understand whether the DNS changes have been fully propagated or if there are any issues that need to be addressed.
+### Challenges
 
-## DIY: Home Server Hosting
+1. Consumer connections and electricity may be less reliable; traffic and hardware failure need recovery plans.
+2. Public ports expose software to unsolicited traffic. Patch promptly, use least-privilege accounts, and do not expose administrative interfaces without protection.
+3. Hardware, upload bandwidth and storage may be constrained; a small device does not automatically mean poor performance for every static site.
+4. Some home connections use dynamic IP addresses, carrier-grade NAT (CGNAT), or ISP restrictions that prevent inbound public connections. Dynamic DNS handles changing address records but **does not bypass CGNAT**.
+5. Hosting can expose your home IP and create privacy and operational risks that a hosted platform would handle differently.
 
-Turning your home into a mini-data center can be both an enlightening journey and a fun project. Using your hardware, like an old computer or even a Raspberry Pi, can offer you a hands-on experience of the intricacies of web hosting. However, this method comes with its own set of challenges and is best suited for personal, experimental, or educational projects.
+### Educational setup
 
-I. Advantages:
+1. Choose hardware and a maintained server operating system appropriate to it. For Raspberry Pi, consult [Raspberry Pi OS](https://www.raspberrypi.com/software/operating-systems/); do not rely on outdated distribution names or unsupported releases.
+2. Install and update the OS. Create a non-root administrator account with secure authentication.
+3. Install a web server or reverse proxy, such as [Apache HTTP Server](https://httpd.apache.org/) or [Nginx](https://nginx.org/), and confirm it serves an innocuous page on the local network **before** making it public.
+4. Verify whether your ISP supplies reachable public addressing. If you plan public access, understand router forwarding, firewall rules, and IPv6 as applicable. Avoid forwarding SSH/admin interfaces merely to get a website working.
+5. Set up HTTPS and certificate renewal; separate application secrets from browser assets; arrange updates, monitoring, backup and restore.
+6. Publish only when the security and operational plan is adequate for your use case. A VPN or managed tunnel can be more suitable for a private personal lab, depending on its trust model.
 
-1. Hosting your server provides a deep dive into server management, network configurations, software installation, and maintenance. It's a valuable hands-on learning experience for anyone interested in how web servers and networks operate.
-2. Utilizing existing hardware for hosting can save money compared to renting server space from a professional hosting provider. It's a practical way to repurpose old computers that might otherwise go unused.
-3. Having your server means complete control over hardware and software configurations. You can experiment with different operating systems, server software, and settings.
+### Troubleshooting by layer
 
-II. Challenges:
+| Symptom | Investigate |
+| --- | --- |
+| DNS lookup returns the old address | Authoritative nameservers, record and TTL/caches. |
+| Domain resolves but connection fails | Host/service availability, routing, firewall, required port. |
+| Browser warns about HTTPS | Certificate hostname, expiry, provisioning and redirects. |
+| Homepage works but reloading `/about` returns 404 | Static host routing or SPA fallback configuration. |
+| Page loads but API call fails | Browser Network tab, API URL, CORS, authentication and server logs. |
+| New CSS does not appear | Deployment artifact, browser/CDN cache, cache headers and versioned assets. |
 
-1. Maintaining consistent uptime can be challenging with a home server. Professional hosting providers have backup power sources, redundancies, and dedicated teams to handle hardware failures, which might not be feasible in a home setup.
-2. Ensuring robust security can be complex. Home servers can be vulnerable to cyber-attacks, and it requires diligence to keep the server secured, including keeping software up-to-date and implementing strong network security measures.
-3. Home servers, particularly when using older hardware or less powerful devices like a Raspberry Pi, may struggle under heavy traffic or with resource-intensive applications. They typically offer less processing power and storage compared to professional hosting solutions.
-4. Most home internet connections have dynamic IPs that change over time, making it challenging to point a domain consistently to your server. A Dynamic DNS service can mitigate this issue, but it adds another layer of complexity.
-
-III. Steps to Set Up a Home Server:
-
-1. Select suitable hardware for your server. An old desktop, a laptop, or a Raspberry Pi are all viable options, depending on your needs and the scale of your project.
-2. Choose an operating system that suits your hardware and requirements. Linux distributions like Ubuntu or CentOS are popular for server use. For Raspberry Pi, [Raspbian](https://www.raspberrypi.org/software/operating-systems/) is a common choice.
-3. Install and configure web server software. Common choices include Apache and Nginx, each with its own set of features and configuration options.
-4. Set up your network to allow web traffic to your server. This usually involves configuring port forwarding on your router to direct incoming web requests to your server. 
-5. Security is crucial. Implement robust firewalls, use secure passwords, regularly update your software, and consider additional security measures like SSL certificates.
-6. Finally, deploy your website files onto the server. Ensure that they are configured correctly to be served by your web server software.
+**References:** [MDN: DNS](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_domain_name), [MDN: publishing a website](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Publishing_your_website), [Cloudflare: DNS record types](https://www.cloudflare.com/learning/dns/dns-records/), [Let's Encrypt](https://letsencrypt.org/).
