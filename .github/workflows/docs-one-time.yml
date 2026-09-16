@@ -38,6 +38,18 @@ jobs:
         run: |
           git rm -f .github/workflows/docs-one-time.yml tools/revision-payload.part1 tools/revision-payload.part2 tools/revision-payload.part3 tools/revision-payload.part4
           rm -f tools/_apply_once.py
+          python3 - <<'PY'
+          from pathlib import Path
+          readme = Path('README.md')
+          text = readme.read_text()
+          text = text.replace("Here's a collection of resources that I found useful while learning frontend development. \n", "Here's a collection of resources that I found useful while learning frontend development.\n")
+          readme.write_text(text)
+          protocols = Path('notes/08_protocols.md')
+          text = protocols.read_text()
+          lines = text.splitlines(keepends=True)
+          edited = ('- **TCP/IP**', '- The **JavaScript engine**', '- **Stateless protocol semantics**')
+          protocols.write_text(''.join(line.rstrip(' \t\r\n') + '\n' if line.startswith(edited) else line for line in lines))
+          PY
           git add -A
           git diff --cached --check
           git status --short
