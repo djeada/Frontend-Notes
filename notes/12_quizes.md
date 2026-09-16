@@ -4,6 +4,34 @@ Use these expandable questions to test explanations, not just terminology. Befor
 
 ## HTML
 
+### Applied HTML scenarios — predict, then verify
+
+<details><summary>1. A document has a viewport meta tag but a 900px-wide image overflows on a 320px phone. Why?</summary>
+
+The viewport declaration changes viewport sizing behavior; it does not constrain fixed-width content. Use a responsive rule such as `img { max-width: 100%; height: auto; }`, inspect the container, and test with actual content. Try the [responsive browser demo](../projects/visual-examples/index.html) at narrow widths.
+</details>
+
+<details><summary>2. A form has placeholder="Email" but no label. What disappears when someone types?</summary>
+
+The visible prompt disappears; the input may also lack a reliable accessible name. Use `<label for="mail">Email</label><input id="mail" name="email" type="email">`. Helper text is separate from the label. The [form comparison screenshot](../assets/visual-examples/form-validation-browser.png) shows what feedback changes visually.
+</details>
+
+<details><summary>3. Should a clickable logo that navigates home be a button or link?</summary>
+
+Use a link with a real `href` and an accessible name representing the destination. Use a button for an action that does not navigate. If the logo image is the link's only content, meaningful `alt` text can supply its name.
+</details>
+
+<details><summary>4. Does replacing every div with section make the page automatically accessible?</summary>
+
+No. Choose elements by meaning; `section` generally needs an accessible identifying heading when used as a region. A page needs sensible heading order, link text, forms, keyboard behavior and testing. Compare the [semantic structure browser capture](../assets/visual-examples/semantic-html-browser.png) and inspect its two underlying HTML documents.
+</details>
+
+<details><summary>5. A data table has visually bold first-row cells written as td. What information is missing?</summary>
+
+The cells are not explicitly headers. Use `<th scope="col">` for simple column headers, `<th scope="row">` for row headers, and a `<caption>` when useful. CSS can style `td` bold, but that does not give it header semantics.
+</details>
+
+
 <details>
 <summary>What is a doctype?</summary>
 
@@ -86,6 +114,34 @@ HTML describes content and meaning; CSS specifies presentation and layout. HTML 
 
 ## CSS
 
+### Applied CSS scenarios — inspect the computed result
+
+<details><summary>1. A card declares width: 320px, padding: 24px on each side and a 2px border on each side. How wide is its border box by default?</summary>
+
+With default `box-sizing: content-box`, it is `320 + 48 + 4 = 372px`, excluding margins. With `border-box`, a declared width of 320px includes padding and borders when layout can resolve the dimension. Inspect the Box Model in DevTools.
+</details>
+
+<details><summary>2. An ID selector and a class selector set different colors. Does the last rule always win?</summary>
+
+No. If origin, importance, layer and other earlier cascade stages tie, specificity decides; an ID selector is more specific than a class selector. Source order resolves ties at the relevant stage. Important declarations and cascade layers complicate this, so inspect computed styles.
+</details>
+
+<details><summary>3. flex-direction changes from row to column. Does justify-content still mean horizontal alignment?</summary>
+
+No. `justify-content` uses the main axis, which changes with `flex-direction`; `align-items` uses the cross axis. Experiment with the [actual Flexbox comparison](../assets/visual-examples/flex-alignment-browser.png).
+</details>
+
+<details><summary>4. What does a size container query measure that a media query does not?</summary>
+
+A size container query tests an eligible ancestor container's dimensions, not the viewport. Declare a container such as `container-type: inline-size`, then use `@container`. The query styles descendants, not the query container itself. See the [responsive navigation captures](../assets/visual-examples/responsive-navigation-browser.png).
+</details>
+
+<details><summary>5. Why is outline: none dangerous on interactive controls?</summary>
+
+It can hide keyboard focus. Replace it with a strong `:focus-visible` outline when styling focus, test Tab navigation and forced-colors mode. Compare the [browser focus image](../assets/visual-examples/keyboard-focus-browser.png).
+</details>
+
+
 <details>
 <summary>How do I add CSS to a website?</summary>
 
@@ -153,6 +209,34 @@ A pseudo-class matches state or structure, such as `:hover`, `:checked`, `:focus
 </details>
 
 ## JavaScript
+
+### Applied JavaScript scenarios — explain each output
+
+<details><summary>1. What do Number('12px') and parseInt('12px', 10) produce?</summary>
+
+`Number('12px')` is `NaN`; `parseInt('12px', 10)` returns 12 because it accepts a valid integer prefix. A form that requires the whole string to be an integer should validate the entire input, not silently accept trailing text.
+</details>
+
+<details><summary>2. Is Number.MIN_VALUE the most negative finite Number?</summary>
+
+No. It is the smallest **positive nonzero** representable Number. The finite negative value with greatest magnitude is `-Number.MAX_VALUE`, while `-Infinity` is not finite.
+</details>
+
+<details><summary>3. Why can fetch('/missing') resolve even when the server returns 404?</summary>
+
+The Fetch promise generally resolves to a `Response` for HTTP errors. Check `response.ok` or `response.status`; reject/throw explicitly for application handling. Network failures and aborts are different cases.
+</details>
+
+<details><summary>4. What logs first: a synchronous statement, a Promise.then callback, or setTimeout(..., 0)?</summary>
+
+The synchronous statement runs during the current job, then the Promise reaction microtask, then the timer task (assuming a typical browser event-loop case). A zero-delay timer does not execute immediately in the middle of the current job.
+</details>
+
+<details><summary>5. Does assigning a React state variable immediately change its value in the current render?</summary>
+
+No. A state setter schedules an update; code in the current render/event sees that render's state snapshot. Use a functional updater like `setCount(c => c + 1)` when next state depends on previous state. React's old `ReactDOM.render` API should be replaced with `createRoot` for current examples.
+</details>
+
 
 <details>
 <summary>Will my React-powered website only work in browsers that support React?</summary>
@@ -222,6 +306,34 @@ Arrow syntax uses **`=>`**, not `=`. A concise body returns an expression (`cons
 
 ## Protocols
 
+### Applied network scenarios — choose the right layer
+
+<details><summary>1. Does HTTP/3 require a TCP connection?</summary>
+
+No. HTTP/3 runs over QUIC, which uses UDP and provides reliable streams with TLS 1.3 integration. HTTP/1.1 and HTTP/2 commonly use TCP. The HTTP semantics are not identical to the underlying transport format.
+</details>
+
+<details><summary>2. The DNS A record is correct but HTTPS shows a certificate warning. Which layer needs investigation?</summary>
+
+DNS resolution alone cannot validate the TLS certificate. Inspect certificate hostname, expiry, provisioning and chain, as well as the server's HTTPS configuration. Do not disable certificate verification to hide a problem.
+</details>
+
+<details><summary>3. Does CORS prevent another client from calling a public API?</summary>
+
+No. CORS mediates cross-origin access by browser scripts. It is not authentication or authorization; the API must enforce permissions server-side regardless of origin.
+</details>
+
+<details><summary>4. Why might a cached page return 304?</summary>
+
+A conditional request allows a server to indicate the cached representation is still valid. The client can reuse an appropriate stored body; 304 does not carry a new normal representation body. Inspect validators and Cache-Control instead of calling every cached response an error.
+</details>
+
+<details><summary>5. Why is curl -I insufficient proof that a site's GET route works?</summary>
+
+`curl -I` sends HEAD; some applications handle HEAD differently. Verify the actual GET request and response body/content type when debugging a page. Check status, redirects and network failures separately.
+</details>
+
+
 <details>
 <summary>What is SSL?</summary>
 
@@ -283,6 +395,34 @@ A content delivery network uses distributed infrastructure and caching to reduce
 </details>
 
 ## Hosting
+
+### Applied deployment scenarios — justify the next action
+
+<details><summary>1. A static host serves index.html, but a direct reload of /profile returns 404. Is DNS necessarily broken?</summary>
+
+No. A client-side router may need an appropriate hosting rewrite/fallback rule, or the route may not exist on the server. Inspect the host's routing behavior and route design rather than changing DNS at random.
+</details>
+
+<details><summary>2. Can a frontend environment variable named SECRET_API_KEY be considered private?</summary>
+
+No, not when its value is shipped in browser JavaScript. Move secret-dependent operations and authorization to a protected backend; storing a secret in a different frontend directory does not hide it.
+</details>
+
+<details><summary>3. A provider says to create a CNAME for www. Should you overwrite existing MX records at the apex?</summary>
+
+No. Mail records have separate purposes. Follow the host's exact hostname instructions, identify the authoritative DNS provider, preserve mail and verification records, and check the applicable record restrictions.
+</details>
+
+<details><summary>4. Are DNS changes guaranteed to take exactly 48 hours?</summary>
+
+No. Recursive caches may retain earlier answers until their TTL; authority changes and operational factors vary. Inspect authoritative records and cached responses rather than quoting a universal duration.
+</details>
+
+<details><summary>5. The site works locally but styles are missing after deployment. What should you inspect first?</summary>
+
+Open DevTools Network, find the CSS request, check its URL, status and content type, and inspect the host's build output path and asset base URL. The error may have nothing to do with JavaScript frameworks or SSL configuration.
+</details>
+
 
 <details>
 <summary>What is DNS?</summary>

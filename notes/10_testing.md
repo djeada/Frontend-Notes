@@ -4,6 +4,25 @@ Testing reduces uncertainty about whether an application behaves as intended. A 
 
 ### What is testing?
 
+#### Turn a feature request into a test matrix
+
+**Feature:** a newsletter form shows a useful error for invalid input and never falsely reports success. “The component exists” is not a strong assertion. Define observable conditions before writing automation:
+
+| Input/action | Expected result | Test level |
+|---|---|---|
+| Blank email; submit | Required-field guidance; no success | Browser and validation unit. |
+| `not-an-email`; submit | Specific visible error; invalid state | Browser interaction. |
+| Valid syntax; submit | Demo confirmation or real request | Integration/browser. |
+| Server rejects valid-looking address | Server error and recovery guidance | Integration and E2E. |
+| Network goes offline | Clear retry option; no invented success | Integration/browser. |
+| Keyboard only | All controls reachable, focus visible | Accessibility/manual/browser. |
+| Narrow viewport | Labels and error stay readable | Visual and responsive. |
+
+The [actual browser-rendered form states](../assets/visual-examples/form-validation-browser.png) are **examples**, not proof that all these cases are covered. The [live demo](../projects/visual-examples/index.html) deliberately sends no request, so server rejection and network failure require a separate application fixture.
+
+**Exercise:** remove the form's `aria-describedby` and rerun an automated screenshot test. Pixels might stay identical while the association becomes worse. Test accessible names/relations and keyboard focus **in addition to** screenshots. Good tests state what failed: `invalid email should expose a descriptive error` is more useful than `expected true to be false`. Reference: [Testing Library guiding principles](https://testing-library.com/docs/guiding-principles/).
+
+
 A test starts with an observable requirement, performs an action or supplies input, and compares the actual outcome with the expected outcome. For example, the requirement “an invalid email is explained in text” yields a stronger test than “the form renders.” Define a failure condition before writing the assertion.
 
 ### Levels of testing
@@ -17,6 +36,51 @@ A test starts with an observable requirement, performs an action or supplies inp
 The testing pyramid is a useful heuristic, not a mandatory count: make cheap, deterministic checks common and reserve slower browser tests for important user journeys. Accessibility, visual regression, security, and performance tests measure *different properties* and can exist at several levels.
 
 #### Unit testing in depth
+
+##### Executable example with Node's built-in test runner
+
+The Roman-numeral example further down assumes an application module. Here is a complete, dependency-free example that runs on a Node.js version supporting `node:test`; create **both files** in an empty directory.
+
+`price.js`:
+
+```js
+function totalCents(unitCents, quantity) {
+  if (!Number.isSafeInteger(unitCents) || unitCents < 0) {
+    throw new RangeError('unitCents must be a nonnegative safe integer');
+  }
+  if (!Number.isSafeInteger(quantity) || quantity < 1 || quantity > 100) {
+    throw new RangeError('quantity must be between 1 and 100');
+  }
+  const result = unitCents * quantity;
+  if (!Number.isSafeInteger(result)) throw new RangeError('total overflow');
+  return result;
+}
+module.exports = { totalCents };
+```
+
+`price.test.js`:
+
+```js
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const { totalCents } = require('./price');
+
+test('multiplies integer cents', () => {
+  assert.equal(totalCents(125, 3), 375);
+});
+test('rejects invalid quantities', () => {
+  assert.throws(() => totalCents(125, 0), RangeError);
+  assert.throws(() => totalCents(125, 1.5), RangeError);
+});
+test('rejects unsafe totals', () => {
+  assert.throws(() => totalCents(Number.MAX_SAFE_INTEGER, 2), RangeError);
+});
+```
+
+Run `node --test price.test.js`. Expected: **three passing tests**. No currency formatting, tax, discounts or payment processing is implemented; those would need separate business rules. This example uses integer cents to avoid a common floating-point mistake. Alter `quantity > 100` to `quantity > 10` and add a test for 11 to practice preserving an intentional requirement.
+
+**Why this is a unit test:** no browser, network or database is required; the input-output contract is explicit. Do not generalize “unit tests are enough” to the checkout application that eventually consumes this function. Reference: [Node.js test runner](https://nodejs.org/api/test.html).
+
 
 Benefits:
 
@@ -66,6 +130,29 @@ test('converts MCMXCIV to 1994', () => {
 Explain *why* subtractive pairs work (`IV = 5 - 1`, `XL = 50 - 10`), then test negative cases: empty input, invalid symbols, and malformed subtractive notation. Decide whether invalid input throws or returns a sentinel and assert that contract. A test suite with only successful inputs cannot establish validation behavior.
 
 #### End-to-end (E2E) testing
+
+##### Robust workflow assertions, fixtures, and cleanup
+
+For a real login/checkout E2E test, create an isolated test account via a documented fixture rather than hardcoding a shared production user. Use a test environment with predictable data and reset it even when assertions fail. Favor observable signals over arbitrary delays:
+
+```js
+// Playwright Test example: requires @playwright/test and your own app fixture.
+import { test, expect } from '@playwright/test';
+
+test('invalid email displays an explanation', async ({ page }) => {
+  await page.goto('http://localhost:8000/projects/visual-examples/');
+  const email = page.getByRole('textbox', { name: 'Email address' }).last();
+  await email.fill('not-an-email');
+  await page.locator('#newsletter').getByRole('button', { name: 'Subscribe' }).click();
+  await expect(email).toHaveAttribute('aria-invalid', 'true');
+  await expect(page.locator('#email-feedback')).toContainText('valid email');
+});
+```
+
+Start a local HTTP server at the repository root before running this example and check the demo's current error wording; the test is an instructional adaptation, not a checked-in configured Playwright suite. `.last()` disambiguates two visually compared inputs here, but in a production suite scope selectors to a named form or region rather than relying on positional selection. A correct E2E test must also assert the real backend's behavior when the journey includes one.
+
+**Flakiness triage:** record browser version, viewport, fixture seed, failed network requests and screenshots on failure. A failure caused by a genuine race is a product signal; do not hide it with blanket retries. Reserve true external-service tests for a deliberately controlled environment. Reference: [Playwright assertions](https://playwright.dev/docs/test-assertions).
+
 
 An E2E test verifies a user-visible path such as registration → login → profile update → deletion. It can reveal broken navigation, missing assets, API failures, and incorrect user-session behavior that isolated unit tests miss. It is generally more expensive and sensitive to environment and data setup.
 
@@ -127,6 +214,17 @@ finally:
 The local page must implement the custom context-menu handler. Right-clicking a generic button does **not** automatically open an application popup. Prefer stable roles, accessible names, or documented test IDs over selectors tightly coupled to layout.
 
 #### Visual regression tests: compare what actually renders
+
+##### Make the screenshot baseline reproducible
+
+A practical visual test needs an explicit *baseline contract*: page state, fixture content, viewport in CSS pixels, device scale, browser version, fonts, reduced-motion behavior, animations, locale and time zone when relevant. Capture the smallest meaningful region as well as a full-page view where appropriate. A percentage of changed pixels has no built-in semantic meaning: a changed logo and a clipped error message might affect very different amounts of the image.
+
+For these notes, [eight before/after pairs](../projects/visual-examples/README.md) were rendered in Chromium, exported to PNG and placed near the concepts. See the [card rendering](../assets/visual-examples/card-styling-browser.png) and [narrow navigation](../assets/visual-examples/responsive-navigation-mobile.png). Their purpose is teaching, not an automatically approved baseline for your product.
+
+**Suggested workflow:** (1) open the exact fixture, (2) set the viewport, (3) wait for fonts and stable content, (4) freeze animations as appropriate, (5) take the screenshot, (6) review differences *with the intended CSS change*, and (7) separately assert semantics and behavior. A baseline update should be reviewed like a code change, not performed automatically on every failure. Check horizontal overflow at narrow widths; a screenshot cropped to the viewport may hide off-screen content.
+
+**Exercise:** remove the visible focus outline from the demo, capture the button section, and compare images *in the focused state*. Then verify the keyboard focus indicator independently: the screenshot cannot tell whether Tab actually reaches the link or which accessible name it exposes. Reference: [Playwright screenshots](https://playwright.dev/docs/screenshots).
+
 
 A screenshot comparison answers “did these pixels or regions change?” rather than “is the page correct?” Baseline images can catch unintended layout changes, but fonts, operating systems, dynamic timestamps, advertisements, and animations create noise. Fix viewport dimensions, font assets, device scale, data fixtures, and animation state before interpreting diffs. Review expected visual changes intentionally; do not update all baselines automatically just to make tests green.
 

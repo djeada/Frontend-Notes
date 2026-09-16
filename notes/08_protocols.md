@@ -29,6 +29,24 @@ The Internet is often called a “network of networks” because it consists of 
 
 #### Browsers
 
+##### From URL to pixels: identify which layer failed
+
+A browser navigation is not a single network operation. The browser may look at HTTP caches or a service worker; resolve DNS if needed; reuse an existing connection or establish TLS/QUIC; send an HTTP request; receive HTML; parse it; fetch CSS, images and scripts; construct layout; and paint. Steps may overlap, be skipped or repeat. The [request lifecycle diagram](../assets/diagrams/request-lifecycle.svg) is a conceptual teaching aid, not a promise that every request follows exactly the same path.
+
+| Visible symptom | First inspection point | Example explanation |
+|---|---|---|
+| Browser cannot resolve host | DNS and authoritative record | Typo, missing record or cached old answer. |
+| Certificate warning | HTTPS certificate and hostname | Expired certificate or wrong hostname. |
+| HTML loads but appears unstyled | Network panel's CSS request | Wrong path, 404 or MIME mismatch. |
+| Page looks fine but button does nothing | Console and event listeners | JavaScript exception or missing handler. |
+| API request returns 401 | Server authentication contract | No valid credentials; not a DNS failure. |
+| API response blocked in browser | Console and CORS headers | Cross-origin access not permitted to script. |
+
+**Reproduce it:** serve the [visual examples project](../projects/visual-examples/README.md) over `http://localhost:8000`, open DevTools, disable cache, reload and identify the HTML, CSS and JavaScript requests. Change the stylesheet link temporarily to a nonexistent path: the HTML remains meaningful but loses styling. Restore the URL and verify recovery. The browser's Network panel reveals *observed* timing and requests; do not infer a particular TCP packet sequence from its waterfall.
+
+A service worker can intercept requests and work offline, but is not present in every page. Browser storage, cache storage, HTTP cache, cookies and localStorage are distinct mechanisms with different scopes and lifetimes. Reference: [MDN how the web works](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works).
+
+
 A web browser is the user’s gateway to the World Wide Web. By sending requests (using protocols like HTTP or HTTPS) and interpreting the responses (usually HTML, CSS, and JavaScript), browsers present web pages in a form humans can interact with. Although browsers often look straightforward on the outside, they have a lot going on behind the scenes:
 
 - The **user interface (UI)** includes components like the address bar, navigation buttons such as back, forward, and refresh, tabs for managing multiple pages, and bookmarking features for saving favorite websites.  
@@ -57,6 +75,29 @@ Different browsers, such as Google Chrome, Mozilla Firefox, Microsoft Edge, and 
 ```
 
 #### DNS (Domain Name System)
+
+##### DNS record walkthrough: apex, www, mail, and verification
+
+Suppose a hosting provider instructs you to point `www.example.com` at `site.host.example` and the domain's email provider already operates the mailbox. The website change and the email records are separate: modifying one should not erase the other. Names and values below are illustrative; **use your own provider's verified instructions**, not these demonstration targets.
+
+```text
+www.example.com.  300 IN CNAME site.host.example.
+example.com.      300 IN A     192.0.2.25
+example.com.     3600 IN MX    10 mail.example.net.
+example.com.     3600 IN TXT   "verification-example"
+```
+
+`192.0.2.0/24` is a reserved documentation network, not a real hosting destination. Standard DNS generally does not permit a CNAME to coexist with other data at the same owner name, so check provider-specific apex alias/flattening support when configuring the zone apex. An MX target is a *mail-exchange hostname*, not a web-server IP. A TXT record may carry sender policies or site verification; overwriting one can affect mail or other integrations.
+
+```bash
+dig example.com NS
+dig example.com A
+dig www.example.com CNAME
+dig example.com MX
+```
+
+These commands require `dig` and a reachable resolver. Inspect the answer section, queried record type, TTL and authoritative nameservers, not just whether some IP is printed. Recursive resolvers cache answers according to TTL, and a warm cache can bypass queries to root or TLD servers. DNS resolution does not validate the TLS certificate or prove the site is safe. **Exercise:** draw a table of the records you intend to change, current values, replacement values, TTL and rollback owner before editing a live zone. Reference: [MDN DNS](https://developer.mozilla.org/en-US/docs/Glossary/DNS).
+
 
 DNS supplies many record types, not only IPv4 addresses: `A` provides IPv4, `AAAA` IPv6, `CNAME` an alias, `MX` mail routing, and `TXT` often verification/policy data. Recursive resolvers cache responses according to TTL; DNS resolution need not traverse root/TLD servers on every visit. DNS does not by itself encrypt HTTP or prove a site is legitimate.
 
@@ -113,7 +154,66 @@ The domain name system is overseen by the Internet Corporation for Assigned Name
 
 ### Protocols in Action
 
+#### HTTP versions, transport, and TLS: avoid mixing responsibilities
+
+| Layer/concept | What it provides | What it does not guarantee |
+|---|---|---|
+| DNS | Resolves names to records. | That a destination is trustworthy or available. |
+| IP | Addresses and forwards packets. | Reliable, ordered application messages. |
+| TCP | Reliable ordered byte stream. | Message boundaries matching `write()` calls. |
+| UDP | Datagram transport. | Reliability or ordering on its own. |
+| QUIC | Reliable streams and TLS 1.3 integration over UDP. | That a server supports every HTTP feature. |
+| TLS | Authenticated, encrypted transport when correctly configured. | That application code or user content is safe. |
+| HTTP | Request/response semantics and headers. | Automatic login or authorization. |
+
+HTTP/1.1 and HTTP/2 commonly run over TCP with TLS for HTTPS; HTTP/3 runs over QUIC, which uses UDP. A TCP connection delivers bytes, not an array of `fetch()` results. Browser connection reuse and multiplexing can change network waterfalls considerably. A lock icon signals certain connection properties, **not** that a business or page is trustworthy.
+
+**Diagnostic exercise:** start with “DNS works, but the browser refuses HTTPS.” Do not edit CSS or retry DNS blindly; inspect certificate chain, hostname, transport and the host's configuration. For a `403`, examine permissions and server policy. For a stalled CSS file, examine its request status and caching. Reference: [HTTP/3 RFC 9114](https://www.rfc-editor.org/rfc/rfc9114) and [MDN TLS](https://developer.mozilla.org/en-US/docs/Web/Security/Transport_Layer_Security).
+
+
 #### HTTP (HyperText Transfer Protocol)
+
+##### Inspect a response, not merely the URL
+
+```http
+GET /courses HTTP/1.1
+Host: example.com
+Accept: text/html
+
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+Cache-Control: public, max-age=60
+
+<!doctype html><title>Courses</title>
+```
+
+This is a schematic request/response pair, not a raw packet capture: actual connections may use HTTP/2 or HTTP/3 with different wire representations. `Content-Type` describes the representation; `Cache-Control` gives caches instructions. A `200 OK` means the server returned a successful HTTP response, not that the HTML is valid, usable or free of application errors. A redirect such as `301` or `302` tells the client to follow another location according to method-specific rules; inspect the redirect chain instead of treating it as a missing file.
+
+| Status | Typical meaning | Frontend response |
+|---|---|---|
+| 200 | Resource provided | Parse/render expected content. |
+| 204 | Successful, no response body | Do not call `response.json()` expecting JSON. |
+| 304 | Cached representation remains valid | Browser reuses a stored representation when appropriate. |
+| 400 | Request invalid | Show guidance; fix client input or contract. |
+| 401 | Authentication needed or invalid | Reauthenticate through the intended flow. |
+| 403 | Access denied | Do not blindly repeat a forbidden operation. |
+| 404 | Resource not found | Render a useful missing-content state. |
+| 429 | Too many requests | Respect `Retry-After` where provided. |
+| 500/503 | Server failure/unavailable | Show recoverable feedback; avoid duplicate destructive retries. |
+
+```js
+async function getCourses(signal) {
+  const response = await fetch('/api/courses', { signal });
+  if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+  if (response.status === 204) return [];
+  return response.json();
+}
+```
+
+The snippet requires an actual `/api/courses` endpoint. A browser `fetch` promise generally resolves for HTTP error statuses; it rejects for network errors, aborts and certain other failures. Error bodies may not be JSON, so production code should handle invalid response formats. CORS determines whether a browser script can read a cross-origin response; **it is not a mechanism for protecting an endpoint from direct requests**. Authorization must be enforced on the server.
+
+**Try it:** inspect the browser demo's Network tab, use DevTools throttling, observe a request with cache disabled, and explain the difference between a network failure and an HTTP 404. Reference: [MDN HTTP overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview) and [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch).
+
 
 #### Follow a real request visually
 

@@ -7,6 +7,22 @@
 
 ## What are frameworks?
 
+### Decide whether a framework earns its complexity
+
+A static portfolio, a content website with minimal interactivity, and a client-heavy dashboard have different requirements. Begin with an explicit feature inventory: navigation/routing, persistence, data fetching, authentication boundaries, search requirements, accessibility, localization, bundle constraints, deployment environment, and team experience. Libraries and frameworks solve some of these, but none automatically supplies good information architecture or security.
+
+| Example | Possible starting point | What to investigate before choosing |
+|---|---|---|
+| Static documentation | HTML, CSS, optional build-time generator | Editing workflow, accessibility, search and hosting. |
+| Small interactive widget | Native JavaScript or a small component library | DOM ownership, reusability, testing and bundle cost. |
+| Multi-route application | An appropriate app framework | Routing, server/client data, error pages and deployment. |
+| Embedded widget in a legacy site | An isolated component | CSS isolation, integration, versioning and cleanup. |
+
+**Comparison experiment:** implement the [same button and form behavior](../projects/visual-examples/index.html) in vanilla JavaScript first. Add a framework only after identifying which duplication or state complexity it actually removes. Measure page size and runtime behavior in your own application; framework marketing and survey popularity are not performance tests. A framework may provide conventions for routes and data loading, whereas React by itself is a UI library: distinguish its API from the surrounding toolchain.
+
+**Accessibility contract:** whichever stack is chosen, a button should remain a button, a label should still name its input, keyboard focus must be visible, and API authorization still belongs on the server. Reference: [React project options](https://react.dev/learn/start-a-new-react-project).
+
+
 A software framework is a pre-written app skeleton on which you may further develop. It is a collection of files and folders to which you may modify as well as add your files and folders. A framework addresses following development issues:
 
 * We don't want to start projects from scratch every time. A framework offers boilerplate code. 
@@ -85,6 +101,37 @@ Cons:
 ### Core Elements
 
 #### Component
+
+##### Modern functional component: props, state, and an observable outcome
+
+The class component below demonstrates an older component style. For a new small component, a function with hooks is often simpler. This is an illustrative module for an app whose HTML contains `<div id="root"></div>` and whose build tool supports JSX:
+
+```jsx
+import { useState } from 'react';
+import { createRoot } from 'react-dom/client';
+
+function QuantityPicker({ productName, max = 5 }) {
+  const [quantity, setQuantity] = useState(1);
+  return (
+    <section aria-label={`Quantity for ${productName}`}>
+      <p>{productName}: {quantity}</p>
+      <button type="button" disabled={quantity === 1}
+              onClick={() => setQuantity(q => q - 1)}>Decrease</button>
+      <button type="button" disabled={quantity === max}
+              onClick={() => setQuantity(q => q + 1)}>Increase</button>
+    </section>
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  <QuantityPicker productName="Notebook" max={4} />
+);
+```
+
+**What the user sees:** initially “Notebook: 1,” with Decrease unavailable. Each Increase click updates the number; at 4, Increase becomes disabled. State lives in the component; `productName` and `max` are inputs from its parent. The functional state updater `q => q + 1` uses the queued previous state, which matters when several updates occur in one event. React normally batches updates, so reading state immediately after calling a setter still yields the snapshot for that render.
+
+**Test cases:** initial value 1; clicking Increase twice displays 3; Decrease returns to 2; the maximum cannot be exceeded. Check the disabled state's explanation and color contrast against the [button-states browser screenshot](../assets/visual-examples/button-states-browser.png). Reference: [React state as a snapshot](https://react.dev/learn/state-as-a-snapshot).
+
 
 React components are the building blocks of a React application. They can be thought of as custom, reusable HTML elements, and they encapsulate their own structure, style, and behavior.
 
@@ -243,6 +290,29 @@ class App extends React.Component {
 ```
 
 ### Hooks
+
+#### Effects synchronize with external systems; derived values usually do not need one
+
+An effect should connect React to something *outside* its pure rendering model, such as an event subscription, timer or network resource. Do not copy a prop into state with an effect merely to calculate a full name or filtered list; compute those values during rendering when possible. Cleanup runs when dependencies change and when a component unmounts, helping prevent leaks and stale subscriptions.
+
+```jsx
+import { useEffect, useState } from 'react';
+
+function WindowWidth() {
+  const [width, setWidth] = useState(() => window.innerWidth);
+  useEffect(() => {
+    const update = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+  return <output>Viewport: {width} CSS pixels</output>;
+}
+```
+
+This is a **client-only teaching example**: directly accessing `window` in state initialization is not safe during server rendering. In an SSR app, choose a server-safe initial value and handle hydration deliberately, or use a suitable external-store abstraction. Development Strict Mode may run an extra setup/cleanup cycle to expose bugs; do not “fix” duplicate-looking development logs by suppressing cleanup or lying about dependencies.
+
+**Compare:** computing `const doubled = count * 2` in render needs no effect. Starting a timer inside rendering, by contrast, creates a new timer on each render and is incorrect. For network requests, cancel or ignore stale results when a dependency changes, handle loading/error/empty states, and do not put authentication secrets in browser bundles. Reference: [React synchronizing with effects](https://react.dev/learn/synchronizing-with-effects) and [you might not need an effect](https://react.dev/learn/you-might-not-need-an-effect).
+
 
 Hooks are functions that let you use state and other React features without writing a class. They work inside functional components and provide a way to reuse stateful logic.
 

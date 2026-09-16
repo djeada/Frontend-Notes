@@ -4,6 +4,27 @@ A useful project structure lets a developer locate a feature, change it, test it
 
 ### What to optimize for
 
+#### Walk through an actual change before picking folders
+
+Suppose a product owner asks for an email subscription form. Trace one task end to end: where does the HTML form live? Which stylesheet owns spacing and states? Where does client-side validation run? What endpoint receives the POST? Which tests cover invalid input and server rejection? If answering requires searching a dozen unrelated folders, the structure may need to change; if everything is in a five-file project, splitting into 20 directories makes it worse.
+
+A useful change trace:
+
+```text
+User requirement
+  -> HTML form and labels
+  -> CSS state styles
+  -> JavaScript event handler
+  -> /api/subscribe contract (server, not public bundle)
+  -> unit + integration + browser tests
+  -> preview deployment -> production
+```
+
+The [actual browser form example](../assets/visual-examples/form-validation-browser.png) illustrates the *user-visible* end of that chain. The [project source](../projects/visual-examples/README.md) keeps markup, CSS and JavaScript small enough to inspect. It intentionally does **not** implement `/api/subscribe`, so it is not a production email service.
+
+**Decision check:** when changing the label, should you edit the HTML or five duplicated component definitions? When changing validation, can you test it without launching the entire application? When changing the endpoint, can you preserve the frontend contract? Document boundaries in the README. Do not mistake folder count for architecture quality.
+
+
 - **Findability:** use consistent names so a new contributor can locate an entry point, component, stylesheet and test.
 - **Maintainability:** keep related behavior together, isolate clear boundaries, and document unusual decisions.
 - **Reusability:** extract common components when multiple consumers share genuine behavior; premature abstractions can make simple changes harder.
@@ -70,6 +91,35 @@ This is a **suggestion**, not a mandatory architecture. For a five-file learning
 
 ### Alternative: organize by feature
 
+#### Worked feature slice: cart with public and private boundaries
+
+A feature-oriented tree is useful only when it reflects real ownership, not arbitrary directories:
+
+```text
+src/
+  features/
+    cart/
+      CartButton.jsx
+      cart.css
+      cart.test.jsx
+      cart-api.js
+  shared/
+    Button.jsx
+    format-currency.js
+server/
+  routes/
+    checkout.js
+  services/
+    payments.js
+```
+
+`cart-api.js` may send a request, but it **must not** contain a private payment-provider token: everything shipped in a client bundle can be inspected. The server checkout route validates prices and quantities against authoritative data and checks the user's permissions. The client can display a calculated subtotal for feedback, but the server must recompute amounts before charging. Tests at each boundary check different risks: rendering and keyboard focus, request contract, business rules, and the full checkout workflow.
+
+For smaller sites, keep related files together without introducing an `index.js` re-export for every folder. A barrel file that imports unrelated modules may complicate dependency graphs; measure bundle output before claiming it makes tree shaking faster. Move a module to `shared/` only when actual consumers share stable behavior. Avoid circular imports: extract common interfaces or rethink ownership when A imports B and B imports A.
+
+**Exercise:** on paper, implement a “Remove from cart” action: mark the UI module, state owner, API boundary and test. Then add an inaccessible alert as a simulated error and decide how to give a meaningful recovery message. An attractive folder diagram is not evidence that the feature works.
+
+
 As a component application grows, separating everything by file type can scatter one feature across multiple directories. Compare these simplified arrangements:
 
 ```text
@@ -91,6 +141,25 @@ A feature-first arrangement can simplify locating its tests and styles. Shared p
 
 ### Best practices for a production build
 
+#### Deployment artifacts and environment variables are separate concerns
+
+```text
+source files (src/)
+    | lint, type-check, tests
+    v
+build step -> output files (dist/)
+    | copy/publish only expected artifacts
+    v
+hosting + HTTPS + routing + caching
+```
+
+A bundler may inline environment variables into JavaScript. Anything in the browser bundle should be treated as public, even if named `SECRET_KEY` or kept in a hidden folder. Server secrets belong in protected deployment configuration, and the server must authorize requests independently of frontend UI visibility.
+
+A typical `package.json` might have explicit scripts for `lint`, `test`, `build`, and `preview`; their exact commands depend on project tools. The deployment host must publish the correct output directory and handle deep links appropriately. Do not upload `node_modules/`, `.env` secrets or local credential files merely because they exist in a repository checkout.
+
+**Verification checklist:** inspect generated HTML and asset URLs; check route reloads on preview; view the browser Network tab for missing fonts/images; measure JS and CSS transfer size; check console errors; try keyboard and narrow viewports; verify rollback instructions. Compare [raw versus styled card output](../assets/visual-examples/card-styling-browser.png) to ensure the correct stylesheet reached production. Reference: [OWASP secrets management](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html).
+
+
 - Bundle, split and minify assets **when measurements show a benefit**; modern project tooling often handles this automatically. Webpack, Parcel or another bundler is optional for small static examples. Gulp is a task runner, not a mandatory bundler.
 - Use a template engine such as EJS, Handlebars or Pug for repeated server/build-time HTML only when duplication warrants it. Check the output HTML after compilation.
 - Separate development, preview and production configuration. Never place server credentials in client-exposed environment variables.
@@ -99,6 +168,22 @@ A feature-first arrangement can simplify locating its tests and styles. Shared p
 - Write down decisions that future contributors cannot infer from code alone. Update the README when commands, environment variables or ownership change.
 
 ### Boilerplates
+
+#### Template evaluation worksheet (before cloning)
+
+| Question | Evidence to collect | Failure signal |
+|---|---|---|
+| Is it maintained? | Release history, current dependencies, issue activity. | Unsupported runtime or abandoned dependencies. |
+| Can it build? | Documented setup and a clean install/build. | Undocumented manual edits. |
+| Is it accessible? | Keyboard/focus/form tests on example pages. | Placeholder-only labels and hidden focus. |
+| Is it appropriately licensed? | Repository license and asset licenses. | No grant for your intended use. |
+| Is it deployable? | Output directory, routing, environment contract. | Works only on the author's machine. |
+| Can we remove unused parts? | Dependency graph and generated output. | Unnecessary services or bundled secrets. |
+
+Do not turn a tutorial's `git clone` example into an unverified recommendation. If a template teaches deprecated APIs, show the specific migration (such as moving from `ReactDOM.render` to `createRoot`) and keep its historical context. Record which upstream revision you actually inspected; labels like “latest best practices” expire quickly.
+
+**Hands-on task:** run the repository's minimal [visual examples](../projects/visual-examples/README.md) without any install step, then inspect a chosen framework template's setup. List which extra behaviors (routing, server rendering, testing, linting) justify each new dependency. Reference: [React app setup](https://react.dev/learn/start-a-new-react-project).
+
 
 A boilerplate is a starting template containing some combination of files, dependencies, configurations, styles and example code. Its purpose is to remove repetitive setup, **not** to guarantee that every generated application is accessible, secure or fast. Review the generated project; delete unused example routes, dependencies and placeholder secrets before shipping it.
 

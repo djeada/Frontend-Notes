@@ -1,5 +1,23 @@
 ## Additional Resources
 
+### How to choose a resource without copying a polished mistake
+
+This chapter is a **directory, not a certification program**. The sites below may offer free and paid assets, incompatible versions, or changing terms. When a resource looks useful, open its source and license, run the demo where possible, then test how it behaves in *your own* layout. Do not treat a beautiful screenshot as evidence of accessibility, performance or permission to redistribute its assets.
+
+| Question | Check in practice | Document for future maintainers |
+|---|---|---|
+| Is reuse allowed? | Read the exact asset/template license and attribution conditions. | License URL and version/date. |
+| Will it work in our stack? | Check peer dependencies, build output and supported framework version. | Package and version. |
+| Can all users operate it? | Keyboard, focus, contrast, zoom, labels and errors. | Reproducible test notes. |
+| Can it be modified? | Examine source, export format and component boundaries. | Local customization and owner. |
+| Is it lightweight enough? | Inspect real transferred size and third-party requests. | Performance budget and tradeoffs. |
+| Will it remain supported? | Review maintenance and update process. | Upgrade and replacement plan. |
+
+**Mini case study:** choose a card design from an inspiration site. Rebuild its content with semantic `<article>`, a heading and real link. First inspect the [unstyled browser rendering](../assets/visual-examples/card-styling-browser.png), then apply its spacing and typography in the [live demo](../projects/visual-examples/index.html). Verify keyboard focus and mobile width. You may copy *ideas* while still needing permission to copy icons, photos, source code or trade dress.
+
+**Suggested asset log:** `asset`, `source URL`, `author`, `license`, `attribution location`, `date checked`, `local filename`, `reason used`. This makes later audits and replacement feasible. Do not record “free” as a license: free price and reuse rights are different questions.
+
+
 This directory collects tools for templates, components, typography, images, and design inspiration. **A link is a starting point, not an endorsement or a license grant.** Before adding an asset to a project, check its current price, license, attribution requirements, maintenance, accessibility, and compatibility with your stack. A free-to-view design is not necessarily free to copy or redistribute.
 
 ### 📄 Templates
@@ -31,6 +49,36 @@ These are **different kinds of resources**, not interchangeable component librar
 
 ### 🎨 CSS Generators
 
+#### Inspect generated output and make it responsive
+
+A generator may produce attractive declarations that behave poorly under different widths or color schemes. Rather than pasting a preset and stopping, rewrite the smallest reproducible test:
+
+```html
+<div class="generated-card">
+  <h2>News</h2>
+  <p>A very long translated description belongs here.</p>
+  <a href="/news">Read the news</a>
+</div>
+```
+
+```css
+.generated-card {
+  box-sizing: border-box;
+  width: min(100%, 28rem);
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border-radius: 1rem;
+  background: #fff;
+  color: #0f172a;
+}
+.generated-card a:focus-visible {
+  outline: 3px solid #1d4ed8;
+  outline-offset: 3px;
+}
+```
+
+Compare the [actual styled-card capture](../assets/visual-examples/card-styling-browser.png). A generated blur or shadow may have contrast and performance costs; a CSS-only animation should respect reduced-motion preferences when motion is nonessential. Neumorphic controls sometimes lack clear boundaries, so check affordances and focus instead of selecting them purely by appearance. Test at 320px, zoom to 200%, add long text, and inspect computed styles. Keep the generated source and its original license where the tool provides one.
+
+
 - [Fancy Border Radius](https://9elements.github.io/fancy-border-radius/)
 - [CSS Separator Generator](https://wweb.dev/resources/css-separator-generator/)
 - [Grid Layout It](https://grid.layoutit.com/)
@@ -43,6 +91,31 @@ These are **different kinds of resources**, not interchangeable component librar
 **Try this:** generate a two-column grid, then resize the viewport and increase text size to 200%. Inspect the generated CSS; generators can produce fixed widths, overflow, low contrast, or motion that needs a reduced-motion alternative.
 
 ### 🎨 Graphical Elements
+
+#### Images, icons and illustrations: use the right alternative text
+
+The correct alternative depends on the **purpose in context**:
+
+```html
+<!-- Content image: describe information not otherwise present. -->
+<img src="chart.png" alt="Revenue increased from January to March"
+     width="640" height="360">
+
+<!-- Decorative flourish: empty alternative, not the filename. -->
+<img src="divider.svg" alt="" width="120" height="16">
+
+<!-- An icon-only action still needs a name. -->
+<button type="button" aria-label="Close dialog">
+  <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
+    <path d="M5 5 19 19M19 5 5 19" stroke="currentColor"/>
+  </svg>
+</button>
+```
+
+Meaningful chart content often deserves an adjacent table or longer text explanation, not a 150-word `alt` attribute. Give content images dimensions or an aspect ratio to reserve layout space, and choose `loading="lazy"` for suitable below-the-fold images rather than applying it blindly to the hero image. An image's source URL, screenshot appearance and file extension do not establish its license.
+
+**Try it:** take the [semantic browser screenshot](../assets/visual-examples/semantic-html-browser.png); write alternative text describing *the difference it teaches*, not every color or decorative rectangle. Compare this with an icon-only button's accessible name. Reference: [W3C image tutorial](https://www.w3.org/WAI/tutorials/images/).
+
 
 #### UI Designs
 
@@ -165,6 +238,27 @@ Download only fonts with appropriate web-embedding rights, inspect weights and l
 Check the privacy policy before uploading private customer photos, unreleased brand materials, or proprietary designs to online utilities.
 
 ### 🎨 Color palettes
+
+#### Test a palette on real interface states
+
+A hex value must contain three, four, six or eight hexadecimal digits as supported by CSS; characters such as `K`, `S`, `G` or `%` are invalid in a hex color. The malformed codes in the older palette list were corrected in the earlier revision; do not assume that makes every remaining combination readable. A palette with five attractive swatches may fail when applied to small text, form errors, focus outlines and disabled controls.
+
+```css
+:root {
+  --surface: #fff;
+  --ink: #0f172a;
+  --link: #1d4ed8;
+  --focus: #0f172a;
+}
+body { background: var(--surface); color: var(--ink); }
+a { color: var(--link); }
+a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+```
+
+These are **example roles**, not a guarantee for every background or text size. Check actual foreground/background combinations against the applicable WCAG contrast criteria (commonly at least 4.5:1 for ordinary text and 3:1 for large text under WCAG 2.x AA), with separate evaluation for non-text UI boundaries and focus indicators. Test both light/dark variants, forced colors and invalid/disabled states. Color must not be the only way to identify a form error.
+
+**Exercise:** choose one palette above, assign a surface, text, link, error and focus role, and test the [form and button browser screenshots](../assets/visual-examples/form-validation-browser.png) and [button states](../assets/visual-examples/button-states-browser.png). If a combination fails contrast, adjust the role value and document what changed. Reference: [WCAG contrast minimum](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html).
+
 
 - [Coolors](https://coolors.co/)
 - [Color Hunt](https://colorhunt.co/)

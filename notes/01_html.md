@@ -26,6 +26,43 @@
 
 ### Document Structure
 
+#### Worked page: structure, behavior, and visual output
+
+The browser parses HTML into a document tree. CSS styles that tree; JavaScript can update it. A semantic page can be styled to look identical to a page made entirely of generic `<div>` elements, yet expose more useful navigation landmarks. Compare the [browser-rendered before/after screenshot](../assets/visual-examples/semantic-html-browser.png) with the [two runnable documents](../projects/visual-examples/semantic-before.html) and [semantic version](../projects/visual-examples/semantic-after.html). The screenshot demonstrates appearance, not an accessibility-test result.
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Field notes — latest posts</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a href="#content">Skip to content</a>
+  <header>
+    <a href="/">Field notes</a>
+    <nav aria-label="Primary"><a href="/posts">Posts</a></nav>
+  </header>
+  <main id="content">
+    <h1>Latest posts</h1>
+    <article>
+      <h2><a href="/posts/one">First experiment</a></h2>
+      <p>What changed and what we learned.</p>
+    </article>
+  </main>
+  <footer><p>© Field notes</p></footer>
+</body>
+</html>
+```
+
+The `defer` script runs after HTML parsing and before `DOMContentLoaded`, in document order relative to other deferred classic scripts; a module script is deferred by default. A heading describes content hierarchy, whereas `<header>`, `<nav>`, `<main>`, `<article>`, and `<footer>` communicate regions or content type. A skip link must lead to an existing ID. On a normal page, do not create multiple visible page-level `<main>` elements.
+
+**Try it:** save the HTML as `index.html`, create an empty `style.css` and `app.js`, then open it in a browser. Check the document title, skip link, headings, and accessibility-tree landmarks. Disable CSS: the reading order should still make sense. Resize to 320 CSS pixels and 200% zoom: the viewport meta tag alone will not prevent overflow. Reference: [MDN document and website structure](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Structuring_documents).
+
+
 #### See the effect: generic blocks versus semantic regions
 
 ![Before: generic unlabeled blocks. After: header, navigation, main and footer landmarks](../assets/visual-examples/semantic-html.svg)
@@ -261,6 +298,30 @@ Example:
 
 #### Links
 
+##### Link behavior and accessible names: compare these examples
+
+```html
+<!-- Destination is clear when read out of context. -->
+<a href="/pricing">View pricing plans</a>
+
+<!-- Navigation uses a link; an action uses a button. -->
+<a href="/account">Your account</a>
+<button type="button" id="save">Save draft</button>
+
+<!-- An icon-only link still needs a usable accessible name. -->
+<a href="/search" aria-label="Search the site">
+  <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
+    <circle cx="10" cy="10" r="6" fill="none" stroke="currentColor"/>
+    <path d="m15 15 6 6" stroke="currentColor"/>
+  </svg>
+</a>
+```
+
+Avoid five identical links labeled “Read more”: screen-reader users may navigate by link name, so include the destination or surrounding context in the accessible name. The `download` attribute does not guarantee a download for arbitrary cross-origin URLs; server headers and browser behavior matter. `mailto:` invokes a configured email handler rather than sending email directly. If an external link deliberately opens a new tab, tell the reader when this matters and consider `rel="noopener"` (modern browsers implicitly apply this to `target="_blank"`, but explicit intent helps explain security).
+
+**Exercise:** tab through the three examples with the browser's keyboard navigation. Replace the SVG with an image missing `alt`, inspect the accessible name, and correct it. Avoid putting a clickable button inside a clickable link: nested interactive controls have confusing activation behavior. Reference: [MDN links](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Creating_links).
+
+
 Links are used to link to other pages. When clicked, the user is taken to the linked page.
 
 Example:
@@ -312,6 +373,28 @@ The following tags are used to create lists:
 | `<li>`  | List Item                    | Represents an item within a list   | `<ul><li>First item</li></ul>` |
 
 #### Tables
+
+##### Data-table example: expose relationships, not only gridlines
+
+A visual grid is not enough to express which header explains a data cell. Give a real data table a caption, mark headers with `<th>`, and use `scope` for straightforward row/column relationships. Do not use a `<table>` simply to create a two-column page layout: CSS Grid is designed for layout.
+
+```html
+<table>
+  <caption>Course enrollment, autumn term</caption>
+  <thead>
+    <tr><th scope="col">Course</th><th scope="col">Students</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">HTML</th><td>24</td></tr>
+    <tr><th scope="row">CSS</th><td>18</td></tr>
+  </tbody>
+</table>
+```
+
+**Rendered expectation:** a caption above the table, two column headings and two labeled rows. Without CSS, it still reads as structured data. `scope="row"` associates “HTML” with 24; `scope="col"` associates “Students” with that column. For complex multi-level headers, consider explicit `id`/`headers` associations rather than assuming `scope` solves every arrangement. Avoid hiding essential table content on mobile; overflow scrolling may be preferable to discarding columns.
+
+**Exercise:** add a third row and use a screen-reader table-navigation mode if available. Verify which row and column headers are announced. Reference: [MDN HTML table accessibility](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Table_accessibility).
+
 Tables are used to display data using rows and columns of cells.
 
 Example:
@@ -353,6 +436,33 @@ The following tags are used to create tables:
 
 
 ### Interactive elements
+
+#### Complete accessible form: inputs, validation, and submission
+
+![Actual browser before/after comparison of form validation](../assets/visual-examples/form-validation-browser.png)
+
+HTML provides labels, input types, form ownership and submission semantics; CSS can expose states; JavaScript can add tailored feedback. `placeholder` is only an example hint, never a persistent label. The [runnable form](../projects/visual-examples/index.html) stays on the client for the exercise; the sample below illustrates a real POST endpoint, which needs server implementation and validation.
+
+```html
+<form action="/subscribe" method="post">
+  <fieldset>
+    <legend>Newsletter preferences</legend>
+    <label for="address">Email address</label>
+    <p id="address-help">We use this address for newsletter messages.</p>
+    <input id="address" name="email" type="email"
+           autocomplete="email" aria-describedby="address-help" required>
+    <label><input type="checkbox" name="digest" value="weekly">
+      Send a weekly digest</label>
+  </fieldset>
+  <button type="submit">Subscribe</button>
+  <button type="reset">Clear form</button>
+</form>
+```
+
+`name` determines the submitted field key; `id` connects a label to a control; `value` identifies a selected checkbox in form data; unchecked checkboxes normally contribute no field. `type="email"` and `required` perform constraint checks but do not guarantee that an address exists or that submissions are safe. `method="get"` places form data in the URL; avoid it for passwords and sensitive data. POST does not provide confidentiality unless the page and endpoint use HTTPS. A reset button discards input, so many production forms should omit it.
+
+**Check it:** submit the blank form, enter `not-an-email`, then try a syntactically valid address. Observe native validation, inspect the Network panel on a controlled endpoint, and verify that server errors are also shown next to the relevant field. Reference: [MDN client-side form validation](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation).
+
 
 #### See the effect: a form with and without persistent labels
 

@@ -112,6 +112,35 @@ alert("Hello " + name);
 
 #### Numbers
 
+##### Numbers: precision, conversion, and input boundaries
+
+JavaScript `Number` uses IEEE 754 binary floating-point. Most decimal fractions cannot be represented exactly, so `0.1 + 0.2 === 0.3` evaluates to `false`; avoid expecting exact decimal equality for currency. `Number.isNaN()` checks the actual `NaN` value without coercion, whereas global `isNaN()` first coerces its argument.
+
+```js
+console.log(0.1 + 0.2);                  // 0.30000000000000004
+console.log(Number('12px'));              // NaN: entire string is invalid
+console.log(parseInt('12px', 10));         // 12: accepts a numeric prefix
+console.log(Number(''));                  // 0: perhaps not what a form wants
+console.log(Number.isNaN('not a number')); // false: argument is a string
+console.log(Number.isSafeInteger(2 ** 53)); // false
+```
+
+For money, represent integer cents when that is suitable for the domain, or use a properly specified decimal library. `BigInt` supports integers beyond Number's safe-integer range but cannot be mixed directly with `Number` in arithmetic. A form often needs both a **syntactic** check and a **domain** check (e.g., age must be a whole number within a defined range), not `parseInt()` alone.
+
+```js
+function parseQuantity(input) {
+  const text = input.trim();
+  if (!/^(0|[1-9]\d*)$/.test(text)) return null;
+  const quantity = Number(text);
+  return Number.isSafeInteger(quantity) && quantity <= 100 ? quantity : null;
+}
+console.log(parseQuantity('12px')); // null, not 12
+console.log(parseQuantity('12'));   // 12
+```
+
+**Try it:** test `''`, `'01'`, `'-2'`, `'101'`, `'9007199254740993'` and `'12.5'`. Decide explicitly whether leading zeroes and negative numbers belong in *your* product before adapting the regular expression. Reference: [MDN Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number).
+
+
 **Important sign check:** `Number.MIN_VALUE > 0` is `true`. It describes the smallest positive nonzero `Number`, not the most negative value. The finite negative value with largest magnitude is `-Number.MAX_VALUE`; the distinct value `-Infinity` is not finite. `Number('12px')` is `NaN`, whereas `parseInt('12px', 10)` is `12`, so choose full-string validation when a form requires the entire input to be numeric.
 
 
@@ -161,6 +190,24 @@ console.log(y);
 ```
 
 #### Comparison Operators
+
+##### Coercion and truthiness: predict the output first
+
+```js
+console.log(0 == false);    // true: loose equality coerces operands
+console.log(0 === false);   // false: different types
+console.log('5' + 1);       // '51': string concatenation
+console.log('5' - 1);       // 4: numeric coercion
+console.log(Boolean('0'));  // true: nonempty string
+console.log(Boolean(''));   // false
+console.log(null == undefined);  // true
+console.log(null === undefined); // false
+```
+
+`===` is usually the clearer default, but object comparisons still test **identity**, not structural equality: `{x:1} === {x:1}` is false because the two literals construct separate objects. `NaN === NaN` is false; `Number.isNaN()` tests for it explicitly. `&&` and `||` return operands, not necessarily booleans: `'' || 'Fallback'` returns `'Fallback'`. To default only when a value is `null` or `undefined`, use nullish coalescing (`??`): `0 ?? 10` remains 0.
+
+**Exercise:** before running each line, write its result and identify where coercion occurs. Compare `value || 10` with `value ?? 10` for `0`, `false`, `''`, `null` and `undefined`. Reference: [MDN equality comparisons](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness).
+
 
 The comparison operators are used to compare two values. 
 
@@ -263,6 +310,31 @@ for (var i = 1; i <= 10; i++) {
 ```
 
 ### Functions
+
+#### Events, microtasks, and a responsive browser
+
+Asynchronous JavaScript does **not** mean that one synchronous event handler runs several JavaScript statements at the same instant on a typical single main thread. Promise reactions run in a microtask queue after the current JavaScript job completes; timers schedule later tasks and are subject to delays. Browsers may have workers and multiple processes, but a long synchronous loop on the main thread can still block interaction and paint.
+
+```js
+console.log('A');
+setTimeout(() => console.log('D: timer'), 0);
+Promise.resolve().then(() => console.log('C: promise'));
+console.log('B');
+// A, B, C: promise, D: timer
+```
+
+Why? The synchronous job logs A and B; the promise callback executes as a microtask when that job finishes; the timer is a later task. A `0` delay is not a guarantee of zero elapsed time. `await` pauses the **async function** and lets other work proceed; it does not turn a CPU-heavy synchronous function into nonblocking work.
+
+```js
+async function loadProducts(signal) {
+  const response = await fetch('/api/products', { signal });
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  return response.json();
+}
+```
+
+This snippet requires a real `/api/products` endpoint and illustrates error handling, not a runnable standalone request. `fetch` generally rejects for network failures and aborts, **not** merely for an HTTP 404 or 500. See the [form's browser before/after](../assets/visual-examples/form-validation-browser.png) for a visible result of an event handler. **Exercise:** change a button's text via `textContent`, then insert a heavy loop and watch interaction freeze; remove it and compare. Reference: [MDN event loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Execution_model) and [using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch).
+
 
 A function is a named block of code that performs a specific task. We already used built-in functions like `alert()` and `prompt()` to display messages and get input from the user. Each function has to be first defined and then called. Once defined, the function can be called as many times as needed.
 

@@ -30,6 +30,28 @@ The old table displayed unverified starting monthly hosting prices alongside a s
 
 ## Hosting
 
+### Worked deployment: a static HTML/CSS/JavaScript site
+
+Start with a local site containing `index.html`, `styles.css`, `script.js` and any image files. Confirm that each relative URL resolves from the route where it appears. For the repository's [visual demo](../projects/visual-examples/README.md), launch a local server from the **repository root**:
+
+```bash
+python3 -m http.server 8000
+```
+
+Visit `http://localhost:8000/projects/visual-examples/`, inspect DevTools → Network, and make sure all local assets return successfully. This tests local serving, not a production deployment. A static host can generally publish this directory without running a Node.js server, but the host must be configured to publish the right path or copy an appropriate `dist/` artifact. If links use absolute `/assets/...` paths and the site is deployed under a subpath, they may fail; test the actual public base URL.
+
+| Step | Artifact or evidence | Failure worth catching |
+|---|---|---|
+| Build | Generated HTML/CSS/JS when required | Wrong output directory. |
+| Preview | Unique preview URL | Missing image or CSS. |
+| Interaction | Keyboard + form behavior | Client error hidden by successful HTTP 200. |
+| Production | Correct custom hostname | Domain points to older deployment. |
+| Monitor | Errors and uptime | Silent failures after release. |
+| Rollback | Known working revision | Cannot restore previous artifact. |
+
+**Hands-on exercise:** deliberately rename `styles.css` to `missing.css` in a throwaway copy and inspect the 404. Repair the link, deploy to a preview target you control, and test a direct refresh of any deep route. This is a genuine network behavior change even though the HTML source itself may look unchanged. Reference: [MDN publishing your website](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Publishing_your_website).
+
+
 There are different hosting models, and the word *managed* describes the division of operational responsibility, not necessarily whether a plan is free or whether it runs a particular framework.
 
 ### Managed hosting
@@ -60,6 +82,31 @@ Examples worth comparing: [Vultr](https://www.vultr.com/), [Hostinger VPS](https
 
 ### Deployment: from Git to a live site
 
+#### Production release and rollback checklist
+
+A deployment may be automatic *after configuration* or manual. Separate the decision to merge code from the decision to publish it: regulated or high-traffic applications may require approvals, database migrations and a reversible release plan.
+
+```text
+Pull request + review
+       |
+Tests / lint / build
+       |
+Deploy preview -> manual smoke test
+       |
+Release approved commit
+       |
+Check live routing, HTTPS and key flows
+       |
+Monitor errors -> rollback or fix forward
+```
+
+**Static-site smoke test:** request `/`, a stylesheet, a JavaScript file, and an image; confirm their status and content type. Check a keyboard-only journey, a narrow viewport, the browser console, an unknown route and a direct reload of a valid deep route. For a server-backed application, add a safe test of its health endpoint and permissions. A green CI check does not prove a domain points to the newest revision: compare the deployed commit or asset hash when supported.
+
+**Rollback plan:** identify the previous published artifact, who may trigger restoration, whether database migrations are backward compatible, and how to communicate an outage. Rollback of frontend assets alone may not restore compatibility with a changed backend API. Keep secrets in the hosting configuration and rotate them if exposed; removing a leaked secret from the latest commit does not erase it from history or deployed artifacts.
+
+**Exercise:** describe how you would recover if the homepage loads but all CSS files return 404 after release. Identify the symptom in Network, correct the deployment path, and verify cache headers without assuming a DNS failure. Reference: [OWASP deployment and maintenance](https://owasp.org/www-project-developer-guide/).
+
+
 A Git push does not automatically deploy every site: **deployment must be configured**, and many teams only deploy production from a protected branch after reviews and checks.
 
 1. **Identify the application type.** A static site might publish `dist/`; a server application may need an image or executable plus a running process.
@@ -71,6 +118,29 @@ A Git push does not automatically deploy every site: **deployment must be config
 7. **Operate.** Monitor uptime, errors, certificates, resource usage and backups. Practice restoration; a backup you cannot restore is not a reliable recovery plan.
 
 ## Connecting a domain to hosting
+
+### Diagnose the complete chain with commands and observations
+
+Use a domain that you own and have permission to test. The commands below demonstrate a **read-only** workflow; they do not change production DNS:
+
+```bash
+# Which nameservers are authoritative for your domain?
+dig example.com NS
+# Which IPv4 and IPv6 destinations does the resolver return?
+dig example.com A
+dig example.com AAAA
+# Does the www host alias another hostname?
+dig www.example.com CNAME
+# What does the HTTP endpoint actually return?
+curl -I https://example.com/
+```
+
+`example.com` is a documentation placeholder: substitute your actual domain. `curl -I` sends a HEAD request; a server may not support it even when a GET works, so retry with a normal GET when investigating an unexpected status. The IP alone does not identify which virtual host serves the website: TLS SNI and HTTP Host/authority also matter. For a certificate error, inspect hostname, expiry, chain and provisioning; do not disable certificate validation to make the error disappear.
+
+**DNS sequence:** the registrar manages the registration, but authoritative nameservers may belong to a different DNS provider. Editing a zone that is not authoritative has no public effect. Cache TTL describes how long resolvers may reuse records; it is not a guarantee that a global change occurs at an exact time. A CNAME is not a general replacement for MX or TXT records. Take a snapshot of the existing zone and check mail records before modifying the apex or nameserver delegation.
+
+**Troubleshooting exercise:** distinguish these cases: `dig` returns the old address; `dig` returns the new address but TLS fails; the homepage loads but the SPA's deep route 404s; the API responds with 403. Each points to a different layer and needs a different fix. See the [protocols request diagram](../assets/diagrams/request-lifecycle.svg).
+
 
 The record type depends on **what your host actually instructs you to configure**. Do not invent an IP address or create a conflicting record simply because a tutorial says every deployment needs an `A` record.
 
