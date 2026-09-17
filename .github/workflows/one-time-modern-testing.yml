@@ -56,7 +56,8 @@ jobs:
       - name: Commit real screenshots, tests and expanded original chapter; remove one-time tooling
         run: |
           git rm .github/workflows/one-time-modern-testing.yml tools/modern_testing_pass.py
-          git add notes/10_testing.md assets/testing-feature/ projects/testing-feature/package-lock.json
+          git add notes/10_testing.md assets/testing-feature/
+          git add -f projects/testing-feature/package-lock.json
           git diff --cached --check
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
