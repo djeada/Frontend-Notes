@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shipping quote lab | Frontend Notes</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header class="site-header"><a href="/" class="brand">FRONTEND / LAB</a><span class="eyebrow">Testing a real feature</span></header>
+  <main class="layout">
+    <section class="intro" aria-labelledby="heading">
+      <span class="tag">WORKED EXAMPLE · 01</span>
+      <h1 id="heading">Know the total <em>before</em> checkout.</h1>
+      <p>Get a sample shipping quote for a $24 notebook. Orders of $50 or more ship free. This is a teaching app with fictional pricing; no order or payment is placed.</p>
+      <div class="promise"><span aria-hidden="true">✓</span> Clear prices <span aria-hidden="true">✓</span> Testable outcomes <span aria-hidden="true">✓</span> Recoverable errors</div>
+    </section>
+    <section class="quote-card" aria-labelledby="card-title">
+      <div class="card-top"><span class="step">01 / SHIPPING</span><span class="pill">Demo only</span></div>
+      <h2 id="card-title">Estimate delivery</h2>
+      <p class="card-lede">Choose a quantity and enter a five-digit US ZIP code.</p>
+      <form id="quote-form" novalidate>
+        <div class="field"><label for="quantity">Notebook quantity</label><select id="quantity" name="quantity"><option value="1">1 notebook — $24</option><option value="2">2 notebooks — $48</option><option value="3">3 notebooks — $72</option><option value="4">4 notebooks — $96</option><option value="5">5 notebooks — $120</option><option value="6">6 notebooks — $144</option><option value="7">7 notebooks — $168</option><option value="8">8 notebooks — $192</option><option value="9">9 notebooks — $216</option><option value="10">10 notebooks — $240</option></select></div>
+        <div class="field"><label for="postal">US ZIP code</label><input id="postal" name="postal" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="5" aria-describedby="postal-help postal-error" placeholder="e.g. 10001"><small id="postal-help">Five digits. We do not store your ZIP code.</small><p id="postal-error" class="field-error" role="alert" hidden>Enter a five-digit US ZIP code.</p></div>
+        <button type="submit" id="submit-quote">Get shipping quote <span aria-hidden="true">↗</span></button>
+        <p id="request-status" role="status" aria-live="polite"></p>
+        <p id="request-error" role="alert" class="request-error" hidden>Could not get a quote. Try again.</p>
+      </form>
+      <section id="quote-result" class="result" aria-labelledby="result-title" hidden><h3 id="result-title">Your quote</h3><dl><div><dt>Subtotal</dt><dd id="subtotal"></dd></div><div><dt>Shipping</dt><dd id="shipping"></dd></div><div class="total"><dt>Total</dt><dd id="total"></dd></div></dl><p class="result-note">Estimate only. No purchase has been made.</p></section>
+      <footer class="card-footer">A good test checks the price, the error states, and what a person can actually do.</footer>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,75 @@
+name: Test the shipping-quote example
+on:
+  pull_request:
+    paths:
+      - 'notes/10_testing.md'
+      - 'projects/testing-feature/**'
+      - 'assets/testing-feature/**'
+      - '.github/workflows/testing-feature.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'notes/10_testing.md'
+      - 'projects/testing-feature/**'
+      - 'assets/testing-feature/**'
+      - '.github/workflows/testing-feature.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: projects/testing-feature/package-lock.json
+      - name: Validate chapter structure, links and browser evidence
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, struct
+          note = Path('notes/10_testing.md')
+          text = note.read_text(encoding='utf-8')
+          headings = re.findall(r'^#{1,3} .+$', text, flags=re.MULTILINE)
+          assert len(headings) == len(set(headings)), 'Repeated heading in testing chapter'
+          assert text.count('## 2. What is testing') == 1
+          assert text.count('## 3. Unit testing in depth') == 1
+          assert text.count('## 5. End-to-end testing') == 1
+          assert text.count('## 10. Make tests part of development') == 1
+          assert '## Worked example: keep a shipping quote working' not in text, 'Old appended guide remains'
+          links = re.findall(r'!?\[[^\]]*\]\((\.\./[^)]+)\)', text)
+          for link in links:
+              assert (note.parent / link).exists(), f'Broken local chapter link: {link}'
+          names = ('shipping-before.png', 'shipping-success.png', 'shipping-error.png')
+          for name in names:
+              asset = Path('assets/testing-feature') / name
+              data = asset.read_bytes()
+              assert data.startswith(b'\x89PNG\r\n\x1a\n'), f'Not PNG: {name}'
+              width, height = struct.unpack('>II', data[16:24])
+              assert width >= 1000 and height >= 600, f'Unexpected screenshot size: {name}'
+              assert f'../assets/testing-feature/{name}' in text
+          print(f'PASS: {len(headings)} unique headings, {len(links)} local links, three browser PNGs, {len(text.split())} words')
+          PY
+      - name: Install locked dependencies
+        working-directory: projects/testing-feature
+        run: npm ci --no-audit --no-fund
+      - name: Install browser and Linux dependencies
+        working-directory: projects/testing-feature
+        run: npx playwright install --with-deps chromium
+      - name: Unit and HTTP integration tests
+        working-directory: projects/testing-feature
+        run: npm run test:unit
+      - name: Real browser feature tests
+        working-directory: projects/testing-feature
+        run: npm run test:e2e
+      - name: Preserve failure evidence
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: shipping-quote-failure-evidence
+          path: projects/testing-feature/test-results/
+          if-no-files-found: ignore
+          retention-days: 7
