@@ -1,0 +1,46 @@
+name: Test the shipping-quote example
+on:
+  pull_request:
+    paths:
+      - 'notes/10_testing.md'
+      - 'projects/testing-feature/**'
+      - 'assets/testing-feature/**'
+      - '.github/workflows/testing-feature.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'projects/testing-feature/**'
+      - '.github/workflows/testing-feature.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: projects/testing-feature/package-lock.json
+      - name: Install locked dependencies
+        working-directory: projects/testing-feature
+        run: npm ci --no-audit --no-fund
+      - name: Install browser and Linux dependencies
+        working-directory: projects/testing-feature
+        run: npx playwright install --with-deps chromium
+      - name: Unit and HTTP integration tests
+        working-directory: projects/testing-feature
+        run: npm run test:unit
+      - name: Real browser feature tests
+        working-directory: projects/testing-feature
+        run: npm run test:e2e
+      - name: Preserve failure evidence
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: shipping-quote-failure-evidence
+          path: projects/testing-feature/test-results/
+          if-no-files-found: ignore
+          retention-days: 7
