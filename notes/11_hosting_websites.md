@@ -139,7 +139,7 @@ curl -I https://example.com/
 
 **DNS sequence:** the registrar manages the registration, but authoritative nameservers may belong to a different DNS provider. Editing a zone that is not authoritative has no public effect. Cache TTL describes how long resolvers may reuse records; it is not a guarantee that a global change occurs at an exact time. A CNAME is not a general replacement for MX or TXT records. Take a snapshot of the existing zone and check mail records before modifying the apex or nameserver delegation.
 
-**Troubleshooting exercise:** distinguish these cases: `dig` returns the old address; `dig` returns the new address but TLS fails; the homepage loads but the SPA's deep route 404s; the API responds with 403. Each points to a different layer and needs a different fix. See the [protocols request diagram](../assets/diagrams/request-lifecycle.svg).
+**Troubleshooting exercise:** distinguish these cases: `dig` returns the old address; `dig` returns the new address but TLS fails; the homepage loads but the SPA's deep route 404s; the API responds with 403. Each points to a different layer and needs a different fix. See the [protocols request diagram](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/diagrams/request-lifecycle.svg).
 
 
 The record type depends on **what your host actually instructs you to configure**. Do not invent an IP address or create a conflicting record simply because a tutorial says every deployment needs an `A` record.
@@ -151,7 +151,7 @@ The record type depends on **what your host actually instructs you to configure*
 5. Verify records and HTTPS. Request a certificate through the hosting provider or configure one yourself and test the final hostname over `https://`.
 6. Wait for cached DNS answers to expire according to their time-to-live (**TTL**) and resolver behavior. There is **no universal 48-hour propagation period**: an authoritative change may be available quickly while prior answers remain cached until their TTL, and some changes take longer for other operational reasons.
 
-![From a browser request through DNS and HTTPS to a server response](../assets/diagrams/request-lifecycle.svg)
+![From a browser request through DNS and HTTPS to a server response](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/diagrams/request-lifecycle.svg)
 
 **Practical check:** a DNS lookup such as `dig example.com A` checks an IPv4 response, while `dig www.example.com CNAME` checks a possible alias. Not every valid site needs both. Then use browser DevTools → Network to inspect the HTTPS request and response; verify that a deep route reloads rather than returning a hosting 404. See the detailed [protocols chapter](08_protocols.md) for DNS, TLS, caching and HTTP semantics.
 

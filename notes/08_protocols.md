@@ -31,7 +31,7 @@ The Internet is often called a “network of networks” because it consists of 
 
 ##### From URL to pixels: identify which layer failed
 
-A browser navigation is not a single network operation. The browser may look at HTTP caches or a service worker; resolve DNS if needed; reuse an existing connection or establish TLS/QUIC; send an HTTP request; receive HTML; parse it; fetch CSS, images and scripts; construct layout; and paint. Steps may overlap, be skipped or repeat. The [request lifecycle diagram](../assets/diagrams/request-lifecycle.svg) is a conceptual teaching aid, not a promise that every request follows exactly the same path.
+A browser navigation is not a single network operation. The browser may look at HTTP caches or a service worker; resolve DNS if needed; reuse an existing connection or establish TLS/QUIC; send an HTTP request; receive HTML; parse it; fetch CSS, images and scripts; construct layout; and paint. Steps may overlap, be skipped or repeat. The [request lifecycle diagram](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/diagrams/request-lifecycle.svg) is a conceptual teaching aid, not a promise that every request follows exactly the same path.
 
 | Visible symptom | First inspection point | Example explanation |
 |---|---|---|
@@ -217,7 +217,7 @@ The snippet requires an actual `/api/courses` endpoint. A browser `fetch` promis
 
 #### Follow a real request visually
 
-![Browser URL, DNS lookup, TLS connection, HTTP request, server response, and browser rendering](../assets/diagrams/request-lifecycle.svg)
+![Browser URL, DNS lookup, TLS connection, HTTP request, server response, and browser rendering](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/diagrams/request-lifecycle.svg)
 
 For `https://example.com`, the browser may consult caches, resolve the hostname, establish a secure connection (TCP plus TLS for common HTTP/1.1/2 cases, or QUIC with TLS for HTTP/3), send HTTP request headers, receive a response, then parse and render resources. The diagram is a **conceptual sequence**, not a packet capture: caches, service workers, connection reuse and proxies can change the actual path.
 

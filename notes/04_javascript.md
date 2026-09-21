@@ -25,11 +25,11 @@ Main idea:
 
 #### See what JavaScript changes in the browser
 
-![A form before input validation and after informative error feedback](../assets/visual-examples/form-validation.svg)
+![A form before input validation and after informative error feedback](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/form-validation.svg)
 
 **Actual browser-rendered before/after:**
 
-![Browser screenshot of the form validation comparison](../assets/visual-examples/form-validation-browser.png)
+![Browser screenshot of the form validation comparison](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/form-validation-browser.png)
 
 HTML supplies the form, CSS styles its feedback, and JavaScript can respond when the user submits. Open the [live example](../projects/visual-examples/index.html) and inspect `script.js`: it checks validity, sets `aria-invalid`, and writes a message using `textContent`. It prevents actual network submission; production code must **also** validate input on the server. A visible error alone does not prove it is announced by assistive technology: check accessible descriptions and focus behavior.
 
@@ -333,7 +333,7 @@ async function loadProducts(signal) {
 }
 ```
 
-This snippet requires a real `/api/products` endpoint and illustrates error handling, not a runnable standalone request. `fetch` generally rejects for network failures and aborts, **not** merely for an HTTP 404 or 500. See the [form's browser before/after](../assets/visual-examples/form-validation-browser.png) for a visible result of an event handler. **Exercise:** change a button's text via `textContent`, then insert a heavy loop and watch interaction freeze; remove it and compare. Reference: [MDN event loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Execution_model) and [using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch).
+This snippet requires a real `/api/products` endpoint and illustrates error handling, not a runnable standalone request. `fetch` generally rejects for network failures and aborts, **not** merely for an HTTP 404 or 500. See the [form's browser before/after](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/form-validation-browser.png) for a visible result of an event handler. **Exercise:** change a button's text via `textContent`, then insert a heavy loop and watch interaction freeze; remove it and compare. Reference: [MDN event loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Execution_model) and [using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch).
 
 
 A function is a named block of code that performs a specific task. We already used built-in functions like `alert()` and `prompt()` to display messages and get input from the user. Each function has to be first defined and then called. Once defined, the function can be called as many times as needed.

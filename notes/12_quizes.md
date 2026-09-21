@@ -13,7 +13,7 @@ The viewport declaration changes viewport sizing behavior; it does not constrain
 
 <details><summary>2. A form has placeholder="Email" but no label. What disappears when someone types?</summary>
 
-The visible prompt disappears; the input may also lack a reliable accessible name. Use `<label for="mail">Email</label><input id="mail" name="email" type="email">`. Helper text is separate from the label. The [form comparison screenshot](../assets/visual-examples/form-validation-browser.png) shows what feedback changes visually.
+The visible prompt disappears; the input may also lack a reliable accessible name. Use `<label for="mail">Email</label><input id="mail" name="email" type="email">`. Helper text is separate from the label. The [form comparison screenshot](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/form-validation-browser.png) shows what feedback changes visually.
 </details>
 
 <details><summary>3. Should a clickable logo that navigates home be a button or link?</summary>
@@ -23,7 +23,7 @@ Use a link with a real `href` and an accessible name representing the destinatio
 
 <details><summary>4. Does replacing every div with section make the page automatically accessible?</summary>
 
-No. Choose elements by meaning; `section` generally needs an accessible identifying heading when used as a region. A page needs sensible heading order, link text, forms, keyboard behavior and testing. Compare the [semantic structure browser capture](../assets/visual-examples/semantic-html-browser.png) and inspect its two underlying HTML documents.
+No. Choose elements by meaning; `section` generally needs an accessible identifying heading when used as a region. A page needs sensible heading order, link text, forms, keyboard behavior and testing. Compare the [semantic structure browser capture](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/semantic-html-browser.png) and inspect its two underlying HTML documents.
 </details>
 
 <details><summary>5. A data table has visually bold first-row cells written as td. What information is missing?</summary>
@@ -55,11 +55,11 @@ For **site navigation**, use `<nav>` with descriptive `<a href>` links; a list (
 
 Use `<form>` with labeled controls such as `<input>`, `<select>`, `<textarea>`, and `<button>`. Every control needs an accessible name; for example, `<label for="email">Email</label><input id="email" name="email" type="email" required>`. A `placeholder` is not a substitute for a persistent label. Client-side validation helps interaction but the server must validate submitted values again.
 
-![A form with an ambiguous error compared with one that gives text feedback](../assets/visual-examples/form-validation.svg)
+![A form with an ambiguous error compared with one that gives text feedback](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/form-validation.svg)
 
 **Actual browser-rendered before/after:**
 
-![Browser screenshot of the form validation comparison](../assets/visual-examples/form-validation-browser.png)
+![Browser screenshot of the form validation comparison](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/form-validation-browser.png)
 
 Try the live [form demonstration](../projects/visual-examples/README.md) and submit both invalid and valid input.
 </details>
@@ -87,11 +87,11 @@ Try the live [form demonstration](../projects/visual-examples/README.md) and sub
 
 Elements such as `<article>`, `<aside>`, `<figcaption>`, `<footer>`, `<header>`, `<main>`, `<nav>`, and `<section>` communicate purpose and relationships. Choose by meaning and behavior rather than appearance. A `<div>` is fine when no semantic element fits. Semantics assist navigation but do not automatically guarantee accessibility or SEO.
 
-![A page made of generic blocks compared with a page with labeled semantic regions](../assets/visual-examples/semantic-html.svg)
+![A page made of generic blocks compared with a page with labeled semantic regions](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/semantic-html.svg)
 
 **Actual browser-rendered before/after:**
 
-![Browser screenshot of the semantic html comparison](../assets/visual-examples/semantic-html-browser.png)
+![Browser screenshot of the semantic html comparison](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/semantic-html-browser.png)
 </details>
 
 <details>
@@ -128,17 +128,17 @@ No. If origin, importance, layer and other earlier cascade stages tie, specifici
 
 <details><summary>3. flex-direction changes from row to column. Does justify-content still mean horizontal alignment?</summary>
 
-No. `justify-content` uses the main axis, which changes with `flex-direction`; `align-items` uses the cross axis. Experiment with the [actual Flexbox comparison](../assets/visual-examples/flex-alignment-browser.png).
+No. `justify-content` uses the main axis, which changes with `flex-direction`; `align-items` uses the cross axis. Experiment with the [actual Flexbox comparison](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/flex-alignment-browser.png).
 </details>
 
 <details><summary>4. What does a size container query measure that a media query does not?</summary>
 
-A size container query tests an eligible ancestor container's dimensions, not the viewport. Declare a container such as `container-type: inline-size`, then use `@container`. The query styles descendants, not the query container itself. See the [responsive navigation captures](../assets/visual-examples/responsive-navigation-browser.png).
+A size container query tests an eligible ancestor container's dimensions, not the viewport. Declare a container such as `container-type: inline-size`, then use `@container`. The query styles descendants, not the query container itself. See the [responsive navigation captures](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/responsive-navigation-browser.png).
 </details>
 
 <details><summary>5. Why is outline: none dangerous on interactive controls?</summary>
 
-It can hide keyboard focus. Replace it with a strong `:focus-visible` outline when styling focus, test Tab navigation and forced-colors mode. Compare the [browser focus image](../assets/visual-examples/keyboard-focus-browser.png).
+It can hide keyboard focus. Replace it with a strong `:focus-visible` outline when styling focus, test Tab navigation and forced-colors mode. Compare the [browser focus image](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/keyboard-focus-browser.png).
 </details>
 
 
@@ -165,11 +165,11 @@ Use `background-color`, for example `body { background-color: #f0f0f0; }`. Check
 
 First identify **which property** you see: an image border and the focus outline are different. Do **not** globally apply `outline: none` to links. Keep a visible keyboard focus indicator, for example `a:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }`. You may style the border separately if a border is unwanted.
 
-![A keyboard user losing their position when focus is hidden versus a visible focus indicator](../assets/visual-examples/keyboard-focus.svg)
+![A keyboard user losing their position when focus is hidden versus a visible focus indicator](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/keyboard-focus.svg)
 
 **Actual browser-rendered before/after:**
 
-![Browser screenshot of the keyboard focus comparison](../assets/visual-examples/keyboard-focus-browser.png)
+![Browser screenshot of the keyboard focus comparison](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/keyboard-focus-browser.png)
 </details>
 
 <details>
@@ -477,7 +477,7 @@ Budget for domain renewal, hosting and usage, backups, monitoring, security upda
 <details>
 <summary>Does the viewport meta element automatically create a responsive site?</summary>
 
-No. It changes viewport behavior; layout still needs flexible widths, media constraints and testing on narrow screens. Compare the [responsive navigation diagram](../assets/visual-examples/responsive-navigation.svg) with the [live example](../projects/visual-examples/README.md).
+No. It changes viewport behavior; layout still needs flexible widths, media constraints and testing on narrow screens. Compare the [responsive navigation diagram](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/responsive-navigation.svg) with the [live example](../projects/visual-examples/README.md).
 </details>
 
 <details>
@@ -495,7 +495,7 @@ No. Browser checks improve usability but can be bypassed; the server must valida
 <details>
 <summary>Do all CSS declarations with higher selector specificity win?</summary>
 
-No. Origin and importance, cascade layers, scoping and then specificity/source order influence the winner in their defined order. Inspect the [cascade diagram](../assets/diagrams/css-cascade.svg) and compare computed declarations in DevTools.
+No. Origin and importance, cascade layers, scoping and then specificity/source order influence the winner in their defined order. Inspect the [cascade diagram](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/diagrams/css-cascade.svg) and compare computed declarations in DevTools.
 </details>
 
 <details>

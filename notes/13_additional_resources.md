@@ -13,7 +13,7 @@ This chapter is a **directory, not a certification program**. The sites below ma
 | Is it lightweight enough? | Inspect real transferred size and third-party requests. | Performance budget and tradeoffs. |
 | Will it remain supported? | Review maintenance and update process. | Upgrade and replacement plan. |
 
-**Mini case study:** choose a card design from an inspiration site. Rebuild its content with semantic `<article>`, a heading and real link. First inspect the [unstyled browser rendering](../assets/visual-examples/card-styling-browser.png), then apply its spacing and typography in the [live demo](../projects/visual-examples/index.html). Verify keyboard focus and mobile width. You may copy *ideas* while still needing permission to copy icons, photos, source code or trade dress.
+**Mini case study:** choose a card design from an inspiration site. Rebuild its content with semantic `<article>`, a heading and real link. First inspect the [unstyled browser rendering](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/card-styling-browser.png), then apply its spacing and typography in the [live demo](../projects/visual-examples/index.html). Verify keyboard focus and mobile width. You may copy *ideas* while still needing permission to copy icons, photos, source code or trade dress.
 
 **Suggested asset log:** `asset`, `source URL`, `author`, `license`, `attribution location`, `date checked`, `local filename`, `reason used`. This makes later audits and replacement feasible. Do not record “free” as a license: free price and reuse rights are different questions.
 
@@ -76,7 +76,7 @@ A generator may produce attractive declarations that behave poorly under differe
 }
 ```
 
-Compare the [actual styled-card capture](../assets/visual-examples/card-styling-browser.png). A generated blur or shadow may have contrast and performance costs; a CSS-only animation should respect reduced-motion preferences when motion is nonessential. Neumorphic controls sometimes lack clear boundaries, so check affordances and focus instead of selecting them purely by appearance. Test at 320px, zoom to 200%, add long text, and inspect computed styles. Keep the generated source and its original license where the tool provides one.
+Compare the [actual styled-card capture](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/card-styling-browser.png). A generated blur or shadow may have contrast and performance costs; a CSS-only animation should respect reduced-motion preferences when motion is nonessential. Neumorphic controls sometimes lack clear boundaries, so check affordances and focus instead of selecting them purely by appearance. Test at 320px, zoom to 200%, add long text, and inspect computed styles. Keep the generated source and its original license where the tool provides one.
 
 
 - [Fancy Border Radius](https://9elements.github.io/fancy-border-radius/)
@@ -114,7 +114,7 @@ The correct alternative depends on the **purpose in context**:
 
 Meaningful chart content often deserves an adjacent table or longer text explanation, not a 150-word `alt` attribute. Give content images dimensions or an aspect ratio to reserve layout space, and choose `loading="lazy"` for suitable below-the-fold images rather than applying it blindly to the hero image. An image's source URL, screenshot appearance and file extension do not establish its license.
 
-**Try it:** take the [semantic browser screenshot](../assets/visual-examples/semantic-html-browser.png); write alternative text describing *the difference it teaches*, not every color or decorative rectangle. Compare this with an icon-only button's accessible name. Reference: [W3C image tutorial](https://www.w3.org/WAI/tutorials/images/).
+**Try it:** take the [semantic browser screenshot](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/semantic-html-browser.png); write alternative text describing *the difference it teaches*, not every color or decorative rectangle. Compare this with an icon-only button's accessible name. Reference: [W3C image tutorial](https://www.w3.org/WAI/tutorials/images/).
 
 
 #### UI Designs
@@ -257,7 +257,7 @@ a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 
 These are **example roles**, not a guarantee for every background or text size. Check actual foreground/background combinations against the applicable WCAG contrast criteria (commonly at least 4.5:1 for ordinary text and 3:1 for large text under WCAG 2.x AA), with separate evaluation for non-text UI boundaries and focus indicators. Test both light/dark variants, forced colors and invalid/disabled states. Color must not be the only way to identify a form error.
 
-**Exercise:** choose one palette above, assign a surface, text, link, error and focus role, and test the [form and button browser screenshots](../assets/visual-examples/form-validation-browser.png) and [button states](../assets/visual-examples/button-states-browser.png). If a combination fails contrast, adjust the role value and document what changed. Reference: [WCAG contrast minimum](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html).
+**Exercise:** choose one palette above, assign a surface, text, link, error and focus role, and test the [form and button browser screenshots](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/form-validation-browser.png) and [button states](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/button-states-browser.png). If a combination fails contrast, adjust the role value and document what changed. Reference: [WCAG contrast minimum](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html).
 
 
 - [Coolors](https://coolors.co/)

@@ -23,7 +23,7 @@
 
 #### Separate content from presentation, then verify the result
 
-A small card is a useful controlled experiment: keep the **same HTML** before and after, then toggle only the CSS class. This isolates the effect of styling from changes in text, structure or JavaScript. The [actual Chromium screenshot](../assets/visual-examples/card-styling-browser.png) shows both rendered states side by side.
+A small card is a useful controlled experiment: keep the **same HTML** before and after, then toggle only the CSS class. This isolates the effect of styling from changes in text, structure or JavaScript. The [actual Chromium screenshot](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/card-styling-browser.png) shows both rendered states side by side.
 
 ```html
 <article class="course-card">
@@ -52,11 +52,11 @@ A small card is a useful controlled experiment: keep the **same HTML** before an
 
 #### See the result before reading the syntax
 
-![An unstyled information card compared with a styled, spaced card](../assets/visual-examples/card-styling.svg)
+![An unstyled information card compared with a styled, spaced card](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/card-styling.svg)
 
 **Actual browser-rendered before/after:**
 
-![Browser screenshot of the card styling comparison](../assets/visual-examples/card-styling-browser.png)
+![Browser screenshot of the card styling comparison](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/card-styling-browser.png)
 
 **Before:** semantic HTML is readable but has the browser's default spacing. **After:** a class adds padding, border, readable width, and typography without changing content. Open the [working before/after project](../projects/visual-examples/index.html), inspect the card in DevTools, then toggle its declarations. One possible reusable rule is:
 
@@ -122,7 +122,7 @@ Assuming these normal declarations share an origin and cascade layer, the text i
 
 #### Cascade: why your rule may not be applied
 
-![Simplified CSS cascade troubleshooting flow](../assets/diagrams/css-cascade.svg)
+![Simplified CSS cascade troubleshooting flow](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/diagrams/css-cascade.svg)
 
 First confirm the selector matches and the declaration is valid; then examine origins, `!important`, cascade layers, specificity, scoping, and source order as applicable. A highly specific selector does not universally win over every other declaration. In DevTools, inspect the **Computed** pane and overridden declarations instead of repeatedly adding `!important`. CSS custom properties such as `--accent` are resolved with `var(--accent, fallback)` when a fallback is needed.
 
@@ -451,7 +451,7 @@ When setting the dimensions of an element, be cautious of extremes. An element t
 
 #### Build and test a wrapping toolbar
 
-![Actual browser rendering: scattered controls versus an aligned wrapping toolbar](../assets/visual-examples/flex-alignment-browser.png)
+![Actual browser rendering: scattered controls versus an aligned wrapping toolbar](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/flex-alignment-browser.png)
 
 ```html
 <div class="toolbar">
@@ -482,11 +482,11 @@ When setting the dimensions of an element, be cautious of extremes. An element t
 
 #### See the effect: `justify-content` versus `align-items`
 
-![Flex items before alignment and after main-axis and cross-axis alignment](../assets/visual-examples/flex-alignment.svg)
+![Flex items before alignment and after main-axis and cross-axis alignment](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/flex-alignment.svg)
 
 **Actual browser-rendered before/after:**
 
-![Browser screenshot of the flex alignment comparison](../assets/visual-examples/flex-alignment-browser.png)
+![Browser screenshot of the flex alignment comparison](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/flex-alignment-browser.png)
 
 Flexbox lays out items on a **main axis** and a **cross axis**. The `flex-direction` property chooses the main axis; `justify-content` distributes free space along it and `align-items` aligns items across it. Try changing `flex-direction` to `column` in the [live example](../projects/visual-examples/index.html): the axes change, so memorizing “justify is horizontal” is misleading. Use `gap` for spacing and check wrapping when labels become longer.
 
