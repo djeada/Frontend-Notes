@@ -147,7 +147,7 @@ child {
 
 Both examples express the relationship, but they are processed by different systems. The first can be loaded directly in modern browsers supporting native nesting; the second must go through Sass when it uses `.scss` syntax and Sass-only features. Native nesting is not an excuse for deep selector chains: `.card .header .nav .item .label` is harder to override than a small explicit component class. `&` represents the parent selector, and changes such as `.card { &.featured { ... } }` match the *same element* with both classes, not a descendant.
 
-**Exercise:** toggle `.card__title` and `.card.featured` classes in DevTools and explain which selector matches. Use the [browser card comparison](../assets/visual-examples/card-styling-browser.png) to connect the code to visible grouping. Reference: [MDN CSS nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Nesting).
+**Exercise:** toggle `.card__title` and `.card.featured` classes in DevTools and explain which selector matches. Use the [browser card comparison](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/card-styling-browser.png) to connect the code to visible grouping. Reference: [MDN CSS nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Nesting).
 
 
 **See what native CSS can do today:**
@@ -160,7 +160,7 @@ Both examples express the relationship, but they are processed by different syst
 }
 ```
 
-This works in browsers supporting native CSS nesting without a Sass compilation step. Sass is still useful for mixins, modules and build-time functions, but do not add a build tool solely because you think CSS has no variables or nesting. Compare the [unstyled/styled card illustration](../assets/visual-examples/card-styling.svg) and [live demo](../projects/visual-examples/index.html); the image shows the visual CSS effect, **not** a framework performance comparison.
+This works in browsers supporting native CSS nesting without a Sass compilation step. Sass is still useful for mixins, modules and build-time functions, but do not add a build tool solely because you think CSS has no variables or nesting. Compare the [unstyled/styled card illustration](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/card-styling.svg) and [live demo](../projects/visual-examples/index.html); the image shows the visual CSS effect, **not** a framework performance comparison.
 
 
 Nesting provides a more structured and readable way to write styles for nested elements. Modern native CSS supports nesting. Its parsing and selector behavior are not identical to every Sass/Less form, so check compatibility and use `&` when you need the parent selector.

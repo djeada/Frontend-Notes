@@ -75,7 +75,7 @@ function App() { return <button type="button">Hello</button>; }
 createRoot(document.getElementById('root')).render(<App />);
 ```
 
-For a new project, follow the current [React project guide](https://react.dev/learn/start-a-new-react-project), not deprecated Create React App instructions. Choose a framework or build tool based on routing, deployment, server rendering and learning goals; a library alone does not decide these requirements. The [button states illustration](../assets/visual-examples/button-states.svg) shows UI states that are necessary regardless of framework, and the [vanilla JavaScript demo](../projects/visual-examples/index.html) provides a baseline before adding dependencies.
+For a new project, follow the current [React project guide](https://react.dev/learn/start-a-new-react-project), not deprecated Create React App instructions. Choose a framework or build tool based on routing, deployment, server rendering and learning goals; a library alone does not decide these requirements. The [button states illustration](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/button-states.svg) shows UI states that are necessary regardless of framework, and the [vanilla JavaScript demo](../projects/visual-examples/index.html) provides a baseline before adding dependencies.
 
 
 React is a JavaScript library for building user interfaces, often referred to as a framework due to its extensive ecosystem. Unlike a framework, which provides a structured approach to building applications, a library like React allows for more flexibility in implementation.
@@ -130,7 +130,7 @@ createRoot(document.getElementById('root')).render(
 
 **What the user sees:** initially “Notebook: 1,” with Decrease unavailable. Each Increase click updates the number; at 4, Increase becomes disabled. State lives in the component; `productName` and `max` are inputs from its parent. The functional state updater `q => q + 1` uses the queued previous state, which matters when several updates occur in one event. React normally batches updates, so reading state immediately after calling a setter still yields the snapshot for that render.
 
-**Test cases:** initial value 1; clicking Increase twice displays 3; Decrease returns to 2; the maximum cannot be exceeded. Check the disabled state's explanation and color contrast against the [button-states browser screenshot](../assets/visual-examples/button-states-browser.png). Reference: [React state as a snapshot](https://react.dev/learn/state-as-a-snapshot).
+**Test cases:** initial value 1; clicking Increase twice displays 3; Decrease returns to 2; the maximum cannot be exceeded. Check the disabled state's explanation and color contrast against the [button-states browser screenshot](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/button-states-browser.png). Reference: [React state as a snapshot](https://react.dev/learn/state-as-a-snapshot).
 
 
 React components are the building blocks of a React application. They can be thought of as custom, reusable HTML elements, and they encapsulate their own structure, style, and behavior.

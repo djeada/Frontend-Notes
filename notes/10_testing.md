@@ -36,15 +36,15 @@ The following images were **captured from the running application in Chromium by
 
 **Before submitting:** the result is hidden until a genuine quote succeeds. The quantity and ZIP have visible labels.
 
-![Browser capture: shipping quote form before interaction](../assets/testing-feature/shipping-before.png)
+![Browser capture: shipping quote form before interaction](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/testing-feature/shipping-before.png)
 
 **A successful request:** three notebooks, a five-digit ZIP, free shipping, and the $72 total returned by the local server.
 
-![Browser capture: successfully requested shipping quote](../assets/testing-feature/shipping-success.png)
+![Browser capture: successfully requested shipping quote](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/testing-feature/shipping-success.png)
 
 **The service fails:** the browser test intercepts one request with HTTP 503. The old result disappears and an error message replaces success feedback.
 
-![Browser capture: quote request failed and a retryable error is shown](../assets/testing-feature/shipping-error.png)
+![Browser capture: quote request failed and a retryable error is shown](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/testing-feature/shipping-error.png)
 
 Try the [application yourself](../projects/testing-feature/README.md). We will revisit these states after examining the individual test boundaries.
 
@@ -206,9 +206,9 @@ A screenshot cannot prove that a button is keyboard reachable, an error is annou
 
 For a second visual exercise, use the repository's [form validation demo](../projects/visual-examples/README.md). The first image is a conceptual SVG wireframe; the second is a genuine Chromium capture, **not** a reviewed regression baseline:
 
-![Teaching illustration: implicit versus explicit form validation](../assets/visual-examples/form-validation.svg)
+![Teaching illustration: implicit versus explicit form validation](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/form-validation.svg)
 
-![Browser-rendered form validation comparison](../assets/visual-examples/form-validation-browser.png)
+![Browser-rendered form validation comparison](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/form-validation-browser.png)
 
 Remove visible focus styling, focus the submit button, and capture that state. Then press Tab to inspect the focus order and confirm the error relationship separately. Identical pixels in an *unfocused* screenshot would miss a missing focus indicator or broken `aria-describedby` association.
 

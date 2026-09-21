@@ -20,7 +20,7 @@ User requirement
   -> preview deployment -> production
 ```
 
-The [actual browser form example](../assets/visual-examples/form-validation-browser.png) illustrates the *user-visible* end of that chain. The [project source](../projects/visual-examples/README.md) keeps markup, CSS and JavaScript small enough to inspect. It intentionally does **not** implement `/api/subscribe`, so it is not a production email service.
+The [actual browser form example](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/form-validation-browser.png) illustrates the *user-visible* end of that chain. The [project source](../projects/visual-examples/README.md) keeps markup, CSS and JavaScript small enough to inspect. It intentionally does **not** implement `/api/subscribe`, so it is not a production email service.
 
 **Decision check:** when changing the label, should you edit the HTML or five duplicated component definitions? When changing validation, can you test it without launching the entire application? When changing the endpoint, can you preserve the frontend contract? Document boundaries in the README. Do not mistake folder count for architecture quality.
 
@@ -131,11 +131,11 @@ src/styles/checkout.css              src/features/checkout/checkout.css
 src/tests/cart.test.js               src/features/cart/cart.test.js
 ```
 
-![Visual example comparing cluttered and purposeful content hierarchy](../assets/visual-examples/visual-hierarchy.svg)
+![Visual example comparing cluttered and purposeful content hierarchy](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/visual-hierarchy.svg)
 
 **Actual browser-rendered before/after:**
 
-![Browser screenshot of the visual hierarchy comparison](../assets/visual-examples/visual-hierarchy-browser.png)
+![Browser screenshot of the visual hierarchy comparison](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/visual-hierarchy-browser.png)
 
 A feature-first arrangement can simplify locating its tests and styles. Shared primitives (button, dialog, formatting functions) can still live in `src/shared/`. Use import boundaries to prevent cycles rather than expecting directory names to enforce architecture. The illustration teaches **interface hierarchy**, not a benchmark proving one file tree is faster.
 
@@ -157,7 +157,7 @@ A bundler may inline environment variables into JavaScript. Anything in the brow
 
 A typical `package.json` might have explicit scripts for `lint`, `test`, `build`, and `preview`; their exact commands depend on project tools. The deployment host must publish the correct output directory and handle deep links appropriately. Do not upload `node_modules/`, `.env` secrets or local credential files merely because they exist in a repository checkout.
 
-**Verification checklist:** inspect generated HTML and asset URLs; check route reloads on preview; view the browser Network tab for missing fonts/images; measure JS and CSS transfer size; check console errors; try keyboard and narrow viewports; verify rollback instructions. Compare [raw versus styled card output](../assets/visual-examples/card-styling-browser.png) to ensure the correct stylesheet reached production. Reference: [OWASP secrets management](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html).
+**Verification checklist:** inspect generated HTML and asset URLs; check route reloads on preview; view the browser Network tab for missing fonts/images; measure JS and CSS transfer size; check console errors; try keyboard and narrow viewports; verify rollback instructions. Compare [raw versus styled card output](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/card-styling-browser.png) to ensure the correct stylesheet reached production. Reference: [OWASP secrets management](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html).
 
 
 - Bundle, split and minify assets **when measurements show a benefit**; modern project tooling often handles this automatically. Webpack, Parcel or another bundler is optional for small static examples. Gulp is a task runner, not a mandatory bundler.
@@ -200,7 +200,7 @@ The drawbacks are important: a template can lock you to unsupported dependencies
 
 Reusable base styles, typography, spacing tokens, and accessible form/button states can provide consistency. Responsive behavior is not guaranteed just because a template contains a media query; test narrow widths, long labels, 200% zoom, and keyboard focus. Naming methods such as BEM or OOCSS are options, not requirements for all projects.
 
-**See what such a decision looks like:** the repository's [visual teaching project](../projects/visual-examples/README.md) has a shared stylesheet and minimal JavaScript. Inspect how its class names map to specific demonstrations and compare [unstyled versus styled cards](../assets/visual-examples/card-styling.svg). Change its spacing and color tokens in `styles.css` to see why predictable naming helps maintainability.
+**See what such a decision looks like:** the repository's [visual teaching project](../projects/visual-examples/README.md) has a shared stylesheet and minimal JavaScript. Inspect how its class names map to specific demonstrations and compare [unstyled versus styled cards](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/card-styling.svg). Change its spacing and color tokens in `styles.css` to see why predictable naming helps maintainability.
 
 #### Finding and evaluating a boilerplate
 
