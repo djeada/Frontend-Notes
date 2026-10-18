@@ -24,7 +24,6 @@ This directory collects tools for templates, components, typography, images, and
 
 - [Cruip](https://cruip.com/)
 - [Bootswatch](https://bootswatch.com/)
-- [Free HTML5](https://freehtml5.co/)
 - [One Page Love](https://onepagelove.com/)
 - [HTML5 UP](https://html5up.net/)
 - [Colorlib Templates](https://colorlib.com/wp/templates/)
@@ -85,7 +84,7 @@ Compare the [actual styled-card capture](https://github.com/djeada/Frontend-Note
 - [Animista](https://animista.net/)
 - [CSS Grid Generator](https://cssgrid-generator.netlify.app/)
 - [Neumorphism.io](https://neumorphism.io/)
-- [CSS Clip Path Maker](https://bennettfeely.com/clippy/)
+- [CSS Clip-Path Generator](https://css-generators.com/custom-corners/)
 - [Glassmorphism Generator](https://hype4.academy/tools/glassmorphism-generator)
 
 **Try this:** generate a two-column grid, then resize the viewport and increase text size to 200%. Inspect the generated CSS; generators can produce fixed widths, overflow, low contrast, or motion that needs a reduced-motion alternative.
@@ -131,7 +130,6 @@ Inspiration is useful for exploring layout ideas; do not copy someone else's bra
 #### 🖼️ Icons
 
 - [Swift Icons](https://www.swifticons.com)
-- [Fontastic](https://fontastic.me/)
 - [Flaticon](https://www.flaticon.com/)
 - [Icon-Icons](https://icon-icons.com/)
 - [Icon54](https://icon54.com/)
@@ -145,7 +143,7 @@ Decorative icons should be hidden from assistive technology; an icon-only button
 
 - [Unsplash](https://unsplash.com/)
 - [Burst Shopify](https://burst.shopify.com/)
-- [Magdeleine](https://magdeleine.co/browse/)
+- [Magdeleine](https://magdeleine.co/)
 - [Life of Pix](https://www.lifeofpix.com/)
 - [Stocksnap](https://stocksnap.io/)
 - [Pexels](https://www.pexels.com/)
@@ -159,15 +157,12 @@ Check the **specific image's** permitted uses, identifiable-person releases when
 - [PNG Tree](https://pngtree.com/)
 - [Pure PNG](https://purepng.com/)
 - [Stick PNG](https://www.stickpng.com/)
-- [PNGBarn](https://www.pngbarn.com/)
 - [CleanPNG](https://www.cleanpng.com/)
 
 Transparency does not mean an image is public domain. Verify licensing and whether a file actually has a transparent alpha channel.
 
 #### 🛡️ Logos
 
-- [Logo Inspirations](https://www.logoinspirations.co/)
-- [LogoLynx](https://www.logolynx.com/)
 - [LogoMakr](https://logomakr.com/)
 
 Logos can involve trademarks as well as copyright. Inspiration or a download link is not permission to use another organization's mark as your own.
@@ -193,7 +188,6 @@ For animated 3D, check performance on modest devices, provide a static fallback 
 - [Mesh Gradient](https://meshgradient.com/)
 - [Grabient](https://www.grabient.com/)
 - [Gradient Hunt](https://gradienthunt.com/)
-- [Meshy](https://meshy.uxie.io/)
 - [WebGradients](https://webgradients.com/)
 
 #### 🌊 Animated Backgrounds
@@ -218,7 +212,6 @@ For animated 3D, check performance on modest devices, provide a static fallback 
 
 - [Velvetyne](http://velvetyne.fr/)
 - [Google Fonts](https://fonts.google.com/)
-- [Font Squirrel](https://www.fontsquirrel.com/)
 - [DaFont](https://www.dafont.com/)
 
 Download only fonts with appropriate web-embedding rights, inspect weights and language coverage, and consider font-loading performance and fallbacks.
@@ -299,11 +292,11 @@ These are font names, not necessarily free or redistributable fonts. Check the e
 ### 📚 Glossaries & Guides
 
 - [Qualtrics UX Design Glossary](https://www.qualtrics.com/blog/ux-design-glossary/)
-- [NNG UX Glossary](https://www.nngroup.com/articles/ux-glossary/)
+- [NNG UX Glossary](https://www.nngroup.com/articles/product-ux-glossary/)
 - [UX Design.cc Glossary](https://uxdesign.cc/the-ux-glossary-5c30c4e2c8b6)
 - [Usability.gov UX Basics](https://www.usability.gov/what-and-why/user-experience.html)
 - [Smashing Magazine UX Guide](https://www.smashingmagazine.com/guides/ux-design/)
-- [UX Design Institute Glossary](https://www.uxdesigninstitute.com/resources/ux-glossary/)
+- [UX Design Institute Glossary](https://www.uxdesigninstitute.com/blog/glossary-ux-terms/)
 - [Interaction Design Foundation Glossary](https://www.interaction-design.org/literature/topics/ux-glossary)
 
 Some older sites may have moved or disappeared. Before recommending an external link, confirm it loads, is maintained, and still covers the intended subject.

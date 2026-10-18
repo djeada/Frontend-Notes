@@ -890,7 +890,7 @@ In addition to JavaScript, an HTML file is required to render the React code. Pl
 npm start
 ```
 
-3. Open a web browser and navigate to [http://localhost:8000/](http://localhost:8000/) to see the React app in action.
+3. Open a web browser and navigate to `http://localhost:8000/` to see the React app in action.
 
 By following these steps, you will have set up a minimal React web application with Babel and Webpack.
 
@@ -1381,7 +1381,7 @@ In addition to JavaScript, an HTML file is required to render the Vue code. Plac
 npm start
 ```
 
-3. Open a web browser and navigate to [http://localhost:8000/](http://localhost:8000/) to see the Vue app in action.
+3. Open a web browser and navigate to `http://localhost:8000/` to see the Vue app in action.
 
 By following these steps, you will have set up a minimal Vue web application with Babel and Webpack.
 
@@ -2210,7 +2210,7 @@ Create the HTML file for the application in `src/index.html`:
 npm start
 ```
 
-3. Open a web browser and navigate to [http://localhost:8000/](http://localhost:8000/) to see the Angular app in action.
+3. Open a web browser and navigate to `http://localhost:8000/` to see the Angular app in action.
 
 By following these steps, you will have set up a minimal Angular web application with TypeScript and Webpack.
 
@@ -2725,7 +2725,7 @@ export default App;
 * [Vuex Documentation](https://vuex.vuejs.org/)
 * [Vuex Guide](https://vuex.vuejs.org/guide/)
 * [Vuex GitHub Repository](https://github.com/vuejs/vuex)
-* [Vuex Examples](https://vuex.vuejs.org/examples/)
+* [Vuex Getting Started](https://vuex.vuejs.org/guide/)
 
 ### MobX
 
@@ -2739,7 +2739,7 @@ export default App;
 * [NgRx Documentation](https://ngrx.io/docs)
 * [NgRx Guide](https://ngrx.io/guide/store)
 * [NgRx GitHub Repository](https://github.com/ngrx/platform)
-* [Awesome NgRx - Curated List of NgRx Resources](https://github.com/btroncone/awesome-ngrx)
+* [NgRx Store Guide](https://ngrx.io/guide/store)
 
 ### Recoil
 
