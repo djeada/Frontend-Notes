@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="400" viewBox="0 0 960 400" role="img" aria-labelledby="title desc">
+<title id="title">A modal confirmation dialog</title><desc id="desc">A centered dialog asks whether to delete a draft. Cancel and Delete buttons are visible; background content is dimmed.</desc>
+<style>text{font-family:Arial,sans-serif;fill:#17263d}.muted{fill:#52647b}.small{font-size:16px}.body{font-size:20px}.heading{font-size:28px;font-weight:700}.link{fill:#1d4ed8}</style>
+<rect width="960" height="400" rx="18" fill="#f1f5f9"/>
+
+<rect x="48" y="38" width="864" height="324" rx="12" fill="white"/>
+<text x="78" y="88" class="heading">Draft documents</text><rect x="78" y="116" width="520" height="12" rx="6" fill="#d3dce7"/><rect x="78" y="152" width="730" height="94" rx="8" fill="#e8eef5"/>
+<rect width="960" height="400" fill="#17263d" opacity=".48"/>
+<rect x="232" y="68" width="496" height="264" rx="16" fill="white"/>
+<text x="264" y="119" class="heading">Delete this draft?</text><text x="264" y="160" class="body muted">This action cannot be undone.</text><text x="264" y="191" class="body muted">Your published documents will stay.</text>
+<path d="m684 94 14 14 m0 -14 -14 14" stroke="#52647b" stroke-width="2.5"/>
+<rect x="442" y="245" width="112" height="49" rx="8" fill="white" stroke="#1d4ed8" stroke-width="2"/><rect x="437" y="240" width="122" height="59" rx="12" fill="none" stroke="#93c5fd" stroke-width="2"/>
+<text x="498" y="276" text-anchor="middle" class="body link">Cancel</text><rect x="575" y="245" width="120" height="49" rx="8" fill="#b91c1c"/><text x="635" y="276" text-anchor="middle" class="body" style="fill:white">Delete</text></svg>

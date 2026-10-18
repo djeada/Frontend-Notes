@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="400" viewBox="0 0 960 400" role="img" aria-labelledby="title desc">
+<title id="title">Breadcrumb navigation</title><desc id="desc">A breadcrumb trail links Home, Products and Cameras, followed by the current page Mirrorless cameras.</desc>
+<style>text{font-family:Arial,sans-serif;fill:#17263d}.muted{fill:#52647b}.small{font-size:16px}.body{font-size:20px}.heading{font-size:28px;font-weight:700}.link{fill:#1d4ed8}</style>
+<rect width="960" height="400" rx="18" fill="#f1f5f9"/>
+
+<text x="48" y="58" class="heading">Ancestry, from broad to specific</text>
+<rect x="48" y="92" width="864" height="74" rx="12" fill="white" stroke="#d3dce7"/>
+<text x="72" y="137" class="body"><tspan class="link">Home</tspan><tspan dx="22" class="muted">›</tspan><tspan dx="22" class="link">Products</tspan><tspan dx="22" class="muted">›</tspan><tspan dx="22" class="link">Cameras</tspan><tspan dx="22" class="muted">›</tspan><tspan dx="22" font-weight="700">Mirrorless cameras</tspan></text>
+<text x="72" y="229" class="heading">Mirrorless cameras</text><rect x="72" y="256" width="520" height="12" rx="6" fill="#d3dce7"/><rect x="72" y="282" width="410" height="12" rx="6" fill="#d3dce7"/>
+<text x="72" y="351" class="small muted">Ancestor pages are links. The current page is named, not linked.</text></svg>

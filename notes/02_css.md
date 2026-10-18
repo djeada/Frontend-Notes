@@ -691,7 +691,6 @@ In web design, lists are ubiquitous. CSS provides granular control over the appe
 | `list-style-type`    | Specifies the type of list marker.                                            | `disc`, `circle`, `square`, `decimal`, `lower-roman`, `upper-roman`, etc.               | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type)                           |
 | `list-style-position`| Determines the marker’s position relative to the list item content.           | `inside`, `outside`                                                                     | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-position)                       |
 | `list-style-image`   | Allows using an image as the list item marker.                                | `url("path_to_image")`                                                                  | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-image)                          |
-| `marker-offset`      | *(Deprecated)* Sets the distance between the marker and the nearest border edge of the list item box. | `auto`, `<length>`                                                                      | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/marker-offset)                             |
 | `marker-start`       | *(Deprecated)* Specifies a marker for the start of lines, replaced by SVG `marker` attribute. | Depends on SVG marker settings                                                          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/marker-start)                              |
 
 HTML:
@@ -798,7 +797,7 @@ Text is a fundamental aspect of web design, and CSS offers an extensive suite of
 | `vertical-align`   | Sets the vertical positioning of an element relative to its parent or line height. | `baseline`, `sub`, `super`, `top`, `text-top`, `middle`, `bottom`, `text-bottom`, Units like `px`, `em` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align)   |
 | `white-space`      | Specifies how whitespace inside an element is handled.                       | `normal`, `pre`, `nowrap`, `pre-wrap`, `pre-line`                                       | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/white-space)                                    |
 | `word-spacing`     | Adjusts the space between words.                                             | Units like `px`, `em`, `rem`                                                            | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/word-spacing)                                  |
-| `text-outline`     | *(Non-standard)* Defines an outline for the text.                            | `none`, `color`, `width`, `style`                                                       | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-outline)                                   |
+| `-webkit-text-stroke` | Sets the width and color of strokes around text. | `<length> <color>` | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-text-stroke) |
 | `text-overflow`    | Specifies how overflowed content is signaled to the user.                    | `clip`, `ellipsis`                                                                      | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow)                                 |
 | `text-shadow`      | Adds shadow effects to the text.                                             | `color`, `offset-x`, `offset-y`, `blur-radius`                                          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow)                                   |
 | `text-wrap`        | *(Non-standard)* Specifies line breaking rules.                              | `normal`, `none`, `break-word`                                                          | [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-wrap)                                     |
@@ -1415,5 +1414,5 @@ Further Insights:
 - [Isobar Front-end Code Standards](http://isobar-idev.github.io/code-standards/)
 - [HTML Best Practices](https://github.com/hail2u/html-best-practices)
 - [Writing Your Best Code](http://learn.shayhowe.com/html-css/writing-your-best-code/)
-- [Web Accessibility Best Practices](https://www.webaccessibility.com/best_practices.php)
+- [Web Accessibility Best Practices](https://www.w3.org/WAI/fundamentals/)
 - [CleanCSS Formatter](https://www.cleancss.com/css-beautify/)

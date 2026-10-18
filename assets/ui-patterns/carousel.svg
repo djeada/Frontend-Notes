@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="400" viewBox="0 0 960 400" role="img" aria-labelledby="title desc">
+<title id="title">User-controlled carousel</title><desc id="desc">Three cards, previous and next buttons, and a slide-position indicator. The middle card is selected.</desc>
+<style>text{font-family:Arial,sans-serif;fill:#17263d}.muted{fill:#52647b}.small{font-size:16px}.body{font-size:20px}.heading{font-size:28px;font-weight:700}.link{fill:#1d4ed8}</style>
+<rect width="960" height="400" rx="18" fill="#f1f5f9"/>
+
+<text x="48" y="55" class="heading">Featured destinations</text><text x="48" y="87" class="body muted">Choose a slide with the arrows or position buttons.</text>
+<g><rect x="96" y="120" width="240" height="176" rx="12" fill="white" stroke="#d3dce7" stroke-width="1"/><rect x="108" y="132" width="216" height="100" rx="7" fill="#cbe7e4"/><path d="M108 232 l58 -64 44 34 48 -52 66 82Z" fill="#8aa6b8"/><text x="120" y="273" class="body">Lisbon</text></g><g><rect x="356" y="120" width="240" height="176" rx="12" fill="white" stroke="#1d4ed8" stroke-width="3"/><rect x="368" y="132" width="216" height="100" rx="7" fill="#c8d9f5"/><path d="M368 232 l58 -64 44 34 48 -52 66 82Z" fill="#8aa6b8"/><text x="380" y="273" class="body">Kyoto</text></g><g><rect x="616" y="120" width="240" height="176" rx="12" fill="white" stroke="#d3dce7" stroke-width="1"/><rect x="628" y="132" width="216" height="100" rx="7" fill="#ddd7f4"/><path d="M628 232 l58 -64 44 34 48 -52 66 82Z" fill="#8aa6b8"/><text x="640" y="273" class="body">Reykjavík</text></g>
+<circle cx="49" cy="206" r="26" fill="#1d4ed8"/><path d="m55 195 -11 11 11 11" fill="none" stroke="white" stroke-width="3"/>
+<circle cx="911" cy="206" r="26" fill="#1d4ed8"/><path d="m905 195 11 11 -11 11" fill="none" stroke="white" stroke-width="3"/>
+<circle cx="448" cy="332" r="6" fill="#a4b3c5"/><circle cx="480" cy="332" r="7" fill="#1d4ed8"/><circle cx="512" cy="332" r="6" fill="#a4b3c5"/><text x="480" y="373" text-anchor="middle" class="small muted">Slide 2 of 3 · no automatic advance</text></svg>

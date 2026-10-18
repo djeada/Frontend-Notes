@@ -1174,6 +1174,6 @@ In order to list all installed packages, you can use the `npm list` command:
 - [MDN Web Docs - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [You Don't Know JS (book series)](https://github.com/getify/You-Dont-Know-JS)
 - [W3Schools JavaScript Tutorial](https://www.w3schools.com/js/)
-- [JavaScript Garden](https://bonsaiden.github.io/JavaScript-Garden/)
+- [JavaScript Garden](https://github.com/BonsaiDen/JavaScript-Garden)
 - [freeCodeCamp JavaScript Algorithms and Data Structures](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/)
 - [Codecademy JavaScript Course](https://www.codecademy.com/learn/introduction-to-javascript)

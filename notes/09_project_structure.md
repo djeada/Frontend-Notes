@@ -242,9 +242,9 @@ Write a project-specific `README.md` covering purpose, prerequisites, installati
 Some links below were part of the original chapter and are retained for historical context. **An older generator is not automatically a recommended choice today**; check the linked project's current support status and migration path.
 
 - [Rapid Site Development](https://github.com/MWins/rapid-site-development)
-- [A Minimal HTML Document](http://www.sitepoint.com/a-minimal-html-document-html5-edition/)
-- [Reset Revisited by Eric Meyer](http://meyerweb.com/eric/thoughts/2011/01/03/reset-revisited/)
-- [CSS Reset](http://www.cssreset.com/)
+- [MDN: Basic HTML Syntax](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax)
+- [Reset Revisited by Eric Meyer](https://meyerweb.com/eric/thoughts/2011/01/03/reset-revisited/)
+- [Eric Meyer’s CSS Reset](https://meyerweb.com/eric/tools/css/reset/)
 - [HTML5 Boilerplate](https://html5boilerplate.com/)
 - [Node.js Boilerplate](https://github.com/sahat/hackathon-starter)
 - [Express Generator](https://expressjs.com/en/starter/generator.html)
