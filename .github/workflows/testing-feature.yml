@@ -51,10 +51,10 @@ jobs:
               width, height = struct.unpack('>II', data[16:24])
               assert width >= 1000 and height >= 600, f'Unexpected screenshot size: {name}'
               image_sources = (
-              f'../assets/testing-feature/{name}',
-              f'https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/testing-feature/{name}',
-          )
-          assert any(source in text for source in image_sources), f'Missing screenshot reference: {name}'
+                  f'../assets/testing-feature/{name}',
+                  f'https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/testing-feature/{name}',
+              )
+              assert any(source in text for source in image_sources), f'Missing screenshot reference: {name}'
           print(f'PASS: {len(headings)} unique headings, {len(links)} local links, three browser PNGs, {len(text.split())} words')
           PY
       - name: Install locked dependencies
