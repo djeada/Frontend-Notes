@@ -41,6 +41,8 @@ Happy coding, and keep coming back for more goodies!
 
 ## Notes 🤖
 
+Start with [Reading these notes with perspective](notes/README.md) for the historical context, competing approaches, and maintenance lessons alongside the examples.
+
 The notes and resources in this repository are organized by topic, with each topic contained in its own subdirectory. To access a specific topic, simply navigate to the corresponding subdirectory and open the relevant files. We recommend working through the material in the following order:
 
 <p float="left">

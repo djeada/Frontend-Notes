@@ -47,7 +47,7 @@ As with everything in life, there are benefits and costs to using frameworks.
 * When starting to learn a framework, you are presented with a black box. You have no idea what the framework is doing behind the scenes. Understanding the underlying workings of any framework takes time and effort.
 * Frameworks are often quite complicated. It may take some time for you to feel completely comfortable with them.
 * Frameworks frequently contain restrictions on how they may be used. In contrast to using a library, you do not have complete control over the structure of your project. Depending on how you look at it, this might be good or bad. 
-* Unless your project is quite large, utilizing a framework provides little advantage. This includes some comercial products as well. Frameworks are not always the best answer.
+* A small project may gain little from a framework, or may benefit from familiar shared components and team conventions. Compare its concrete coordination needs with the dependency and learning cost.
 * The JavaScript framework ecosystem is notorious for its volatility. There are several new frameworks and libraries being introduced to the ecosystem all the time. 
 
 ### What kinds of frameworks are there? 
@@ -64,6 +64,24 @@ Links:
 1. I recommend first learning the basics of Vanilla JavaScript and working on a few projects in it.
 2. Then, you may try to take a crash course on the framework of your choice to obtain a rough sense of what it is and what it can be used for.
 3. Then, immediately begin converting one of your previous projects to your preferred framework. 
+
+## Different framework philosophies
+
+Component tools address the problem of coordinating interface changes, but place the complexity in different places:
+
+| Approach | Mental model | Cost to understand |
+|---|---|---|
+| React | Describe output from a render's props/state; compose behavior with hooks. | Render snapshots, identity, and synchronization with external systems. |
+| Vue | Templates and reactive dependencies connect state to output. | What is reactive, when dependencies are tracked, and where reusable logic belongs. |
+| Angular | Components within an integrated system for templates, DI, routing, and forms. | Framework conventions and the boundaries between signals, services, and asynchronous streams. |
+
+These models are useful lenses, not performance rankings. React's small UI core leaves application-level decisions to additional tooling; Angular supplies more conventions; Vue supports incremental use and multiple authoring styles. Read each tool's own explanation: [React's UI model](https://react.dev/learn/describing-the-ui), [Vue's reactivity](https://vuejs.org/guide/extras/reactivity-in-depth.html), and [Angular's essentials](https://angular.dev/essentials).
+
+### Why server rendering returned to the conversation
+
+Moving navigation and rendering into a single-page application can preserve client state across interactions, but also puts more work on initial JavaScript loading and execution. Server rendering, static generation, and selective hydration offer other distributions of that work. They are not evidence that client applications have become obsolete. A content-heavy article and a spreadsheet-like editor need different balances.
+
+For example, [Astro's islands](https://docs.astro.build/en/concepts/islands/) keep most content as HTML and hydrate selected interactive components; [Angular hybrid rendering](https://angular.dev/guide/ssr) lets routes use different rendering modes. The practical question is which content must be fresh, personalized, or interactive, and when. Include caching, hydration, navigation, and deployment costs in the answer. Rendering HTML on a server does not remove all client JavaScript or guarantee faster results.
 
 ## React
 
@@ -84,7 +102,7 @@ Pros:
 
 - React is widely used for building user interfaces; usage surveys and hiring demand differ by population and date, so do not infer current market rankings from an undated claim. This popularity also indicates a robust job market and numerous opportunities for React developers.
 - React is maintained by a community and Meta contributors, but organizational backing does not guarantee an indefinite support timeline. This backing provides confidence in React’s longevity and relevance in the industry.
-- The core library of React is relatively small, which makes it lightweight, fast, and easy to learn. Developers can quickly get up to speed and start building applications without needing to understand a vast amount of codebase.
+- React focuses on composing UI, but a small core does not make the full application small or automatically easy to learn. Account for routing, data, rendering, and build choices as well.
 - There is a huge and active community around React. This extensive community provides a wealth of resources, including tutorials, documentation, forums, and third-party libraries. Developers can easily find solutions to common problems, share knowledge, and collaborate on projects.
 - React’s component-based architecture allows for reusable and maintainable code. Developers can create modular components that can be reused across different parts of an application, reducing redundancy and improving code quality.
 - React reconciles component output to update interfaces. Actual performance depends on application architecture, rendering patterns, bundle size and measurement; a virtual DOM is not an automatic performance guarantee.
@@ -96,9 +114,11 @@ Cons:
 - React and its ecosystem evolve rapidly, which can be challenging for developers to keep up with. Frequent updates and changes in best practices require continuous learning and adaptation.
 - Setting up a React project can involve a significant amount of boilerplate code, especially when integrating additional libraries for state management, routing, and other functionalities.
 - While the basics of React are easy to grasp, advanced concepts such as state management, context API, hooks, and server-side rendering can have a steep learning curve.
-- Unlike some frameworks, React does not provide built-in solutions for common functionalities like routing, state management, or form handling. Developers need to rely on third-party libraries to fill these gaps, which can lead to inconsistency and varying quality of solutions.
+- React includes component state and form-related APIs, while application routing and broader data/deployment conventions depend on the surrounding stack. Choosing those integrations adds decisions that a more integrated framework may make for you.
 
 ### Core Elements
+
+**Reading older React:** class lifecycles, higher-order components, and render props explain patterns you will encounter in maintained applications. Hooks provide another way to compose stateful logic without changing the component hierarchy. [Classes remain supported](https://react.dev/reference/react/Component), though React recommends functions for new components. Avoid rewriting a stable component solely to make its syntax newer; migrate when a change simplifies behavior or removes a concrete maintenance problem. An Effect is not a line-for-line replacement for every lifecycle method.
 
 #### Component
 
@@ -668,11 +688,11 @@ function App() {
 }
 ```
 
-#### Concurrent Mode
+#### Concurrent rendering and transitions
 
-Concurrent Mode is a set of new features that help React apps stay responsive and gracefully adjust to the user’s device capabilities and network speed.
+Older articles use “Concurrent Mode” as if it were one switch. React 18 introduced concurrent rendering through features such as transitions. The root API below establishes an application root; it does not mark every update as non-urgent or move expensive JavaScript onto a worker. See the [React 18 explanation](https://react.dev/blog/2022/03/29/react-v18) and [`useTransition`](https://react.dev/reference/react/useTransition).
 
-**Example of Enabling Concurrent Mode:**
+**Current root setup:**
 
 ```jsx
 import { createRoot } from 'react-dom/client';
@@ -680,6 +700,8 @@ import { createRoot } from 'react-dom/client';
 const root = createRoot(document.getElementById('root'));
 root.render(<App />);
 ```
+
+**Practical distinction:** typing into an input should stay urgent; updating an expensive results view may be a transition. Measure interaction delays and choose the boundary deliberately. Concurrency does not make a slow synchronous loop free.
 
 #### Suspense
 
@@ -895,6 +917,14 @@ npm start
 By following these steps, you will have set up a minimal React web application with Babel and Webpack.
 
 ## Vue
+
+### Vue 2, Vue 3, and two supported authoring styles
+
+Vue's incremental adoption model lets a team enhance a page before committing to a full application. But Vue's major versions are not interchangeable: [Vue 2 reached end of life on 31 December 2023](https://v2.vuejs.org/eol/). `new Vue(...)` and global `Vue.use(...)` belong to that older setup; Vue 3 uses `createApp(...)` and installs plugins on the app instance.
+
+Do not confuse this version change with **Options API versus Composition API**. Options groups code by categories such as `data`, `computed`, and `methods`; Composition groups related behavior using functions and composables. Composition can keep a complex feature's state and effects together, while Options can offer a clear structure for a smaller component. [Options API is not deprecated](https://vuejs.org/guide/extras/composition-api-faq.html#will-options-api-be-deprecated). The Options-style components below can be valid Vue 3 code.
+
+**Migration lesson:** check router, store, component-library, and build-plugin compatibility together. Changing the entry point while leaving a Vue 2 compiler or plugin in the dependency tree produces a mixed setup, not a migration.
 
 Vue.js is a progressive JavaScript framework used for building user interfaces and single-page applications. It is designed to be incrementally adoptable, meaning you can use as much or as little of Vue as you need.
 
@@ -1143,41 +1173,41 @@ Vue Router is the official router for Vue.js, making it easy to map components t
 **Example of Vue Router:**
 
 ```javascript
-import Vue from 'vue';
-import Router from 'vue-router';
+import { createApp } from 'vue';
+import { createRouter, createWebHistory } from 'vue-router';
+import App from './App.vue';
 import Home from './components/Home.vue';
 import About from './components/About.vue';
 
-Vue.use(Router);
-
-const router = new Router({
+const router = createRouter({
+  history: createWebHistory(),
   routes: [
     { path: '/', component: Home },
     { path: '/about', component: About }
   ]
 });
 
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#app');
+createApp(App).use(router).mount('#app');
 ```
 
+This uses Vue 3's router API; `App.vue` needs a `<RouterView />` for matched content. History mode also needs host routing that can serve the app on a direct visit to `/about`. See [Vue Router's guide](https://router.vuejs.org/guide/).
+
 ### Vuex
+
+**Status:** Vuex helps explain existing centralized stores, but [its maintainers recommend Pinia for new projects](https://vuex.vuejs.org/). Vuex 4 works with Vue 3; the example below uses that pairing. See the Pinia example in [state management](#state-management-tools) before choosing a new store.
 
 Vuex is a state management pattern + library for Vue.js applications. It serves as a centralized store for all the components in an application, with rules ensuring that the state can only be mutated in a predictable fashion.
 
 **Example of Vuex:**
 
 ```javascript
-import Vue from 'vue';
-import Vuex from 'vuex';
+import { createApp } from 'vue';
+import { createStore } from 'vuex';
+import App from './App.vue';
 
-Vue.use(Vuex);
-
-const store = new Vuex.Store({
-  state: {
-    count: 0
+const store = createStore({
+  state() {
+    return { count: 0 };
   },
   mutations: {
     increment(state) {
@@ -1186,13 +1216,12 @@ const store = new Vuex.Store({
   }
 });
 
-new Vue({
-  store,
-  render: h => h(App)
-}).$mount('#app');
+createApp(App).use(store).mount('#app');
 ```
 
 ### Minimal Web App Using Vue
+
+**Choose the learning goal:** for a new Vue 3 application, the [official quick start](https://vuejs.org/guide/quick-start.html) uses `npm create vue@latest` and a Vite-based setup. The manual Webpack walkthrough below exposes the moving parts for learning or maintenance; it is not required ceremony for every Vue project. Use a Node version supported by your selected tools and keep the lockfile.
 
 Let's take a look at a minimal web app that uses Vue. This guide will walk you through setting up the app from scratch, including installing necessary dependencies, setting up project structure, configuring Babel and Webpack, and writing the actual Vue code.
 
@@ -1240,8 +1269,8 @@ Transpilers are used to convert code between various programming languages or ve
 The transpiler used in this example is Babel. To install it, use the following commands:
 
 ```sh
-npm install --save-dev babel-loader @babel/core @babel/preset-env @babel/preset-react
-npm install --save-dev vue-loader vue-template-compiler
+npm install --save-dev babel-loader @babel/core @babel/preset-env
+npm install --save-dev vue-loader@17 @vue/compiler-sfc@3 style-loader css-loader
 ```
 
 Create a `.babelrc` file to configure Babel. This file, in JSON format, describes how to transpile JavaScript code:
@@ -1270,6 +1299,10 @@ module.exports = {
     entry: path.resolve(__dirname, './src/main.js'),
     module: {
         rules: [
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader'
@@ -1306,8 +1339,10 @@ module.exports = {
 To use Vue, you need to install the `vue` library. Use the following command to install it:
 
 ```sh
-npm install --save vue
+npm install --save vue@3
 ```
+
+Keep `vue` and `@vue/compiler-sfc` on matching versions in the lockfile. Vue 2's `vue-template-compiler` is not the compiler for this setup. See the [Vue Loader repository's v16/v17 notes and compiler explanation](https://github.com/vuejs/vue-loader). Its older published installation page describes the Vue 2 compiler workflow, so check the version before copying commands.
 
 #### The Actual Vue Code
 
@@ -1315,7 +1350,7 @@ In the `src/App.vue` file, include the following Vue template:
 
 ```vue
 <template>
-  <div id="app">
+  <div class="app">
     <h1>Hello World</h1>
   </div>
 </template>
@@ -1327,7 +1362,7 @@ export default {
 </script>
 
 <style scoped>
-#app {
+.app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   color: #2c3e50;
@@ -1339,12 +1374,10 @@ export default {
 In the `src/main.js` file, include the following Vue script:
 
 ```javascript
-import Vue from 'vue';
+import { createApp } from 'vue';
 import App from './App.vue';
 
-new Vue({
-  render: h => h(App),
-}).$mount('#app');
+createApp(App).mount('#app');
 ```
 
 In addition to JavaScript, an HTML file is required to render the Vue code. Place the `index.html` file in the `dist` folder:
@@ -1386,6 +1419,33 @@ npm start
 By following these steps, you will have set up a minimal Vue web application with Babel and Webpack.
 
 ## Angular
+
+### From NgModules to standalone components and signals
+
+NgModules organized declarations and dependency scopes in earlier Angular applications. They remain relevant when maintaining those applications, but [Angular recommends standalone components for new code](https://angular.dev/guide/ngmodules/overview). Standalone components make their dependencies explicit without requiring an app module. This is an evolution within Angular, not a replacement of Angular by a different framework.
+
+For a current CLI project, a small standalone counter can be written as follows. Its HTML needs `<app-root></app-root>`; the CLI supplies the build pipeline:
+
+```typescript
+import { Component, signal } from '@angular/core';
+import { bootstrapApplication } from '@angular/platform-browser';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  template: `<button type="button" (click)="count.update(increment)">
+    Count: {{ count() }}
+  </button>`
+})
+class CounterComponent {
+  readonly count = signal(0);
+  readonly increment = (value: number) => value + 1;
+}
+
+bootstrapApplication(CounterComponent).catch(console.error);
+```
+
+[Signals](https://angular.dev/guide/signals) model reactive values and derivations; asynchronous streams still have different concerns, such as cancellation and combining events. Do not mechanically replace every RxJS pipeline with a signal. The module-based examples below document older application structure; follow the [standalone migration](https://angular.dev/reference/migrations/standalone) when changing an existing app, and use version-matched CLI instructions for a new one.
 
 Angular is a platform and framework for building single-page client applications using HTML and TypeScript. Angular is developed and maintained by Google, providing a robust and complete solution for web application development.
 
@@ -1435,7 +1495,7 @@ export class AppComponent {
 
 #### Modules
 
-Modules are containers for a cohesive block of code dedicated to an application domain, a workflow, or a set of related capabilities. Every Angular application has at least one module, the root module.
+NgModules group declarations, imports, and providers in module-based applications. Standalone applications do not require a root NgModule. If you place a component in an NgModule's `declarations`, declare it with `standalone: false` on current Angular; the standalone counter above is bootstrapped directly instead.
 
 **Example of an Angular Module:**
 
@@ -1462,13 +1522,15 @@ export class AppModule { }
 
 Directives are classes that add additional behavior to elements in your Angular applications. There are three kinds of directives in Angular: components, structural directives, and attribute directives.
 
-**Example of a Structural Directive (ngIf):**
+**Older structural-directive syntax (`ngIf`):**
 
 ```html
 <div *ngIf="isVisible">
   This is visible.
 </div>
 ```
+
+For new templates, use Angular's [built-in control flow](https://angular.dev/guide/templates/control-flow), such as `@if (isVisible) { <div>This is visible.</div> }`. Read old `*ngIf` examples as version-specific syntax; use the official migration for an existing application.
 
 **Example of an Attribute Directive:**
 
@@ -1957,26 +2019,19 @@ export class AppComponent {
 </div>
 ```
 
-#### Angular Universal (Server-Side Rendering)
+#### Server-side rendering: from Angular Universal to Angular SSR
 
-Angular Universal allows you to perform server-side rendering (SSR) of your Angular application. This can improve performance, SEO, and user experience.
-
-**Setting Up Angular Universal:**
+Older tutorials use Angular Universal and `@nguniversal/express-engine`. Current Angular integrates server and hybrid rendering through `@angular/ssr`. In an existing compatible CLI project, add it with:
 
 ```bash
-ng add @nguniversal/express-engine
+ng add @angular/ssr
 ```
 
-**Example of Angular Universal Application:**
-
-After running the command above, Angular CLI will automatically set up an Angular Universal application. You can build and serve your application with SSR using the following commands:
-
-```bash
-npm run build:ssr
-npm run serve:ssr
-```
+Choose prerendering or request-time rendering by route, then inspect the generated scripts and deployment output. Script names from older Universal tutorials are not a stable interface. SSR adds server execution and caching concerns; it does not automatically improve every route. Follow the [current SSR guide](https://angular.dev/guide/ssr).
 
 ### Minimal Web App Using Angular
+
+**Historical build anatomy:** the walkthrough below demonstrates an NgModule-based, manually configured Webpack application. It is not the current Angular CLI setup recipe. Use the [Angular installation guide](https://angular.dev/installation) for new work; match Angular, TypeScript, Node, compiler tooling, and bootstrapping style when reproducing an older project. The standalone example above shows the newer component model.
 
 Let's take a look at a minimal web app that uses Angular. This guide will walk you through setting up the app from scratch, including installing necessary dependencies, setting up project structure, configuring TypeScript and Webpack, and writing the actual Angular code.
 
@@ -2216,9 +2271,60 @@ By following these steps, you will have set up a minimal Angular web application
 
 ## State Management Tools
 
-State management is crucial in front-end development, especially for applications with complex data flows and interactions. Various state management tools and libraries can help manage application state efficiently. Below, we'll cover some of the most popular state management tools: Redux, Vuex, MobX, NgRx, and Recoil.
+State tools make different tradeoffs about ownership, updates, and observation. The examples below include both current approaches and historical APIs worth recognizing in existing code.
+
+### Choose the owner before the library
+
+A dialog's open state may belong to one component; a shareable search filter may belong in the URL; cached server data needs freshness and invalidation rules. Putting all three in one global object does not solve their different lifecycles. Copying fetched data into a store also creates responsibility for keeping that copy current.
+
+Redux emphasizes explicit actions and reducers; reactive stores emphasize observable dependencies; local state keeps ownership close to a component. Choose the smallest scope that gives all consumers a consistent view. A team debugging cross-screen updates may value explicit event history more than a tiny counter example suggests.
+
+### Pinia for new Vue stores
+
+Vuex established centralized state with mutations and actions. Pinia is the Vue team's recommended successor for new projects; existing Vuex stores can migrate incrementally. Install `pinia`; a minimal Vue 3 setup uses two modules:
+
+```javascript
+// stores/counter.js
+import { defineStore } from 'pinia';
+export const useCounterStore = defineStore('counter', {
+  state: () => ({ count: 0 }),
+  actions: {
+    increment() { this.count += 1; }
+  }
+});
+```
+
+```javascript
+// main.js
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
+import App from './App.vue';
+createApp(App).use(createPinia()).mount('#app');
+```
+
+Inside a component's `setup`, assign `const counter = useCounterStore()` and use `counter.count` and `counter.increment()`. Directly destructuring reactive state can lose its reactive connection; use the documented helpers when needed. See [Pinia's core concepts](https://pinia.vuejs.org/core-concepts/).
 
 ### Redux
+
+**Evolution:** the hand-written action types and `createStore` below explain Redux's original mechanics. For new code, [Redux recommends Redux Toolkit](https://redux.js.org/usage/migrating-to-modern-redux). `createStore` is deprecated as guidance, but [remains functional](https://redux.js.org/api/createstore); Redux itself has not been replaced by Toolkit.
+
+The same counter can use `createSlice` and `configureStore`. Install `@reduxjs/toolkit`; React bindings additionally use `react-redux` and a `<Provider store={store}>` around the app:
+
+```javascript
+import { configureStore, createSlice } from '@reduxjs/toolkit';
+const counter = createSlice({
+  name: 'counter',
+  initialState: { count: 0 },
+  reducers: {
+    increment(state) { state.count += 1; },
+    decrement(state) { state.count -= 1; }
+  }
+});
+export const { increment, decrement } = counter.actions;
+export const store = configureStore({ reducer: counter.reducer });
+```
+
+The apparent mutation is safe **inside these Toolkit reducers** because Immer produces immutable updates; it is not permission to mutate arbitrary Redux state. Toolkit reduces ceremony while retaining actions, reducers, and predictable updates. Reference: [`createSlice`](https://redux-toolkit.js.org/api/createSlice).
 
 Redux is a predictable state container for JavaScript apps. It is commonly used with React but can be used with any other JavaScript framework or library.
 
@@ -2288,6 +2394,8 @@ export default App;
 ```
 
 ### Vuex
+
+**Legacy API example:** the code in this section uses Vue 2/Vuex 3 conventions. Read it to understand a store you are maintaining; do not combine it with the Vue 3 setup above. Pinia is the recommended starting point for a new Vue store.
 
 Vuex is the state management pattern and library for Vue.js applications, designed to manage the state of the entire application.
 
@@ -2540,19 +2648,19 @@ export class AppComponent {
 }
 ```
 
-### Recoil
+### Recoil: historical example
 
-Recoil is a state management library for React that provides a minimal and flexible API for managing state.
+Recoil explored atom-based state and derived selectors for React. Its [repository was archived on 1 January 2025](https://github.com/facebookexperimental/Recoil); treat the code below as historical context, not a recommendation for a new dependency. Before changing React versions in an existing Recoil application, verify compatibility and plan how its atoms, selectors, and consumers will migrate. There is no single automatic successor for every application.
 
-Pros:
+Design ideas illustrated:
 
 - Minimal boilerplate and easy to use.
-- Great performance with fine-grained reactivity.
-- Easy integration with React's concurrent mode.
+- Fine-grained dependencies between atoms and selectors.
+- Sharing state without threading it through each intermediate component.
 
-Cons:
+Maintenance constraints:
 
-- Relatively new with a smaller community.
+- The upstream repository is archived and read-only.
 - Limited to React.
 
 Core Concepts:

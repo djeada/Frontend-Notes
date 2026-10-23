@@ -139,6 +139,20 @@ src/tests/cart.test.js               src/features/cart/cart.test.js
 
 A feature-first arrangement can simplify locating its tests and styles. Shared primitives (button, dialog, formatting functions) can still live in `src/shared/`. Use import boundaries to prevent cycles rather than expecting directory names to enforce architecture. The illustration teaches **interface hierarchy**, not a benchmark proving one file tree is faster.
 
+### Why build setups changed
+
+Older JavaScript setups often teach Babel and Webpack together because projects needed module processing, syntax transforms, and asset handling before code could run in their target browsers. That walkthrough is useful for understanding the pipeline, but it does not mean every small page needs those tools.
+
+Native browser modules opened another option. [Vite's explanation](https://vite.dev/guide/why) describes serving source modules on demand during development instead of bundling the entire application before each start. Production builds still have separate optimization requirements. Avoid memorizing a particular internal bundler as the definition of Vite: tool implementations change, while the distinction between development feedback and shipped output remains useful.
+
+**Migration judgment:** a slow development loop is a concrete reason to investigate build tooling. A different folder naming preference is not. Before replacing a working build, account for aliases, CSS processing, environment variables, test transforms, and deployment output. Preserve a representative feature's behavior while changing the pipeline; otherwise a build migration becomes entangled with an application rewrite.
+
+### Architecture records should explain the compromise
+
+Feature folders and folders by technical type solve different navigation problems. A team shipping vertical features may prefer keeping UI, data access, and tests together; a small multi-page site may be clearer with a simple HTML/CSS/JS split. Revisit the structure when a real change repeatedly crosses unclear boundaries.
+
+For example: “We colocated cart tests with the cart feature so rule changes can be reviewed together. The tradeoff is that shared helpers need explicit ownership. Revisit when a second feature needs the same behavior.” This gives the next developer a reason and a trigger for change, rather than a directory tree presented as universal architecture.
+
 ### Best practices for a production build
 
 #### Deployment artifacts and environment variables are separate concerns

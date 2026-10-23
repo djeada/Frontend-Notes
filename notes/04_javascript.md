@@ -21,6 +21,16 @@ Main idea:
 6. **Debugging and testing** are critical skills for identifying and resolving issues in JavaScript code. Familiarity with browser developer tools and debugging methods improves development efficiency.
 7. Regular use of resources like **MDN** (Mozilla Developer Network) is recommended for up-to-date documentation, learning new JavaScript features, and staying informed about best practices.
 
+### How JavaScript's responsibilities grew
+
+Small scripts can update a page by changing the DOM directly. As interaction grows, the harder problem becomes keeping the DOM, application state, and in-flight requests consistent. Frameworks can organize that work, but the browser's event loop and network behavior still determine what happens.
+
+**Syntax evolution does not remove ownership problems.** Callbacks, promises, and `async`/`await` express asynchronous work differently. Consider a search box: the request for “ca” starts first, the request for “cat” finishes first, and then the older response arrives. Both requests can succeed while the interface displays the wrong results. Cancel obsolete work where possible and/or verify that a response still belongs to the current query before displaying it. `await` alone provides no ordering between independent calls.
+
+For ordinary requests, `fetch` provides a promise-based API. Older `XMLHttpRequest` code can still be appropriate where its event API is useful, including [upload progress events](https://xhr.spec.whatwg.org/#the-upload-attribute); its age is not evidence that it is deprecated. Whichever API you use, define cancellation, loading, failure, and stale-result behavior. See [Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch).
+
+**Imperative versus declarative:** `element.textContent = total` says how to update one node; a component describing its output from `total` says what should be visible for that state. Direct DOM code fits small enhancements. Declarative composition can reduce manual synchronization across a larger screen. Mixing both on the same subtree creates competing owners, so establish an integration boundary when adding a framework to an existing page.
+
 ### Fundamentals
 
 #### See what JavaScript changes in the browser
@@ -811,9 +821,10 @@ console.log(third); // 3
 Let's take a look at aexample:  
 
 ```javascript
-async function getData() { // async function declaration
-  var response = await fetch("https://jsonplaceholder.typicode.com/users"); // awaitings the response of the fetch call
-  var data = await response.json(); // awaitings the response of the json call
+async function getData() {
+  const response = await fetch("https://jsonplaceholder.typicode.com/users");
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  const data = await response.json();
   console.log(data);
 }
 ```
@@ -863,6 +874,8 @@ for (var element of array) {
 ```
 
 #### Modules
+
+**Historical context:** globals and ordered script tags made dependencies implicit; module systems made imports and exports explicit. Browser ES modules now provide a native option with `<script type="module">`, but a bundler can still resolve packages, transform syntax, and optimize delivery. `import` syntax does not mean a browser can resolve every npm package name by itself. Serve browser examples over HTTP and distinguish native module URLs from imports handled by your build tool. See the [MDN module guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules).
 
 Modules are a way to organize code into separate files.
 
@@ -952,17 +965,19 @@ console.log(arr.front()); // 1
   
 ### TypeScript
 
-TypeScript is a superset of JavaScript that compiles to plain JavaScript. It introduces many new features such as classes, interfaces, generics, and more.
+TypeScript adds static type checking and type syntax to JavaScript. Classes are also a JavaScript feature; interfaces and type annotations describe contracts for the checker and are erased from emitted JavaScript.
+
+**Two reasonable philosophies:** JavaScript with JSDoc/checking can keep a small project's tooling simple; TypeScript can make relationships and refactors easier to check across a larger codebase. Neither eliminates runtime uncertainty. An API returning `{ "price": "unknown" }` is not fixed by writing `data as Product`: assertions do not validate data. Validate untrusted values at the boundary and use types to describe the validated result. Reference: [TypeScript's basics and type erasure](https://www.typescriptlang.org/docs/handbook/2/basic-types.html).
 
 Some of the advantages of using TypeScript are:
 
 * Type-checking - TypeScript will help you catch errors earlier in the development cycle.
 * Stronger typing - TypeScript will help you avoid bugs caused by type errors.
-* TypeScript always exposes compilation errors during development (pre-compilation). 
+* Type errors are reported when the checker runs. Some development tools only strip types, so run a dedicated check such as `tsc --noEmit` in CI; emitting JavaScript and checking types are distinct operations.
 
 #### Compilation
 
-TypeScript has an integrated development environment that allows you to compile your code and see the errors that are generated.
+TypeScript provides a compiler and language-service support for editors; it is not itself an integrated development environment.
 
 * `tsc` - The TypeScript compiler is used to compile TypeScript code into JavaScript.
 * `tsc --init` - This command will create a tsconfig.json file in the current directory.
@@ -1004,18 +1019,21 @@ This file contains information used by the TypeScript compiler. A small example 
 
 2. Decide on a build tool to use.
 
-Popular build tools include Webpack and Gulp. Webpack for example also uses configuration files to specify how to build the project. The configuration files are called `webpack.config.js` and look something like this:
+Choose a build tool only if the project needs one. A Webpack project using `ts-loader` can place the following rule in `webpack.config.js`; older tutorials may call the rule array `loaders`:
 
 ```javascript
-module: {
-    loaders: [
-        { test: /\.ts$/, loader: 'ts-loader' }
-    ]
-}
+module.exports = {
+  resolve: { extensions: ['.ts', '.js'] },
+  module: {
+    rules: [{ test: /\.ts$/, exclude: /node_modules/, use: 'ts-loader' }]
+  }
+};
 ```
 
-3. Change extension of all `.js` files to `.ts`.
-4. Refactor till you get rid of compilation errors.
+The ES5/CommonJS compiler configuration above illustrates an older target, not a default for every browser app. Match `target`, `module`, libraries, and module resolution to the runtime/build tool; CommonJS output cannot simply be loaded as a native browser module. See [Webpack's TypeScript guide](https://webpack.js.org/guides/typescript/).
+
+3. Migrate a small boundary first; JavaScript and TypeScript can coexist with an appropriate `allowJs` configuration.
+4. Add useful types, preserve behavior, and make type checking part of the build/CI contract. Renaming every file at once is not required.
 
 ### Package managers
 

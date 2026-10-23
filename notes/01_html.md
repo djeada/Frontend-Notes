@@ -24,6 +24,14 @@
 7. It’s useful to **reference resources like MDN** (Mozilla Developer Network) for up-to-date documentation, examples, and best practices for writing effective HTML code.
 8. A valuable skill is the ability to **recreate web pages** using HTML, ensuring that the developer can accurately mirror design specifications and build functional, accessible content layouts.
 
+### From linked documents to application interfaces
+
+HTML began as a way to describe linked scientific documents. That origin explains why headings, paragraphs, links, and forms remain useful foundations even for an application. The [HTML Standard's history](https://html.spec.whatwg.org/multipage/introduction.html#history-2) traces the later expansion into application features. Today HTML is a **Living Standard**: “HTML5” is a useful historical term, not a frozen feature set that a doctype selects.
+
+Two approaches can produce similar screenshots but different failure behavior. With **progressive enhancement**, a real link navigates and a form submits to a server before JavaScript adds a faster interaction. A client-rendered application may instead depend on JavaScript for its initial interface. That can suit a rich editor, but it makes script loading, initialization, and recovery part of the critical path. See [MDN's explanation of progressive enhancement](https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement).
+
+**A decision to practice:** a registration form works on your laptop but the JavaScript bundle fails on a slow connection. Does the visitor still have a usable form, or only an empty container? If the product requires the former, preserve meaningful HTML, an actual submission endpoint, and server validation. If the latter is intentional, provide an understandable loading/error path and test it. A framework does not make this decision for you.
+
 ### Document Structure
 
 #### Worked page: structure, behavior, and visual output
@@ -784,14 +792,14 @@ The following are some of the commonly used audio formats:
 * Use **version control systems** like Git to maintain a record of code changes, allowing for collaborative work and easier rollbacks when necessary.
 * Regularly perform **validation checks** using tools such as the W3C HTML validator to ensure the quality and compliance of your code.
 * Design with a **mobile-first** approach, so mobile users experience optimized functionality before scaling up for larger screens.
-* Stick to **HTML5 standards**, taking advantage of the latest features and enhanced semantic capabilities it offers.
+* Follow the **HTML Living Standard** and check browser support for the specific features you use.
 * Choose the **right tags and attributes** for each element, ensuring that they align with the content’s purpose and enhance readability.
 * Include **comments** in the code to explain complex sections and document significant design decisions for future reference.
 
 #### Formatting
 
 * Adopt a **consistent naming convention** for classes and IDs, such as BEM or camelCase, to maintain code readability.
-* For void elements, use **self-closing tags** like `<img src="..." alt="..." />` to improve readability and ensure the code conforms to modern standards.
+* Write void elements consistently, for example `<img src="..." alt="...">`. In HTML, a trailing slash does not make an element self-closing; XML and JSX use different syntax rules. See the [HTML syntax rules](https://html.spec.whatwg.org/multipage/syntax.html#start-tags).
 * Increase **clarity through spacing** by starting new blocks, lists, or table elements on a new line and consistently indenting nested elements.
 * Use **double quotation marks** for attribute values, maintaining consistency throughout your HTML.
 * Stick to **lowercase tag names** for uniformity, as it is easier to read and more compatible with XHTML requirements.

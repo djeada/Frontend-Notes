@@ -30,6 +30,21 @@ The old table displayed unverified starting monthly hosting prices alongside a s
 
 ## Hosting
 
+### From copying files to choosing an execution model
+
+An older deployment tutorial may end with uploading files to one server. Managed builds, CDNs, and functions automate parts of that work, but they do not remove the question of **where code runs and who operates it**. A managed service takes over some operational tasks; its runtime limits and deployment conventions become part of your architecture.
+
+| Model | When content is produced | Practical tradeoff |
+|---|---|---|
+| Static files or static generation | Before a request, often during a build. | Simple delivery and caching; fresh or personalized data needs another mechanism. |
+| Server rendering | On a server for a request, possibly with caching. | Access to request-specific data; server capacity, failures, and cache isolation need attention. |
+| Browser rendering | After JavaScript loads in the visitor's browser. | Rich client interaction; initial loading, API availability, and recovery are critical. |
+| Managed functions or edge execution | In a provider-controlled runtime when invoked. | Less server administration; runtime compatibility, limits, and observability still matter. |
+
+These categories can coexist. A static product page can call an API, and a server-rendered page can hydrate interactive components. [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages) illustrates static hosting; [Angular's rendering guide](https://angular.dev/guide/ssr) illustrates route-level rendering choices. A client framework dependency does not by itself require a server runtime, and an application needing server execution cannot be deployed by copying only its public assets.
+
+**Release lesson:** uploading a new HTML file before its referenced JavaScript chunks can expose a half-deployed version. Removing old hashed chunks immediately can also break a tab still running an older release. Prefer a coherent, versioned release and a deliberate cache/rollback policy. Reproduce failures from an old open tab as well as a fresh visit; a successful homepage request is not the whole deployment contract.
+
 ### Worked deployment: a static HTML/CSS/JavaScript site
 
 Start with a local site containing `index.html`, `styles.css`, `script.js` and any image files. Confirm that each relative URL resolves from the route where it appears. For the repository's [visual demo](../projects/visual-examples/README.md), launch a local server from the **repository root**:

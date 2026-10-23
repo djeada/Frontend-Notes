@@ -20,6 +20,16 @@ This chapter is a **directory, not a certification program**. The sites below ma
 
 This directory collects tools for templates, components, typography, images, and design inspiration. **A link is a starting point, not an endorsement or a license grant.** Before adding an asset to a project, check its current price, license, attribution requirements, maintenance, accessibility, and compatibility with your stack. A free-to-view design is not necessarily free to copy or redistribute.
 
+### Learn the idea without inheriting its era
+
+A tutorial can still explain a useful mental model while its installation instructions have aged. Check the **date, major version, and purpose** separately. A historical explanation of Redux reducers can be valuable even when its hand-written store setup should become Toolkit code. A Vue Options API example is not obsolete merely because a newer article uses Composition API.
+
+Read in layers: understand the concept here, check the current API in the maintainer's reference, then consult a migration guide for an existing project. For a concrete example, compare the reasons for retiring Node Sass with its [maintainers' end-of-life announcement](https://sass-lang.com/blog/node-sass-is-end-of-life/). The lesson is to change an unsupported implementation deliberately, not to conclude that all Sass syntax or every compiled stylesheet is obsolete.
+
+**A useful learning exercise:** rebuild one small example, change a requirement, and explain which assumptions break. Make a static theme switch at runtime; put a full-width card in a sidebar; reject a request that previously always succeeded. This exposes the boundary of the technique more effectively than collecting another near-identical “Hello World.”
+
+When saving a resource, add one sentence about its role: “good explanation of the concept; setup targets version X; use the current migration guide for installation.” That annotation helps future readers understand why an older link is still here.
+
 ### 📄 Templates
 
 - [Cruip](https://cruip.com/)
