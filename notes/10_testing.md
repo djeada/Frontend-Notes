@@ -242,6 +242,16 @@ If **only the unit test** fails, inspect the function and test fixture. If the u
 
 When you discover a genuine bug, first write a test that reproduces the failure, confirm that it fails for the expected reason, fix the product, and keep the test. For a requirement that has changed intentionally, update the contract and tests *with the product decision* and review the resulting diff. Tests are executable agreements, not untouchable historical accidents.
 
+### Different philosophies about where confidence comes from
+
+The **test pyramid** favors many small, fast checks and fewer broad journeys, partly to control feedback time and maintenance. The **testing trophy** gives integration tests more weight so that checks exercise cooperating parts. Read the original discussions of the [pyramid](https://martinfowler.com/bliki/TestPyramid.html) and [trophy](https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications) as tradeoff models, not mandatory percentages. Neither replaced the need for judgment about your application's failures.
+
+The shipping estimator illustrates the tension. Many generated price combinations are cheap to verify as unit tests; only testing arithmetic misses a broken request or an unusable form. Driving every price combination through a browser adds time and more failure points without necessarily adding useful confidence. Put a rule's detailed boundaries near the rule, and use broader checks to verify the connections that matter.
+
+[Testing Library's principles](https://testing-library.com/docs/guiding-principles/) emphasize observable DOM behavior over component instances. A test that inspects private component state can fail after a class-to-function refactor even when the visitor's experience is unchanged. Conversely, a DOM-only test cannot establish real layout behavior. Choose the observation boundary according to the failure you need to detect.
+
+**Maintenance lesson:** if a test fails intermittently, investigate shared state, uncontrolled time, network dependencies, and ambiguous selectors. A retry can collect evidence, but passing on the third attempt does not explain the defect. [Playwright's recommendations](https://playwright.dev/docs/best-practices) cover isolation, user-facing locators, and retrying assertions. When changing runners, preserve important assertions and compare behavior; a green suite with fewer meaningful checks is not a successful migration.
+
 ## 9. Selecting modern testing tools for an existing application
 
 Choose tools by **which boundary you need to observe, your existing stack, and maintenance costs**, not a popularity claim. A runner discovers tests, an assertion library expresses expectations, a DOM/component helper renders or queries components, a request mock controls a dependency, and a browser driver performs genuine browser interactions. Some packages combine roles. This guide uses `node:test` and Playwright because they match its small Node server and browser workflow, not because every project should copy the stack.

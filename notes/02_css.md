@@ -19,6 +19,19 @@
 4. Regular use of resources like **MDN** (Mozilla Developer Network) is valuable for staying informed on CSS standards, learning best practices, and understanding how to leverage newer features effectively.
 5. Being able to **build and customize components** is crucial, as it allows developers to recreate UI elements, like buttons, cards, and modals, purely with CSS for both design precision and responsiveness.
 
+### Why layout advice changed
+
+CSS work began in 1994; CSS1 became a recommendation in 1996 ([W3C history](https://www.w3.org/Style/CSS/history.html)). As pages became application interfaces, developers stretched document-layout tools into column systems. A float-based layout with percentage widths and clearfix rules made sense before dedicated layout systems were available. The [Grid specification's motivation](https://www.w3.org/TR/css-grid-1/#background) describes the fragility of those workarounds.
+
+| Approach | What to use it for | What the newer approach changes |
+|---|---|---|
+| HTML tables | Tabular data with row/column relationships. | Grid expresses page layout without turning it into a data table. |
+| Floats | Text wrapping around an image or another floated box. | Flexbox/Grid avoid float-clearing workarounds for interface layout. Floats themselves are not deprecated. |
+| Flexbox | Arranging and aligning items primarily along one axis. | Grid adds explicit relationships across rows and columns; neither replaces the other. |
+| Fixed breakpoints | Changes tied to the viewport, such as page navigation. | Container queries let a reusable component react to its available space. |
+
+**Maintenance lesson:** when replacing an old float layout, first inspect its DOM order and content assumptions. A neat Grid arrangement can still produce a confusing keyboard sequence if visual ordering differs from source order. Choose the layout model by the relationship between elements, then test long labels and narrow widths before deleting the old rules.
+
 ### Integrating CSS with HTML
 
 #### Separate content from presentation, then verify the result
@@ -1253,12 +1266,34 @@ Additional Insights:
 
 Responsive design ensures that websites adapt and render optimally across a variety of devices. It aims to offer a consistent user experience from the smallest mobile device to the largest desktop monitor.
 
+#### Viewport decisions versus component decisions
+
+A card can be narrow inside a desktop sidebar and wide on a small page. A viewport query cannot distinguish those contexts. An inline-size container query can; the wrapper establishes the measurement boundary and the query styles its descendant:
+
+```html
+<div class="card-slot">
+  <article class="summary-card">
+    <h2>Delivery</h2><p>Shipping details for your order.</p>
+  </article>
+</div>
+```
+
+```css
+.card-slot { container-type: inline-size; }
+.summary-card { display: grid; gap: 1rem; }
+@container (min-width: 30rem) {
+  .summary-card { grid-template-columns: 1fr 2fr; }
+}
+```
+
+Resize the **wrapper**, keeping the viewport fixed, to see the difference. Use viewport queries for page-level decisions and container queries for component-level ones; they can coexist. Keep a usable default layout and check your supported browsers. Reference: [MDN container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries).
+
 #### Responsive Grid vs. Fluid Grid
 
-- A responsive grid uses a **fixed** grid system, commonly based on a 12-column layout, with specific breakpoints in pixels to accommodate different screen sizes. At these breakpoints, the design may shift to a new column arrangement or selectively hide or show certain elements for optimal display.
-- Fluid grids offer **greater flexibility** than responsive grids by using percentages to define element widths. This approach allows elements to continuously adjust in size relative to their parent container, enabling them to expand and contract smoothly as the viewport changes.
+- **Responsive** describes adaptation to available space; it does not require a fixed 12-column system or pixel breakpoints.
+- **Fluid** dimensions grow and shrink continuously, using percentages, flexible tracks, or other relative sizing. A responsive layout can combine fluid sizing with breakpoint changes.
 
-Recommended Number of Columns:
+Possible design-system column counts, not device requirements:
 
 | Device Type | Number of Columns |
 |-------------|--------------------|
@@ -1268,7 +1303,7 @@ Recommended Number of Columns:
 
 #### Mobile First Design
 
-Adopting a **Mobile First** design strategy means building the initial design for the smallest screens (mobile devices) and then progressively enhancing the design for larger screens. This methodology ensures that mobile users receive only the essential features and content, helping improve performance and user experience on slower networks.
+Adopting a **mobile-first** styling strategy means starting with a usable narrow layout and adding rules for more space. It does not by itself reduce downloads or justify removing essential functionality from small screens; asset loading and content priorities need separate decisions.
 
 #### Media Queries
 

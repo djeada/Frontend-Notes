@@ -2,6 +2,35 @@
 
 Use these expandable questions to test explanations, not just terminology. Before opening an answer, predict the result and try a small browser example. The categories cover HTML, CSS, JavaScript, protocols and hosting. Examples are illustrative; versions, browser support and hosting prices should be verified when you use them.
 
+## Engineering judgment: explain the history and the choice
+
+These scenarios ask for a defensible decision rather than a fashionable tool name. Before opening an answer, state the constraint, the downside of your choice, and what evidence would change your mind.
+
+<details><summary>A Bootstrap 4 navigation example stops collapsing after you change only its CSS URL to v5. What did the upgrade miss?</summary>
+
+The markup and JavaScript must match the CSS version. Bootstrap 5 uses attributes such as `data-bs-toggle` and does not require jQuery; v4's plugin setup and `data-toggle` are a different contract. Use the matching bundle, update the markup, and test keyboard/collapse behavior. This is a framework migration, not only an asset replacement. See the [Bootstrap version context](03_css_frameworks.md#bootstrap).
+</details>
+
+<details><summary>A stylesheet uses Sass only for colors and nesting. Should you remove Sass? Would the answer change for a library generating hundreds of variants?</summary>
+
+Native custom properties and nesting may remove the first project's need for compilation, provided support and behavior fit its requirements. Build-time generation and Sass functions can still justify a preprocessor in the second. Inventory actual features and dependencies before migrating. Retiring Node Sass means replacing an unsupported implementation; it does not mean Sass itself has ended. See [why preprocessors mattered](03_css_frameworks.md#why-preprocessors-mattered-and-what-remains-useful).
+</details>
+
+<details><summary>A Vue component uses data, computed, and methods. Is that evidence it requires a Vue 2 migration?</summary>
+
+No. That is the Options API, which remains supported in Vue 3. Check the installed version, application entry point, compiler, and plugins. `new Vue(...)` identifies an older setup; Options syntax alone does not. Choose Composition API when its organization and reuse benefits help the component, not because every older-looking syntax is deprecated. See [Vue's version and authoring distinctions](05_javascript_frameworks.md#vue-2-vue-3-and-two-supported-authoring-styles).
+</details>
+
+<details><summary>A content site and an interactive editor both use components. Should they have the same rendering and hosting model?</summary>
+
+Not necessarily. Static HTML with a few hydrated interactions may fit the content site; persistent client state may be central to the editor. Request-time personalization, freshness, network conditions, caching, and operational capacity affect the choice. Compare first usable content and important interactions under representative conditions. A component library does not decide where its application must execute. See [rendering philosophies](05_javascript_frameworks.md#why-server-rendering-returned-to-the-conversation) and [hosting models](11_hosting_websites.md#from-copying-files-to-choosing-an-execution-model).
+</details>
+
+<details><summary>A form has many passing isolated tests but repeatedly breaks when the endpoint response changes. Should you replace the test runner or add more tests at the same level?</summary>
+
+First address the missing boundary: verify the response contract and the form's observable success/failure behavior with cooperating parts. Keep detailed validation cases as small tests and a few important browser journeys. Changing runners alone does not create that coverage. The pyramid and trophy suggest different distributions of checks; neither is a mandatory ratio. See [testing philosophies](10_testing.md#different-philosophies-about-where-confidence-comes-from).
+</details>
+
 ## HTML
 
 ### Applied HTML scenarios — predict, then verify

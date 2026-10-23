@@ -28,6 +28,14 @@ The two most common preprocessors are:
 * [SASS / SCSS](https://sass-lang.com/)
 * [LESS](https://lesscss.org/)
 
+#### Why preprocessors mattered, and what remains useful
+
+Sass and Less offered variables, nesting, reusable rules, and generation at a time when native CSS offered fewer authoring tools. Native custom properties and nesting now cover some of those needs, but with different semantics: a browser can recalculate a custom property through the cascade, while a Sass variable helps generate CSS at build time. A theme that changes after a user action and a loop generating dozens of utility classes are different requirements.
+
+The **implementation** also matters. [Node Sass reached end of life in 2024](https://sass-lang.com/blog/node-sass-is-end-of-life/), and [LibSass reached end of life in 2025](https://sass-lang.com/blog/libsass-is-end-of-life/). Use maintained Dart Sass when Sass is needed. Its [module migration guidance](https://sass-lang.com/documentation/breaking-changes/import/) replaces global Sass `@import` with `@use`/`@forward`; ordinary CSS imports are a separate mechanism.
+
+**Before removing Sass:** inventory mixins, functions, generated selectors, and third-party Sass dependencies. Replacing `$color` with `--color` is not a complete migration plan. Conversely, do not add a compiler just to name three colors that native custom properties already express clearly.
+
 #### An outline of common features
 
 Let's delve into some of the most prevalent CSS preprocessor features and see how they stack up against the current modular CSS specifications. There is no single language version called “CSS4”; different CSS modules have their own levels.
@@ -454,7 +462,19 @@ VIII. **Deploy Your Project**: For deployment, upload the `index.html` and `styl
 
 ### CSS Frameworks
 
-CSS frameworks are essential tools in modern web development. They offer pre-written CSS code, helping developers to quickly build attractive and responsive websites without starting from scratch.
+CSS frameworks offer reusable styles and conventions. They can speed up development when those conventions fit the product; native CSS remains a reasonable choice for a small or specialized interface.
+
+#### Different philosophies: where should styling decisions live?
+
+| Approach | Main benefit | Cost you accept |
+|---|---|---|
+| Semantic component classes, optionally BEM or CSS Modules | Markup names a component; its stylesheet owns appearance. | Naming, cascade boundaries, and unused styles need discipline. |
+| Utilities, such as Tailwind | Compose appearance beside markup within a shared token system. | Dense class lists and repeated compositions need component boundaries. |
+| Styled components, such as Bootstrap's components | Start with an established visual language and behavior. | A distinctive design may require customization across many defaults. |
+
+These are design tradeoffs, not successive versions of CSS. If every screen requires overriding a kit's spacing, borders, and interaction patterns, its initial speed may become ongoing work. If each developer invents a slightly different button, shared components or utilities may pay for themselves. Try one representative screen and one awkward state before committing to a styling philosophy.
+
+**Version matters even when the philosophy stays the same:** Tailwind v4 introduced CSS-first configuration, automatic source detection, and a different installation workflow. A v3 tutorial centered on `tailwind.config.js` is not a universal setup recipe. Read the [v4 announcement](https://tailwindcss.com/blog/tailwindcss-v4) and [upgrade guide](https://tailwindcss.com/docs/upgrade-guide), including browser requirements, before adapting it. Utilities also do not supply a complete interaction contract for a menu or dialog.
 
 #### What are CSS Frameworks?
 
@@ -494,7 +514,7 @@ CSS frameworks simplify web development by offering pre-styled components and la
 
 ##### Viewport for Responsiveness
 
-To create a website that adapts well to different devices, it’s essential to consider how your content will display on mobile phones, tablets, and desktops. The viewport meta tag is a key tool for this, as it instructs browsers to scale your website based on the device’s width, making it look good on screens both large and small. By including `<meta name="viewport" content="width=device-width, initial-scale=1" />` within the `<head>` section of your HTML document, you’re ensuring that mobile users won’t need to zoom or scroll horizontally to view your content.
+Include `<meta name="viewport" content="width=device-width, initial-scale=1">` in the document head to configure the mobile viewport. Responsive layout still depends on CSS, content, and testing; the declaration cannot prevent an oversized image or fixed-width panel from overflowing.
 
 ##### The Role of CSS Resets and Normalization
 
@@ -544,9 +564,11 @@ Bootstrap is a widely-used, open-source front-end framework for designing respon
 
 #### Core Features of Bootstrap
 
+**Then and now:** Bootstrap began as a shared toolkit at Twitter, helping teams avoid inconsistent interface conventions. Older v3/v4 examples use jQuery plugins; Bootstrap 5 removed that dependency, changed plugin attributes to `data-bs-*`, and renamed several utilities. The examples here use **Bootstrap 5.3.8**. A migration needs matching markup, CSS, and JavaScript, not just a new CDN URL. See the [v5 migration guide](https://getbootstrap.com/docs/5.3/migration/).
+
 - **Responsive Grid System**: Bootstrap includes a flexible 12-column grid system that adjusts to the screen size, making it easy to create responsive layouts.
 - **Pre-styled Components**: It offers a variety of pre-designed components like buttons, forms, modals, and navigation bars.
-- **JavaScript Plugins**: Bootstrap comes with several jQuery-based JavaScript plugins adding functionality like carousels, tooltips, and popovers.
+- **JavaScript Plugins**: Bootstrap 5 supplies JavaScript plugins without requiring jQuery; its bundle includes Popper for components that need positioning.
 - **Customizable**: Bootstrap can be customized to fit the specific needs of your project.
 
 #### Including Bootstrap in Your Project
@@ -554,7 +576,7 @@ Bootstrap is a widely-used, open-source front-end framework for designing respon
 To use Bootstrap, add the following link to the `<head>` section of your HTML file:
 
 ```html
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 ```
 
 With this, Bootstrap's default styles will be applied to elements like `<body>`, `<h1>`, `<button>`, etc. For additional styling, use the appropriate Bootstrap class attributes in your HTML.
@@ -642,13 +664,13 @@ Example of a Basic Navbar:
 ```html
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link active" href="#" aria-current="page">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Features</a>
@@ -700,12 +722,12 @@ Example of a Simple Form:
 
 ```html
 <form>
-  <div class="form-group">
+  <div class="mb-3">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
-  <div class="form-group">
+  <div class="mb-3">
     <label for="exampleInputPassword1">Password</label>
     <input type="password" class="form-control" id="exampleInputPassword1">
   </div>
@@ -759,18 +781,18 @@ Build Tools for Customization:
 - Tools like Webpack, Grunt, or Gulp can help streamline the customization process.
 - These tools can compile your SASS/SCSS files, include only necessary Bootstrap components, and more.
 
-Example of Customizing Bootstrap with SCSS:
+Example of customizing Bootstrap with SCSS in `scss/custom.scss`, with the Bootstrap package installed in the project's `node_modules`:
+
+This is a **Bootstrap-specific compatibility example**: its v5 Sass entry point still uses the import workflow. Follow the [Bootstrap Sass instructions](https://getbootstrap.com/docs/5.3/customize/sass/) for the installed release rather than mechanically replacing a dependency's `@import` with `@use`. In your own Sass modules, prefer `@use`/`@forward`.
 
 ```scss
-// Customizing the primary color
-$theme-colors: (
-  "primary": #ff6347 // Tomato color
-);
+// Override a default token while retaining the rest of the palette.
+$primary: #ff6347;
 
-@import "bootstrap";
+@import "../node_modules/bootstrap/scss/bootstrap";
 ```
 
-In this SCSS example, the $theme-colors map is overridden to change the primary color used throughout Bootstrap components.
+The `$primary` override is picked up when Bootstrap builds its default color maps. Replacing the entire map with a single entry can remove keys expected by other components; preserve those defaults unless you have deliberately accounted for their consumers.
 
 #### Step-by-step guide to creating Bootstrap projects
 
@@ -787,15 +809,13 @@ II. **Include Bootstrap**
 - Inside the `<head>` tag, include Bootstrap’s CSS:
 
 ```html
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ775iR6n9rC6jxo2E5h7X/0pZ72n/VAapMo" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 ```
 
-- Before the closing `</body>` tag, include Bootstrap’s JS and its dependencies:
+- Before the closing `</body>` tag, include the matching Bootstrap bundle. It includes Popper and needs no jQuery:
 
 ```html
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 ```
 
 III. **Create a Basic Layout**
@@ -812,7 +832,7 @@ III. **Create a Basic Layout**
 IV. **Customize with Bootstrap Classes**: Utilize Bootstrap's classes for typography, buttons, or other components to enhance your page.
 
 V. **View Your Project**: Open `index.html` in a web browser to view your Bootstrap-styled "Hello World" project.
-You’re absolutely right! Let’s present this information in the correct format as specified.
+The URLs and integrity hashes above come from the [Bootstrap quick start](https://getbootstrap.com/docs/5.3/getting-started/introduction/). Upgrade them together. Test the collapsing navigation with the matching JavaScript loaded; CSS alone cannot toggle it.
 
 ### Best Practices
 
@@ -835,7 +855,7 @@ You’re absolutely right! Let’s present this information in the correct forma
 #### Customization
 
 * Leverage **preprocessor variables** for colors, fonts, and other common styles, allowing for quick theme adjustments throughout the project.
-* Take advantage of **framework configuration** options, such as Bootstrap’s SCSS variables or Tailwind’s configuration file, to customize the design without overriding default styles directly.
+* Use the **configuration mechanism for the installed version**, such as Bootstrap's Sass variables or Tailwind v4's CSS theme variables. Older Tailwind tutorials may instead use a JavaScript configuration file.
 * Keep **custom CSS organized** by grouping overrides, component styles, and utility classes, ensuring that customizations are easily navigable.
 * Use **modular design patterns** to break down complex styles into smaller, reusable components, improving maintainability and flexibility.
 * Avoid **overriding framework styles excessively**, as this can create unnecessary complexity; instead, utilize customization options provided by the framework.
@@ -850,9 +870,9 @@ You’re absolutely right! Let’s present this information in the correct forma
 
 #### Preprocessor Best Practices
 
-* Choose a **preprocessor** like Sass or Less to simplify CSS development, as they offer features like nesting, variables, and mixins that are not natively available in CSS.
+* Add a **preprocessor** when its build-time features justify it. Native CSS already offers custom properties and nesting; Sass/Less variables and mixins have different capabilities and timing.
 * Use **nesting responsibly** to keep code organized, but avoid deep nesting levels as this can lead to overly specific selectors and increase CSS complexity.
-* Organize styles into **partial files** using the `@import` directive in Sass or Less to create a modular structure, making the codebase more maintainable and readable.
+* Organize your Sass with **`@use`/`@forward`**. Less and ordinary CSS imports have their own semantics; third-party Sass packages may require a version-specific compatibility workflow.
 * Take advantage of **inheritance with mixins** to reuse common styles, reducing code duplication and improving consistency.
 * Use **conditionals and loops** in preprocessors for repetitive styles, such as generating responsive classes or theme variations, which can simplify large codebases.
 
@@ -860,8 +880,8 @@ You’re absolutely right! Let’s present this information in the correct forma
 
 * Choose frameworks that offer **built-in responsive utilities**, like Bootstrap’s grid system or Tailwind’s responsive utility classes, to streamline responsive design.
 * Use **media queries in preprocessors** to maintain responsive design consistency across breakpoints and avoid duplicating CSS code.
-* Consider a **mobile-first approach** when defining styles, so mobile styles load first, optimizing performance for mobile users.
-* Utilize **CSS variables** with preprocessors to store breakpoints, making it easier to update or adjust them as needed.
+* Consider a **mobile-first approach** for default styles; rule order does not itself control which assets download first.
+* Centralize breakpoint values with the build tool's supported mechanism. Native `var()` cannot be used as a viewport media-query threshold.
 * For utility-first frameworks, rely on **responsive utilities** that apply styles conditionally based on screen size, ensuring that elements adapt seamlessly across devices.
 
 ### Links

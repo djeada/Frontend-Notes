@@ -2,6 +2,23 @@
 
 In today’s connected world, front-end developers do far more than style web pages and craft user interfaces. They also need to understand the underlying network protocols that shape how data travels between their applications and the servers that power them. By mastering the inner workings of protocols, developers can create more efficient, secure, and reliable experiences for users. This section explores some of the foundational concepts, tools, and processes that every front-end developer should know to ensure smooth communication between the front end and back end.
 
+### What a newer protocol actually replaces
+
+“Newer” can mean a different transport, a different API contract, or simply a different client library. Keep the layer explicit when reading older tutorials:
+
+| Change | Problem it addresses | What stays relevant |
+|---|---|---|
+| HTTP/1.1 to HTTP/2 | Multiplex requests over a connection using a different wire representation. | Methods, status codes, cache rules, and application authorization. |
+| HTTP/2 to HTTP/3 | Use QUIC streams instead of TCP, avoiding TCP's connection-wide head-of-line blocking between streams. | HTTP semantics and the need to measure the actual network path. |
+| Resource-oriented HTTP API to GraphQL | Let clients describe data selections against a schema. | HTTP can still carry requests; resolvers, authorization, caching, and query cost remain design work. |
+| Polling to server push | Deliver updates without repeating the same query on a timer. | Connection lifecycle, reconnect behavior, stale data, and server capacity. |
+
+The [HTTP/3 specification](https://www.rfc-editor.org/rfc/rfc9114) defines a new HTTP mapping onto QUIC, not a new JavaScript data model. [GraphQL](https://graphql.org/learn/) is an application-level alternative for some API designs, not a version of HTTP or proof that REST-style APIs are obsolete. A simple resource API with useful HTTP caching may be easier to operate; a graph can suit clients needing varied combinations of related data. Neither choice removes backend work.
+
+**Choose the interaction before the protocol:** a status feed mainly sends updates from server to browser, which may suit [server-sent events](https://html.spec.whatwg.org/multipage/server-sent-events.html). Collaborative editing needs messages in both directions and may suit WebSockets. Occasional polling may be enough for a low-frequency dashboard. “Real-time” is a latency requirement to quantify, not a requirement to use sockets.
+
+**Failure lesson:** a connection can drop after the server accepts an operation but before the browser receives confirmation. Retrying blindly may repeat the operation. Decide how the application recognizes duplicates and recovers state; changing HTTP versions does not decide that contract.
+
 ### Foundational Concepts
 
 #### Internet
@@ -442,7 +459,7 @@ Main features of FTP include:
 - In **active mode**, the server initiates the data connection to the client.  
 - In **passive mode**, the client initiates the data connection, which is more suitable for navigating firewalls.  
 
-Security-wise, **plain FTP traffic is unencrypted** and can be intercepted. Hence, more secure variants like FTPS (FTP over SSL/TLS) and SFTP (FTP over SSH) are recommended when data privacy is a concern.
+Security-wise, **plain FTP traffic is unencrypted** and can be intercepted. [FTPS adds TLS to FTP](https://www.rfc-editor.org/rfc/rfc4217); [SFTP uses SSH file transfer](https://man.openbsd.org/sftp), a separate protocol rather than an FTP encryption option. Check which protocol the server supports rather than assuming the clients are interchangeable.
 
 **FTP Workflow Diagram**:
 
