@@ -57,7 +57,7 @@ Check your understanding of selectors, the cascade, the box model, layout, moder
 * [x] `372px`
 * [ ] `404px`
 
-> **Explanation:** Under `content-box`, `width` sizes only the content: 320 + 2×24 padding + 2×2 border = 372px. Margins add space outside the border, so they are not part of the border-box width.
+> **Explanation:** Under `content-box`, `width` sizes only the content: $320 + 2 \times 24 \text{ padding} + 2 \times 2 \text{ border} = 372\text{px}$. Margins add space outside the border, so they are not part of the border-box width.
 
 #### Q. Which pseudo-class applies a style while the pointer is over an element?
 
@@ -117,7 +117,7 @@ html   { font-size: 16px; }
 * [ ] `24px`
 * [x] `30px`
 
-> **Explanation:** The child's font size is 1.5 × 20px = 30px. For other properties such as `padding`, `em` refers to the element's own computed font size, so `1em` is 30px.
+> **Explanation:** The child's font size is $1.5 \times 20\text{px} = 30\text{px}$. For other properties such as `padding`, `em` refers to the element's own computed font size, so `1em` is 30px.
 
 #### Q. What is the initial value of the `position` property?
 

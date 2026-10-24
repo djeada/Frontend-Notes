@@ -194,7 +194,7 @@ HTML describes content and meaning; CSS specifies presentation and layout. HTML 
 <details>
 <summary>A card declares `width: 320px`, 24px padding and a 2px border on each side. How wide is its border box by default?</summary>
 
-With default `box-sizing: content-box`, it is `320 + 48 + 4 = 372px`, excluding margins. With `border-box`, a declared width of 320px includes padding and borders when layout can resolve the dimension. Inspect the Box Model in DevTools.
+With default `box-sizing: content-box`, it is $320 + 48 + 4 = 372\text{px}$, excluding margins. With `border-box`, a declared width of 320px includes padding and borders when layout can resolve the dimension. Inspect the Box Model in DevTools.
 
 </details>
 
