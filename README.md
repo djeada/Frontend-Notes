@@ -105,7 +105,7 @@ The notes and resources in this repository are organized by topic, with each top
 </p>
 
 <p float="left">
-  12. <a href="https://github.com/djeada/Frontend-Notes/blob/main/notes/12_quizes.md">Quizes</a>
+  12. <a href="https://github.com/djeada/Frontend-Notes/blob/main/notes/12_quizes.md">Quizzes</a> (multiple choice in <a href="quizzes/">quizzes/</a>; interactive <a href="https://adamdjellouli.com/tools/quiz_app/?category=frontend">quizzes</a> and <a href="https://adamdjellouli.com/tools/flash_cards/?category=frontend">flashcards</a>)
   <img src="https://img.icons8.com/external-smashingstocks-thin-outline-color-smashing-stocks/344/external-quiz-education-smashingstocks-thin-outline-color-smashing-stocks.png" height="20" />
 </p>
 
