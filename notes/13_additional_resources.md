@@ -303,7 +303,6 @@ These are font names, not necessarily free or redistributable fonts. Check the e
 
 - [Qualtrics UX Design Glossary](https://www.qualtrics.com/blog/ux-design-glossary/)
 - [NNG UX Glossary](https://www.nngroup.com/articles/product-ux-glossary/)
-- [UX Design.cc Glossary](https://uxdesign.cc/the-ux-glossary-5c30c4e2c8b6)
 - [Usability.gov UX Basics](https://www.usability.gov/what-and-why/user-experience.html)
 - [Smashing Magazine UX Guide](https://www.smashingmagazine.com/guides/ux-design/)
 - [UX Design Institute Glossary](https://www.uxdesigninstitute.com/blog/glossary-ux-terms/)
