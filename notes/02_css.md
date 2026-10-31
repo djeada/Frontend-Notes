@@ -852,7 +852,7 @@ Fonts play a pivotal role in establishing the visual identity of a website. With
 
 There are numerous platforms that offer free and premium web fonts:
 
-* [CSS Font Stack](https://www.cssfontstack.com/)
+* [Modern Font Stacks](https://github.com/system-fonts/modern-font-stacks)
 * [Google Fonts](https://fonts.google.com/)
 
 Steps to Incorporate Custom Fonts:
