@@ -71,7 +71,7 @@ A small card is a useful controlled experiment: keep the **same HTML** before an
 
 ![Browser screenshot of the card styling comparison](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/card-styling-browser.png)
 
-**Before:** semantic HTML is readable but has the browser's default spacing. **After:** a class adds padding, border, readable width, and typography without changing content. Open the [working before/after project](../projects/visual-examples/index.html), inspect the card in DevTools, then toggle its declarations. One possible reusable rule is:
+**Before:** semantic HTML is readable but has the browser's default spacing. **After:** a class adds padding, border, readable width, and typography without changing content. Open the [working before/after project](https://github.com/djeada/Frontend-Notes/blob/main/projects/visual-examples/index.html), inspect the card in DevTools, then toggle its declarations. One possible reusable rule is:
 
 ```css
 .card {
@@ -490,7 +490,7 @@ When setting the dimensions of an element, be cautious of extremes. An element t
 
 `justify-content` has an effect when the flex line has distributable free space. `align-items` aligns across the main axis (the cross axis); `align-content` matters primarily when there are **multiple flex lines** and spare cross-axis space. `flex: 1` is a shorthand, not simply `flex-grow: 1`; check the computed grow, shrink and basis values. When a long label refuses to shrink, try `min-width: 0` on the appropriate flex item and allow text to wrap instead of clipping it.
 
-**Before/after test:** compare the [runnable toolbar](../projects/visual-examples/index.html) at wide and narrow widths. Force 200% zoom, add a very long translated button label, and confirm that the controls remain visible. `order` changes visual arrangement but not necessarily reading or keyboard focus order, so do not use it to repair the DOM sequence. Reference: [MDN Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts).
+**Before/after test:** compare the [runnable toolbar](https://github.com/djeada/Frontend-Notes/blob/main/projects/visual-examples/index.html) at wide and narrow widths. Force 200% zoom, add a very long translated button label, and confirm that the controls remain visible. `order` changes visual arrangement but not necessarily reading or keyboard focus order, so do not use it to repair the DOM sequence. Reference: [MDN Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts).
 
 
 #### See the effect: `justify-content` versus `align-items`
@@ -501,7 +501,7 @@ When setting the dimensions of an element, be cautious of extremes. An element t
 
 ![Browser screenshot of the flex alignment comparison](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/flex-alignment-browser.png)
 
-Flexbox lays out items on a **main axis** and a **cross axis**. The `flex-direction` property chooses the main axis; `justify-content` distributes free space along it and `align-items` aligns items across it. Try changing `flex-direction` to `column` in the [live example](../projects/visual-examples/index.html): the axes change, so memorizing “justify is horizontal” is misleading. Use `gap` for spacing and check wrapping when labels become longer.
+Flexbox lays out items on a **main axis** and a **cross axis**. The `flex-direction` property chooses the main axis; `justify-content` distributes free space along it and `align-items` aligns items across it. Try changing `flex-direction` to `column` in the [live example](https://github.com/djeada/Frontend-Notes/blob/main/projects/visual-examples/index.html): the axes change, so memorizing “justify is horizontal” is misleading. Use `gap` for spacing and check wrapping when labels become longer.
 
 
 Flexbox, short for "Flexible Box Layout", is a design model in CSS that allows you to design complex layout structures with a more efficient and predictable way than traditional models, especially when dealing with different screen sizes and dynamic content.

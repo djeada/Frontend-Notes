@@ -18,7 +18,7 @@ These solve *different* problems. Native CSS is what browsers parse. Sass/Less p
 
 A preprocessor's variables disappear or are substituted during compilation, while native CSS custom properties participate in the cascade at runtime. A CSS framework does not automatically provide accessibility, low bundle size or an appropriate design. Measure actual output and inspect generated styles rather than choosing tools based on a broad popularity claim.
 
-**Practical experiment:** start with the [existing styled-card browser example](../projects/visual-examples/index.html), change a custom property in DevTools, then compile a separate Sass variable to CSS. A runtime CSS variable can respond to the cascade without rebuilding; editing `$accent` in Sass requires recompilation. Reference: [Sass variables](https://sass-lang.com/documentation/variables/) and [MDN custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*).
+**Practical experiment:** start with the [existing styled-card browser example](https://github.com/djeada/Frontend-Notes/blob/main/projects/visual-examples/index.html), change a custom property in DevTools, then compile a separate Sass variable to CSS. A runtime CSS variable can respond to the cascade without rebuilding; editing `$accent` in Sass requires recompilation. Reference: [Sass variables](https://sass-lang.com/documentation/variables/) and [MDN custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*).
 
 
 CSS preprocessors are scripting languages that extend standard CSS features with new functionality borrowed from other programming languages. Variables, nesting, inheritance, mixins, functions, and mathematical operations are common examples. While preprocessors don't introduce anything that can't be accomplished with plain CSS, they offer a more efficient way of doing things.
@@ -168,7 +168,7 @@ Both examples express the relationship, but they are processed by different syst
 }
 ```
 
-This works in browsers supporting native CSS nesting without a Sass compilation step. Sass is still useful for mixins, modules and build-time functions, but do not add a build tool solely because you think CSS has no variables or nesting. Compare the [unstyled/styled card illustration](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/card-styling.svg) and [live demo](../projects/visual-examples/index.html); the image shows the visual CSS effect, **not** a framework performance comparison.
+This works in browsers supporting native CSS nesting without a Sass compilation step. Sass is still useful for mixins, modules and build-time functions, but do not add a build tool solely because you think CSS has no variables or nesting. Compare the [unstyled/styled card illustration](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/card-styling.svg) and [live demo](https://github.com/djeada/Frontend-Notes/blob/main/projects/visual-examples/index.html); the image shows the visual CSS effect, **not** a framework performance comparison.
 
 
 Nesting provides a more structured and readable way to write styles for nested elements. Modern native CSS supports nesting. Its parsing and selector behavior are not identical to every Sass/Less form, so check compatibility and use `&` when you need the parent selector.

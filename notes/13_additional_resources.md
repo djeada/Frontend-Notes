@@ -13,7 +13,7 @@ This chapter is a **directory, not a certification program**. The sites below ma
 | Is it lightweight enough? | Inspect real transferred size and third-party requests. | Performance budget and tradeoffs. |
 | Will it remain supported? | Review maintenance and update process. | Upgrade and replacement plan. |
 
-**Mini case study:** choose a card design from an inspiration site. Rebuild its content with semantic `<article>`, a heading and real link. First inspect the [unstyled browser rendering](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/card-styling-browser.png), then apply its spacing and typography in the [live demo](../projects/visual-examples/index.html). Verify keyboard focus and mobile width. You may copy *ideas* while still needing permission to copy icons, photos, source code or trade dress.
+**Mini case study:** choose a card design from an inspiration site. Rebuild its content with semantic `<article>`, a heading and real link. First inspect the [unstyled browser rendering](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/card-styling-browser.png), then apply its spacing and typography in the [live demo](https://github.com/djeada/Frontend-Notes/blob/main/projects/visual-examples/index.html). Verify keyboard focus and mobile width. You may copy *ideas* while still needing permission to copy icons, photos, source code or trade dress.
 
 **Suggested asset log:** `asset`, `source URL`, `author`, `license`, `attribution location`, `date checked`, `local filename`, `reason used`. This makes later audits and replacement feasible. Do not record “free” as a license: free price and reuse rights are different questions.
 

@@ -36,7 +36,7 @@ Two approaches can produce similar screenshots but different failure behavior. W
 
 #### Worked page: structure, behavior, and visual output
 
-The browser parses HTML into a document tree. CSS styles that tree; JavaScript can update it. A semantic page can be styled to look identical to a page made entirely of generic `<div>` elements, yet expose more useful navigation landmarks. Compare the [browser-rendered before/after screenshot](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/semantic-html-browser.png) with the [two runnable documents](../projects/visual-examples/semantic-before.html) and [semantic version](../projects/visual-examples/semantic-after.html). The screenshot demonstrates appearance, not an accessibility-test result.
+The browser parses HTML into a document tree. CSS styles that tree; JavaScript can update it. A semantic page can be styled to look identical to a page made entirely of generic `<div>` elements, yet expose more useful navigation landmarks. Compare the [browser-rendered before/after screenshot](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/semantic-html-browser.png) with the [two runnable documents](https://github.com/djeada/Frontend-Notes/blob/main/projects/visual-examples/semantic-before.html) and [semantic version](https://github.com/djeada/Frontend-Notes/blob/main/projects/visual-examples/semantic-after.html). The screenshot demonstrates appearance, not an accessibility-test result.
 
 ```html
 <!doctype html>
@@ -79,7 +79,7 @@ The `defer` script runs after HTML parsing and before `DOMContentLoaded`, in doc
 
 ![Browser screenshot of the semantic html comparison](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/semantic-html-browser.png)
 
-The two layouts can look nearly identical with CSS, but semantic elements communicate structure to browser and assistive-technology navigation. Inspect the real, separate [before HTML](../projects/visual-examples/semantic-before.html) and [after HTML](../projects/visual-examples/semantic-after.html) examples with CSS disabled. Use `<header>` for introductory material, `<nav aria-label="Main">` for navigation, one main region for central content and `<footer>` for supporting information. Headings should describe actual sections: an `<h1>` is a heading, not a substitute for `<header>`. The diagram is illustrative, not a screenshot or proof of accessible behavior.
+The two layouts can look nearly identical with CSS, but semantic elements communicate structure to browser and assistive-technology navigation. Inspect the real, separate [before HTML](https://github.com/djeada/Frontend-Notes/blob/main/projects/visual-examples/semantic-before.html) and [after HTML](https://github.com/djeada/Frontend-Notes/blob/main/projects/visual-examples/semantic-after.html) examples with CSS disabled. Use `<header>` for introductory material, `<nav aria-label="Main">` for navigation, one main region for central content and `<footer>` for supporting information. Headings should describe actual sections: an `<h1>` is a heading, not a substitute for `<header>`. The diagram is illustrative, not a screenshot or proof of accessible behavior.
 
 The doctype in the document below switches the browser into no-quirks mode; test layout with DevTools rather than assuming a doctype makes CSS responsive.
 
@@ -449,7 +449,7 @@ The following tags are used to create tables:
 
 ![Actual browser before/after comparison of form validation](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/form-validation-browser.png)
 
-HTML provides labels, input types, form ownership and submission semantics; CSS can expose states; JavaScript can add tailored feedback. `placeholder` is only an example hint, never a persistent label. The [runnable form](../projects/visual-examples/index.html) stays on the client for the exercise; the sample below illustrates a real POST endpoint, which needs server implementation and validation.
+HTML provides labels, input types, form ownership and submission semantics; CSS can expose states; JavaScript can add tailored feedback. `placeholder` is only an example hint, never a persistent label. The [runnable form](https://github.com/djeada/Frontend-Notes/blob/main/projects/visual-examples/index.html) stays on the client for the exercise; the sample below illustrates a real POST endpoint, which needs server implementation and validation.
 
 ```html
 <form action="/subscribe" method="post">
@@ -480,7 +480,7 @@ HTML provides labels, input types, form ownership and submission semantics; CSS 
 
 ![Browser screenshot of the form validation comparison](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/form-validation-browser.png)
 
-A placeholder disappears during typing and must not be the only label. Compare this usable native HTML with the [interactive form](../projects/visual-examples/index.html):
+A placeholder disappears during typing and must not be the only label. Compare this usable native HTML with the [interactive form](https://github.com/djeada/Frontend-Notes/blob/main/projects/visual-examples/index.html):
 
 ```html
 <form action="/register" method="post">

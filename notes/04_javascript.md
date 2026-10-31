@@ -41,7 +41,7 @@ For ordinary requests, `fetch` provides a promise-based API. Older `XMLHttpReque
 
 ![Browser screenshot of the form validation comparison](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/form-validation-browser.png)
 
-HTML supplies the form, CSS styles its feedback, and JavaScript can respond when the user submits. Open the [live example](../projects/visual-examples/index.html) and inspect `script.js`: it checks validity, sets `aria-invalid`, and writes a message using `textContent`. It prevents actual network submission; production code must **also** validate input on the server. A visible error alone does not prove it is announced by assistive technology: check accessible descriptions and focus behavior.
+HTML supplies the form, CSS styles its feedback, and JavaScript can respond when the user submits. Open the [live example](https://github.com/djeada/Frontend-Notes/blob/main/projects/visual-examples/index.html) and inspect `script.js`: it checks validity, sets `aria-invalid`, and writes a message using `textContent`. It prevents actual network submission; production code must **also** validate input on the server. A visible error alone does not prove it is announced by assistive technology: check accessible descriptions and focus behavior.
 
 ```js
 const form = document.querySelector('#newsletter');

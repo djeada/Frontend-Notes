@@ -47,7 +47,7 @@ These categories can coexist. A static product page can call an API, and a serve
 
 ### Worked deployment: a static HTML/CSS/JavaScript site
 
-Start with a local site containing `index.html`, `styles.css`, `script.js` and any image files. Confirm that each relative URL resolves from the route where it appears. For the repository's [visual demo](../projects/visual-examples/README.md), launch a local server from the **repository root**:
+Start with a local site containing `index.html`, `styles.css`, `script.js` and any image files. Confirm that each relative URL resolves from the route where it appears. For the repository's [visual demo](https://github.com/djeada/Frontend-Notes/blob/main/projects/visual-examples/README.md), launch a local server from the **repository root**:
 
 ```bash
 python3 -m http.server 8000
@@ -168,7 +168,7 @@ The record type depends on **what your host actually instructs you to configure*
 
 ![From a browser request through DNS and HTTPS to a server response](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/diagrams/request-lifecycle.svg)
 
-**Practical check:** a DNS lookup such as `dig example.com A` checks an IPv4 response, while `dig www.example.com CNAME` checks a possible alias. Not every valid site needs both. Then use browser DevTools → Network to inspect the HTTPS request and response; verify that a deep route reloads rather than returning a hosting 404. See the detailed [protocols chapter](08_protocols.md) for DNS, TLS, caching and HTTP semantics.
+**Practical check:** a DNS lookup such as `dig example.com A` checks an IPv4 response, while `dig www.example.com CNAME` checks a possible alias. Not every valid site needs both. Then use browser DevTools → Network to inspect the HTTPS request and response; verify that a deep route reloads rather than returning a hosting 404. See the detailed [protocols chapter](https://github.com/djeada/Frontend-Notes/blob/main/notes/08_protocols.md) for DNS, TLS, caching and HTTP semantics.
 
 **Before changing production DNS:** document existing records, reduce the relevant TTL in advance *if useful and permitted*, identify what can be rolled back, and preserve mail settings. Domain configuration errors can disrupt website **or email** even when deployment code is correct.
 

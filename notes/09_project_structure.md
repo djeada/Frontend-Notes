@@ -20,7 +20,7 @@ User requirement
   -> preview deployment -> production
 ```
 
-The [actual browser form example](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/form-validation-browser.png) illustrates the *user-visible* end of that chain. The [project source](../projects/visual-examples/README.md) keeps markup, CSS and JavaScript small enough to inspect. It intentionally does **not** implement `/api/subscribe`, so it is not a production email service.
+The [actual browser form example](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/form-validation-browser.png) illustrates the *user-visible* end of that chain. The [project source](https://github.com/djeada/Frontend-Notes/blob/main/projects/visual-examples/README.md) keeps markup, CSS and JavaScript small enough to inspect. It intentionally does **not** implement `/api/subscribe`, so it is not a production email service.
 
 **Decision check:** when changing the label, should you edit the HTML or five duplicated component definitions? When changing validation, can you test it without launching the entire application? When changing the endpoint, can you preserve the frontend contract? Document boundaries in the README. Do not mistake folder count for architecture quality.
 
@@ -196,7 +196,7 @@ A typical `package.json` might have explicit scripts for `lint`, `test`, `build`
 
 Do not turn a tutorial's `git clone` example into an unverified recommendation. If a template teaches deprecated APIs, show the specific migration (such as moving from `ReactDOM.render` to `createRoot`) and keep its historical context. Record which upstream revision you actually inspected; labels like “latest best practices” expire quickly.
 
-**Hands-on task:** run the repository's minimal [visual examples](../projects/visual-examples/README.md) without any install step, then inspect a chosen framework template's setup. List which extra behaviors (routing, server rendering, testing, linting) justify each new dependency. Reference: [React app setup](https://react.dev/learn/start-a-new-react-project).
+**Hands-on task:** run the repository's minimal [visual examples](https://github.com/djeada/Frontend-Notes/blob/main/projects/visual-examples/README.md) without any install step, then inspect a chosen framework template's setup. List which extra behaviors (routing, server rendering, testing, linting) justify each new dependency. Reference: [React app setup](https://react.dev/learn/start-a-new-react-project).
 
 
 A boilerplate is a starting template containing some combination of files, dependencies, configurations, styles and example code. Its purpose is to remove repetitive setup, **not** to guarantee that every generated application is accessible, secure or fast. Review the generated project; delete unused example routes, dependencies and placeholder secrets before shipping it.
@@ -214,7 +214,7 @@ The drawbacks are important: a template can lock you to unsupported dependencies
 
 Reusable base styles, typography, spacing tokens, and accessible form/button states can provide consistency. Responsive behavior is not guaranteed just because a template contains a media query; test narrow widths, long labels, 200% zoom, and keyboard focus. Naming methods such as BEM or OOCSS are options, not requirements for all projects.
 
-**See what such a decision looks like:** the repository's [visual teaching project](../projects/visual-examples/README.md) has a shared stylesheet and minimal JavaScript. Inspect how its class names map to specific demonstrations and compare [unstyled versus styled cards](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/card-styling.svg). Change its spacing and color tokens in `styles.css` to see why predictable naming helps maintainability.
+**See what such a decision looks like:** the repository's [visual teaching project](https://github.com/djeada/Frontend-Notes/blob/main/projects/visual-examples/README.md) has a shared stylesheet and minimal JavaScript. Inspect how its class names map to specific demonstrations and compare [unstyled versus styled cards](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/card-styling.svg). Change its spacing and color tokens in `styles.css` to see why predictable naming helps maintainability.
 
 #### Finding and evaluating a boilerplate
 

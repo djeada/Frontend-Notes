@@ -18,7 +18,7 @@ A static portfolio, a content website with minimal interactivity, and a client-h
 | Multi-route application | An appropriate app framework | Routing, server/client data, error pages and deployment. |
 | Embedded widget in a legacy site | An isolated component | CSS isolation, integration, versioning and cleanup. |
 
-**Comparison experiment:** implement the [same button and form behavior](../projects/visual-examples/index.html) in vanilla JavaScript first. Add a framework only after identifying which duplication or state complexity it actually removes. Measure page size and runtime behavior in your own application; framework marketing and survey popularity are not performance tests. A framework may provide conventions for routes and data loading, whereas React by itself is a UI library: distinguish its API from the surrounding toolchain.
+**Comparison experiment:** implement the [same button and form behavior](https://github.com/djeada/Frontend-Notes/blob/main/projects/visual-examples/index.html) in vanilla JavaScript first. Add a framework only after identifying which duplication or state complexity it actually removes. Measure page size and runtime behavior in your own application; framework marketing and survey popularity are not performance tests. A framework may provide conventions for routes and data loading, whereas React by itself is a UI library: distinguish its API from the surrounding toolchain.
 
 **Accessibility contract:** whichever stack is chosen, a button should remain a button, a label should still name its input, keyboard focus must be visible, and API authorization still belongs on the server. Reference: [React project options](https://react.dev/learn/start-a-new-react-project).
 
@@ -93,7 +93,7 @@ function App() { return <button type="button">Hello</button>; }
 createRoot(document.getElementById('root')).render(<App />);
 ```
 
-For a new project, follow the current [React project guide](https://react.dev/learn/start-a-new-react-project), not deprecated Create React App instructions. Choose a framework or build tool based on routing, deployment, server rendering and learning goals; a library alone does not decide these requirements. The [button states illustration](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/button-states.svg) shows UI states that are necessary regardless of framework, and the [vanilla JavaScript demo](../projects/visual-examples/index.html) provides a baseline before adding dependencies.
+For a new project, follow the current [React project guide](https://react.dev/learn/start-a-new-react-project), not deprecated Create React App instructions. Choose a framework or build tool based on routing, deployment, server rendering and learning goals; a library alone does not decide these requirements. The [button states illustration](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/button-states.svg) shows UI states that are necessary regardless of framework, and the [vanilla JavaScript demo](https://github.com/djeada/Frontend-Notes/blob/main/projects/visual-examples/index.html) provides a baseline before adding dependencies.
 
 
 React is a JavaScript library for building user interfaces, often referred to as a framework due to its extensive ecosystem. Unlike a framework, which provides a structured approach to building applications, a library like React allows for more flexibility in implementation.
@@ -1194,7 +1194,7 @@ This uses Vue 3's router API; `App.vue` needs a `<RouterView />` for matched con
 
 ### Vuex
 
-**Status:** Vuex helps explain existing centralized stores, but [its maintainers recommend Pinia for new projects](https://vuex.vuejs.org/). Vuex 4 works with Vue 3; the example below uses that pairing. See the Pinia example in [state management](#state-management-tools) before choosing a new store.
+**Status:** Vuex helps explain existing centralized stores, but [its maintainers recommend Pinia for new projects](https://vuex.vuejs.org/). Vuex 4 works with Vue 3; the example below uses that pairing. See the Pinia example in [state management](https://github.com/djeada/Frontend-Notes/blob/main/notes/05_javascript_frameworks.md#state-management-tools) before choosing a new store.
 
 Vuex is a state management pattern + library for Vue.js applications. It serves as a centralized store for all the components in an application, with rules ensuring that the state can only be mutated in a predictable fashion.
 

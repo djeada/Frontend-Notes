@@ -2,7 +2,7 @@
 
 A frontend is not finished when its first demonstration works. It must still work after a CSS change, a pricing-rule update, a dependency upgrade, or a failed network request. **Testing turns the promises a feature makes to its users into checks that can fail when those promises are broken.** It reduces uncertainty; no passing suite proves that an application has no defects or replaces human judgment about usability, accessibility, security, and performance.
 
-This chapter follows one small, executable application from a feature request to a pull request: a [shipping-quote estimator](../projects/testing-feature/README.md). Instead of learning test tools as an unrelated list, you will see which failure each layer detects, run the tests, deliberately introduce a bug, and use the failure to find it. The final sections explain how the same approach applies to larger projects and which tools have documented use today.
+This chapter follows one small, executable application from a feature request to a pull request: a [shipping-quote estimator](https://github.com/djeada/Frontend-Notes/blob/main/projects/testing-feature/README.md). Instead of learning test tools as an unrelated list, you will see which failure each layer detects, run the tests, deliberately introduce a bug, and use the failure to find it. The final sections explain how the same approach applies to larger projects and which tools have documented use today.
 
 **Learning path:** define a contract → choose test boundaries → verify pricing logic → verify HTTP → verify the user journey → inspect screenshots and accessibility → break and repair the feature → automate the checks in CI. All the code and images referenced below live in this repository.
 
@@ -46,7 +46,7 @@ The following images were **captured from the running application in Chromium by
 
 ![Browser capture: quote request failed and a retryable error is shown](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/testing-feature/shipping-error.png)
 
-Try the [application yourself](../projects/testing-feature/README.md). We will revisit these states after examining the individual test boundaries.
+Try the [application yourself](https://github.com/djeada/Frontend-Notes/blob/main/projects/testing-feature/README.md). We will revisit these states after examining the individual test boundaries.
 
 ## 2. What is testing, and what should a test assert?
 
@@ -79,7 +79,7 @@ The familiar testing pyramid is a *cost-and-feedback heuristic*, not a mandated 
 
 ## 3. Unit testing in depth: preserve the pricing rule
 
-Open the runnable [`quote.mjs`](../projects/testing-feature/quote.mjs). The important business calculation uses integer cents so arithmetic is not built on imprecise decimal currency operations:
+Open the runnable [`quote.mjs`](https://github.com/djeada/Frontend-Notes/blob/main/projects/testing-feature/quote.mjs). The important business calculation uses integer cents so arithmetic is not built on imprecise decimal currency operations:
 
 ```js
 const subtotalCents = 2400 * quantity;
@@ -92,7 +92,7 @@ return {
 
 The complete function checks that the ZIP is a **string** matching exactly five digits and that the quantity is a safe integer from 1 to 10. Converting `00501` to a number would destroy a meaningful leading zero; accepting any client-supplied quantity would make the server's quote unreliable.
 
-Node's built-in test runner is enough for this dependency-free example. The actual [`quote.test.mjs`](../projects/testing-feature/tests/quote.test.mjs) includes this boundary case:
+Node's built-in test runner is enough for this dependency-free example. The actual [`quote.test.mjs`](https://github.com/djeada/Frontend-Notes/blob/main/projects/testing-feature/tests/quote.test.mjs) includes this boundary case:
 
 ```js
 import test from 'node:test';
@@ -122,9 +122,9 @@ A small isolated function is useful, but isolation is not a virtue if you replac
 
 ## 4. Integration testing: verify the HTTP contract
 
-The browser never calls `calculateQuote` directly. It sends data to [`server.mjs`](../projects/testing-feature/server.mjs), which validates the request again and returns JSON. A changed route, unsupported method, accidental string conversion, or missing error status would escape pure-function tests.
+The browser never calls `calculateQuote` directly. It sends data to [`server.mjs`](https://github.com/djeada/Frontend-Notes/blob/main/projects/testing-feature/server.mjs), which validates the request again and returns JSON. A changed route, unsupported method, accidental string conversion, or missing error status would escape pure-function tests.
 
-The checked-in [`api.test.mjs`](../projects/testing-feature/tests/api.test.mjs) starts the **real local server on an ephemeral port**, sends requests, checks their HTTP status and JSON contents, then closes the listener. This representative assertion comes from that test's contract (the linked file contains the full server setup):
+The checked-in [`api.test.mjs`](https://github.com/djeada/Frontend-Notes/blob/main/projects/testing-feature/tests/api.test.mjs) starts the **real local server on an ephemeral port**, sends requests, checks their HTTP status and JSON contents, then closes the listener. This representative assertion comes from that test's contract (the linked file contains the full server setup):
 
 ```js
 const response = await fetch(`${base}/api/quote`, {
@@ -156,13 +156,13 @@ await page.route('**/api/quote', route => route.fulfill({
 }));
 ```
 
-The browser must then hide the quote, show an error, and re-enable submission. [`feature.spec.mjs`](../projects/testing-feature/tests/feature.spec.mjs) contains the full test, including the assertions. **Most happy-path tests still use the real local server.** Only the intentional failure case substitutes an HTTP response.
+The browser must then hide the quote, show an error, and re-enable submission. [`feature.spec.mjs`](https://github.com/djeada/Frontend-Notes/blob/main/projects/testing-feature/tests/feature.spec.mjs) contains the full test, including the assertions. **Most happy-path tests still use the real local server.** Only the intentional failure case substitutes an HTTP response.
 
 Choose interception for the environment you are testing. [Mock Service Worker](https://mswjs.io/docs/) can handle requests at a service-worker/request boundary in supported environments; [Nock](https://github.com/nock/nock) intercepts supported *Node.js* HTTP clients, not every real-browser `fetch`; Playwright's `page.route` belongs to browser automation. Record precisely which dependency you replaced. Reset mocks between tests and assert the expected request occurred so an unused stub cannot give false confidence.
 
 ## 5. End-to-end testing: can the visitor still finish the task?
 
-The browser is where markup, JavaScript, CSS, the network, and the server meet. Our [Playwright suite](../projects/testing-feature/tests/feature.spec.mjs) starts the actual application using its [configuration](../projects/testing-feature/playwright.config.mjs), gives each test an isolated browser context, and interacts through **visible labels and roles** rather than depending on private implementation details.
+The browser is where markup, JavaScript, CSS, the network, and the server meet. Our [Playwright suite](https://github.com/djeada/Frontend-Notes/blob/main/projects/testing-feature/tests/feature.spec.mjs) starts the actual application using its [configuration](https://github.com/djeada/Frontend-Notes/blob/main/projects/testing-feature/playwright.config.mjs), gives each test an isolated browser context, and interacts through **visible labels and roles** rather than depending on private implementation details.
 
 The free-shipping journey looks like this:
 
@@ -200,11 +200,11 @@ Behavior assertions prove the quote's amounts, but a CSS edit could hide the sub
 
 A **reproducible visual baseline** needs a fixed browser/version, viewport, device scale, fonts, fixture data, locale/time zone if relevant, and stable animation/loading state. Capture an important component state as well as a full page where appropriate. Compare the screenshot with a reviewed baseline and decide whether each meaningful change is intentional. Never approve a bulk baseline update just to silence CI.
 
-The three shipping images above are **documentation captures**, not golden baselines: the opt-in screenshot test writes them only when `CAPTURE_DOC_SHOTS=1`. To establish a visual-regression suite, add reviewed `toHaveScreenshot()` baselines in a pinned environment. See [Playwright visual comparisons](https://playwright.dev/docs/test-snapshots) and the [project's capture instructions](../projects/testing-feature/README.md).
+The three shipping images above are **documentation captures**, not golden baselines: the opt-in screenshot test writes them only when `CAPTURE_DOC_SHOTS=1`. To establish a visual-regression suite, add reviewed `toHaveScreenshot()` baselines in a pinned environment. See [Playwright visual comparisons](https://playwright.dev/docs/test-snapshots) and the [project's capture instructions](https://github.com/djeada/Frontend-Notes/blob/main/projects/testing-feature/README.md).
 
 A screenshot cannot prove that a button is keyboard reachable, an error is announced, or a price is mathematically right. Pair visual checks with semantic and behavioral assertions. A viewport screenshot may hide content *off screen*, so the browser suite separately checks `scrollWidth` against the viewport width.
 
-For a second visual exercise, use the repository's [form validation demo](../projects/visual-examples/README.md). The first image is a conceptual SVG wireframe; the second is a genuine Chromium capture, **not** a reviewed regression baseline:
+For a second visual exercise, use the repository's [form validation demo](https://github.com/djeada/Frontend-Notes/blob/main/projects/visual-examples/README.md). The first image is a conceptual SVG wireframe; the second is a genuine Chromium capture, **not** a reviewed regression baseline:
 
 ![Teaching illustration: implicit versus explicit form validation](https://github.com/djeada/Frontend-Notes/raw/refs/heads/main/assets/visual-examples/form-validation.svg)
 
@@ -224,7 +224,7 @@ Security and performance need their own requirements. Test authorization and dat
 
 ## 8. Deliberately introduce a regression—and locate it
 
-A suite is useful only if it detects a relevant defect. In [`quote.mjs`](../projects/testing-feature/quote.mjs), change this line:
+A suite is useful only if it detects a relevant defect. In [`quote.mjs`](https://github.com/djeada/Frontend-Notes/blob/main/projects/testing-feature/quote.mjs), change this line:
 
 ```js
 const shippingCents = subtotalCents >= 5000 ? 0 : 600;
@@ -288,7 +288,7 @@ npm test
 
 `npm ci` installs the checked-in lockfile without silently changing dependency resolution. On a minimal Linux runner, install system dependencies with `npx playwright install --with-deps chromium`. `npm test` runs both suites; running both individual commands immediately before it is useful for learning, but in routine CI you need not duplicate the same work.
 
-The repository's permanent [feature-testing GitHub Actions workflow](../.github/workflows/testing-feature.yml) installs dependencies, installs Chromium, runs the unit/API tests and browser scenarios, and preserves failure evidence. It runs for relevant pull requests and changes to `main`. If a test fails, inspect the assertion, response, screenshot or trace **before** considering a baseline update. Review dependency upgrades, keep browser versions reproducible, and avoid tests that accidentally talk to production.
+The repository's permanent [feature-testing GitHub Actions workflow](https://github.com/djeada/Frontend-Notes/blob/main/.github/workflows/testing-feature.yml) installs dependencies, installs Chromium, runs the unit/API tests and browser scenarios, and preserves failure evidence. It runs for relevant pull requests and changes to `main`. If a test fails, inspect the assertion, response, screenshot or trace **before** considering a baseline update. Review dependency upgrades, keep browser versions reproducible, and avoid tests that accidentally talk to production.
 
 A useful team routine is: reproduce an issue → write or adjust the failing check → fix the application → run the fast suite locally → run the browser journey → review the PR's CI evidence → deploy with an appropriate rollback plan → monitor actual behavior. Tests reduce regressions before deployment; observability and rollback handle failures tests did not predict.
 
@@ -304,7 +304,7 @@ A useful team routine is: reproduce an issue → write or adjust the failing che
 
 ## 11. Apply the method to your own feature
 
-The shipping estimator is a model, not a template for every domain. For a **newsletter form**, replace its numeric oracle with “invalid email explains the issue without claiming success; valid input triggers the intended request; server rejection remains recoverable.” The repository's [existing validation demo](../projects/visual-examples/README.md) is visual and sends no real signup request, so it cannot serve as evidence for a live mailing-service integration. Build a controlled endpoint fixture before claiming that boundary is covered.
+The shipping estimator is a model, not a template for every domain. For a **newsletter form**, replace its numeric oracle with “invalid email explains the issue without claiming success; valid input triggers the intended request; server rejection remains recoverable.” The repository's [existing validation demo](https://github.com/djeada/Frontend-Notes/blob/main/projects/visual-examples/README.md) is visual and sends no real signup request, so it cannot serve as evidence for a live mailing-service integration. Build a controlled endpoint fixture before claiming that boundary is covered.
 
 For **registration and account deletion**, use isolated accounts, test authorization and recovery rules, and clean up even when a test fails. For a **context menu**, a browser action such as right-click or keyboard invocation only proves functionality when your application implements those interactions; an ordinary HTML button does not automatically create a custom context menu. For a **Roman-numeral converter**, add tests for invalid notation and empty input as well as successful conversions. These features have different contracts, but the reasoning stays the same: promise → example → boundary → assertion → regression → CI.
 
@@ -320,4 +320,4 @@ Tools below assess *specific properties*, not an overall product-quality score. 
 - **Security posture:** [Mozilla Observatory](https://observatory.mozilla.org/) and [Webbkoll](https://webbkoll.dataskydd.net/en). Neither substitutes for threat modeling or server-side authorization tests.
 - **Search visibility:** [Ahrefs free SEO tools](https://ahrefs.com/free-seo-tools). Search optimization is not a substitute for accessibility or usability.
 
-Further reading: [MDN's web testing material](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Testing), [Node test runner](https://nodejs.org/api/test.html), [Playwright](https://playwright.dev/docs/intro), [Cypress](https://docs.cypress.io/), [Selenium](https://www.selenium.dev/documentation/), [Testing Library](https://testing-library.com/docs/guiding-principles/), [WCAG 2.2](https://www.w3.org/TR/WCAG22/), and the [complete executable shipping example](../projects/testing-feature/README.md).
+Further reading: [MDN's web testing material](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Testing), [Node test runner](https://nodejs.org/api/test.html), [Playwright](https://playwright.dev/docs/intro), [Cypress](https://docs.cypress.io/), [Selenium](https://www.selenium.dev/documentation/), [Testing Library](https://testing-library.com/docs/guiding-principles/), [WCAG 2.2](https://www.w3.org/TR/WCAG22/), and the [complete executable shipping example](https://github.com/djeada/Frontend-Notes/blob/main/projects/testing-feature/README.md).
